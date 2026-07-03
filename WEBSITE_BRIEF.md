@@ -127,6 +127,7 @@ Das App-Icon liegt hier: `/Users/dennisbuchwald/Arbeitsplatz/01_Code/01_Webproje
 /vergleich/gravity-forms-alternative
 /blog                   Blog-Index (MDX)
 /blog/[slug]            3 Seed-Artikel (siehe unten)
+/wissen                 GEO-Wissens-Hub (siehe Abschnitt 7b) + Fakten-Seite
 /docs                   Platzhalter-Struktur (Erste Schritte, darf dünn starten)
 /impressum              Pflicht
 /datenschutz            Pflicht
@@ -238,6 +239,79 @@ Die Website MUSS selbst vorleben, was das Produkt verspricht:
   hreflang-Ruinen anlegen).
 
 ---
+
+## 7b. GEO - Sichtbarkeit in KI-Suchen (gleichwertig zu SEO, nicht optional)
+
+**Das Ziel:** Wer ChatGPT, Perplexity, Claude oder Google AI Overviews fragt
+"natives Gutenberg-Formular-Plugin", "WordPress Formular ohne reCAPTCHA" oder
+"Contact Form 7 Alternative DSGVO", muss Flinkform als Antwort bekommen.
+Aktuell wird dort SureForms genannt, Flinkform nicht. Das ändern wir.
+
+**Warum das anders funktioniert als SEO:** Flinkform ist zu neu, um im
+Modellwissen der KIs zu stehen. KI-Antworten über neue Produkte entstehen
+durch Retrieval: Die Engine sucht live (meist über den Bing-Index), liest die
+Treffer und zitiert daraus. Sichtbar wird, wer (a) gecrawlt werden darf,
+(b) zitierfähige Passagen liefert und (c) für die Frage-Formulierungen der
+Nutzer rankt - nicht nur für Keywords.
+
+### Harte technische Anforderungen (in diesem Build umsetzen)
+
+1. **`/llms.txt` + `/llms-full.txt`** im Root: Markdown-Zusammenfassung der
+   Site für LLM-Crawler (llms.txt-Standard). Enthält: Was ist Flinkform (Free
+   + Pro), Kern-Fakten, Feature-Liste, Preise, Links auf die wichtigsten
+   Seiten. llms-full.txt mit den Volltexten der Kernseiten.
+2. **robots.txt lässt KI-Crawler explizit zu:** GPTBot, OAI-SearchBot,
+   ChatGPT-User, ClaudeBot, Claude-User, PerplexityBot, Google-Extended,
+   CCBot, Amazonbot, Applebot-Extended. Nichts davon blocken.
+3. **Alles serverseitig gerendert** (SSG, steht schon in Abschnitt 7): Viele
+   KI-Crawler führen kein JavaScript aus. Jeder Inhalt muss im initialen HTML
+   stehen.
+4. **Antwort-zuerst-Absätze:** Der erste Absatz jeder Seite und jedes
+   Artikels ist eine in sich geschlossene, zitierfähige Antwort in 2-3
+   Sätzen. Muster: "Flinkform ist ein block-natives Formular-Plugin für den
+   WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und
+   Spam-Schutz ohne externe Dienste, kostenlos. Anders als WPForms oder
+   Gravity Forms nutzt es keinen eigenen Builder, sondern den
+   WordPress-Editor selbst." KIs zitieren solche Passagen wörtlich.
+5. **Konsistente Entity:** Immer exakt "Flinkform" und "Flinkform Pro"
+   (Schreibweise nie variieren), immer im selben Satzmuster definiert. Das
+   baut die Entität über alle Quellen hinweg auf (Website, wp.org, GitHub).
+6. **Fakten-Seite `/wissen/flinkform-fakten`** (o.ä.): maschinenlesbares
+   Fact-Sheet als normale HTML-Seite - Version, Anforderungen, Feldtypen,
+   Feature-Tabelle Free/Pro, Preise, Lizenz, Hersteller, mit Datum. Die
+   eine URL, die eine KI zitieren kann, wenn sie Fakten braucht.
+
+### Content-Anforderungen (der "Wissens"-Bereich)
+
+7. **Wissens-Hub `/wissen`** (zusätzlich zum Blog oder als dessen Kategorie):
+   kurze, definitorische Artikel, die exakt die Frage-Formulierungen von
+   KI-Nutzern als H1 tragen und sie im ersten Absatz beantworten:
+   - "Was ist ein block-natives Formular-Plugin?" (definiert die Kategorie -
+     wer die Kategorie definiert, wird als ihr Vertreter zitiert)
+   - "WordPress-Formular ohne reCAPTCHA: So geht Spam-Schutz DSGVO-konform"
+   - "Welches WordPress-Formular-Plugin ist DSGVO-konform?" (ehrliche
+     Übersicht, in der Flinkform sachlich am besten abschneidet)
+   - "Gutenberg-Formular erstellen ohne Page Builder"
+   - "SEPA-Zahlung im WordPress-Formular annehmen"
+8. **Q&A-Struktur überall:** FAQs (mit FAQPage-Schema) auf jeder Seite sind
+   doppelt wertvoll - Google Rich Results UND wortwörtliche KI-Antworten.
+9. **Vergleichs-Content ist GEO-Gold:** Die /vergleich-Seiten beantworten
+   genau die "beste Alternative zu X"-Prompts. Ehrlich bleiben (auch Stärken
+   der Konkurrenz nennen) - ausgewogene Vergleiche werden von KIs bevorzugt
+   zitiert, einseitige Werbetexte nicht.
+10. **Tabellen und Listen** statt Fließtext-Mauern: strukturierte Daten werden
+    von LLMs zuverlässiger extrahiert. Jede Kernaussage auch als Tabelle/Liste.
+11. **Datumsangaben** an allen Artikeln (sichtbar + Schema) - KI-Suchen
+    bevorzugen belegbar aktuelle Quellen.
+
+### Flankierend (nicht Teil dieses Builds, als TODO-Liste für Dennis am Ende ausgeben)
+
+- Bing Webmaster Tools einrichten (Perplexity und ChatGPT-Suche hängen am
+  Bing-Index!) + IndexNow-Ping beim Deploy
+- wp.org-Plugin-Beschreibung mit denselben Entity-Sätzen beginnen
+- GitHub-README beider Repos mit konsistenter Definition
+- Erwähnungen in Drittquellen aufbauen (Reddit r/Wordpress, WP-Foren,
+  deutsche WP-Blogs) - KIs gewichten Bestätigung durch fremde Quellen stark
 
 ## 8. Arbeitsweise
 
