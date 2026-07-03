@@ -187,6 +187,10 @@ Formular-Conversions misst man am zuverlässigsten über den Redirect auf eine D
 
 ## Weitere Blog-Artikel (Kernaussagen)
 
+### Dein Kontaktformular funkt in die USA (https://flinkform.de/blog/wordpress-formular-daten-usa)
+
+Die meisten WordPress-Kontaktformulare senden beim Seitenaufruf Besucherdaten an US-Dienste (reCAPTCHA, hCaptcha, Turnstile, Akismet, Google Fonts). Rechtlich kritisch ist vor allem der Endgeräte-Zugriff ohne Einwilligung nach § 25 TDDDG (Belege: BVwG-Urteil 13.09.2024, CNIL-Bußgelder). Der Drittlandtransfer läuft aktuell über das EU-US Data Privacy Framework, das aber unter Beschuss steht: Rechtsmittel beim EuGH (C-703/25 P) und im Juni 2026 eine US-Supreme-Court-Entscheidung gegen unabhängige US-Aufsichtsbehörden. Drei Auswege: Consent-Einbindung (Schutzlücke bei Ablehnung), EU-Dienste wie Friendly Captcha, oder serverseitiger Spam-Schutz ganz ohne externe Dienste, wie in Flinkform eingebaut. Mit 3-Minuten-Selbsttest (Netzwerk-Tab, Domain-Checkliste) und Haftungs-Einordnung für Agenturen.
+
 ### Die besten WordPress-Formular-Plugins 2026 (https://flinkform.de/blog/beste-wordpress-formular-plugins-2026)
 
 Ehrliches Roundup über neun Plugins mit offengelegten Kriterien und Transparenz-Hinweis (Flinkform ist das eigene Produkt). Empfehlung nach Anwendungsfall: DSGVO-saubere Standard-Formulare und Multi-Step kostenlos: Flinkform. Enterprise-Workflows: Gravity Forms. Maximale Vorlagen: WPForms. Umfragen/Quiz kostenlos: Forminator. Frontend-Views: Formidable.

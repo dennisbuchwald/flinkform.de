@@ -9,6 +9,16 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "wordpress-formular-daten-usa",
+    title:
+      "Dein Kontaktformular funkt in die USA: Der komplette DSGVO-Guide für WordPress-Formulare",
+    description:
+      "Welche Daten WordPress-Formulare an US-Dienste senden, wie du es in 3 Minuten selbst prüfst, was die Rechtslage 2026 wirklich sagt (TDDDG, DSGVO, Data Privacy Framework) und die drei sauberen Auswege.",
+    date: "2026-07-03",
+    tag: "DSGVO",
+    readingMinutes: 12,
+  },
+  {
     slug: "beste-wordpress-formular-plugins-2026",
     title:
       "Die besten WordPress-Formular-Plugins 2026: der ehrliche Vergleich",

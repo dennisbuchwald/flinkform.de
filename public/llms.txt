@@ -87,6 +87,7 @@ Definitorische Artikel, jede Seite beantwortet ihre Frage im ersten Absatz:
 
 ## Blog (https://flinkform.de/blog)
 
+- [Dein Kontaktformular funkt in die USA: der komplette DSGVO-Guide](https://flinkform.de/blog/wordpress-formular-daten-usa) (TDDDG, DSGVO, Data Privacy Framework Stand 2026, Selbsttest, drei Auswege)
 - [Die besten WordPress-Formular-Plugins 2026: der ehrliche Vergleich](https://flinkform.de/blog/beste-wordpress-formular-plugins-2026)
 - [reCAPTCHA und die DSGVO: Rechtsrisiko Kontaktformular](https://flinkform.de/blog/recaptcha-dsgvo-rechtsrisiko) (BVwG-Urteil 13.09.2024, CNIL-Bußgelder)
 - [Contact Form 7 im Feature Freeze](https://flinkform.de/blog/contact-form-7-feature-freeze)
