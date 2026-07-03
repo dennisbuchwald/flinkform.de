@@ -1,0 +1,74 @@
+import WissenArticle from "@/components/WissenArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "Geht ein WordPress-Formular ohne Plugin? Ehrliche Antwort",
+  description:
+    "Technisch ja: eigenes HTML plus PHP-Handler im Theme. Praktisch musst du Validierung, CSRF-Schutz, Spam-Abwehr, Mail-Versand und DSGVO-Löschung selbst bauen. Für wen sich das lohnt.",
+  alternates: { canonical: `${SITE_URL}/wissen/wordpress-formular-ohne-plugin` },
+};
+
+export default function Layout({ children }) {
+  return <WissenArticle slug="wordpress-formular-ohne-plugin">{children}</WissenArticle>;
+}
+
+Ja, ein WordPress-Formular geht ohne Plugin: Du schreibst das HTML selbst und verarbeitest die Daten mit einem eigenen PHP-Handler im Theme, denn WordPress selbst bringt keinen Formular-Block mit. Praktisch ist das für die meisten Website-Betreiber trotzdem keine gute Idee, weil Validierung, CSRF-Schutz, Spam-Abwehr, Mail-Versand, Speicherung und DSGVO-Löschung dann komplett in deiner Verantwortung liegen. Sinnvoll ist der Eigenbau nur für Entwickler mit einem Spezialfall; für alle anderen ist ein schlankes Plugin der schnellere und sicherere Weg.
+
+## Warum WordPress kein Formular mitbringt
+
+Das ist kein Strohmann, sondern eine echte Lücke: Der WordPress-Core hat bis heute keinen Formular-Block. Der Block-Editor kann Überschriften, Bilder, Buttons und Spalten, aber kein Eingabefeld, das Daten irgendwohin schickt. Wer ein Kontaktformular will, hat genau zwei Optionen: selbst programmieren oder ein Plugin installieren. Deshalb lohnt sich ein ehrlicher Blick darauf, was "selbst programmieren" wirklich bedeutet.
+
+## Was du beim Eigenbau alles bauen musst
+
+Das HTML-Formular ist der einfachste Teil und in 20 Minuten fertig. Die Arbeit steckt in allem, was danach kommt:
+
+- **Serverseitige Validierung:** Jedes Feld prüfen (Pflichtfelder, E-Mail-Format, Längen), alle Eingaben mit Funktionen wie `sanitize_text_field()` bereinigen. Clientseitige Prüfung allein reicht nicht, Bots umgehen sie einfach.
+- **CSRF-Schutz:** Ohne WordPress-Nonce (`wp_nonce_field()` und `wp_verify_nonce()`) kann jede fremde Seite dein Formular im Namen deiner Besucher abschicken.
+- **Spam-Schutz:** Ein ungeschütztes Formular wird oft innerhalb weniger Tage von Bots gefunden. Honeypot, Zeit-Check oder Proof-of-Work musst du selbst implementieren. Wie diese Mechanismen funktionieren, steht im Artikel [Formular-Spam stoppen](/wissen/formular-spam-stoppen-wordpress).
+- **Mail-Versand:** `wp_mail()` ist schnell aufgerufen, aber ohne korrektes Absender-Setup landen die Mails im Spam-Ordner oder kommen gar nicht an. Die Hintergründe erklärt [dieser Artikel zur Mail-Zustellbarkeit](/wissen/wordpress-formular-mails-kommen-nicht-an).
+- **Speicherung:** Nur Mail-Versand ohne Speicherung heißt: Geht eine Mail verloren, ist die Anfrage weg. Also brauchst du eine eigene Tabelle oder einen Custom Post Type plus eine Admin-Ansicht.
+- **DSGVO-Pflichten:** Gespeicherte Anfragen brauchen eine Aufbewahrungsfrist mit automatischer Löschung und eine Anbindung an die WordPress-Privacy-Tools (Auskunft und Löschung auf Anfrage). Das vergessen die meisten Eigenbauten komplett.
+- **Barrierefreiheit:** Labels, Fehlermeldungen mit `aria-describedby`, Fokus-Management und Tastatur-Bedienung nach WCAG 2.1 AA. Seit dem BFSG für viele Websites keine Kür mehr, siehe [barrierefreie Formulare](/wissen/barrierefreies-formular-bfsg).
+
+## Eigenbau und Plugin im Vergleich
+
+| Aufgabe | Eigenbau | Plugin (z. B. Flinkform) |
+| --- | --- | --- |
+| HTML und Layout | selbst schreiben | Block-Editor, klicken |
+| Serverseitige Validierung | selbst programmieren | eingebaut |
+| CSRF-Schutz (Nonce) | selbst einbauen | eingebaut |
+| Spam-Schutz | selbst entwickeln | Honeypot, Zeit-Check, Proof-of-Work eingebaut |
+| Speicherung + Admin-Ansicht | eigene Tabelle + UI bauen | Submissions-Dashboard |
+| DSGVO-Auto-Löschung | selbst programmieren | Aufbewahrungsfrist pro Formular |
+| Barrierefreiheit | selbst testen | WCAG 2.1 AA |
+| Wartung bei WP-Updates | du | Plugin-Autor |
+
+## Wann Eigenbau sinnvoll ist
+
+Es gibt legitime Fälle, ganz ehrlich: Du bist Entwickler und brauchst ein Formular, das kein Plugin abbildet, etwa eine tiefe Integration in eine eigene Anwendung, ein exotisches Datenmodell oder ein Formular, das direkt in eine interne API schreibt. Dann ist ein handgeschriebener Handler mit Nonce, Validierung und schlankem Code die sauberste Lösung. Auch wer jede Abhängigkeit vermeiden will und den Wartungsaufwand bewusst trägt, kann das tun. Voraussetzung ist in beiden Fällen: Du kennst die Punkte aus der Liste oben und baust sie wirklich alle.
+
+## Wann ein Plugin die bessere Wahl ist
+
+Praktisch immer sonst. Ein Kontakt-, Bewerbungs- oder Anfrage-Formular ist ein gelöstes Problem, und die verbreitete Sorge "Plugins machen die Seite langsam" trifft auf schlanke Plugins nicht zu. [Flinkform](/) lädt zum Beispiel unter 15 KB Frontend-JavaScript, nutzt kein jQuery und lädt seine Assets nur auf Seiten, die tatsächlich ein Formular enthalten. Gebaut wird das Formular [direkt im Block-Editor](/wissen/gutenberg-formular-erstellen), also genau dort, wo du auch den Rest der Seite pflegst. Validierung, Nonce, Spam-Schutz, Submissions-Dashboard und [DSGVO-Auto-Löschung](/wissen/dsgvo-konformes-formular-plugin) sind fertig und getestet, kostenlos in der Free-Version.
+
+## Häufige Fragen
+
+### Hat der WordPress-Block-Editor ein eingebautes Formular?
+
+Nein. Der Core liefert keinen Formular-Block. Es gab Experimente im Gutenberg-Umfeld, aber Stand Juli 2026 ist nichts davon in WordPress enthalten. Ein Formular braucht immer eigenen Code oder ein Plugin.
+
+### Reicht ein einfaches HTML-Formular mit mailto-Link?
+
+Ein `mailto:`-Link öffnet nur das Mail-Programm des Besuchers und ist kein echtes Formular. Auf Mobilgeräten und Rechnern ohne eingerichtetes Mail-Programm bricht der Vorgang ab, und du bekommst keine strukturierten Daten. Für alles Ernsthafte ungeeignet.
+
+### Wie lange dauert ein sauberer Eigenbau realistisch?
+
+Das reine HTML ist schnell erledigt. Mit serverseitiger Validierung, Nonce, Spam-Schutz, Mail-Setup, Speicherung, Admin-Ansicht und DSGVO-Löschung liegst du je nach Erfahrung bei mehreren Arbeitstagen, plus laufender Wartung bei jedem WordPress- und PHP-Update.
+
+### Ist ein selbst gebautes Formular DSGVO-konform?
+
+Nur wenn du es dafür baust: Datensparsamkeit (keine unnötige IP-Speicherung), Aufbewahrungsfrist mit Löschung, Auskunftsfähigkeit und eine passende Datenschutzerklärung. Der Eigenbau ist nicht automatisch konformer als ein Plugin, er verlagert nur die Verantwortung komplett auf dich.
+
+### Was kostet die Plugin-Alternative?
+
+Nichts, wenn die Free-Version reicht: Flinkform gibt es kostenlos auf WordPress.org, inklusive Multi-Step-Formularen, bedingter Logik und Spam-Schutz ohne externe Dienste. Was kommerzielle Formular-Plugins insgesamt kosten, zeigt [dieser Preisüberblick](/wissen/was-kostet-wordpress-formular-plugin).

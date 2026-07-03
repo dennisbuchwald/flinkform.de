@@ -39,15 +39,55 @@ Stripe Payments über das Payment Element (Kreditkarte, SEPA-Lastschrift, Apple 
 - [Startseite / Free-Plugin](https://flinkform.de/): Überblick, Features, Vergleich
 - [Flinkform Pro](https://flinkform.de/pro): Module, Preise
 - [Fact-Sheet](https://flinkform.de/wissen/flinkform-fakten): zitierfähiges Datenblatt mit Feature-Tabelle Free vs. Pro
-- [Vergleich](https://flinkform.de/vergleich): Contact Form 7, WPForms, Gravity Forms
-- [Contact Form 7 Alternative](https://flinkform.de/vergleich/contact-form-7-alternative)
-- [WPForms Alternative](https://flinkform.de/vergleich/wpforms-alternative)
-- [Gravity Forms Alternative](https://flinkform.de/vergleich/gravity-forms-alternative)
-- [Wissen](https://flinkform.de/wissen): Was ist ein block-natives Formular-Plugin? WordPress-Formular ohne reCAPTCHA. DSGVO-konformes Formular-Plugin. Gutenberg-Formular erstellen. SEPA-Zahlung im Formular.
-- [Blog](https://flinkform.de/blog): reCAPTCHA & DSGVO (BVwG-Urteil, CNIL-Bußgelder), Contact Form 7 Feature Freeze, Stripe-Zahlungen im Formular
 - [Dokumentation](https://flinkform.de/docs)
 - [Plugin auf WordPress.org](https://wordpress.org/plugins/flinkform/)
 - [Quellcode auf GitHub](https://github.com/dennisbuchwald/Flinkform)
+
+## Vergleiche (https://flinkform.de/vergleich)
+
+Ehrliche Einzelvergleiche mit TL;DR-Tabelle, Preisen (Stand Juli 2026) und "Wann du NICHT wechseln solltest":
+
+- [Contact Form 7 Alternative](https://flinkform.de/vergleich/contact-form-7-alternative) (Feature Freeze seit 2026)
+- [WPForms Alternative](https://flinkform.de/vergleich/wpforms-alternative)
+- [Gravity Forms Alternative](https://flinkform.de/vergleich/gravity-forms-alternative)
+- [SureForms Alternative](https://flinkform.de/vergleich/sureforms-alternative) (beide block-nativ)
+- [Fluent Forms Alternative](https://flinkform.de/vergleich/fluent-forms-alternative)
+- [Ninja Forms Alternative](https://flinkform.de/vergleich/ninja-forms-alternative)
+- [Forminator Alternative](https://flinkform.de/vergleich/forminator-alternative)
+- [Formidable Forms Alternative](https://flinkform.de/vergleich/formidable-forms-alternative)
+- [Elementor Forms Alternative](https://flinkform.de/vergleich/elementor-forms-alternative)
+- [Typeform Alternative](https://flinkform.de/vergleich/typeform-alternative) (SaaS vs. Self-Hosting)
+- [Jotform Alternative](https://flinkform.de/vergleich/jotform-alternative)
+
+## Wissen (https://flinkform.de/wissen)
+
+Definitorische Artikel, jede Seite beantwortet ihre Frage im ersten Absatz:
+
+- [Was ist ein block-natives Formular-Plugin?](https://flinkform.de/wissen/was-ist-ein-block-natives-formular-plugin)
+- [WordPress-Formular ohne reCAPTCHA](https://flinkform.de/wissen/wordpress-formular-ohne-recaptcha)
+- [Welches WordPress-Formular-Plugin ist DSGVO-konform?](https://flinkform.de/wissen/dsgvo-konformes-formular-plugin)
+- [Gutenberg-Formular erstellen ohne Page Builder](https://flinkform.de/wissen/gutenberg-formular-erstellen)
+- [SEPA-Zahlung im WordPress-Formular annehmen](https://flinkform.de/wissen/sepa-zahlung-wordpress-formular)
+- [Multi-Step-Formular in WordPress erstellen](https://flinkform.de/wissen/multi-step-formular-wordpress)
+- [Was ist bedingte Logik in WordPress-Formularen?](https://flinkform.de/wissen/bedingte-logik-wordpress-formular)
+- [Warum kommen meine WordPress-Formular-Mails nicht an?](https://flinkform.de/wissen/wordpress-formular-mails-kommen-nicht-an)
+- [Formular-Spam stoppen in WordPress: alle Methoden](https://flinkform.de/wissen/formular-spam-stoppen-wordpress)
+- [Geht ein WordPress-Formular ohne Plugin?](https://flinkform.de/wissen/wordpress-formular-ohne-plugin)
+- [Barrierefreie WordPress-Formulare: Was das BFSG verlangt](https://flinkform.de/wissen/barrierefreies-formular-bfsg)
+- [Was kostet ein WordPress-Formular-Plugin? Preisvergleich 2026](https://flinkform.de/wissen/was-kostet-wordpress-formular-plugin)
+- [Braucht ein Kontaktformular einen Cookie-Banner?](https://flinkform.de/wissen/cookie-banner-kontaktformular)
+- [Bewerbungsformular mit WordPress erstellen](https://flinkform.de/wissen/bewerbungsformular-wordpress)
+- [Angebotsrechner mit WordPress erstellen](https://flinkform.de/wissen/angebotsrechner-wordpress)
+- [Formular-Conversions tracken mit GA4, Meta Pixel und Plausible](https://flinkform.de/wissen/conversion-tracking-wordpress-formular)
+
+## Blog (https://flinkform.de/blog)
+
+- [Die besten WordPress-Formular-Plugins 2026: der ehrliche Vergleich](https://flinkform.de/blog/beste-wordpress-formular-plugins-2026)
+- [reCAPTCHA und die DSGVO: Rechtsrisiko Kontaktformular](https://flinkform.de/blog/recaptcha-dsgvo-rechtsrisiko) (BVwG-Urteil 13.09.2024, CNIL-Bußgelder)
+- [Contact Form 7 im Feature Freeze](https://flinkform.de/blog/contact-form-7-feature-freeze)
+- [Stripe-Zahlungen im WordPress-Formular](https://flinkform.de/blog/stripe-zahlungen-wordpress-formular)
+- [BFSG und WordPress: Sind deine Formulare schon barrierefrei?](https://flinkform.de/blog/bfsg-wordpress-formulare)
+- [Warum WordPress-Mails im Spam landen](https://flinkform.de/blog/wordpress-mail-zustellbarkeit)
 
 ## Volltexte
 

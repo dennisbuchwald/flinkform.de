@@ -1,0 +1,85 @@
+import WissenArticle from "@/components/WissenArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "Angebotsrechner mit WordPress erstellen: live rechnen im Formular",
+  description:
+    "Preis- und Angebotsrechner in WordPress: Mit Flinkform Pro Berechnungsfeldern rechnet das Formular live im Browser und serverseitig manipulationssicher nach.",
+  alternates: { canonical: `${SITE_URL}/wissen/angebotsrechner-wordpress` },
+};
+
+export default function Layout({ children }) {
+  return <WissenArticle slug="angebotsrechner-wordpress">{children}</WissenArticle>;
+}
+
+Ein Angebotsrechner in WordPress lässt sich mit den Berechnungsfeldern von Flinkform Pro direkt im Block-Editor bauen: Eine Formel wie Menge mal Stückpreis plus Optionen rechnet live im Browser, der Besucher sieht die Summe sofort im Formular. Beim Absenden rechnet der Server die Formel unabhängig nach, manipulierte Werte aus dem Browser haben keine Chance. Alternativen mit Berechnungsfunktion sind Formidable Forms und Gravity Forms.
+
+## Warum ein sichtbarer Preis Anfragen qualifiziert
+
+Ein Kontaktformular ohne Preisangabe produziert zwei Sorten Anfragen: ernsthafte Interessenten und Preis-Schätzer, die nach der ersten Antwort abspringen. Ein Angebotsrechner sortiert vor. Wer die Konfiguration durchklickt und bei 2.400 Euro trotzdem absendet, kennt die Größenordnung und ist ein qualifizierter Lead. Wer bei der Summe aussteigt, hätte auch nach dem Angebot per Mail abgesagt, nur mit mehr Aufwand auf deiner Seite.
+
+Der zweite Effekt: Transparenz. Ein live mitrechnender Preis wirkt ehrlicher als "Preis auf Anfrage" und beantwortet die wichtigste Frage des Besuchers, bevor er sie stellen muss.
+
+## So funktionieren Berechnungsfelder in Flinkform Pro
+
+Berechnungsfelder sind Teil von [Flinkform Pro](/pro), dem Add-on zum kostenlosen Formular-Plugin Flinkform. Sie funktionieren so:
+
+- **Formel-Editor:** Du schreibst die Formel direkt im Block-Editor, zum Beispiel Menge mal Preis plus Aufschläge.
+- **Feld-Referenzen:** Die Formel greift auf andere Felder im Formular zu, etwa ein Zahl-Feld für die Menge oder ein Dropdown für die gewählte Option.
+- **Live im Browser:** Das Ergebnis aktualisiert sich sofort, sobald der Besucher einen Wert ändert. Kein Neuladen, kein Absenden nötig.
+- **Serverseitig nachgerechnet:** Beim Absenden wertet der Server die Formel unabhängig aus. Ein manipulierter Browser-Wert landet nicht in deiner Einsendung.
+- **Kein eval:** Die Formel wird durch einen eigenen Parser ausgewertet, nicht durch JavaScript- oder PHP-eval. Es kann also kein fremder Code eingeschleust werden.
+
+## Beispiel: Menge x Preis + Optionen
+
+Ein typischer Angebotsrechner für eine Reinigungsfirma, Druckerei oder Agentur besteht aus drei Bausteinen:
+
+| Baustein | Feldtyp | Rolle in der Formel |
+| --- | --- | --- |
+| Menge | Zahl-Feld | Quadratmeter, Stückzahl, Stunden |
+| Grundpreis | Dropdown oder Radio | Paket oder Leistung mit Preis |
+| Optionen | Checkbox oder Toggle | Aufschläge, Express, Extras |
+| Summe | Berechnungsfeld | Menge x Grundpreis + Optionen |
+
+Das Berechnungsfeld zeigt die Summe live an. Mit [bedingter Logik](/wissen/bedingte-logik-wordpress-formular) blendest du Optionen nur ein, wenn sie zur gewählten Leistung passen, etwa einen Express-Zuschlag nur bei kurzfristigen Terminen.
+
+## Mit Multi-Step kombinieren
+
+Ein Rechner mit acht Feldern auf einer Seite wirkt wie ein Steuerformular. Besser: [Multi-Step](/wissen/multi-step-formular-wordpress). Schritt 1 fragt die Leistung ab, Schritt 2 Menge und Optionen, Schritt 3 zeigt die Summe und sammelt die Kontaktdaten ein. Multi-Step mit Fortschrittsanzeige und Schritt-Validierung ist im kostenlosen Flinkform enthalten, die Berechnungsfelder kommen aus Pro dazu. Die Summe bleibt über alle Schritte hinweg aktuell.
+
+## Berechnung und Bezahlung: ehrliche Einordnung
+
+Ein Punkt, den du vor dem Kauf wissen solltest: Die berechnete Summe kann in Flinkform Pro aktuell **nicht** direkt als Zahlbetrag abgebucht werden. Die [Stripe-Zahlung](/blog/stripe-zahlungen-wordpress-formular) unterstützt heute einen festen Betrag oder eine Produktauswahl mit individuellen Preisen, jeweils serverseitig gebunden. Die Kopplung von Berechnungsfeld und Zahlbetrag steht auf der Roadmap, ist aber noch nicht verfügbar.
+
+Für den klassischen Angebotsrechner ist das selten ein Problem: Die Summe ist eine Kalkulationsgrundlage, das verbindliche Angebot kommt danach per Mail. Wer dagegen einen Konfigurator mit sofortiger Bezahlung des berechneten Betrags braucht, sollte das vorher klären.
+
+## Alternativen: Formidable Forms und Gravity Forms
+
+Fairerweise: Flinkform Pro ist nicht das einzige Werkzeug für Rechner in WordPress.
+
+- **Formidable Forms** hat Berechnungen als Kernstärke und liefert fertige Rechner-Vorlagen mit, etwa für Hypotheken oder BMI. Wer viele komplexe Rechner-Seiten baut, ist dort gut aufgehoben. Der Editor ist allerdings ein eigener Builder außerhalb des Block-Editors. Details im Vergleich [Formidable Forms Alternative](/vergleich/formidable-forms-alternative).
+- **Gravity Forms** beherrscht Berechnungen über Zahl-Felder und Merge-Tags und ist im Agentur-Umfeld etabliert. Auch hier gilt: eigener Builder, Preis auf Entwickler-Niveau. Einordnung im Vergleich [Gravity Forms Alternative](/vergleich/gravity-forms-alternative).
+
+Flinkform Pro punktet, wenn du im Block-Editor bleiben willst, Wert auf die serverseitige Nachrechnung legst und den Rechner mit Multi-Step und bedingter Logik kombinierst. Flinkform Pro kostet 59 bis 299 Euro pro Jahr, alle Pläne enthalten alle Features (Stand Juli 2026, Details auf [/pro](/pro)).
+
+## Häufige Fragen
+
+### Brauche ich für einen Angebotsrechner die Pro-Version?
+
+Ja. Multi-Step, bedingte Logik und alle 13 Feldtypen sind im kostenlosen Flinkform enthalten, die Berechnungsfelder mit Formel-Editor sind ein Pro-Feature.
+
+### Kann der Besucher die Summe manipulieren?
+
+Er kann den angezeigten Wert im Browser ändern, aber es bringt ihm nichts: Der Server rechnet die Formel beim Absenden unabhängig nach und speichert nur das eigene Ergebnis.
+
+### Kann ich den berechneten Betrag direkt per Stripe abbuchen?
+
+Nein, noch nicht. Die Zahlung unterstützt aktuell einen festen Betrag oder eine Produktauswahl. Die Kopplung an Berechnungsfelder steht auf der Roadmap.
+
+### Rechnet das Formular auch ohne JavaScript?
+
+Die Live-Anzeige braucht JavaScript. Die verbindliche Berechnung passiert aber immer serverseitig beim Absenden, unabhängig vom Browser.
+
+### Funktioniert der Rechner mit mehreren Schritten?
+
+Ja. Berechnungsfelder greifen auf Felder aus allen Schritten zu, die Summe aktualisiert sich über das gesamte Multi-Step-Formular hinweg.

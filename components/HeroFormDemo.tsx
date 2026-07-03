@@ -94,9 +94,6 @@ export default function HeroFormDemo() {
         <span className="ml-3 truncate rounded-md bg-line/60 px-3 py-1 text-xs text-ink-muted">
           deine-website.de/anfrage
         </span>
-        <span className="ml-auto hidden shrink-0 rounded-full border border-line bg-white px-2.5 py-0.5 text-[0.65rem] font-semibold text-ink-muted sm:block">
-          Nachgebaut, kein Screenshot
-        </span>
       </div>
 
       <div className="p-6 sm:p-8" aria-live="polite">

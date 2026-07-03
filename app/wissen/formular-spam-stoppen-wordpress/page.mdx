@@ -1,0 +1,80 @@
+import WissenArticle from "@/components/WissenArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "Formular-Spam stoppen in WordPress: alle Methoden im Vergleich",
+  description:
+    "Honeypot, Zeit-Check, Proof-of-Work, Quiz, reCAPTCHA, hCaptcha, Turnstile und Akismet im Vergleich: Wirksamkeit, Nutzerfreundlichkeit, DSGVO und Kosten.",
+  alternates: { canonical: `${SITE_URL}/wissen/formular-spam-stoppen-wordpress` },
+};
+
+export default function Layout({ children }) {
+  return <WissenArticle slug="formular-spam-stoppen-wordpress">{children}</WissenArticle>;
+}
+
+Formular-Spam in WordPress lässt sich mit zwei Ansätzen stoppen: serverseitige Methoden wie Honeypot, Zeit-Check und Proof-of-Work, die ohne externen Dienst auskommen, oder externe Dienste wie reCAPTCHA, hCaptcha, Turnstile und Akismet, die Anfragen an Drittserver schicken. Für die meisten Websites reicht die Kombination mehrerer serverseitiger Methoden: Sie stoppt automatisierten Spam zuverlässig, braucht keine Einwilligung und keinen Eintrag im Cookie-Banner. Externe Dienste lohnen sich erst bei gezielten Angriffen in großem Stil.
+
+## Alle 8 Methoden im Vergleich
+
+| Methode | Wirksamkeit | Nutzerfreundlichkeit | DSGVO | Kosten |
+| --- | --- | --- | --- | --- |
+| Honeypot | Gut gegen simple Bots | Unsichtbar | Keine externen Requests, keine Einwilligung | Kostenlos |
+| Zeit-Check (signiert) | Gut gegen Schnellfeuer-Bots | Unsichtbar | Keine externen Requests, keine Einwilligung | Kostenlos |
+| Proof-of-Work | Gut gegen Massen-Spam | Unsichtbar (rechnet im Hintergrund) | Keine externen Requests, keine Einwilligung | Kostenlos |
+| Frage / Quiz | Mittel, Antworten sind lernbar | Zusatzfeld, stört leicht | Keine externen Requests, keine Einwilligung | Kostenlos |
+| reCAPTCHA (Google) | Sehr gut | Teils Bilder-Rätsel, Hürde für Screenreader | Externe Requests an Google, Einwilligung nötig (BVwG 13.09.2024) | Kostenlos bis Kontingent, darüber kostenpflichtig |
+| hCaptcha | Sehr gut | Teils Bilder-Rätsel | Externe Requests an US-Anbieter, Einwilligung empfohlen | Basis kostenlos, Enterprise kostenpflichtig |
+| Turnstile (Cloudflare) | Sehr gut | Meist unsichtbar | Externe Requests an Cloudflare (US), Einwilligung rechtlich umstritten | Kostenlos |
+| Akismet | Sehr gut | Unsichtbar | Formulardaten gehen an US-Server, AV-Vertrag nötig | Privat kostenlos, kommerziell kostenpflichtig |
+
+## Serverseitige Methoden: unsichtbar und einwilligungsfrei
+
+Diese vier Methoden laufen komplett auf dem eigenen Server oder im Browser des Besuchers. Es fließen keine Daten an Dritte, deshalb brauchst du weder Einwilligung noch Cookie-Banner-Eintrag.
+
+- **Honeypot:** Ein per CSS unsichtbares Feld. Menschen lassen es leer, Bots füllen es aus. Gefülltes Feld = Einsendung verworfen.
+- **Zeit-Check:** Menschen brauchen Sekunden, Bots senden in Millisekunden. Der Server lehnt zu schnelle Einsendungen ab. Wichtig: Der Zeitstempel muss kryptografisch signiert sein (HMAC), sonst fälschen Bots ihn.
+- **Proof-of-Work:** Der Browser löst unbemerkt eine kleine Rechenaufgabe. Für einen Besucher irrelevant, für einen Bot mit tausenden Anfragen pro Minute unwirtschaftlich.
+- **Frage / Quiz:** Eine simple Frage wie "Was ist 3 plus 4?". Funktioniert, ist aber die schwächste der vier Methoden: Besucher müssen ein Extra-Feld ausfüllen, und Bots können feste Fragen auswendig lernen. Als barrierefreier Fallback ohne JavaScript ist sie trotzdem sinnvoll.
+
+Einzeln hat jede Methode Lücken. Kombiniert decken sie unterschiedliche Bot-Typen ab: Der Honeypot fängt simple Crawler, der Zeit-Check stoppt Schnellfeuer-Bots, Proof-of-Work macht Massen-Spam teuer. Wie das konkret funktioniert, steht im Artikel [WordPress-Formular ohne reCAPTCHA](/wissen/wordpress-formular-ohne-recaptcha).
+
+## Externe Dienste: stark, aber mit Datenschutz-Preis
+
+reCAPTCHA, hCaptcha, Turnstile und Akismet erkennen Spam sehr zuverlässig, das muss man ihnen lassen. Sie analysieren dafür Besucher- oder Inhaltsdaten auf fremden Servern, und genau da beginnt das Problem:
+
+- **reCAPTCHA** analysiert IP-Adresse, Browser-Eigenschaften und Verhalten und setzt ein Cookie mit Nutzer-ID. Das österreichische Bundesverwaltungsgericht hat am 13.09.2024 entschieden (W298 2274626-1/8E), dass der Einsatz ohne vorherige Einwilligung gegen die DSGVO verstößt. Die französische CNIL hat Bußgelder verhängt, an denen reCAPTCHA-Verstöße beteiligt waren. Details und Quellen: [reCAPTCHA und die DSGVO](/blog/recaptcha-dsgvo-rechtsrisiko).
+- **hCaptcha** stammt vom US-Anbieter Intuition Machines. Auch hier gehen Requests an fremde Server, eine Einwilligung ist die sichere Variante.
+- **Turnstile** von Cloudflare ist für Besucher meist unsichtbar und kostenlos. Die Daten laufen trotzdem über einen US-Anbieter; ob das ohne Einwilligung zulässig ist, ist rechtlich umstritten.
+- **Akismet** prüft nicht den Besucher, sondern den Inhalt: Die komplette Einsendung inklusive Metadaten geht an Server von Automattic in den USA. Dafür brauchst du einen Auftragsverarbeitungsvertrag und einen Hinweis in der Datenschutzerklärung. Für kommerzielle Websites ist Akismet kostenpflichtig.
+
+Dazu kommt das praktische Dilemma: Legst du einen dieser Dienste hinter ein Consent-Banner, sehen Besucher, die ablehnen, ein blockiertes oder ungeschütztes Formular. Mehr dazu unter [Cookie-Banner und Kontaktformular](/wissen/cookie-banner-kontaktformular).
+
+## Wann externe Dienste trotzdem sinnvoll sind
+
+Ehrliche Einordnung: Serverseitige Methoden stoppen automatisierten Spam, aber nicht jeden Angriff. Wenn deine Website gezielt attackiert wird, etwa mit Bots, die speziell auf dein Formular zugeschnitten sind, oder mit bezahltem manuellem Spam, erkennen Dienste wie reCAPTCHA oder Akismet mit ihren globalen Datenbeständen mehr. Bei sehr großen Websites mit tausenden Einsendungen pro Tag kann sich der Aufwand für Consent-Einbindung und AV-Vertrag lohnen. Für ein Kontaktformular auf einer normalen Unternehmens-Website ist das Overkill.
+
+## Fazit: Kombination serverseitiger Methoden reicht
+
+Für die meisten Websites ist die Kombination aus Honeypot, signiertem Zeit-Check und Proof-of-Work der beste Kompromiss: wirksam gegen automatisierten Spam, unsichtbar für Besucher, keine Einwilligung, keine Kosten, kein Cookie-Banner-Eintrag. Genau so macht es [Flinkform](/): Alle drei Mechanismen sind im kostenlosen Plugin immer aktiv, plus eine Mathe-Frage als Fallback ohne JavaScript. Es gibt nichts zu konfigurieren und keine API-Keys. Wie das ins Gesamtbild DSGVO passt, zeigt der Überblick [DSGVO-konformes Formular-Plugin](/wissen/dsgvo-konformes-formular-plugin).
+
+## Häufige Fragen
+
+### Welche Methode stoppt Formular-Spam am zuverlässigsten?
+
+Keine einzelne Methode. Die höchste Trefferquote gegen automatisierten Spam erreicht eine Kombination: Honeypot gegen simple Bots, signierter Zeit-Check gegen Schnellfeuer-Bots, Proof-of-Work gegen Massen-Spam. Externe Dienste wie reCAPTCHA erkennen zusätzlich gezielte Angriffe, kosten dafür aber Datenschutz-Konformität und Nutzerfreundlichkeit.
+
+### Ist ein Honeypot allein genug?
+
+Meist nicht. Ein Honeypot fängt einfache Formular-Crawler, aber modernere Bots erkennen unsichtbare Felder. Kombiniere ihn mindestens mit einem signierten Zeit-Check.
+
+### Brauche ich für Honeypot, Zeit-Check oder Proof-of-Work eine Einwilligung?
+
+Nein. Diese Methoden senden keine Daten an Dritte und setzen keine Cookies. Sie brauchen weder Einwilligung noch einen Eintrag im Cookie-Banner oder in der Datenschutzerklärung über die normale Formularverarbeitung hinaus.
+
+### Ist Cloudflare Turnstile DSGVO-konform?
+
+Umstritten. Turnstile ist für Besucher meist unsichtbar und kostenlos, aber die Anfragen laufen über Cloudflare, einen US-Anbieter. Ob das ohne Einwilligung zulässig ist, ist nicht abschließend geklärt. Wer auf Nummer sicher gehen will, nutzt Methoden ganz ohne externe Requests.
+
+### Wie stoppt Flinkform Spam?
+
+Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. Der Spam-Schutz kombiniert Honeypot, signierten Zeit-Check und Proof-of-Work; ohne JavaScript greift eine Mathe-Frage als Fallback. Externe CAPTCHA-Dienste unterstützt Flinkform bewusst nicht.

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const tldrRows = [
   {
     feature: "Preis für Multi-Step + bedingte Logik",
-    cells: ["Kostenlos", "ab 199 $/Jahr (Plus)"],
+    cells: ["Kostenlos", "ab Basic (99 $/Jahr), Lead Forms ab Pro (399 $)"],
   },
   {
     feature: "Einsendungen speichern",
@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     q: "Ist WPForms schlecht?",
-    a: "Nein. WPForms ist poliert, hat einen ausgereiften Drag-&-Drop-Builder, viele Vorlagen und ein großes Ökosystem. Es ist aber ein US-Produkt mit Paywall-Modell: Die Funktionen, die Flinkform kostenlos mitbringt, kosten bei WPForms 99 bis 199 Dollar pro Jahr, und der Spam-Schutz hängt an US-Diensten.",
+    a: "Nein. WPForms ist poliert, hat einen ausgereiften Drag-&-Drop-Builder, viele Vorlagen und ein großes Ökosystem. Es ist aber ein US-Produkt mit Paywall-Modell: Die Funktionen, die Flinkform kostenlos mitbringt, kosten bei WPForms regulär ab 99 Dollar pro Jahr, und der Spam-Schutz hängt an US-Diensten.",
   },
   {
     q: "Kann Flinkform Zahlungen wie WPForms?",
@@ -63,7 +63,7 @@ export default function Page() {
       competitor="WPForms"
       h1="WPForms Alternative: Alle Features, ohne die Paywall"
       updated="2026-07-03"
-      answerFirst="Flinkform ist eine kostenlose WPForms-Alternative aus Deutschland: Multi-Step-Formulare, bedingte Logik und Submissions-Dashboard sind im freien Plugin enthalten. Bei WPForms kosten dieselben Funktionen regulär ab 199 Dollar pro Jahr, und die Lite-Version speichert nicht einmal Einsendungen. Dazu arbeitet Flinkform ohne US-Spam-Dienste und speichert keine IP-Adressen."
+      answerFirst="Flinkform ist eine kostenlose WPForms-Alternative aus Deutschland: Multi-Step-Formulare, bedingte Logik und Submissions-Dashboard sind im freien Plugin enthalten. Bei WPForms brauchst du dafür mindestens den Basic-Plan (regulär 99 Dollar pro Jahr), die modernen Lead Forms sogar den Pro-Plan für 399 Dollar, und die Lite-Version speichert nicht einmal Einsendungen. Dazu arbeitet Flinkform ohne US-Spam-Dienste und speichert keine IP-Adressen."
       tldrColumns={["Flinkform", "WPForms"]}
       tldrRows={tldrRows}
       tldrNote="Stand Juli 2026, reguläre Listenpreise laut wpforms.com/pricing (Renewal-Preise, nicht die Erstjahres-Rabatte)."
@@ -101,14 +101,16 @@ export default function Page() {
                 </li>
                 <li>
                   <strong>Basic (99 $/Jahr):</strong> Einsendungen werden
-                  gespeichert, bedingte Logik kommt dazu. 1 Website.
+                  gespeichert, bedingte Logik und mehrseitige Formulare
+                  kommen dazu. 1 Website.
                 </li>
                 <li>
                   <strong>Plus (199 $/Jahr):</strong> Newsletter-Anbindungen.
                 </li>
                 <li>
-                  <strong>Pro (399 $/Jahr):</strong> Multi-Step-Formulare
-                  (Lead Forms), Zahlungen ohne 3-%-Aufschlag, Webhooks.
+                  <strong>Pro (399 $/Jahr):</strong> die modernen
+                  Lead-Forms-Multi-Step-Formulare, Zahlungen ohne
+                  3-%-Aufschlag, Webhooks.
                 </li>
                 <li>
                   <strong>Elite (599 $/Jahr):</strong> Salesforce, HubSpot,

@@ -37,7 +37,7 @@ Daraus folgt das Muster einer sauberen Formular-Integration:
 ## Was du für den Einbau brauchst
 
 - **Ein Stripe-Konto** (kostenlos), in dem SEPA-Lastschrift als Zahlart aktiviert ist.
-- **WordPress mit Flinkform + Flinkform Pro:** Das Payment-Feld in das Formular ziehen, fester Betrag oder Produktauswahl, optional ein Berechnungsfeld für dynamische Summen.
+- **WordPress mit Flinkform + Flinkform Pro:** Das Payment-Feld in das Formular ziehen, fester Betrag oder Produktauswahl mit individuellen Preisen.
 - **Den Webhook-Endpoint eintragen:** Flinkform Pro zeigt die Webhook-URL in den Stripe-Einstellungen an; sie wird im Stripe-Dashboard hinterlegt, zusammen mit dem Signing Secret zur Signaturprüfung.
 
 Danach läuft der Ablauf automatisch: Verifizierung der Zahlung vor dem Speichern, Statusverwaltung, Webhook-Bestätigung, Doppelklick-Schutz. Der Betrag ist serverseitig an die Formular-Definition gebunden und kann nicht per manipuliertem Request verändert werden.

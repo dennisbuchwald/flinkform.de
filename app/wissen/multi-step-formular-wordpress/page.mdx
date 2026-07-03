@@ -1,0 +1,74 @@
+import WissenArticle from "@/components/WissenArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "Multi-Step-Formular in WordPress erstellen: kostenlos und ohne Page Builder",
+  description:
+    "Mehrseitige Formulare direkt im Block-Editor: Page-Break-Block einfügen, Fortschrittsanzeige wählen, fertig. Mit Flinkform kostenlos, bei WPForms und Gravity Forms nur in der Bezahlversion.",
+  alternates: { canonical: `${SITE_URL}/wissen/multi-step-formular-wordpress` },
+};
+
+export default function Layout({ children }) {
+  return <WissenArticle slug="multi-step-formular-wordpress">{children}</WissenArticle>;
+}
+
+Ein Multi-Step-Formular in WordPress erstellst du kostenlos mit dem Plugin Flinkform: Du baust dein Formular im Block-Editor und fügst überall dort einen Page-Break-Block ein, wo ein neuer Schritt beginnen soll. Fortschrittsanzeige, Validierung pro Schritt und bedingtes Überspringen von Schritten sind eingebaut, ein Page Builder ist nicht nötig. Bei WPForms, Gravity Forms und SureForms gibt es Multi-Step-Formulare dagegen nur in den Bezahlversionen.
+
+## Was ist ein Multi-Step-Formular?
+
+Ein Multi-Step-Formular (auch mehrseitiges oder mehrstufiges Formular) teilt ein langes Formular in mehrere Schritte auf. Statt 15 Felder auf einmal sieht der Besucher zum Beispiel drei Seiten mit je fünf Feldern, plus eine Fortschrittsanzeige, die zeigt, wo er gerade steht. Typische Einsatzfälle: [Bewerbungsformulare](/wissen/bewerbungsformular-wordpress), Anfrage-Strecken mit vielen Detailfragen, [Angebotsrechner](/wissen/angebotsrechner-wordpress) und Buchungsanfragen.
+
+## Warum konvertieren mehrseitige Formulare oft besser?
+
+Ein langes Formular wirkt auf den ersten Blick wie Arbeit. Ein Multi-Step-Formular zeigt immer nur einen überschaubaren Ausschnitt und senkt so die gefühlte Hürde beim Einstieg. Drei Effekte sprechen dafür:
+
+- **Weniger Überforderung beim Start:** Der erste Schritt zeigt wenige, einfache Felder. Wer angefangen hat, bricht seltener ab als jemand, der vor einer Feldwand steht.
+- **Fortschritt motiviert:** Eine Anzeige wie "Schritt 2 von 3" macht sichtbar, dass das Ende nah ist.
+- **Fehler pro Schritt statt am Ende:** Validierung nach jedem Schritt fängt Tippfehler sofort ab, statt nach dem Absenden eine lange Fehlerliste zu zeigen.
+
+Ehrlich gesagt: Einen pauschalen Conversion-Zuwachs in Prozent gibt es nicht, das hängt von Formularlänge, Zielgruppe und Aufteilung ab. Als Faustregel gilt: Bei bis zu vier oder fünf Feldern bringt ein Multi-Step wenig, ab etwa acht bis zehn Feldern lohnt sich das Aufteilen fast immer. Im Zweifel testen.
+
+## Schritt für Schritt mit Flinkform
+
+Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. So baust du damit ein mehrseitiges Formular:
+
+1. **Formular anlegen:** Formular-Block auf einer Seite einfügen und Felder als Blöcke hinzufügen, wie in [Gutenberg-Formular erstellen](/wissen/gutenberg-formular-erstellen) beschrieben.
+2. **Page-Break-Block einfügen:** An jeder Stelle, an der ein neuer Schritt beginnen soll, einen Page-Break-Block setzen. Zwei Page Breaks ergeben drei Schritte. Mit dem Section-Heading-Block bekommt jeder Schritt eine eigene Überschrift.
+3. **Fortschrittsanzeige wählen:** Flinkform zeigt den Fortschritt wahlweise als Balken, Punkte oder Zahlen ("Schritt 2 von 3") an. Die Darstellung stellst du im Block-Panel um.
+4. **Schritt-Validierung nutzen:** Pflichtfelder und Formatprüfungen (E-Mail, Telefon, Zahl) greifen beim Klick auf "Weiter". Besucher kommen erst in den nächsten Schritt, wenn der aktuelle fehlerfrei ist.
+5. **Schritte bedingt überspringen:** Mit [bedingter Logik](/wissen/bedingte-logik-wordpress-formular) blendest du ganze Schritte abhängig von vorherigen Antworten aus. Beispiel: Wer bei "Anfrage-Typ" die Option "Rückruf" wählt, überspringt den Schritt mit den Projektdetails komplett.
+
+Technisch läuft das über die WordPress Interactivity API ohne jQuery, mit unter 15 KB Frontend-JS. Das Design übernimmt Flinkform aus deiner theme.json, ein Page Builder wie Elementor ist an keiner Stelle nötig. Voraussetzungen: WordPress 6.5+ und PHP 8.1+.
+
+## Marktüberblick: Wo Multi-Step kostenlos ist und wo nicht
+
+| Plugin | Multi-Step kostenlos? | Anmerkung (Stand Juli 2026) |
+| --- | --- | --- |
+| Flinkform | Ja | Page-Break-Block, Fortschrittsanzeige, Schritt-Validierung, bedingtes Überspringen |
+| SureForms | Nein | Ebenfalls block-basiert, Multi-Step aber erst im Bezahlplan |
+| WPForms | Nein | Page Breaks erst in den Bezahl-Tarifen |
+| Gravity Forms | Nein | Es gibt keine Free-Version, das Plugin ist grundsätzlich kostenpflichtig |
+
+Fair bleiben: [WPForms](/vergleich/wpforms-alternative) und [Gravity Forms](/vergleich/gravity-forms-alternative) sind ausgereifte Plugins mit riesigen Ökosystemen, und wer ihre Bezahlversion ohnehin nutzt, bekommt dort solide Multi-Step-Funktionen. [SureForms](/vergleich/sureforms-alternative) ist wie Flinkform block-basiert und punktet mit einem AI-Formular-Generator, verlangt für Multi-Step aber den Bezahlplan. Der Unterschied liegt im Ansatz: Flinkform kombiniert Multi-Step mit bedingter Logik inklusive Schritt-Überspringen und Spam-Schutz ohne externe Dienste in einem einzigen kostenlosen Plugin, entwickelt in Deutschland.
+
+## Häufige Fragen
+
+### Brauche ich für ein Multi-Step-Formular einen Page Builder?
+
+Nein. Mit Flinkform baust du mehrseitige Formulare direkt im WordPress-Block-Editor. Ein Page-Break-Block trennt die Schritte, mehr braucht es nicht.
+
+### Wie viele Schritte sind sinnvoll?
+
+Zwei bis vier Schritte reichen in den meisten Fällen. Wichtiger als die Anzahl ist eine logische Gruppierung: pro Schritt ein Thema, etwa erst Kontaktdaten, dann Projektdetails, dann Absenden.
+
+### Gehen Eingaben verloren, wenn ein Besucher zurückblättert?
+
+Nein. Beim Wechsel zwischen den Schritten bleiben alle bereits eingegebenen Werte erhalten, auch beim Zurückblättern.
+
+### Kann ich Schritte abhängig von Antworten überspringen?
+
+Ja. Die bedingte Logik in Flinkform kann ganze Schritte ein- und ausblenden. Ein Besucher sieht dann nur die Schritte, die für seine Auswahl relevant sind.
+
+### Ist die Multi-Step-Funktion in Flinkform wirklich kostenlos?
+
+Ja. Multi-Step mit Fortschrittsanzeige, Schritt-Validierung und bedingtem Überspringen ist Teil der kostenlosen Version 1.3.0 auf WordPress.org. [Flinkform Pro](/pro) ergänzt andere Dinge wie Stripe-Zahlungen, Datei-Uploads und SMTP, ist für Multi-Step aber nicht nötig.

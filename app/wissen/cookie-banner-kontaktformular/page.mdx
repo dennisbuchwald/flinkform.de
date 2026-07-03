@@ -1,0 +1,85 @@
+import WissenArticle from "@/components/WissenArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "Braucht ein Kontaktformular einen Cookie-Banner?",
+  description:
+    "Ein Kontaktformular selbst braucht keinen Cookie-Banner. Einwilligungspflichtig wird es erst durch eingebettete Drittdienste wie reCAPTCHA. So testest du dein Formular selbst.",
+  alternates: { canonical: `${SITE_URL}/wissen/cookie-banner-kontaktformular` },
+};
+
+export default function Layout({ children }) {
+  return <WissenArticle slug="cookie-banner-kontaktformular">{children}</WissenArticle>;
+}
+
+Ein Kontaktformular braucht für sich genommen keinen Cookie-Banner: Das Absenden von Name, E-Mail und Nachricht ist eine Datenverarbeitung nach DSGVO, aber keine einwilligungspflichtige Cookie-Nutzung. Einwilligungspflichtig wird ein Formular erst durch eingebettete Drittdienste, allen voran Google reCAPTCHA, das Besucher-Daten an Google überträgt und Cookies setzt. Entscheidend ist also nicht das Formular, sondern was dein Formular-Plugin im Hintergrund lädt.
+
+## Wann eine Einwilligung Pflicht ist
+
+Die Regel ist einfach: Einwilligung ist nötig, wenn auf dem Gerät des Besuchers Informationen gespeichert oder ausgelesen werden, die für den angefragten Dienst nicht erforderlich sind (§ 25 TDDDG), oder wenn personenbezogene Daten ohne passende Rechtsgrundlage an Dritte fließen.
+
+Für Formulare heißt das konkret:
+
+- **Keine Einwilligung nötig:** Das Formular verarbeitet die eingegebenen Daten, um die Anfrage zu beantworten. Rechtsgrundlage ist die Vertragsanbahnung oder das berechtigte Interesse, nicht die Einwilligung.
+- **Einwilligung nötig:** Das Formular bettet einen Drittdienst ein, der Besucher trackt oder Cookies zu eigenen Zwecken setzt. Das Bundesverwaltungsgericht in Österreich hat am 13.09.2024 entschieden (W298 2274626-1/8E), dass Google reCAPTCHA ohne vorherige Einwilligung gegen die DSGVO verstößt. Die französische CNIL hat 2023 in zwei Fällen Bußgelder verhängt, an denen reCAPTCHA-Einsatz ohne Einwilligung beteiligt war (Cityscoot und NS Cards France). Alle Details stehen im Artikel [reCAPTCHA und die DSGVO](/blog/recaptcha-dsgvo-rechtsrisiko).
+
+## Was sind technisch notwendige Cookies?
+
+Technisch notwendige Cookies sind von der Einwilligungspflicht ausgenommen. Sie sind erforderlich, damit der Dienst funktioniert, den der Besucher ausdrücklich nutzen will. Klassische Beispiele: Session-Cookie beim Login, Warenkorb im Shop, CSRF-Schutz-Token. Solche Cookies gehören in die Datenschutzerklärung, aber nicht in ein Consent-Banner.
+
+Nicht technisch notwendig sind dagegen Cookies für Analytics, Werbung, A/B-Tests oder Tracking durch Drittanbieter. Dass ein Cookie "praktisch" oder "üblich" ist, macht es nicht notwendig.
+
+## Übersicht: Was braucht Einwilligung?
+
+| Bestandteil | Einwilligung nötig? |
+| --- | --- |
+| Formularfelder (Name, E-Mail, Nachricht) | Nein |
+| Session-Cookie für Fehlermeldungen (kurzlebig, httpOnly) | Nein, technisch notwendig |
+| CSRF-Token / Nonce | Nein, technisch notwendig |
+| Google reCAPTCHA | Ja (BVwG, 13.09.2024) |
+| hCaptcha, Turnstile und andere externe CAPTCHAs | Ja, Drittdienst mit Datenübertragung |
+| Analytics-Cookie auf der Formularseite | Ja |
+| Extern geladene Fonts oder Skripte des Plugin-Anbieters | Datenübertragung an Dritte, kritisch |
+
+## Der Flinkform-Fall: ein Cookie, 60 Sekunden
+
+Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. Es lädt keine externen Skripte, setzt kein Tracking ein und speichert weder IP-Adressen noch User-Agents.
+
+Das einzige Cookie, das Flinkform überhaupt setzen kann, heißt `flinkform_flash`. Es erscheint nur, wenn eine Formular-Validierung fehlschlägt, transportiert die Fehlermeldung zur nächsten Seitenansicht, lebt rund 60 Sekunden und ist httpOnly, also für JavaScript unlesbar. Das ist ein strikt notwendiges Cookie im Sinne der Einwilligungs-Ausnahme: Ohne Formular-Nutzung existiert es nicht, es identifiziert niemanden, und es dient ausschließlich der Funktion, die der Besucher gerade angestoßen hat. Ein Cookie-Banner ist dafür nicht nötig. Der [Spam-Schutz läuft komplett ohne reCAPTCHA](/wissen/wordpress-formular-ohne-recaptcha) auf dem eigenen Server.
+
+Ehrlich eingeordnet: Das gilt für das Formular. Ob deine Website insgesamt einen Cookie-Banner braucht, hängt vom Rest der Seite ab. Google Analytics, Meta Pixel oder eingebettete YouTube-Videos brauchen weiterhin Einwilligung, egal welches Formular-Plugin du nutzt. Und beim [Conversion-Tracking nach dem Absenden](/wissen/conversion-tracking-wordpress-formular) gelten die Regeln des jeweiligen Tracking-Tools.
+
+## Checkliste: Teste dein Formular selbst
+
+So findest du in fünf Minuten heraus, was dein Formular wirklich lädt:
+
+1. Öffne die Seite mit dem Formular im privaten Fenster (ohne Consent-Erinnerungen).
+2. Öffne die Entwicklertools (F12 oder Rechtsklick, "Untersuchen") und wechsle in den **Netzwerk-Tab**.
+3. Lade die Seite neu und filtere nach Domains: Taucht `google.com`, `gstatic.com`, `hcaptcha.com` oder eine andere fremde Domain auf? Dann überträgt dein Formular Daten an Dritte.
+4. Wechsle in den Tab **Anwendung** (Chrome) bzw. **Web-Speicher** (Firefox) und prüfe unter "Cookies", was vor dem Absenden gesetzt wird.
+5. Sende das Formular einmal mit Fehler ab (Pflichtfeld leer) und einmal korrekt. Prüfe, welche Cookies dazukommen und wie lange sie leben.
+6. Ergebnis dokumentieren: Alles, was nicht technisch notwendig ist, gehört in dein Consent-Tool und in die Datenschutzerklärung.
+
+Wie du das Formular darüber hinaus DSGVO-sauber aufsetzt (Aufbewahrungsfristen, Consent-Feld, Privacy-Tools), steht im Leitfaden [DSGVO-konformes Formular-Plugin](/wissen/dsgvo-konformes-formular-plugin).
+
+## Häufige Fragen
+
+### Braucht jedes Kontaktformular einen Cookie-Banner?
+
+Nein. Das Formular selbst löst keine Banner-Pflicht aus. Erst eingebettete Drittdienste wie reCAPTCHA, externe CAPTCHAs oder Tracking-Skripte machen eine Einwilligung nötig.
+
+### Reicht ein Hinweis in der Datenschutzerklärung statt eines Banners?
+
+Für technisch notwendige Cookies und die Formular-Datenverarbeitung: ja, die Datenschutzerklärung reicht. Für einwilligungspflichtige Dienste reicht sie nicht, dort muss die Einwilligung vor dem Laden des Dienstes eingeholt werden.
+
+### Ist reCAPTCHA mit Einwilligung erlaubt?
+
+Mit wirksamer vorheriger Einwilligung ist der Einsatz vertretbar. Praktisch entsteht aber ein Dilemma: Besucher, die ablehnen, sehen ein blockiertes oder ungeschütztes Formular. Serverseitiger Spam-Schutz ohne Drittdienst umgeht das Problem komplett.
+
+### Zählt das Flinkform-Cookie flinkform_flash als Tracking?
+
+Nein. Es wird nur bei fehlgeschlagener Validierung gesetzt, transportiert die Fehlermeldung, lebt rund 60 Sekunden, ist httpOnly und enthält keine Kennung, mit der sich Besucher wiedererkennen ließen.
+
+### Muss ein Consent-Feld im Formular sein, wenn kein Cookie-Banner nötig ist?
+
+Das sind zwei verschiedene Dinge. Der Cookie-Banner betrifft Cookies und Drittdienste. Eine Checkbox zur Kenntnisnahme der Datenschutzerklärung im Formular ist davon unabhängig und verbreitete Praxis. [Flinkform](/) bringt dafür einen eigenen Consent-Feldtyp mit, inklusive serverseitiger Pflichtfeld-Prüfung.

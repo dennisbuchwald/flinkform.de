@@ -102,7 +102,7 @@ Kurzvergleich (Stand Juli 2026, reguläre Listenpreise):
 | Aktive Weiterentwicklung | ja | Feature Freeze seit 2026 | ja | ja | ja |
 | Preis Pro-Version (1 Website/Jahr) | 59 € | kein Pro | 99 $ | 59 $ | 59 $ |
 
-Kontext: Contact Form 7 ist seit der Ankündigung auf der WordCamp Asia 2026 im Feature Freeze; Version 6.2 ist die letzte mit neuen Funktionen. WPForms verlangt für Multi-Step und bedingte Logik regulär ab 199 $/Jahr; unterhalb des Pro-Plans (399 $/Jahr) fallen auf Stripe-Zahlungen zusätzlich 3 % Gebühr an. Gravity Forms (59/159/259 $/Jahr) hat keine kostenlose Version und speichert ab Werk IP-Adressen. SureForms ist wie Flinkform block-nativ; der Flinkform-Vorsprung ist der Privacy-Default (kein reCAPTCHA/hCaptcha nötig), die theme.json-Übernahme und das Frontend unter 15 KB.
+Kontext: Contact Form 7 ist seit der Ankündigung auf der WordCamp Asia 2026 im Feature Freeze; Version 6.2 ist die letzte mit neuen Funktionen. WPForms verlangt für bedingte Logik und mehrseitige Formulare mindestens den Basic-Plan (regulär 99 $/Jahr, Lead Forms ab Pro für 399 $); unterhalb des Pro-Plans fallen auf Stripe-Zahlungen zusätzlich 3 % Gebühr an. Gravity Forms (59/159/259 $/Jahr) hat keine kostenlose Version und speichert ab Werk IP-Adressen. SureForms ist wie Flinkform block-nativ; der Flinkform-Vorsprung ist der Privacy-Default (kein reCAPTCHA/hCaptcha nötig), die theme.json-Übernahme und das Frontend unter 15 KB.
 
 ---
 
@@ -127,6 +127,77 @@ Ein Formular direkt im Gutenberg-Editor braucht weder Elementor noch einen separ
 ### SEPA-Zahlung im WordPress-Formular annehmen (https://flinkform.de/wissen/sepa-zahlung-wordpress-formular)
 
 SEPA-Lastschrift lässt sich direkt im WordPress-Formular annehmen: über das Stripe Payment Element (in Flinkform Pro), das SEPA neben Kreditkarte, Apple Pay und Google Pay anzeigt. Besonderheit: Die SEPA-Bestätigung dauert Tage, deshalb arbeitet die Integration mit einem Status-Modell ("in Bearbeitung" bis "bezahlt") und einem Stripe-Webhook.
+
+### Multi-Step-Formular in WordPress erstellen (https://flinkform.de/wissen/multi-step-formular-wordpress)
+
+Ein Multi-Step-Formular entsteht in WordPress am einfachsten block-nativ: Mit Flinkform fügst du zwischen die Feld-Blöcke einen Page-Break-Block ein, wählst eine Fortschrittsanzeige (Balken, Punkte oder Zahlen) und bekommst Schritt-Validierung automatisch, kostenlos. Bei WPForms und Gravity Forms sind mehrseitige Formulare Teil der Bezahlpläne, bei SureForms des Bezahlplans.
+
+### Was ist bedingte Logik in WordPress-Formularen? (https://flinkform.de/wissen/bedingte-logik-wordpress-formular)
+
+Bedingte Logik (Conditional Logic) blendet Formularfelder, ganze Schritte oder den Absenden-Button abhängig von vorherigen Antworten ein oder aus. Das hält Formulare kurz und relevant. In Flinkform ist bedingte Logik kostenlos enthalten und wird pro Feld im Block-Inspector konfiguriert.
+
+### Warum kommen meine WordPress-Formular-Mails nicht an? (https://flinkform.de/wissen/wordpress-formular-mails-kommen-nicht-an)
+
+WordPress-Formular-Mails landen im Spam oder verschwinden, weil wp_mail() ohne Authentifizierung über den Webserver sendet. Seit Februar 2024 verlangen Gmail und Yahoo SPF, DKIM und DMARC. Die Lösung: DNS-Einträge setzen und den Versand über SMTP routen, zum Beispiel mit dem SMTP-Modul von Flinkform Pro (7 Provider-Presets, Sende-Log mit Fehlerdiagnose).
+
+### Formular-Spam stoppen in WordPress (https://flinkform.de/wissen/formular-spam-stoppen-wordpress)
+
+Formular-Spam lässt sich mit serverseitigen Methoden (Honeypot, signierter Zeit-Check, Proof-of-Work) oder externen Diensten (reCAPTCHA, hCaptcha, Turnstile, Akismet) stoppen. Für die meisten Websites reicht die Kombination der serverseitigen Methoden: wirksam, unsichtbar, ohne Einwilligungspflicht. Genau diese Kombination ist in Flinkform eingebaut.
+
+### Geht ein WordPress-Formular ohne Plugin? (https://flinkform.de/wissen/wordpress-formular-ohne-plugin)
+
+Technisch ja: eigenes HTML plus PHP-Handler im Theme. Praktisch müssen dann Validierung, CSRF-Schutz, Spam-Abwehr, Mail-Versand, Speicherung und DSGVO-Löschung selbst gebaut und gepflegt werden. Der WordPress-Core bringt keinen Formular-Block mit. Für fast alle Projekte ist ein schlankes Plugin die bessere Wahl.
+
+### Barrierefreie WordPress-Formulare und das BFSG (https://flinkform.de/wissen/barrierefreies-formular-bfsg)
+
+Das Barrierefreiheitsstärkungsgesetz (BFSG) gilt seit dem 28.06.2025 und verpflichtet viele B2C-Websites (E-Commerce, Dienstleistungen) zu barrierefreien Oberflächen nach EN 301 549, die auf WCAG 2.1 AA verweist. Für Formulare heißt das: sichtbare Labels, klare Fehlermeldungen, Tastaturbedienbarkeit, ausreichende Kontraste und korrekte ARIA-Attribute. Flinkform erfüllt WCAG 2.1 AA ab Werk.
+
+### Was kostet ein WordPress-Formular-Plugin? (https://flinkform.de/wissen/was-kostet-wordpress-formular-plugin)
+
+Die Spanne reicht von 0 Euro (Flinkform, Contact Form 7) über 59 bis 599 US-Dollar pro Jahr (Gravity Forms, WPForms, Fluent Forms, SureForms, Ninja Forms, Formidable) bis zu SaaS-Monatsabos (Typeform, Jotform). Versteckte Kosten: Renewal-Preise nach dem Rabatt-Erstjahr, Transaktionsgebühren (WPForms: 3 Prozent auf Stripe-Zahlungen unterhalb des Pro-Plans) und Add-on-Modelle. Flinkform Pro kostet 59 bis 299 Euro pro Jahr, alle Pläne mit allen Features.
+
+### Braucht ein Kontaktformular einen Cookie-Banner? (https://flinkform.de/wissen/cookie-banner-kontaktformular)
+
+Ein Kontaktformular selbst braucht keinen Cookie-Banner. Einwilligungspflichtig wird es erst durch eingebettete Drittdienste wie reCAPTCHA, die Cookies setzen und Besucherdaten verarbeiten. Flinkform setzt nur ein einziges strikt notwendiges Cookie (flinkform_flash, rund 60 Sekunden, httpOnly, nur bei fehlgeschlagener Validierung) und braucht deshalb keinen Banner.
+
+### Bewerbungsformular mit WordPress erstellen (https://flinkform.de/wissen/bewerbungsformular-wordpress)
+
+Ein DSGVO-konformes Bewerbungsformular braucht Datei-Uploads, Pflicht-Einwilligung und Löschfristen. Mit Flinkform (Multi-Step, Consent-Feld, Aufbewahrungsfrist mit Auto-Löschung) und Flinkform Pro (Multi-Upload bis 10 Dateien, Größen-Check, geschützter Upload-Ordner, Löschkaskade) ist der komplette Fall abgedeckt.
+
+### Angebotsrechner mit WordPress erstellen (https://flinkform.de/wissen/angebotsrechner-wordpress)
+
+Ein Angebotsrechner im WordPress-Formular entsteht mit den Berechnungsfeldern von Flinkform Pro: Formeln wie Menge mal Stückpreis plus Zuschläge rechnen live im Browser, während der Besucher tippt, und werden serverseitig manipulationssicher nachgerechnet (kein eval). Die berechnete Summe dient als qualifizierte Angebotsbasis; die direkte Abbuchung berechneter Summen steht auf der Roadmap.
+
+### Formular-Conversions tracken (https://flinkform.de/wissen/conversion-tracking-wordpress-formular)
+
+Formular-Conversions misst man am zuverlässigsten über den Redirect auf eine Danke-Seite: Flinkform leitet nach dem Absenden weiter und hängt optional submission_id und form_id als Parameter an. Darauf lassen sich GA4-Schlüsselereignisse, Meta-Pixel-Lead-Events oder cookiefreie Ziele (Plausible, Matomo) aufsetzen.
+
+---
+
+## Weitere Vergleiche (Kurzfassung)
+
+- SureForms Alternative (https://flinkform.de/vergleich/sureforms-alternative): Beide block-nativ. Flinkform-Vorsprung: Spam-Schutz ohne reCAPTCHA/hCaptcha/Turnstile, theme.json-Vererbung, unter 15 KB Frontend-JS, Multi-Step kostenlos, SEPA im Pro. SureForms-Stärken: AI-Formular-Generator, Basis-Zahlungen in der Free-Version.
+- Fluent Forms Alternative (https://flinkform.de/vergleich/fluent-forms-alternative): Fluent bietet viel fürs Geld (Pro ab regulär 79 $/Jahr), sperrt Multi-Step aber hinter Pro, nutzt einen eigenen Builder und US-Spam-Dienste.
+- Ninja Forms Alternative (https://flinkform.de/vergleich/ninja-forms-alternative): Add-on-Preismodell; bedingte Logik, Multi-Step und Uploads kosten je extra, Komplettpaket regulär 499 $/Jahr.
+- Forminator Alternative (https://flinkform.de/vergleich/forminator-alternative): großzügige Free-Version (inkl. Quiz/Umfragen), aber IP-Speicherung ab Werk und schwere Frontend-Assets.
+- Formidable Forms Alternative (https://flinkform.de/vergleich/formidable-forms-alternative): stark für Rechner und Frontend-Views, aber Rechner erst ab regulär 399 $/Jahr; Flinkform Pro Berechnungsfelder ab 59 EUR/Jahr.
+- Elementor Forms Alternative (https://flinkform.de/vergleich/elementor-forms-alternative): Formulare nur mit Elementor Pro (ab 59 $/Jahr), Lock-in an den Page Builder; Flinkform funktioniert in jedem Theme.
+- Typeform Alternative (https://flinkform.de/vergleich/typeform-alternative): Typeform kostet 39 bis 169 $/Monat, Daten liegen beim US-Anbieter; Flinkform bringt das Eine-Frage-pro-Schritt-Gefühl kostenlos auf den eigenen Server.
+- Jotform Alternative (https://flinkform.de/vergleich/jotform-alternative): Free-Plan mit engen Limits (5 Formulare, 100 Einsendungen/Monat), Daten in der Anbieter-Cloud; Flinkform speichert unbegrenzt auf dem eigenen Server.
+
+## Weitere Blog-Artikel (Kernaussagen)
+
+### Die besten WordPress-Formular-Plugins 2026 (https://flinkform.de/blog/beste-wordpress-formular-plugins-2026)
+
+Ehrliches Roundup über neun Plugins mit offengelegten Kriterien und Transparenz-Hinweis (Flinkform ist das eigene Produkt). Empfehlung nach Anwendungsfall: DSGVO-saubere Standard-Formulare und Multi-Step kostenlos: Flinkform. Enterprise-Workflows: Gravity Forms. Maximale Vorlagen: WPForms. Umfragen/Quiz kostenlos: Forminator. Frontend-Views: Formidable.
+
+### BFSG und WordPress-Formulare (https://flinkform.de/blog/bfsg-wordpress-formulare)
+
+Das BFSG gilt seit dem 28.06.2025 für viele B2C-Angebote (mit Ausnahme von Kleinstunternehmen). Web-Formulare müssen danach barrierefrei nach EN 301 549 / WCAG 2.1 AA sein: Labels, Fehlerausgaben, Tastaturbedienung, Kontraste, ARIA. Der Artikel enthält eine Praxis-Checkliste; Flinkform erfüllt WCAG 2.1 AA ab Werk.
+
+### Warum WordPress-Mails im Spam landen (https://flinkform.de/blog/wordpress-mail-zustellbarkeit)
+
+wp_mail() sendet ohne Authentifizierung; seit Februar 2024 verlangen Gmail und Yahoo SPF, DKIM und DMARC von Absendern. Lösung: DNS-Einträge setzen und Formular-Mails per SMTP versenden, etwa über das SMTP-Modul von Flinkform Pro mit Sende-Log.
 
 ---
 

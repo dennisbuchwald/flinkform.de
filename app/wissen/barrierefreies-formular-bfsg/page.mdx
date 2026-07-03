@@ -1,0 +1,85 @@
+import WissenArticle from "@/components/WissenArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "Barrierefreie WordPress-Formulare: Was das BFSG verlangt",
+  description:
+    "Das BFSG gilt seit dem 28.06.2025. Was das für WordPress-Formulare bedeutet: EN 301 549, WCAG 2.1 AA, Labels, Fehlermeldungen, Tastatur, Kontrast und ARIA.",
+  alternates: { canonical: `${SITE_URL}/wissen/barrierefreies-formular-bfsg` },
+};
+
+export default function Layout({ children }) {
+  return <WissenArticle slug="barrierefreies-formular-bfsg">{children}</WissenArticle>;
+}
+
+Das Barrierefreiheitsstärkungsgesetz (BFSG) gilt seit dem 28. Juni 2025. Es verpflichtet Unternehmen, die Dienstleistungen im elektronischen Geschäftsverkehr für Verbraucher anbieten, zur Barrierefreiheit. Als konform gilt, wer die europäische Norm EN 301 549 erfüllt; für Webinhalte verweist sie auf WCAG 2.1 Level AA. Für Web-Formulare heißt das konkret: sichtbare, programmatisch verknüpfte Labels, Fehlermeldungen in Textform, vollständige Tastaturbedienbarkeit, ausreichende Kontraste und korrekte ARIA-Attribute.
+
+*Hinweis: Dieser Artikel ist keine Rechtsberatung. Er fasst den Stand Juli 2026 zusammen. Ob und wie das BFSG deine Website betrifft, klärst du im Zweifel mit einer Kanzlei.*
+
+## Wen das BFSG betrifft
+
+Das BFSG setzt den European Accessibility Act (Richtlinie (EU) 2019/882) um und ist seit dem 28.06.2025 anwendbar. Erfasst sind unter anderem Dienstleistungen im elektronischen Geschäftsverkehr, die sich an Verbraucher richten: Onlineshops, Buchungs- und Terminstrecken, elektronischer Vertragsabschluss. Reine B2B-Angebote fallen nicht darunter.
+
+Zwei Punkte sind wichtig:
+
+- **Kleinstunternehmen-Ausnahme:** Wer weniger als 10 Beschäftigte und maximal 2 Mio. Euro Jahresumsatz (oder Bilanzsumme) hat, ist bei Dienstleistungen von den Pflichten ausgenommen (§ 3 Abs. 3 BFSG). Für Hersteller von Produkten gilt diese Ausnahme nicht.
+- **Grauzone Kontaktformular:** Ob eine reine Info-Website mit Kontaktformular schon "elektronischer Geschäftsverkehr" ist, ist rechtlich umstritten. Sobald über die Website Verträge angebahnt oder abgeschlossen werden können (Shop, Buchung, kostenpflichtige Anfragestrecke), spricht viel für die Anwendbarkeit. Eine gefestigte Rechtsprechung zur genauen Grenze gibt es noch nicht.
+
+Ehrlich eingeordnet: Selbst wenn dein Kontaktformular formal nicht unter das BFSG fällt, ist Barrierefreiheit kein verlorener Aufwand. Ein Formular, das mit Tastatur und Screenreader funktioniert, funktioniert für alle Besucher besser.
+
+## Was das für Formulare konkret bedeutet
+
+Die Details regelt die Verordnung zum BFSG (BFSGV) über die vier Prinzipien wahrnehmbar, bedienbar, verständlich und robust. Praktisch orientierst du dich an WCAG 2.1 AA. Für Formulare sind das vor allem diese Anforderungen:
+
+| Anforderung | WCAG-Kriterium | Was es heißt |
+| --- | --- | --- |
+| Sichtbare Labels | 3.3.2 / 4.1.2 | Jedes Feld hat ein programmatisch verknüpftes Label. Placeholder ersetzt kein Label. |
+| Fehler in Textform | 3.3.1 / 3.3.3 | Fehlermeldungen benennen das Feld und geben Korrekturhinweise. |
+| Keine reine Farb-Codierung | 1.4.1 | Pflichtfelder und Fehler nicht nur über Farbe kennzeichnen. |
+| Tastaturbedienbarkeit | 2.1.1 | Alles ohne Maus bedienbar, inklusive Absenden. |
+| Sichtbarer Fokus | 2.4.7 | Das aktive Feld ist visuell erkennbar. |
+| Kontrast | 1.4.3 | Text mindestens 4,5:1 Kontrastverhältnis. |
+| Eingabezweck erkennbar | 1.3.5 | Autocomplete-Attribute für Name, E-Mail und Co. |
+| Screenreader-Kompatibilität | 4.1.2 | Valides HTML, korrekte ARIA-Attribute, semantische Struktur. |
+
+Dazu kommt eine Informationspflicht: Wer unter das BFSG fällt, muss Angaben zur Barrierefreiheit der Dienstleistung bereitstellen (§ 14 BFSG), etwa auf der Website oder in den AGB.
+
+## Fristen und Bußgelder
+
+Für Websites und Onlineshops gibt es keine allgemeine Schonfrist: Dienstleistungen, die seit dem 28.06.2025 erbracht werden, müssen barrierefrei sein. § 38 BFSG erlaubt nur Übergangsregeln, etwa für vor dem Stichtag geschlossene Verträge (bis maximal 27.06.2030). Bei Verstößen drohen nach § 37 BFSG Bußgelder bis 100.000 Euro für nicht konforme Dienstleistungen und bis 10.000 Euro für geringere Verstöße wie fehlende Informationen. Die Behörde kann Maßnahmen bis zur Einstellung der Dienstleistung anordnen. Zuständig ist die Marktüberwachungsstelle der Länder (MLBF) in Magdeburg. Dazu kommt das praktische Risiko von Abmahnungen durch Wettbewerber.
+
+Primärquellen: [Gesetzestext des BFSG](https://www.gesetze-im-internet.de/bfsg/) und die [FAQ der Bundesfachstelle Barrierefreiheit](https://www.bundesfachstelle-barrierefreiheit.de/DE/Fachwissen/Produkte-und-Dienstleistungen/Barrierefreiheitsstaerkungsgesetz/FAQ/faq_node.html).
+
+## Barrierefreiheit mit Flinkform
+
+Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. Die Formulare sind ab Werk auf WCAG 2.1 AA ausgelegt:
+
+- Vollständige Tastaturbedienbarkeit und Fokus-Management, auch über [Multi-Step-Schritte](/wissen/multi-step-formular-wordpress) hinweg
+- Screenreader-Unterstützung mit korrekten ARIA-Attributen
+- Fehlermeldungen werden per aria-live angekündigt, nicht nur farblich markiert
+- `prefers-reduced-motion` wird respektiert
+- Der [Spam-Schutz ohne reCAPTCHA](/wissen/wordpress-formular-ohne-recaptcha) hat einen barrierefreien Mathe-Fallback ohne JavaScript
+
+Wichtig zur Einordnung: Ein barrierefreies Formular macht noch keine barrierefreie Website. Kontraste deines Themes, Überschriften-Struktur, Bilder-Alternativtexte und die Barrierefreiheitserklärung bleiben deine Aufgabe. Das Formular ist aber einer der kritischsten Bausteine, weil hier Interaktion stattfindet. Mehr Hintergrund mit allen Quellen findest du im Blog-Artikel [BFSG und WordPress-Formulare](/blog/bfsg-wordpress-formulare), zum Datenschutz-Teil im Artikel [DSGVO-konformes Formular-Plugin](/wissen/dsgvo-konformes-formular-plugin).
+
+## FAQ
+
+### Gilt das BFSG auch für kleine Unternehmen?
+
+Kleinstunternehmen mit weniger als 10 Beschäftigten und maximal 2 Mio. Euro Jahresumsatz sind bei Dienstleistungen ausgenommen. Für Hersteller von Produkten gilt die Ausnahme nicht. Wer knapp über den Schwellen liegt, fällt voll unter das Gesetz.
+
+### Muss jedes Kontaktformular BFSG-konform sein?
+
+Nicht zwingend. Erfasst ist elektronischer Geschäftsverkehr mit Verbrauchern. Ob ein reines Kontaktformular ohne Vertragsanbahnung darunter fällt, ist rechtlich noch nicht abschließend geklärt. Sobald über die Website gebucht, bestellt oder ein Vertrag geschlossen wird, solltest du von der Anwendbarkeit ausgehen.
+
+### Reicht WCAG 2.1 AA für die BFSG-Konformität?
+
+Wer die harmonisierte Norm EN 301 549 erfüllt, profitiert von der Konformitätsvermutung. Für Webinhalte verweist die Norm auf WCAG 2.1 Level AA. Das ist Stand Juli 2026 der praktische Maßstab.
+
+### Welche Strafen drohen bei Verstößen?
+
+Bußgelder bis 100.000 Euro für nicht konforme Dienstleistungen, bis 10.000 Euro für geringere Verstöße (§ 37 BFSG). Die Marktüberwachung kann außerdem die Einstellung der Dienstleistung anordnen. Daneben besteht Abmahnrisiko durch Wettbewerber.
+
+### Ist Flinkform barrierefrei?
+
+Flinkform-Formulare sind ab Werk auf WCAG 2.1 AA ausgelegt: Tastaturbedienung, Screenreader-Unterstützung, aria-live für Fehlermeldungen, Fokus-Management und reduced-motion. Das ersetzt keine Prüfung der gesamten Website, deckt aber den Formular-Baustein ab. [Flinkform gibt es kostenlos auf WordPress.org](/).

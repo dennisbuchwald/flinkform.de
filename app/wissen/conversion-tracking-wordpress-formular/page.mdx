@@ -1,0 +1,102 @@
+import WissenArticle from "@/components/WissenArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "Formular-Conversions tracken mit GA4, Meta Pixel und Plausible",
+  description:
+    "Formular-Conversions sauber messen: Danke-Seiten-Redirect als Conversion-Event, GA4-Schlüsselereignis, Meta Pixel Lead-Event und die cookiefreie Alternative Plausible.",
+  alternates: { canonical: `${SITE_URL}/wissen/conversion-tracking-wordpress-formular` },
+};
+
+export default function Layout({ children }) {
+  return <WissenArticle slug="conversion-tracking-wordpress-formular">{children}</WissenArticle>;
+}
+
+Der zuverlässigste Weg, Formular-Conversions in WordPress zu tracken, ist eine Weiterleitung auf eine eigene Danke-Seite: Nach dem Absenden landet der Besucher auf einer URL wie /danke, und genau dieser Seitenaufruf zählt als Conversion. In GA4 markierst du das Ereignis als Schlüsselereignis, im Meta Pixel feuerst du auf der Danke-Seite das Standard-Event "Lead", in Plausible oder Matomo legst du ein Seitenaufruf-Ziel an. Wichtig für die DSGVO: GA4 und Meta Pixel brauchen in der Regel eine Einwilligung, das Formular selbst nicht.
+
+## Warum die Danke-Seite die sauberste Messbasis ist
+
+Es gibt zwei gängige Wege, eine Formular-Einsendung zu messen: ein JavaScript-Event beim Absenden oder eine Weiterleitung auf eine Danke-Seite. Die Danke-Seite gewinnt fast immer, aus drei Gründen:
+
+- **Robust:** Ein Seitenaufruf wird von jedem Tracking-Tool erfasst, ohne Custom-Code im Formular. JavaScript-Events gehen verloren, wenn ein Script zu spät lädt oder ein Ad-Blocker eingreift.
+- **Tool-unabhängig:** Dieselbe URL funktioniert für GA4, Meta Pixel, Google Ads, Plausible und Matomo gleichzeitig. Du konfigurierst die Conversion im Tool, nicht im Formular.
+- **Nur echte Einsendungen:** Die Weiterleitung auf die Danke-Seite passiert nur nach erfolgreicher, serverseitig validierter Einsendung. Abgebrochene Versuche zählen nicht mit.
+
+[Flinkform](/) arbeitet genau so: Jedes Formular kann nach dem Absenden auf eine frei wählbare Danke-Seite weiterleiten. Optional hängt Flinkform die Parameter `flinkform_submission_id` und `flinkform_form_id` an die URL. Damit unterscheidest du in der Auswertung, welches Formular konvertiert hat, ohne pro Formular eine eigene Danke-Seite zu bauen.
+
+## GA4: Zielvorhaben auf die Danke-URL
+
+In Google Analytics 4 heißen Conversions "Schlüsselereignisse". So richtest du eins auf die Danke-Seite ein:
+
+1. In GA4 unter "Verwaltung" ein neues Ereignis anlegen, Bedingung: `page_location` enthält `/danke` (bzw. deinen Pfad).
+2. Dem Ereignis einen sprechenden Namen geben, zum Beispiel `formular_gesendet`.
+3. Das Ereignis unter "Schlüsselereignisse" aktivieren.
+
+Ab dann taucht jede Formular-Einsendung als Conversion in Berichten, Explorationen und verknüpften Google-Ads-Kampagnen auf. Nutzt du mehrere Formulare mit derselben Danke-Seite, filterst du über den `flinkform_form_id`-Parameter in der URL.
+
+## Meta Pixel: Standard-Event "Lead"
+
+Für Meta Ads (Facebook, Instagram) feuerst du auf der Danke-Seite das Standard-Event `Lead`:
+
+```html
+<script>
+  fbq('track', 'Lead');
+</script>
+```
+
+Das Snippet gehört nur auf die Danke-Seite, nicht auf jede Seite. Standard-Events wie `Lead` kann Meta direkt für Kampagnen-Optimierung und Custom Audiences nutzen. Wer den Google Tag Manager einsetzt, löst das Event über einen Trigger vom Typ "Seitenaufruf" mit der Bedingung "Pfad enthält /danke" aus.
+
+## Cookiefrei messen: Plausible und Matomo
+
+Wer keine Werbe-Kampagnen optimiert, sondern nur wissen will, wie viele Besucher das Formular absenden, braucht weder GA4 noch Meta Pixel. Plausible und Matomo (in cookieloser Konfiguration) messen ohne Cookies und ohne Profilbildung:
+
+- **Plausible:** Ziel vom Typ "Seitenaufruf" auf `/danke` anlegen. Fertig. Plausible setzt keine Cookies und speichert keine personenbezogenen Profile.
+- **Matomo:** Selbst gehostet und cookielos konfiguriert bleibt die Messung auf dem eigenen Server. Ein Ziel auf die Danke-URL zählt die Conversions.
+
+Der Preis dafür: keine Kampagnen-Optimierung bei Google oder Meta und keine Remarketing-Zielgruppen. Für viele Websites reicht das trotzdem, weil die Kernfrage "Wie viele Anfragen bringt die Seite?" beantwortet ist.
+
+## DSGVO: Was braucht Einwilligung, was nicht
+
+Die Einordnung in Kürze:
+
+| Baustein | Einwilligung nötig? |
+| --- | --- |
+| Kontaktformular selbst (Anfrage beantworten) | Nein, Rechtsgrundlage ist die Anfrage-Bearbeitung |
+| Danke-Seiten-Redirect | Nein, eine Weiterleitung verarbeitet nichts zusätzlich |
+| GA4 | Ja, in der Regel (Cookies, US-Datentransfer) |
+| Meta Pixel | Ja, in der Regel (Cookies, Profilbildung) |
+| Plausible / Matomo cookielos | In der Regel nein, Konfiguration prüfen |
+
+Das Formular selbst löst also keine Einwilligungspflicht aus. Warum ein Kontaktformular keinen Cookie-Banner-Eintrag braucht, steht ausführlich im Artikel [Cookie-Banner und Kontaktformular](/wissen/cookie-banner-kontaktformular). GA4 und Meta Pixel dürfen dagegen erst nach Einwilligung laden. Dadurch fehlen dir zwar Conversions in der Statistik, rechtlich bist du damit aber sauber. Praktisch heißt das: Tracking-Scripte hinter das Consent-Tool legen und akzeptieren, dass die gemessenen Zahlen unter den echten liegen.
+
+Flinkform trägt zur sauberen Basis bei: Das Plugin speichert selbst keine IP-Adressen und keine User-Agents und bindet keine externen Dienste ein. Mehr dazu im Artikel [DSGVO-konformes Formular-Plugin](/wissen/dsgvo-konformes-formular-plugin).
+
+## So richtest du es mit Flinkform ein
+
+1. Danke-Seite in WordPress anlegen (zum Beispiel /danke) und per "noindex" von der Suche ausschließen.
+2. Im Formular-Block die Weiterleitung auf diese Seite aktivieren, optional mit `flinkform_submission_id`- und `flinkform_form_id`-Parametern.
+3. Conversion im Tracking-Tool der Wahl anlegen: GA4-Schlüsselereignis, Meta-Lead-Event oder Plausible-Ziel auf die Danke-URL.
+
+Die Schritt-für-Schritt-Anleitung zum Formular selbst findest du in der [Dokumentation](/docs). Wer mehrstufige Formulare misst, kombiniert das Ganze sinnvoll mit einem [Multi-Step-Formular](/wissen/multi-step-formular-wordpress): gemessen wird trotzdem nur die abgeschlossene Einsendung.
+
+## Häufige Fragen
+
+### Warum sollte die Danke-Seite auf "noindex" stehen?
+
+Damit niemand über Google direkt auf der Danke-Seite landet und als falsche Conversion zählt. Ein Meta-Robots-Tag "noindex" genügt.
+
+### Kann ich mehrere Formulare mit einer Danke-Seite tracken?
+
+Ja. Flinkform hängt auf Wunsch den Parameter `flinkform_form_id` an die Redirect-URL. In GA4, Plausible oder Matomo filterst du dann nach diesem Parameter, statt pro Formular eine eigene Seite zu pflegen.
+
+### Brauche ich für das Formular selbst eine Einwilligung?
+
+Nein. Die Verarbeitung der Formulardaten stützt sich auf die Bearbeitung der Anfrage, nicht auf Einwilligung. Einwilligungspflichtig sind die Tracking-Tools, die du zusätzlich einsetzt, insbesondere GA4 und Meta Pixel.
+
+### Was ist mit Conversions, die wegen abgelehntem Consent nicht gemessen werden?
+
+Die entstehen trotzdem, nur siehst du sie nicht in GA4 oder Meta. Als Gegenprobe hilft das Submissions-Dashboard von Flinkform: Dort steht die echte Zahl der Einsendungen, unabhängig vom Consent-Status der Besucher.
+
+### Reicht Plausible für Google-Ads- oder Meta-Kampagnen?
+
+Nein. Plausible zeigt dir, wie viele Besucher konvertieren, kann die Daten aber nicht an Google Ads oder Meta zurückspielen. Für Kampagnen-Optimierung brauchst du das jeweilige Conversion-Tracking des Werbenetzwerks, inklusive Einwilligung.

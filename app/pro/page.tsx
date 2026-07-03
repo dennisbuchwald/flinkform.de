@@ -96,7 +96,7 @@ const highlights = [
 const compareRows = [
   {
     feature: "Stripe Payments im Formular",
-    cells: [true, "ab 199 $/Jahr", "Add-on nötig", true],
+    cells: [true, "+3 % Gebühr unter Pro (399 $)", "Add-on nötig", true],
   },
   {
     feature: "SEPA, Apple Pay & Google Pay",
@@ -105,18 +105,18 @@ const compareRows = [
   { feature: "Kein Shop/Checkout nötig", cells: [true, true, true, false] },
   {
     feature: "Berechnungsfelder",
-    cells: [true, "ab 199 $/Jahr", true, false],
+    cells: [true, "nur in Bezahlplänen", true, false],
   },
   { feature: "Multi-Datei-Upload", cells: [true, "ab 99 $/Jahr", true, false] },
   { feature: "Block-Editor nativ", cells: [true, false, false, false] },
   {
     feature: "Webhooks mit Retry-Logik",
-    cells: [true, "ab 199 $/Jahr", "Add-on", false],
+    cells: [true, "Add-on in höheren Plänen", "Add-on", false],
   },
   { feature: "SMTP + Sende-Log", cells: [true, false, false, false] },
   {
     feature: "Newsletter-Integration",
-    cells: [true, "ab 199 $/Jahr", "Add-on", "Plugin nötig"],
+    cells: [true, "ab Plus (199 $/Jahr)", "Add-on", "Plugin nötig"],
   },
   {
     feature: "Spam-Schutz ohne US-Dienst",
@@ -268,7 +268,8 @@ export default function ProPage() {
         <p className="mt-8 max-w-2xl text-[1.02rem] leading-relaxed text-ink-soft">
           Normalerweise heißt das: fünf weitere Plugins installieren. Fünf
           Konfigurationen, fünf Update-Zyklen, fünf potenzielle Konflikte.
-          Bei WPForms zahlst du für diese Features ab 199 Dollar pro Jahr.{" "}
+          Bei WPForms brauchst du für dieses Paket den Pro-Plan, regulär 399
+          Dollar pro Jahr.{" "}
           <strong className="text-ink">
             Flinkform Pro packt alles in ein Add-on.
           </strong>{" "}

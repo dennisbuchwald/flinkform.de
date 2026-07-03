@@ -1,0 +1,81 @@
+import WissenArticle from "@/components/WissenArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "Warum kommen meine WordPress-Formular-Mails nicht an?",
+  description:
+    "WordPress-Formular-Mails landen im Spam, weil wp_mail() ohne Authentifizierung sendet. Ursachen, SPF/DKIM/DMARC erklärt und die Lösung per SMTP.",
+  alternates: { canonical: `${SITE_URL}/wissen/wordpress-formular-mails-kommen-nicht-an` },
+};
+
+export default function Layout({ children }) {
+  return <WissenArticle slug="wordpress-formular-mails-kommen-nicht-an">{children}</WissenArticle>;
+}
+
+WordPress-Formular-Mails kommen meist deshalb nicht an, weil WordPress sie über `wp_mail()` und die PHP-Funktion `mail()` direkt vom Webserver verschickt: ohne Authentifizierung, die beweist, dass der Absender die Domain wirklich besitzt. Empfangende Server wie Gmail stufen solche Mails als Spam ein oder lehnen sie ab, besonders seit den verschärften Anforderungen von Google und Yahoo ab Februar 2024. Die zuverlässige Lösung ist der Versand über einen authentifizierten SMTP-Server plus korrekte SPF-, DKIM- und DMARC-Einträge im DNS der eigenen Domain.
+
+## Die häufigsten Ursachen im Überblick
+
+- **Kein authentifizierter Versand:** `wp_mail()` nutzt standardmäßig PHP `mail()` über den lokalen Webserver. Nichts belegt, dass die Mail wirklich von deiner Domain kommen darf.
+- **Schlechte Hosting-Reputation:** Auf Shared Hosting teilen sich hunderte Websites dieselbe Sende-IP. Spammt ein Nachbar, leidet die Reputation aller. Manche Hoster drosseln oder deaktivieren `mail()` komplett.
+- **Falsche From-Adresse:** Der Standard-Absender `wordpress@deine-domain.de` ist oft nicht durch SPF oder DKIM abgedeckt.
+- **Besucher-Adresse als Absender:** Manche Formulare setzen die E-Mail des Besuchers ins From-Feld. Eine Mail mit `From: name@gmail.com`, die nicht von Googles Servern kommt, scheitert am DMARC-Alignment der Absender-Domain fast zwangsläufig.
+- **Fehlende DNS-Einträge:** Ohne SPF, DKIM und DMARC fehlt Empfängern jede Grundlage, deiner Domain zu vertrauen.
+
+## SPF, DKIM und DMARC kurz erklärt
+
+| Standard | Was er macht | Wo er liegt |
+| --- | --- | --- |
+| **SPF** | Listet, welche Server für deine Domain senden dürfen. Der Empfänger prüft die einliefernde IP dagegen. | DNS-TXT-Record der Domain |
+| **DKIM** | Kryptografische Signatur im Mail-Header. Beweist, dass die Mail autorisiert ist und unterwegs nicht verändert wurde. | Signatur in der Mail, öffentlicher Schlüssel im DNS |
+| **DMARC** | Legt fest, was mit Mails passiert, die SPF/DKIM nicht bestehen (`none`, `quarantine`, `reject`), und verknüpft beides mit der sichtbaren From-Domain. | DNS-Record `_dmarc.deine-domain.de` |
+
+## Gmail und Yahoo: Pflichten seit Februar 2024
+
+Google und Yahoo setzen seit Februar 2024 parallel strengere Regeln durch. Für alle Absender an Gmail gilt: SPF oder DKIM eingerichtet, gültiger Reverse-DNS-Eintrag (PTR) der Sende-IP, TLS-Verschlüsselung. Wer mehr als 5.000 Mails pro Tag an Gmail-Adressen schickt, braucht zusätzlich SPF **und** DKIM, einen DMARC-Record (mindestens `p=none`), passendes Alignment zwischen From-Domain und SPF/DKIM-Domain, One-Click-Unsubscribe für Marketing-Mails und eine Spam-Beschwerderate unter 0,3 Prozent.
+
+Formular-Benachrichtigungen sind transaktional und brauchen kein Unsubscribe. Die Authentifizierungsanforderungen treffen trotzdem faktisch jede Domain: Unauthentifizierte Mails werden zunehmend gefiltert oder abgelehnt, egal wie klein das Sendevolumen ist.
+
+## Die Lösung: SMTP statt PHP mail()
+
+Ein SMTP-Setup biegt `wp_mail()` so um, dass WordPress über einen authentifizierten Mail-Server sendet statt über PHP `mail()`. Der Versand läuft dann über eine IP mit gepflegter Reputation, mit Login-Authentifizierung, DKIM-Signatur und passendem SPF-Eintrag. Zwei Wege:
+
+1. **Kostenloses SMTP-Plugin** wie WP Mail SMTP oder FluentSMTP. Funktioniert gut und stellt den Versand für die ganze WordPress-Installation um. Ehrlich gesagt: Wenn du nur dieses eine Problem lösen willst, reicht das völlig.
+2. **Flinkform Pro SMTP:** Wer [Flinkform Pro](/pro) ohnehin nutzt, braucht kein zusätzliches Plugin. Das SMTP-Modul bringt 7 Provider-Presets mit (Gmail, Outlook, SendGrid, Mailgun, Brevo, Postmark, Amazon SES), speichert Zugangsdaten AES-256-verschlüsselt und führt ein Sende-Log. Am Log siehst du pro Mail, ob die Übergabe an den Mail-Server geklappt hat, statt im Dunkeln zu raten. Pro kostet ab 59 Euro pro Jahr (Stand Juli 2026).
+
+In beiden Fällen gilt: From-Adresse auf der eigenen Domain, die Besucher-Adresse nur als Reply-To. Und die DNS-Einträge (SPF, DKIM, DMARC) müssen zum gewählten Versandweg passen, sonst authentifiziert der SMTP-Server ins Leere.
+
+## Diagnose-Checkliste
+
+1. **Kommt die Mail überhaupt weg?** Test-Einsendung schicken und Spam-Ordner prüfen, auch bei einer zweiten Adresse (z.B. Gmail). In [Flinkform](/) landet jede Einsendung zusätzlich im Submissions-Dashboard, es geht also nichts verloren, selbst wenn die Mail hängt.
+2. **From-Adresse prüfen:** Sendet das Formular von `deine-domain.de` oder von einer fremden Adresse?
+3. **SPF-Record prüfen:** TXT-Record der Domain abfragen (z.B. mit `dig TXT deine-domain.de` oder einem Online-Checker). Ist der sendende Server gelistet?
+4. **DKIM und DMARC prüfen:** Mail an einen Gmail-Account schicken, dort "Original anzeigen" öffnen: Gmail zeigt für SPF, DKIM und DMARC jeweils PASS oder FAIL.
+5. **SMTP einrichten**, falls einer der Checks fehlschlägt, und die DNS-Einträge des Providers eintragen.
+6. **Sende-Log kontrollieren:** Mit Flinkform Pro SMTP siehst du im Log jeden Versandversuch samt Ergebnis.
+
+## Häufige Fragen
+
+### Warum landet die Formular-Mail im Spam, obwohl das Formular funktioniert?
+
+Das Formular speichert und verarbeitet die Einsendung korrekt, aber der Mail-Versand ist ein separater Schritt. Ohne SPF, DKIM und authentifizierten Versandweg stufen Empfänger die Benachrichtigung als nicht vertrauenswürdig ein, unabhängig davon, wie gut das Formular selbst gebaut ist.
+
+### Liegt es am Formular-Plugin?
+
+Selten. Fast alle Formular-Plugins, auch Flinkform, übergeben Mails an `wp_mail()`. Das Zustellproblem entsteht dahinter, beim Transportweg. Deshalb löst ein Plugin-Wechsel das Problem in der Regel nicht, ein SMTP-Setup schon.
+
+### Brauche ich SPF, DKIM und DMARC alle drei?
+
+Für zuverlässige Zustellung an Gmail und Yahoo: praktisch ja. Pflicht für alle Absender ist seit Februar 2024 mindestens SPF oder DKIM plus TLS. Bulk-Sender ab 5.000 Mails pro Tag brauchen alle drei. Da du die Grenze selten kontrollieren kannst und DMARC das Vertrauen messbar erhöht, richte alle drei ein.
+
+### Gehen Einsendungen verloren, wenn die Mail nicht ankommt?
+
+Bei Flinkform nicht: Jede Einsendung liegt im Submissions-Dashboard im WordPress-Admin, mit Suche, Filter und Gelesen-Status. Die E-Mail ist nur die Benachrichtigung, nicht der Speicherort.
+
+### Reicht das SMTP meines Hosters?
+
+Oft ja. Der Hoster-SMTP ist authentifiziert und meist schon per SPF abgedeckt. Bei höherem Volumen oder wiederkehrenden Problemen ist ein spezialisierter Dienst wie Brevo, Postmark oder Amazon SES die robustere Wahl; alle drei sind als Preset in Flinkform Pro SMTP enthalten.
+
+### Was ist mit der Bestätigungsmail an den Besucher?
+
+Für sie gilt dasselbe: Sie geht über denselben Versandweg raus. Flinkform verschickt Admin- und Bestätigungsmail mit Merge-Tags; sobald SMTP korrekt eingerichtet ist, profitieren beide. Mehr Hintergrund zur Zustellbarkeit liest du im Artikel [WordPress-Mail-Zustellbarkeit](/blog/wordpress-mail-zustellbarkeit), Grundlagen zum Formular-Aufbau in den [Docs](/docs).

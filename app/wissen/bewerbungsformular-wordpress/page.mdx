@@ -1,0 +1,90 @@
+import WissenArticle from "@/components/WissenArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "Bewerbungsformular mit WordPress erstellen (DSGVO-konform)",
+  description:
+    "Bewerbungsformular in WordPress bauen: Multi-Step-Formular mit Datei-Uploads für Lebenslauf und Zeugnisse, Pflicht-Consent und automatischer Löschfrist. Anleitung mit Flinkform.",
+  alternates: { canonical: `${SITE_URL}/wissen/bewerbungsformular-wordpress` },
+};
+
+export default function Layout({ children }) {
+  return <WissenArticle slug="bewerbungsformular-wordpress">{children}</WissenArticle>;
+}
+
+Ein DSGVO-konformes Bewerbungsformular in WordPress braucht drei Dinge: Datei-Uploads für Lebenslauf, Anschreiben und Zeugnisse, eine Pflicht-Einwilligung in die Datenverarbeitung und eine definierte Löschfrist für abgelehnte Bewerbungen. Mit dem kostenlosen Plugin Flinkform baust du das Formular als Multi-Step-Formular direkt im Block-Editor; das Add-on Flinkform Pro ergänzt den Multi-Datei-Upload mit bis zu 10 Dateien pro Feld. Die Auto-Löschung nach Aufbewahrungsfrist ist bereits in der kostenlosen Version enthalten.
+
+## Was ein Bewerbungsformular können muss
+
+Ein Kontaktformular mit angehängtem Upload-Feld reicht für Bewerbungen nicht. Diese Anforderungen solltest du abdecken:
+
+- **Mehrere Datei-Uploads:** Lebenslauf, Anschreiben und Zeugnisse sind meist getrennte Dateien. Das Formular muss mehrere Dateien pro Feld annehmen und Typ sowie Größe prüfen.
+- **Pflicht-Consent:** Bewerber müssen der Verarbeitung ihrer Daten aktiv zustimmen, bevor sie absenden können.
+- **Löschfristen:** Bewerberdaten dürfen nicht unbegrenzt liegen bleiben. Art. 17 DSGVO gibt Betroffenen ein Recht auf Löschung; nach Abschluss des Verfahrens entfällt der Zweck der Speicherung.
+- **Geschützte Ablage:** Hochgeladene Lebensläufe gehören nicht in einen öffentlich erratbaren Upload-Ordner.
+- **Übersichtliche Struktur:** Ein mehrstufiges Formular (Person, Unterlagen, Abschluss) senkt die Abbruchrate gegenüber einer langen Einzelseite.
+
+## DSGVO: Consent und Löschfristen
+
+Bewerbungsdaten sind besonders sensibel, denn sie enthalten Lebensläufe, Zeugnisse und oft Gehaltsvorstellungen. Zwei Punkte sind entscheidend:
+
+**Einwilligung:** Ein Consent-Feld mit Link zur Datenschutzerklärung gehört als Pflichtfeld vor den Absende-Button. Willst du Bewerbungen über das Verfahren hinaus in einem Talent-Pool behalten, brauchst du dafür eine separate, freiwillige Einwilligung.
+
+**Löschfristen:** Nach einer Absage entfällt der Zweck der Verarbeitung. Wegen möglicher Ansprüche nach dem AGG ist es übliche Praxis, Unterlagen noch einige Monate nach Abschluss des Verfahrens aufzubewahren und dann zu löschen. Die konkrete Frist legst du mit deinem Datenschutzbeauftragten fest. Wichtig ist: Die Löschung muss tatsächlich passieren, auch bei den hochgeladenen Dateien. Mehr Grundlagen findest du im Artikel [DSGVO-konformes Formular-Plugin](/wissen/dsgvo-konformes-formular-plugin).
+
+## Schritt für Schritt mit Flinkform
+
+Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. So baust du das Bewerbungsformular:
+
+1. **Formular-Block einfügen:** Auf der Karriere-Seite den Flinkform-Block einsetzen. Alles passiert im Block-Editor, ohne separaten Builder.
+2. **Schritt 1, Person:** Text-Felder für Name, E-Mail, Telefon. Optional ein Dropdown für die Stelle, auf die sich jemand bewirbt.
+3. **Schritt 2, Unterlagen:** Mit einem Page-Break den zweiten Schritt beginnen. Hier kommen die Upload-Felder hin (Flinkform Pro, siehe unten). Wie Multi-Step im Detail funktioniert, steht im Artikel [Multi-Step-Formular in WordPress](/wissen/multi-step-formular-wordpress).
+4. **Schritt 3, Abschluss:** Textarea für Anmerkungen, dann das Consent-Feld als Pflichtfeld. Flinkform validiert es serverseitig, ein Bewerber kann es nicht umgehen.
+5. **Bedingte Logik (optional):** Frage nach der Stelle und blende je nach Antwort passende Zusatzfelder ein, etwa ein Feld für den Portfolio-Link nur bei Design-Stellen. Details: [Bedingte Logik in WordPress-Formularen](/wissen/bedingte-logik-wordpress-formular).
+6. **Mails einrichten:** Admin-Mail an die Personalabteilung, Bestätigungsmail an den Bewerber mit Merge-Tags.
+
+Spam-Schutz musst du nicht konfigurieren: Honeypot, signierter Zeit-Check und Proof-of-Work sind [ohne externe Dienste immer aktiv](/wissen/wordpress-formular-ohne-recaptcha).
+
+## Datei-Uploads mit Flinkform Pro
+
+Der Multi-Datei-Upload ist ein Feature von [Flinkform Pro](/pro) (ab 59 EUR pro Jahr für eine Website, Stand Juli 2026). Für Bewerbungsformulare relevant:
+
+| Funktion | Verhalten |
+| --- | --- |
+| Dateien pro Feld | Bis zu 10, mehrere Upload-Felder möglich |
+| Dateityp-Limits | Erlaubte Typen pro Feld festlegen, z. B. nur PDF |
+| Größen-Check | Maximale Dateigröße pro Feld |
+| Ablage | Geschützter Upload-Ordner, kein öffentliches Verzeichnis-Listing |
+| Löschkaskade | Wird die Einsendung gelöscht, werden die Dateien mitgelöscht |
+
+Die Löschkaskade ist für Bewerbungsformulare der entscheidende Punkt: Bei vielen Plugins bleiben hochgeladene Dateien auf dem Server liegen, obwohl der Datensatz längst gelöscht ist. Genau das ist ein DSGVO-Problem.
+
+## Löschfristen automatisieren
+
+Schon im kostenlosen Flinkform legst du pro Formular eine Aufbewahrungsfrist fest. Einsendungen, die älter sind, löscht das Plugin automatisch. In Kombination mit der Löschkaskade von Flinkform Pro verschwinden damit auch die Bewerbungsunterlagen selbst, ohne dass jemand manuell aufräumen muss. Zusätzlich ist Flinkform an die WordPress-Privacy-Tools angebunden (Datenexport und Löschung auf Anfrage) und speichert weder IP-Adressen noch User-Agents.
+
+## Ehrliche Einordnung
+
+Ein Formular ersetzt kein Bewerbermanagement-System. Wenn du hunderte Bewerbungen pro Monat mit mehrstufigen Freigabeprozessen, Terminplanung und Team-Bewertungen verwalten musst, ist eine spezialisierte Recruiting-Software die bessere Wahl. Für die Karriere-Seite eines kleinen oder mittleren Unternehmens, das Bewerbungen strukturiert und DSGVO-konform entgegennehmen will, reicht ein gutes Formular dagegen völlig, und es kostet einen Bruchteil.
+
+## Häufige Fragen
+
+### Kann ich das Bewerbungsformular mit dem kostenlosen Flinkform bauen?
+
+Das Formular selbst ja: Multi-Step, alle 13 Feldtypen, Consent-Feld, bedingte Logik und Aufbewahrungsfrist mit Auto-Löschung sind kostenlos. Nur der Datei-Upload für Lebenslauf und Zeugnisse braucht Flinkform Pro.
+
+### Wie viele Dateien kann ein Bewerber hochladen?
+
+Bis zu 10 Dateien pro Upload-Feld, mit Limits für Dateityp und Größe. Du kannst mehrere Upload-Felder anlegen, etwa je eines für Lebenslauf, Anschreiben und Zeugnisse.
+
+### Wie lange darf ich Bewerberdaten speichern?
+
+Nur so lange, wie der Zweck es erfordert. Nach einer Absage ist eine Aufbewahrung von einigen Monaten wegen möglicher AGG-Ansprüche übliche Praxis, danach muss gelöscht werden. Die konkrete Frist stimmst du mit deinem Datenschutzbeauftragten ab und hinterlegst sie in Flinkform als Aufbewahrungsfrist.
+
+### Werden hochgeladene Dateien wirklich gelöscht?
+
+Ja. Flinkform Pro löscht per Löschkaskade die Dateien mit, sobald die zugehörige Einsendung gelöscht wird, ob manuell oder automatisch nach Ablauf der Aufbewahrungsfrist.
+
+### Brauche ich ein Cookie-Banner für das Bewerbungsformular?
+
+Für das Formular selbst nicht. Flinkform lädt keine externen Dienste, setzt keine Tracking-Cookies und der Spam-Schutz läuft komplett auf deinem Server. Details im Artikel [Cookie-Banner und Kontaktformular](/wissen/cookie-banner-kontaktformular).

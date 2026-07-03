@@ -117,7 +117,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "Was unterscheidet Flinkform von WPForms oder Gravity Forms?",
-    a: "WPForms und Gravity Forms nutzen einen eigenen, separaten Formular-Builder. Flinkform lebt direkt im WordPress-Block-Editor. Außerdem kosten Multi-Step und bedingte Logik bei WPForms ab 199 Dollar pro Jahr. Bei Flinkform ist beides kostenlos.",
+    a: "WPForms und Gravity Forms nutzen einen eigenen, separaten Formular-Builder. Flinkform lebt direkt im WordPress-Block-Editor. Außerdem brauchst du für bedingte Logik und mehrseitige Formulare bei WPForms mindestens den Basic-Plan, regulär 99 Dollar pro Jahr. Bei Flinkform ist beides kostenlos.",
   },
   {
     q: "Brauche ich reCAPTCHA für den Spam-Schutz?",
@@ -149,7 +149,7 @@ const keywordCards = [
   },
   {
     title: "WPForms Alternative",
-    text: "WPForms verlangt ab 199 Dollar pro Jahr für Multi-Step und bedingte Logik. Die Lite-Version speichert keine Einsendungen. Flinkform kann beides kostenlos.",
+    text: "WPForms verlangt für bedingte Logik und mehrseitige Formulare mindestens Basic, regulär 99 Dollar pro Jahr. Die Lite-Version speichert keine Einsendungen. Flinkform kann beides kostenlos.",
     href: "/vergleich/wpforms-alternative",
   },
   {
@@ -216,8 +216,8 @@ export default function Home() {
           <div id="demo" className="scroll-mt-24">
             <HeroFormDemo />
             <p className="mt-3 text-center text-xs text-ink-muted">
-              Ein echtes Multi-Step-Formular zum Durchklicken, in HTML/CSS
-              nachgebaut. So fühlt sich Flinkform an.
+              So fühlt sich Flinkform an: Multi-Step, Live-Berechnung, ohne
+              reCAPTCHA. Klick dich durch.
             </p>
           </div>
         </div>
@@ -323,7 +323,7 @@ export default function Home() {
 
       {/* ── FEATURES ── */}
       <Section>
-        <SectionHeading sub="Multi-Step und bedingte Logik kosten bei WPForms ab 199 Dollar pro Jahr, bei Gravity Forms ab 59 Dollar. Bei Flinkform: nichts.">
+        <SectionHeading sub="Multi-Step und bedingte Logik kosten bei WPForms regulär ab 99 Dollar pro Jahr, bei Gravity Forms ab 59 Dollar. Bei Flinkform: nichts.">
           Alles drin. Alles kostenlos.
         </SectionHeading>
         <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-2">

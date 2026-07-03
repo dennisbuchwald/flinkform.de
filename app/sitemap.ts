@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import { posts } from "@/lib/posts";
 import { wissen } from "@/lib/wissen";
+import { vergleiche } from "@/lib/vergleiche";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -10,21 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/`, lastModified: now, priority: 1 },
     { url: `${SITE_URL}/pro`, lastModified: now, priority: 0.9 },
     { url: `${SITE_URL}/vergleich`, lastModified: now, priority: 0.8 },
-    {
-      url: `${SITE_URL}/vergleich/contact-form-7-alternative`,
-      lastModified: now,
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/vergleich/wpforms-alternative`,
-      lastModified: now,
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/vergleich/gravity-forms-alternative`,
-      lastModified: now,
-      priority: 0.8,
-    },
     { url: `${SITE_URL}/blog`, lastModified: now, priority: 0.7 },
     { url: `${SITE_URL}/wissen`, lastModified: now, priority: 0.7 },
     {
@@ -34,6 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     { url: `${SITE_URL}/docs`, lastModified: now, priority: 0.6 },
   ];
+
+  const vergleichRoutes: MetadataRoute.Sitemap = vergleiche.map((v) => ({
+    url: `${SITE_URL}/vergleich/${v.slug}`,
+    lastModified: new Date(v.updated),
+    priority: 0.8,
+  }));
 
   const blogRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${SITE_URL}/blog/${post.slug}`,
@@ -47,5 +39,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...blogRoutes, ...wissenRoutes];
+  return [...staticRoutes, ...vergleichRoutes, ...blogRoutes, ...wissenRoutes];
 }

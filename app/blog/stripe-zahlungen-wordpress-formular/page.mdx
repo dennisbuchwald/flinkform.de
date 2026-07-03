@@ -58,9 +58,9 @@ Eine gute Formular-Integration bildet das ab:
 
 Ohne dieses Status-Modell wären SEPA-Zahlungen im Formular blind: Du wüsstest nie sicher, ob das Geld angekommen ist.
 
-## Dynamische Beträge: der Angebotsrechner
+## Dynamische Beträge: Produktauswahl und Angebotsrechner
 
-Der nächste Schritt: Der Betrag steht nicht fest, sondern berechnet sich aus den Antworten. Menge mal Stückpreis plus Zuschläge, live angezeigt, während der Besucher tippt. Wichtig ist auch hier die Server-Regel: Die Formel wird serverseitig nachgerechnet, der Browser liefert nur die Eingaben. So kann niemand den Preis manipulieren.
+Der Betrag muss nicht fix sein: Mit einer Produktauswahl (Radio-Buttons mit individuellen Preisen) wählt der Kunde die Variante, der Server bindet den passenden Preis. Für Angebots- und Preisrechner gibt es zusätzlich Berechnungsfelder, die live rechnen, während der Besucher tippt, serverseitig nachgerechnet und manipulationssicher. Die direkte Kopplung einer berechneten Summe als Zahlbetrag ans Payment-Feld steht als nächster Schritt auf der Flinkform-Roadmap.
 
 ## So setzt du es mit WordPress um
 
@@ -68,7 +68,7 @@ Mit [Flinkform Pro](/pro) sieht der Weg so aus:
 
 1. **Stripe-Konto anlegen** (kostenlos, mit Test-Keys zum gefahrlosen Ausprobieren).
 2. **Flinkform (kostenlos) + Flinkform Pro installieren.** Die API-Keys werden AES-256-verschlüsselt in WordPress gespeichert.
-3. **Payment-Feld in das Formular ziehen:** fester Betrag oder Produktauswahl per Radio-Buttons. Optional ein Berechnungsfeld für dynamische Summen.
+3. **Payment-Feld in das Formular ziehen:** fester Betrag oder Produktauswahl per Radio-Buttons, jeweils serverseitig an die Formular-Definition gebunden.
 4. **Zahlarten im Stripe-Dashboard aktivieren** (SEPA, Wallets nach Bedarf), für SEPA den Webhook-Endpoint eintragen, den Flinkform in den Einstellungen anzeigt.
 5. **Testzahlung durchführen** (Stripe-Testkarte 4242 4242 4242 4242), dann Live-Keys eintragen.
 

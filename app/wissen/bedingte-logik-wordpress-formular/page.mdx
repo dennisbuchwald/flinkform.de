@@ -1,0 +1,79 @@
+import WissenArticle from "@/components/WissenArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "Was ist bedingte Logik in WordPress-Formularen?",
+  description:
+    "Bedingte Logik zeigt Formularfelder nur, wenn sie relevant sind: Definition, typische Anwendungsfälle und Anleitung. Bei Flinkform kostenlos, bei WPForms erst ab Basic-Lizenz.",
+  alternates: { canonical: `${SITE_URL}/wissen/bedingte-logik-wordpress-formular` },
+};
+
+export default function Layout({ children }) {
+  return <WissenArticle slug="bedingte-logik-wordpress-formular">{children}</WissenArticle>;
+}
+
+Bedingte Logik (englisch: Conditional Logic) bedeutet, dass sich ein WordPress-Formular abhängig von den Eingaben des Besuchers verändert: Felder erscheinen oder verschwinden, ganze Schritte werden übersprungen, der Absende-Button wird gesperrt oder freigegeben. Die Grundform ist immer eine Wenn-dann-Regel: Wenn Feld X den Wert Y hat, führe Aktion Z aus. Besucher sehen so nur die Fragen, die für sie relevant sind, was Formulare kürzer macht und die Abschlussquote erhöht. In WordPress ist bedingte Logik je nach Plugin kostenlos enthalten (Flinkform), an eine Bezahl-Lizenz gebunden (WPForms ab Basic) oder nur per Zusatz-Plugin nachrüstbar (Contact Form 7).
+
+## Wie bedingte Logik funktioniert
+
+Jede Regel besteht aus drei Teilen:
+
+- **Auslöser:** ein Feld und sein Wert, z. B. Dropdown "Anliegen" = "Support".
+- **Bedingung:** ist gleich, ist nicht gleich, ist ausgefüllt, ist leer.
+- **Aktion:** ein Feld oder einen Schritt ein- oder ausblenden, einen Schritt überspringen, das Absenden sperren.
+
+Mehrere Regeln lassen sich kombinieren. Wichtig für die Datenqualität: Ein gutes Plugin validiert die Regeln auch serverseitig, damit ausgeblendete Pflichtfelder das Absenden nicht blockieren und manipulierte Anfragen abgefangen werden.
+
+## Typische Anwendungsfälle
+
+- **Feld nur zeigen, wenn es relevant ist:** Das Feld "Bestellnummer" erscheint nur, wenn der Besucher als Anliegen "Reklamation" wählt. Alle anderen sehen ein kürzeres Formular.
+- **Schritte überspringen:** In einem [Multi-Step-Formular](/wissen/multi-step-formular-wordpress) wählt ein Bewerber "keine Berufserfahrung", der Schritt "Bisherige Stationen" wird komplett übersprungen.
+- **Submit sperren:** Ein B2B-Anfrageformular gibt den Absende-Button erst frei, wenn "Firmenkunde" ausgewählt ist. Privatanfragen werden gar nicht erst eingesammelt.
+- **Nachfassen bei "Sonstiges":** Ein Freitextfeld "Bitte beschreibe dein Anliegen" erscheint nur, wenn im Dropdown "Sonstiges" gewählt wurde.
+- **Consent-abhängige Felder:** Das Feld "Telefonnummer für Rückruf" erscheint nur, wenn die Checkbox "Ich möchte zurückgerufen werden" aktiv ist.
+
+## Bedingte Logik mit Flinkform einrichten (kostenlos)
+
+Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. So richtest du eine Regel ein:
+
+1. [Formular im Block-Editor anlegen](/wissen/gutenberg-formular-erstellen): Formular-Block einfügen, Felder als Blöcke hinzufügen.
+2. Das Feld (oder den Schritt) auswählen, das nur unter einer Bedingung erscheinen soll.
+3. In den Block-Einstellungen die Bedingung festlegen: welches Feld ausgewertet wird, welcher Wert gelten muss und ob ein- oder ausgeblendet wird.
+4. Für Multi-Step-Formulare gilt dasselbe pro Schritt: Schritte lassen sich abhängig von früheren Antworten überspringen. Auch das Absenden kannst du an eine Bedingung knüpfen.
+
+Es gibt keinen separaten Builder und keine Bezahlschranke: Bedingte Logik steckt in der kostenlosen Version auf WordPress.org, zusammen mit 13 Feldtypen, Multi-Step und Spam-Schutz ohne externe Dienste.
+
+## Marktüberblick: Wer verlangt was für bedingte Logik?
+
+| Plugin | Bedingte Logik | Kosten dafür (Stand Juli 2026) |
+| --- | --- | --- |
+| [Flinkform](/) | im kostenlosen Plugin enthalten | 0 Euro |
+| WPForms | nicht in der Gratis-Version Lite | erst mit Basic-Lizenz (Bezahl-Plan) |
+| Gravity Forms | in allen Lizenzen ab Basic enthalten | Plugin ist grundsätzlich kostenpflichtig, kein Gratis-Plan |
+| Contact Form 7 | nicht im Kern enthalten | nur über ein Zusatz-Plugin eines Drittanbieters |
+
+Ehrliche Einordnung: Gravity Forms behandelt bedingte Logik vorbildlich, sie ist dort seit Jahren ausgereift und in jeder Lizenz dabei. Wer ohnehin eine Gravity-Lizenz besitzt, hat keinen Grund, nur wegen bedingter Logik zu wechseln. Bei [WPForms](/vergleich/wpforms-alternative) ist die Funktion technisch gut, aber hinter der Bezahlschranke. Bei [Contact Form 7](/vergleich/contact-form-7-alternative) kommt sie nur über ein Drittanbieter-Plugin dazu, was ein zusätzliches Update- und Kompatibilitätsrisiko bedeutet; dazu kommt der [Feature Freeze von Contact Form 7](/blog/contact-form-7-feature-freeze).
+
+Und wann brauchst du bedingte Logik gar nicht? Bei einem simplen Kontaktformular mit Name, E-Mail und Nachricht bringt sie nichts. Regeln lohnen sich erst, wenn dein Formular unterschiedliche Besuchergruppen bedient oder mehr als eine Handvoll Felder hat.
+
+## Häufige Fragen
+
+### Ist bedingte Logik in Flinkform wirklich kostenlos?
+
+Ja. Felder und Schritte ein- oder ausblenden, Schritte überspringen und das Absenden sperren sind Teil des kostenlosen Plugins auf WordPress.org (GPLv2). Flinkform Pro ergänzt andere Funktionen wie Stripe-Zahlungen und Berechnungsfelder, nicht die bedingte Logik.
+
+### Brauche ich für bedingte Logik ein Multi-Step-Formular?
+
+Nein. Regeln funktionieren auch in einseitigen Formularen, etwa um ein einzelnes Feld nur bei Bedarf einzublenden. Multi-Step und bedingte Logik ergänzen sich aber gut: Erst das Überspringen ganzer Schritte macht lange Formulare wirklich kurz.
+
+### Hat Contact Form 7 bedingte Logik?
+
+Nicht im Kern. Du brauchst ein Zusatz-Plugin eines Drittanbieters. Da Contact Form 7 seit der WordCamp Asia 2026 im Feature Freeze ist, wird sich daran auch nichts mehr ändern.
+
+### Was kostet bedingte Logik bei WPForms?
+
+In der kostenlosen Lite-Version ist sie nicht enthalten. Du brauchst mindestens die Basic-Lizenz, also einen Bezahl-Plan (Stand Juli 2026).
+
+### Macht bedingte Logik mein Formular langsamer?
+
+Die Auswertung passiert im Browser und ist praktisch verzögerungsfrei. Entscheidend ist das Plugin selbst: Flinkform lädt unter 15 KB Frontend-JavaScript, ohne jQuery, und nur auf Seiten, die tatsächlich ein Formular enthalten.

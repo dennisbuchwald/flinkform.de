@@ -4,34 +4,14 @@ import CompareTable from "@/components/CompareTable";
 import JsonLd from "@/components/JsonLd";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
 import { SITE_URL, breadcrumbSchema } from "@/lib/site";
+import { vergleiche } from "@/lib/vergleiche";
 
 export const metadata: Metadata = {
-  title: "Flinkform im Vergleich: Contact Form 7, WPForms, Gravity Forms",
+  title: "Flinkform im Vergleich: Contact Form 7, WPForms, Gravity Forms & Co.",
   description:
-    "Ehrliche Vergleiche: Flinkform gegen Contact Form 7, WPForms, Gravity Forms und SureForms. Funktionen, Preise und Datenschutz im Detail, mit Quellen.",
+    "Ehrliche Vergleiche: Flinkform gegen Contact Form 7, WPForms, Gravity Forms, Fluent Forms, SureForms, Typeform und weitere. Funktionen, Preise und Datenschutz im Detail.",
   alternates: { canonical: `${SITE_URL}/vergleich` },
 };
-
-const comparisons = [
-  {
-    title: "Contact Form 7 Alternative",
-    desc: "CF7 ist seit 2026 im Feature Freeze: Version 6.2 ist die letzte mit neuen Funktionen. Warum jetzt der richtige Zeitpunkt für den Wechsel ist und wie die Migration abläuft.",
-    href: "/vergleich/contact-form-7-alternative",
-    badge: "Feature Freeze",
-  },
-  {
-    title: "WPForms Alternative",
-    desc: "Multi-Step und bedingte Logik kosten bei WPForms regulär ab 199 Dollar pro Jahr, die Lite-Version speichert keine Einsendungen. Der ehrliche Preis- und Funktionsvergleich.",
-    href: "/vergleich/wpforms-alternative",
-    badge: "Paywall-Check",
-  },
-  {
-    title: "Gravity Forms Alternative",
-    desc: "Gravity Forms hat keine kostenlose Version und speichert ab Werk IP-Adressen. Wann Flinkform die bessere Wahl ist und wann Gravity sein Geld wert bleibt.",
-    href: "/vergleich/gravity-forms-alternative",
-    badge: "DSGVO-Fokus",
-  },
-] as const;
 
 const overviewRows = [
   {
@@ -86,8 +66,12 @@ export default function VergleichPage() {
 
       <Section>
         <div className="grid gap-5 md:grid-cols-3">
-          {comparisons.map((c) => (
-            <Link key={c.href} href={c.href} className="card card-hover flex flex-col p-7">
+          {vergleiche.map((c) => (
+            <Link
+              key={c.slug}
+              href={`/vergleich/${c.slug}`}
+              className="card card-hover flex flex-col p-7"
+            >
               <span className="self-start rounded-full bg-line/60 px-3 py-1 text-xs font-bold text-ink-soft">
                 {c.badge}
               </span>

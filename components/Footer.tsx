@@ -33,8 +33,12 @@ const columns = [
   {
     heading: "Rechtliches",
     links: [
-      { label: "Impressum", href: "/impressum" },
-      { label: "Datenschutz", href: "/datenschutz" },
+      { label: "Impressum", href: "https://dbw-media.de/impressum/", external: true },
+      {
+        label: "Datenschutz",
+        href: "https://dbw-media.de/datenschutzerklaerung/",
+        external: true,
+      },
     ],
   },
 ] as const;
@@ -51,14 +55,14 @@ export default function Footer() {
             </p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-muted">
               Das privacy-first Formular-Plugin für den
-              WordPress-Block-Editor. Entwickelt in Deutschland von{" "}
+              WordPress-Block-Editor. Entwickelt von{" "}
               <a
                 href="https://www.dennisbuchwald.de"
                 className="font-medium text-ink-soft underline decoration-line underline-offset-2 hover:text-ink"
               >
                 Dennis Buchwald
-              </a>
-              .
+              </a>{" "}
+              in Heilbronn.
             </p>
           </div>
           {columns.map((col) => (
@@ -97,7 +101,14 @@ export default function Footer() {
             Tracking, kein Banner nötig.
           </p>
           <p className="text-sm text-ink-muted">
-            © {new Date().getFullYear()} dbw media, Heilbronn
+            © {new Date().getFullYear()} Flinkform · Gemacht mit ❤️ und viel
+            ☕ von{" "}
+            <a
+              href="https://dbw-media.de"
+              className="font-medium text-ink-soft underline decoration-line underline-offset-2 hover:text-ink"
+            >
+              dbw media
+            </a>
           </p>
         </div>
       </div>
