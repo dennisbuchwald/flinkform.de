@@ -224,6 +224,29 @@ export default function Home() {
         <div aria-hidden="true" className="h-2 bg-gradient-brand-h" />
       </div>
 
+      {/* ── 6 SÄULEN ── */}
+      <Section>
+        <SectionHeading sub="Kein aufgesetzter Builder, keine Plugin-Sammlung, keine Datenabflüsse. Flinkform ist das Formular-Plugin, das WordPress von Haus aus haben sollte.">
+          Was Flinkform anders macht
+        </SectionHeading>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {pillars.map((p, i) => (
+            <div key={p.title} className="card card-hover p-7">
+              <span
+                aria-hidden="true"
+                className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-brand font-(family-name:--font-display) text-sm font-bold text-white"
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-4 text-[1.05rem] font-bold">{p.title}</h3>
+              <p className="mt-2 text-[0.9rem] leading-relaxed text-ink-soft">
+                {p.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       {/* ── DAS PRIVACY-PROBLEM ── */}
       <Section>
         <div className="overflow-hidden rounded-3xl border border-ink bg-ink text-white">
@@ -295,29 +318,6 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </div>
-      </Section>
-
-      {/* ── 6 SÄULEN ── */}
-      <Section>
-        <SectionHeading sub="Kein aufgesetzter Builder, keine Plugin-Sammlung, keine Datenabflüsse. Flinkform ist das Formular-Plugin, das WordPress von Haus aus haben sollte.">
-          Was Flinkform anders macht
-        </SectionHeading>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {pillars.map((p, i) => (
-            <div key={p.title} className="card card-hover p-7">
-              <span
-                aria-hidden="true"
-                className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-brand font-(family-name:--font-display) text-sm font-bold text-white"
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-4 text-[1.05rem] font-bold">{p.title}</h3>
-              <p className="mt-2 text-[0.9rem] leading-relaxed text-ink-soft">
-                {p.desc}
-              </p>
-            </div>
-          ))}
         </div>
       </Section>
 
