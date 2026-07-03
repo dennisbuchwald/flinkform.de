@@ -19,6 +19,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     { url: `${SITE_URL}/docs`, lastModified: now, priority: 0.6 },
+    { url: `${SITE_URL}/rechner`, lastModified: now, priority: 0.7 },
+    { url: `${SITE_URL}/roadmap`, lastModified: now, priority: 0.6 },
+    { url: `${SITE_URL}/ueber`, lastModified: now, priority: 0.5 },
+    { url: `${SITE_URL}/presse`, lastModified: now, priority: 0.5 },
   ];
 
   const vergleichRoutes: MetadataRoute.Sitemap = vergleiche.map((v) => ({

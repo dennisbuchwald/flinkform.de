@@ -230,7 +230,7 @@ export default function Home() {
           <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-[1.2fr_1fr]">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-pink">
-                Das Problem
+                Die unbequeme Wahrheit
               </p>
               <h2 className="mt-4 font-(family-name:--font-display) text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
                 Dein Kontaktformular schickt gerade Besucherdaten in die USA.
@@ -238,22 +238,22 @@ export default function Home() {
               </h2>
               <div className="mt-6 space-y-4 text-[1.02rem] leading-relaxed text-white/75">
                 <p>
-                  Fast jedes große Formular-Plugin setzt für den Spam-Schutz
-                  auf Google reCAPTCHA oder einen anderen US-Dienst. Das
-                  österreichische Bundesverwaltungsgericht hat am 13.09.2024
-                  entschieden: reCAPTCHA ohne vorherige Einwilligung verstößt
-                  gegen die DSGVO. Die französische Datenschutzbehörde CNIL
-                  hat dafür bereits Bußgelder verhängt.
+                  Fast jedes große Formular-Plugin löst sein Spam-Problem mit
+                  Google reCAPTCHA. Praktisch für das Plugin. Weniger
+                  praktisch für dich: Google sammelt dabei Daten deiner
+                  Besucher, und du stehst mit deinem Namen im Impressum dafür
+                  gerade.
                 </p>
                 <p>
-                  Wenn du Websites für Kunden baust, ist das dein Risiko: Du
-                  haftest für die Compliance der Seiten, die du auslieferst.
+                  Das ist kein Bauchgefühl, sondern dokumentierte Rechtslage:
+                  ein Gerichtsurteil in Österreich, Bußgelder in Frankreich,
+                  deutliche Worte der deutschen Aufsicht. Die Kurzfassung
+                  steht in den Karten, die Details im Blog.
                 </p>
                 <p className="font-semibold text-white">
-                  Flinkform löst das Problem an der Wurzel: Der Spam-Schutz
-                  (Honeypot, Zeit-Check, Proof-of-Work) läuft komplett auf
-                  deinem Server. Kein externer Dienst, keine Einwilligung
-                  nötig, kein Cookie-Banner für dein Formular.
+                  Flinkform braucht das alles nicht: Der Spam-Schutz läuft
+                  komplett auf deinem Server. Kein Google, keine
+                  Einwilligung, kein Cookie-Banner. Dein Formular gehört dir.
                 </p>
               </div>
               <Link
@@ -360,12 +360,18 @@ export default function Home() {
           rows={compareRows}
           note="Stand Juli 2026, reguläre Listenpreise der Anbieter. Contact Form 7 ist kostenlos, braucht für Multi-Step, Einsendungen und bedingte Logik aber 3 bis 4 Zusatz-Plugins."
         />
-        <div className="mt-6 flex flex-wrap gap-4">
+        <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2">
           <Link
             href="/vergleich"
             className="text-sm font-semibold text-brand-violet underline decoration-brand-violet/30 underline-offset-4 hover:decoration-brand-violet"
           >
             Alle Vergleiche im Detail
+          </Link>
+          <Link
+            href="/rechner"
+            className="text-sm font-semibold text-brand-violet underline decoration-brand-violet/30 underline-offset-4 hover:decoration-brand-violet"
+          >
+            Kostenrechner: Was zahlst du gerade?
           </Link>
         </div>
       </Section>
@@ -477,8 +483,8 @@ export default function Home() {
               In 5 Minuten steht dein erstes Formular.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-ink-soft">
-              Installieren, Form-Block einfügen, Felder hinzufügen,
-              veröffentlichen. Fertig.
+              Installieren, Form-Block einfügen, veröffentlichen. Kein
+              Account, keine Kreditkarte, kein Haken.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a

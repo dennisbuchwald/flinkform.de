@@ -101,11 +101,7 @@ export const softwareSchemaFree = {
   url: SITE_URL,
   downloadUrl: WPORG_URL,
   offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-  author: {
-    "@type": "Person",
-    name: "Dennis Buchwald",
-    url: "https://www.dennisbuchwald.de",
-  },
+  author: { "@id": `${SITE_URL}/#dennis` },
 };
 
 export const softwareSchemaPro = {
@@ -124,9 +120,5 @@ export const softwareSchemaPro = {
     priceCurrency: "EUR",
     offerCount: "4",
   },
-  author: {
-    "@type": "Person",
-    name: "Dennis Buchwald",
-    url: "https://www.dennisbuchwald.de",
-  },
+  author: { "@id": `${SITE_URL}/#dennis` },
 };

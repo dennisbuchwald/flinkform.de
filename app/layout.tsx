@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     locale: "de_DE",
     type: "website",
   },
+  alternates: {
+    types: {
+      "application/rss+xml": `${SITE_URL}/feed.xml`,
+    },
+  },
 };
 
 const organizationSchema = {
@@ -28,12 +33,32 @@ const organizationSchema = {
   "@id": `${SITE_URL}/#organization`,
   name: "dbw media",
   url: "https://dbw-media.de",
-  founder: { "@type": "Person", name: "Dennis Buchwald" },
+  founder: { "@id": `${SITE_URL}/#dennis` },
   address: {
     "@type": "PostalAddress",
     addressLocality: "Heilbronn",
     addressCountry: "DE",
   },
+  sameAs: [
+    "https://www.dennisbuchwald.de",
+    "https://github.com/dbwmedia",
+  ],
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${SITE_URL}/#dennis`,
+  name: "Dennis Buchwald",
+  url: `${SITE_URL}/ueber`,
+  jobTitle: "WordPress-Entwickler und Gründer von dbw media",
+  worksFor: { "@id": `${SITE_URL}/#organization` },
+  sameAs: [
+    "https://www.dennisbuchwald.de",
+    "https://github.com/dennisbuchwald",
+    "https://wordpress.org/plugins/flinkform/",
+    "https://profiles.wordpress.org/dbwmediadennis/",
+  ],
 };
 
 const websiteSchema = {
@@ -54,7 +79,7 @@ export default function RootLayout({
   return (
     <html lang="de" className="h-full antialiased">
       <body className="flex min-h-full flex-col">
-        <JsonLd data={[organizationSchema, websiteSchema]} />
+        <JsonLd data={[organizationSchema, personSchema, websiteSchema]} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-100 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"

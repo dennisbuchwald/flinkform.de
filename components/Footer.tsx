@@ -8,6 +8,8 @@ const columns = [
       { label: "Flinkform (kostenlos)", href: "/" },
       { label: "Flinkform Pro", href: "/pro" },
       { label: "Preise", href: "/pro#preise" },
+      { label: "Kostenrechner", href: "/rechner" },
+      { label: "Roadmap & Changelog", href: "/roadmap" },
       { label: "Dokumentation", href: "/docs" },
     ],
   },
@@ -31,8 +33,11 @@ const columns = [
     ],
   },
   {
-    heading: "Rechtliches",
+    heading: "Über",
     links: [
+      { label: "Über Flinkform", href: "/ueber" },
+      { label: "Presse & Media-Kit", href: "/presse" },
+      { label: "RSS-Feed", href: "/feed.xml" },
       { label: "Impressum", href: "https://dbw-media.de/impressum/", external: true },
       {
         label: "Datenschutz",
@@ -56,12 +61,12 @@ export default function Footer() {
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-muted">
               Das privacy-first Formular-Plugin für den
               WordPress-Block-Editor. Entwickelt von{" "}
-              <a
-                href="https://www.dennisbuchwald.de"
+              <Link
+                href="/ueber"
                 className="font-medium text-ink-soft underline decoration-line underline-offset-2 hover:text-ink"
               >
                 Dennis Buchwald
-              </a>{" "}
+              </Link>{" "}
               in Heilbronn.
             </p>
           </div>

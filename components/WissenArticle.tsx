@@ -25,11 +25,7 @@ export default function WissenArticle({
     description: entry.description,
     inLanguage: "de",
     dateModified: entry.updated,
-    author: {
-      "@type": "Person",
-      name: "Dennis Buchwald",
-      url: "https://www.dennisbuchwald.de",
-    },
+    author: { "@id": `${SITE_URL}/#dennis` },
     mainEntityOfPage: `${SITE_URL}/wissen/${entry.slug}`,
   };
 

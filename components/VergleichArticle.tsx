@@ -46,7 +46,7 @@ export default function VergleichArticle({
     headline: h1,
     inLanguage: "de",
     dateModified: updated,
-    author: { "@type": "Person", name: "Dennis Buchwald" },
+    author: { "@id": `${SITE_URL}/#dennis` },
     mainEntityOfPage: `${SITE_URL}/vergleich/${slug}`,
   };
 

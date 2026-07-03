@@ -23,11 +23,7 @@ export default function BlogArticle({
     inLanguage: "de",
     datePublished: post.date,
     dateModified: post.date,
-    author: {
-      "@type": "Person",
-      name: "Dennis Buchwald",
-      url: "https://www.dennisbuchwald.de",
-    },
+    author: { "@id": `${SITE_URL}/#dennis` },
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
   };
 
@@ -60,7 +56,14 @@ export default function BlogArticle({
             {post.title}
           </h1>
           <p className="mt-4 text-sm text-ink-muted">
-            Von Dennis Buchwald ·{" "}
+            Von{" "}
+            <Link
+              href="/ueber"
+              className="font-medium text-ink-soft underline decoration-line underline-offset-2 hover:text-ink"
+            >
+              Dennis Buchwald
+            </Link>{" "}
+            ·{" "}
             <time dateTime={post.date}>
               {new Date(post.date).toLocaleDateString("de-DE", {
                 day: "2-digit",

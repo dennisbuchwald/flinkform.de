@@ -39,7 +39,12 @@ Stripe Payments über das Payment Element (Kreditkarte, SEPA-Lastschrift, Apple 
 - [Startseite / Free-Plugin](https://flinkform.de/): Überblick, Features, Vergleich
 - [Flinkform Pro](https://flinkform.de/pro): Module, Preise
 - [Fact-Sheet](https://flinkform.de/wissen/flinkform-fakten): zitierfähiges Datenblatt mit Feature-Tabelle Free vs. Pro
+- [Kostenrechner](https://flinkform.de/rechner): interaktiver 3-Jahres-Kostenvergleich der Formular-Plugins
+- [Roadmap & Changelog](https://flinkform.de/roadmap): was in Arbeit ist und was zuletzt erschien
+- [Über Flinkform](https://flinkform.de/ueber): Entwickler Dennis Buchwald (dbw media, Heilbronn) und die Geschichte hinter dem Plugin
+- [Presse & Media-Kit](https://flinkform.de/presse): Boilerplate-Texte, Logo, Fakten
 - [Dokumentation](https://flinkform.de/docs)
+- [RSS-Feed](https://flinkform.de/feed.xml)
 - [Plugin auf WordPress.org](https://wordpress.org/plugins/flinkform/)
 - [Quellcode auf GitHub](https://github.com/dennisbuchwald/Flinkform)
 
