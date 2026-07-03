@@ -1,0 +1,83 @@
+import BlogArticle from "@/components/BlogArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "Stripe-Zahlungen im WordPress-Formular: Kreditkarte, SEPA und Apple Pay ohne Shop-System",
+  description:
+    "Anzahlungen, Buchungen und Verkäufe direkt im WordPress-Formular abwickeln, ohne WooCommerce. Wie das Stripe Payment Element funktioniert, was bei SEPA zu beachten ist und wie der Einbau gelingt.",
+  alternates: { canonical: `${SITE_URL}/blog/stripe-zahlungen-wordpress-formular` },
+};
+
+export default function Layout({ children }) {
+  return <BlogArticle slug="stripe-zahlungen-wordpress-formular">{children}</BlogArticle>;
+}
+
+Für eine Anzahlung, eine Kursbuchung oder ein einzelnes Produkt braucht es keinen Onlineshop: Ein WordPress-Formular mit Stripe-Anbindung nimmt Zahlungen per Kreditkarte, SEPA-Lastschrift, Apple Pay und Google Pay direkt entgegen. Dieser Artikel erklärt, wie das technisch funktioniert, was speziell bei SEPA zu beachten ist und wie du es umsetzt, ohne WooCommerce zu installieren.
+
+## Wann ein Formular besser ist als ein Shop
+
+WooCommerce ist großartig, wenn du einen Shop betreibst: Produktkatalog, Warenkorb, Versand, Steuerklassen, Kundenkonten. Für viele Anwendungsfälle ist das Overkill:
+
+- **Anzahlung zur Buchung:** Fotograf, Coach oder Ferienwohnung, der Kunde reserviert und zahlt 50 € an.
+- **Kurs- und Event-Anmeldung:** Teilnahmegebühr direkt bei der Anmeldung.
+- **Angebot mit Sofort-Zahlung:** Der Preis berechnet sich aus den Formularangaben, der Kunde zahlt direkt.
+- **Einzelne Produkte oder Dienstleistungen:** drei Varianten, ein Preis, keine Warenkörbe.
+
+In all diesen Fällen ist das Formular der natürliche Ort der Transaktion: Der Kunde füllt sowieso eines aus. Ein kompletter Shop mit Checkout-Strecke kostet hier nur Conversion.
+
+## Das Stripe Payment Element: ein Feld, alle Zahlarten
+
+Moderne Stripe-Integrationen nutzen das Payment Element, ein einziges, von Stripe gehostetes Eingabefeld, das alle aktivierten Zahlarten dynamisch anzeigt:
+
+- **Kreditkarte** (Visa, Mastercard, Amex)
+- **SEPA-Lastschrift**, die Zahlart, die der DACH-Markt liebt
+- **Apple Pay und Google Pay**, wenn das Gerät sie unterstützt
+- **Stripe Link** (gespeicherte Zahlungsdaten, Ein-Klick-Zahlung)
+
+Welche Zahlarten erscheinen, steuerst du zentral im Stripe-Dashboard, ohne am Formular etwas zu ändern. Zwei Punkte aus der Praxis: Apple Pay verlangt eine einmalige Domain-Verifizierung im Stripe-Dashboard, und jede Zahlart muss dort explizit aktiviert sein.
+
+## Sicherheit: Warum die Kartendaten nie deinen Server berühren
+
+Der wichtigste Architektur-Punkt: Bei einer sauberen Integration laufen Zahlungsdaten ausschließlich zwischen dem Browser des Kunden und Stripe. Dein WordPress-Server sieht nie eine Kartennummer, das erledigt das PCI-zertifizierte Payment Element von Stripe.
+
+Drei Dinge muss die Integration serverseitig trotzdem leisten, und hier trennt sich gute von schlechter Umsetzung:
+
+1. **Betrag serverseitig binden.** Der Zahlbetrag muss aus der Formular-Definition auf dem Server kommen, nie aus dem Browser-Request. Sonst kann ein manipulierter Request aus 500 € einfach 1 € machen.
+2. **Zahlung verifizieren, bevor die Einsendung gespeichert wird.** Erst wenn Stripe die Zahlung bestätigt (und Betrag plus Währung zum Formular passen), wird die Einsendung angelegt. Keine Einsendung ohne Zahlung.
+3. **Doppel-Submissions abfangen.** Ein Doppelklick oder die Zurück-Taste darf keine zweite Zahlung oder doppelte Einsendung erzeugen.
+
+## Die SEPA-Besonderheit: Zahlung dauert Tage
+
+Kreditkarte, Apple Pay und Google Pay bestätigen sofort. SEPA-Lastschrift nicht: Die Abbuchung braucht typischerweise mehrere Werktage, bis sie endgültig bestätigt oder zurückgegeben wird.
+
+Eine gute Formular-Integration bildet das ab:
+
+- Die Einsendung wird sofort angenommen und als **"in Bearbeitung"** markiert. Der Kunde bekommt eine normale Bestätigung.
+- Stripe meldet das endgültige Ergebnis später per **Webhook** an deine Website, die den Status automatisch auf "bezahlt" oder "fehlgeschlagen" setzt.
+- Im Admin siehst du jederzeit Status, Betrag und Zahlart jeder Einsendung.
+
+Ohne dieses Status-Modell wären SEPA-Zahlungen im Formular blind: Du wüsstest nie sicher, ob das Geld angekommen ist.
+
+## Dynamische Beträge: der Angebotsrechner
+
+Der nächste Schritt: Der Betrag steht nicht fest, sondern berechnet sich aus den Antworten. Menge mal Stückpreis plus Zuschläge, live angezeigt, während der Besucher tippt. Wichtig ist auch hier die Server-Regel: Die Formel wird serverseitig nachgerechnet, der Browser liefert nur die Eingaben. So kann niemand den Preis manipulieren.
+
+## So setzt du es mit WordPress um
+
+Mit [Flinkform Pro](/pro) sieht der Weg so aus:
+
+1. **Stripe-Konto anlegen** (kostenlos, mit Test-Keys zum gefahrlosen Ausprobieren).
+2. **Flinkform (kostenlos) + Flinkform Pro installieren.** Die API-Keys werden AES-256-verschlüsselt in WordPress gespeichert.
+3. **Payment-Feld in das Formular ziehen:** fester Betrag oder Produktauswahl per Radio-Buttons. Optional ein Berechnungsfeld für dynamische Summen.
+4. **Zahlarten im Stripe-Dashboard aktivieren** (SEPA, Wallets nach Bedarf), für SEPA den Webhook-Endpoint eintragen, den Flinkform in den Einstellungen anzeigt.
+5. **Testzahlung durchführen** (Stripe-Testkarte 4242 4242 4242 4242), dann Live-Keys eintragen.
+
+Alle drei Sicherheits-Punkte von oben sind dabei eingebaut: serverseitige Betragsbindung, Verifizierung vor dem Speichern, Doppelklick-Schutz. Die Zahlungen laufen direkt auf dein Stripe-Konto, Flinkform ist nie dazwischen.
+
+## Wann du doch einen Shop brauchst
+
+Ehrliche Abgrenzung: Sobald du einen Produktkatalog, Warenkorb, Versandlogik, Gutscheine oder Kundenkonten brauchst, bist du bei WooCommerce richtig. Das Zahlungsformular ist die Lösung für die eine Transaktion an der einen Stelle, nicht für den Vollsortimenter.
+
+## Fazit
+
+Zahlungen im WordPress-Formular sind 2026 kein Bastel-Projekt mehr: Das Stripe Payment Element bringt Karte, SEPA, Apple Pay und Google Pay in ein einziges Feld, und eine saubere Plugin-Integration erledigt Betragsbindung, Verifizierung und SEPA-Status automatisch. Für Anzahlungen, Buchungen und Einzelverkäufe ist das der direkteste Weg vom Interessenten zur bezahlten Anfrage.

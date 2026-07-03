@@ -1,0 +1,74 @@
+import BlogArticle from "@/components/BlogArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "reCAPTCHA und die DSGVO: Warum dein Kontaktformular ein Rechtsrisiko ist",
+  description:
+    "BVwG-Urteil vom 13.09.2024, zwei CNIL-Bußgelder, klare Worte vom BayLDA: Google reCAPTCHA ohne Einwilligung ist rechtswidrig. Was das für WordPress-Formulare bedeutet, mit Quellen.",
+  alternates: { canonical: `${SITE_URL}/blog/recaptcha-dsgvo-rechtsrisiko` },
+};
+
+export default function Layout({ children }) {
+  return <BlogArticle slug="recaptcha-dsgvo-rechtsrisiko">{children}</BlogArticle>;
+}
+
+Google reCAPTCHA ohne vorherige Einwilligung verstößt gegen die DSGVO. Das hat das österreichische Bundesverwaltungsgericht am 13.09.2024 entschieden, die französische Datenschutzbehörde CNIL hat dafür bereits zweimal Bußgelder verhängt. Für WordPress-Betreiber ist das relevant, weil fast jedes große Formular-Plugin für den Spam-Schutz auf reCAPTCHA oder einen anderen US-Dienst setzt. Dieser Artikel fasst die Rechtslage mit Quellen zusammen und zeigt, wie Spam-Schutz ohne externen Dienst funktioniert.
+
+*Hinweis: Dieser Artikel ist keine Rechtsberatung, sondern eine Zusammenfassung öffentlich dokumentierter Entscheidungen mit Quellenangaben.*
+
+## Das BVwG-Urteil: reCAPTCHA braucht Einwilligung
+
+Der Fall: Ein Nutzer wollte sich auf der Website einer österreichischen Partei registrieren. Obwohl er im Cookie-Banner alle nicht notwendigen Dienste abgelehnt hatte, war Google reCAPTCHA aktiv und setzte das Cookie `_GRECAPTCHA`, das eine eindeutige Nutzer-ID enthält. Er beschwerte sich bei der Datenschutzbehörde und bekam Recht. Das Bundesverwaltungsgericht (BVwG) bestätigte die Entscheidung am 13.09.2024 (Aktenzeichen W298 2274626-1/8E).
+
+Die zwei Kernaussagen des Gerichts:
+
+1. **reCAPTCHA ist technisch nicht notwendig** für den Betrieb einer Website. Die Ausnahme für unbedingt erforderliche Cookies greift nicht.
+2. **Berechtigtes Interesse reicht nicht als Rechtsgrundlage.** Die Bot-Abwehr rechtfertigt den Eingriff nicht, weil reCAPTCHA den Besucher über das Cookie individualisiert. Es braucht eine ausdrückliche, vorherige Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO.
+
+Quellen: [Urteil im RIS (Rechtsinformationssystem des Bundes)](https://www.ris.bka.gv.at/JudikaturEntscheidung.wxe?Abfrage=Bvwg&Dokumentnummer=BVWGT_20240913_W298_2274626_1_00), [Analyse der DSN Group](https://www.datenschutz-notizen.de/bvwg-oesterreich-google-recaptcha-erfordert-einwilligung-4951355/), [IT-Recht Kanzlei](https://www.it-recht-kanzlei.de/recaptcha-cookie-bverwg-oesterreich.html), [Kremer Rechtsanwälte](https://kremer-rechtsanwaelte.de/2024/12/10/google-recaptcha-einwilligung-erforderlich/)
+
+## Frankreich macht Ernst: zwei CNIL-Bußgelder
+
+Die französische Datenschutzbehörde CNIL hat die gleiche Linie schon in Bußgelder übersetzt:
+
+| Fall | Datum | Bußgeld | reCAPTCHA-Anteil |
+| --- | --- | --- | --- |
+| Cityscoot (E-Scooter-Verleih) | 16.03.2023 | 125.000 € gesamt | 25.000 € für Cookies/reCAPTCHA ohne Einwilligung |
+| NS Cards France (E-Payment) | 29.12.2023 | 105.000 € gesamt | 15.000 € für reCAPTCHA ohne Information und Einwilligung |
+
+Bemerkenswert an der Cityscoot-Entscheidung: Die CNIL stellte ausdrücklich fest, dass reCAPTCHA nicht nur der Sicherheit dient, sondern Google auch eigene Analysen ermöglicht. Genau deshalb ist es einwilligungspflichtig.
+
+Quellen: [Cityscoot-Entscheidung im Volltext (Légifrance)](https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000047346903), [CNIL-Pressemitteilung zu NS Cards France](https://www.cnil.fr/fr/paiement-electronique-la-cnil-inflige-une-amende-de-105-000-euros-ns-cards-france)
+
+## Und in Deutschland?
+
+Ein deutsches Urteil in dieser Deutlichkeit steht noch aus, die Aufsichtsbehörden haben sich aber positioniert. Das Bayerische Landesamt für Datenschutzaufsicht (BayLDA) schreibt in seinen FAQ, Website-Betreiber sollten beim Einsatz von reCAPTCHA "unbedingt Alternativen prüfen". Wer es einsetzt, muss nachweisen können, wie Google die Nutzerdaten verarbeitet, und genau das kann praktisch niemand. Dazu kommt die Datenübermittlung in die USA mit den Anforderungen aus dem Schrems-II-Urteil des EuGH.
+
+Quelle: [FAQ des BayLDA](https://www.lda.bayern.de/de/faq.html)
+
+## Was das für dein Kontaktformular bedeutet
+
+Die unbequeme Wahrheit: Ein Cookie-Banner löst das Problem nicht elegant. Wenn reCAPTCHA erst nach Einwilligung laden darf, gilt das auch für den Spam-Schutz. Lehnt der Besucher ab, steht dein Formular ohne Schutz da, oder du musst es blockieren. Beides ist schlecht für die Conversion und für die Nutzererfahrung.
+
+Die Plugin-Realität verschärft das: WPForms, Gravity Forms, Ninja Forms und auch Contact Form 7 setzen für den Spam-Schutz standardmäßig auf reCAPTCHA, hCaptcha oder Cloudflare Turnstile, alles Dienste mit externen Requests an US-Anbieter. Wer Websites für Kunden baut, liefert dieses Risiko mit aus.
+
+## Spam-Schutz geht auch ohne US-Dienst
+
+Effektiver Spam-Schutz braucht keinen externen Dienst. Drei Mechanismen, die komplett auf dem eigenen Server laufen:
+
+- **Honeypot:** Ein unsichtbares Feld, das Menschen nie ausfüllen, Bots aber schon. Füllt es jemand aus, wird die Einsendung verworfen.
+- **Signierter Zeit-Check:** Menschen brauchen ein paar Sekunden zum Ausfüllen, Bots senden sofort. Der Zeitstempel wird kryptografisch signiert, damit Bots ihn nicht fälschen können.
+- **Proof-of-Work:** Der Browser des Besuchers löst im Hintergrund eine kleine Rechenaufgabe. Für einen einzelnen Menschen unmerklich, für Bots mit tausenden Anfragen teuer. Besucher ohne JavaScript bekommen eine einfache Mathe-Frage.
+
+Genau so macht es [Flinkform](/): alle drei Mechanismen sind im kostenlosen Plugin eingebaut, ohne Konfiguration, ohne API-Keys, ohne externe Requests, ohne Einwilligungspflicht für den Spam-Schutz. Es gibt schlicht keinen Datenabfluss, der in ein Cookie-Banner müsste. Eine Übersicht, wie das technisch funktioniert, steht im Wissens-Artikel [WordPress-Formular ohne reCAPTCHA](/wissen/wordpress-formular-ohne-recaptcha).
+
+## Checkliste: Ist dein Formular betroffen?
+
+1. Öffne deine Website im privaten Fenster und lehne alle Cookies ab.
+2. Öffne die Browser-Konsole (Netzwerk-Tab) und lade die Seite mit dem Kontaktformular.
+3. Suche nach Requests an `google.com/recaptcha`, `gstatic.com`, `hcaptcha.com` oder `challenges.cloudflare.com`.
+4. Wirst du fündig, lädt dein Formular trotz Ablehnung Daten zu Drittanbietern. Dann solltest du handeln: entweder saubere Consent-Integration oder ein Formular-Plugin ohne externe Dienste.
+
+## Fazit
+
+Das BVwG-Urteil und die CNIL-Bußgelder machen aus einer technischen Detailfrage ein handfestes Compliance-Thema. Wer Formulare mit reCAPTCHA ohne saubere Einwilligung betreibt, trägt ein dokumentiertes Rechtsrisiko. Die gute Nachricht: Spam-Schutz ohne externe Dienste ist technisch gelöst und kostenlos verfügbar.

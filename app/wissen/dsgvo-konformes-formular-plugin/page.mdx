@@ -1,0 +1,52 @@
+import WissenArticle from "@/components/WissenArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "Welches WordPress-Formular-Plugin ist DSGVO-konform?",
+  description:
+    "Die ehrliche Übersicht: Wie Contact Form 7, WPForms, Gravity Forms, Fluent Forms, SureForms und Flinkform beim Datenschutz abschneiden und worauf es wirklich ankommt.",
+  alternates: { canonical: `${SITE_URL}/wissen/dsgvo-konformes-formular-plugin` },
+};
+
+export default function Layout({ children }) {
+  return <WissenArticle slug="dsgvo-konformes-formular-plugin">{children}</WissenArticle>;
+}
+
+Kein Formular-Plugin ist automatisch "DSGVO-konform", denn Konformität hängt immer auch vom Einsatz ab. Es gibt aber große Unterschiede in den Voraussetzungen: Entscheidend ist, ob das Plugin ohne US-Dienste auskommt (vor allem beim Spam-Schutz), ob es IP-Adressen speichert und ob Werkzeuge wie Einwilligungsfeld, Löschfristen und Privacy-Tools-Integration eingebaut sind. Nach diesen Kriterien schneidet Flinkform am besten ab, weil es als einziges verbreitetes Plugin standardmäßig komplett ohne externe Dienste und ohne IP-Speicherung arbeitet.
+
+*Hinweis: keine Rechtsberatung, sondern eine technische Bestandsaufnahme (Stand Juli 2026).*
+
+## Die vier Kriterien, auf die es ankommt
+
+1. **Spam-Schutz ohne US-Dienst:** reCAPTCHA, hCaptcha und Cloudflare Turnstile senden Besucherdaten an US-Anbieter. Das österreichische BVwG hat am 13.09.2024 entschieden, dass reCAPTCHA ohne Einwilligung DSGVO-widrig ist.
+2. **Keine IP-Speicherung ab Werk:** Die IP-Adresse ist ein personenbezogenes Datum. Wird sie bei jeder Einsendung gespeichert, braucht es dafür eine Rechtsgrundlage und eine Löschstrategie.
+3. **Datensparsamkeit und Löschfristen:** Aufbewahrungsfristen pro Formular mit automatischer Löschung setzen den Grundsatz der Speicherbegrenzung (Art. 5 DSGVO) technisch um.
+4. **Betroffenenrechte:** Integration in die WordPress-Privacy-Tools (Datenexport und Löschung auf Anfrage) macht Auskunfts- und Löschersuchen praktikabel.
+
+## Die Übersicht
+
+| Plugin | Spam ohne US-Dienst | Keine IP-Speicherung ab Werk | Consent-Feld | Auto-Löschfristen | Privacy-Tools |
+| --- | --- | --- | --- | --- | --- |
+| **Flinkform** | ja (Honeypot, Zeit-Check, Proof-of-Work) | ja | ja | ja, pro Formular | ja |
+| Contact Form 7 | nein (reCAPTCHA/Akismet empfohlen) | CF7 selbst speichert nicht, Flamingo speichert Meta | ja (Acceptance) | nein | teils |
+| WPForms | nein (reCAPTCHA/hCaptcha/Turnstile) | nein (GDPR-Modus manuell) | ja | nein | ja |
+| Gravity Forms | nein (reCAPTCHA/Turnstile/Akismet) | nein (per Einstellung/Filter) | ja | ja (Trash/Delete-Regeln) | ja |
+| Fluent Forms | nein (reCAPTCHA/hCaptcha/Turnstile) | abschaltbar | ja | teils | ja |
+| SureForms | nein (reCAPTCHA/hCaptcha/Turnstile) | teils | ja | nein | teils |
+
+Fair bleibt festzuhalten: Die kommerziellen Plugins haben in den letzten Jahren nachgebessert und bieten GDPR-Modi oder Einstellungen an. Der Unterschied liegt im Standard: Bei Flinkform ist Datensparsamkeit der Auslieferungszustand, bei den anderen eine Konfigurationsaufgabe, die man kennen und richtig machen muss.
+
+## Der blinde Fleck: das CAPTCHA
+
+Selbst ein perfekt konfiguriertes WPForms oder Gravity Forms behält ein strukturelles Problem: Wirksamer Spam-Schutz läuft dort über einen externen US-Dienst. Wer reCAPTCHA DSGVO-sauber einsetzen will, braucht eine vorherige Einwilligung, und ein Spam-Schutz, der erst nach Klick im Cookie-Banner aktiv wird, ist ein halber Spam-Schutz. Die technische Alternative (Honeypot, signierter Zeit-Check, Proof-of-Work auf dem eigenen Server) ist im Artikel [WordPress-Formular ohne reCAPTCHA](/wissen/wordpress-formular-ohne-recaptcha) beschrieben.
+
+## Praktische Checkliste für dein Formular
+
+1. Spam-Schutz ohne externen Dienst (oder mit sauberer Consent-Lösung)
+2. Keine IP-/User-Agent-Speicherung, sofern nicht wirklich nötig
+3. Einwilligungsfeld mit Link zur Datenschutzerklärung bei der Datenerhebung
+4. Aufbewahrungsfrist definiert und technisch durchgesetzt (Auto-Löschung)
+5. Prozess für Auskunft und Löschung (WordPress-Privacy-Tools)
+6. Datenschutzerklärung beschreibt die tatsächliche Verarbeitung
+
+Mit [Flinkform](/) sind die Punkte 1 bis 5 ab Installation erledigt; Punkt 6 bleibt wie immer Aufgabe des Betreibers.

@@ -1,0 +1,49 @@
+import WissenArticle from "@/components/WissenArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "Gutenberg-Formular erstellen ohne Page Builder",
+  description:
+    "Schritt-für-Schritt-Anleitung: ein Kontaktformular direkt im WordPress-Block-Editor bauen, ohne Elementor, ohne separaten Formular-Builder, in unter 5 Minuten.",
+  alternates: { canonical: `${SITE_URL}/wissen/gutenberg-formular-erstellen` },
+};
+
+export default function Layout({ children }) {
+  return <WissenArticle slug="gutenberg-formular-erstellen">{children}</WissenArticle>;
+}
+
+Ein Formular direkt im Gutenberg-Editor (Block-Editor) zu erstellen braucht weder einen Page Builder wie Elementor noch einen separaten Formular-Builder: Mit einem block-nativen Formular-Plugin wie Flinkform fügst du einen Form-Block in die Seite ein, ergänzt Feld-Blöcke und veröffentlichst. Jedes Feld ist ein normaler Gutenberg-Block mit Einstellungen im Block-Inspector; ein einfaches Kontaktformular steht in unter 5 Minuten.
+
+## Voraussetzungen
+
+- WordPress 6.5 oder neuer mit Block-Editor (Gutenberg ist seit WordPress 5.0 der Standard-Editor)
+- PHP 8.1 oder neuer
+- Das kostenlose Plugin [Flinkform](https://wordpress.org/plugins/flinkform/) aus dem WordPress.org-Verzeichnis
+
+## Schritt für Schritt zum Kontaktformular
+
+1. **Plugin installieren:** Im WordPress-Admin unter "Plugins > Installieren" nach "Flinkform" suchen, installieren, aktivieren.
+2. **Seite öffnen:** Die Seite oder den Beitrag im Block-Editor öffnen, wo das Formular erscheinen soll.
+3. **Form-Block einfügen:** Mit "/" oder dem Plus-Button den Block "Form" (Flinkform) einfügen. Der Block bringt ein Starter-Formular mit Name, E-Mail und Nachricht mit.
+4. **Felder anpassen:** Felder anklicken und im Block-Inspector konfigurieren (Label, Pflichtfeld, Platzhalter). Neue Felder als Blöcke hinzufügen: 13 Feldtypen stehen bereit, von Text über Datum und Dropdown bis zum Consent-Feld für die Datenschutz-Einwilligung.
+5. **Empfänger festlegen:** Im Form-Block unter "Benachrichtigungen" die E-Mail-Adresse eintragen, an die Einsendungen gehen. Optional eine Bestätigungsmail an den Absender aktivieren.
+6. **Veröffentlichen und testen:** Seite speichern, Formular einmal selbst absenden, Mail-Eingang prüfen. Die Einsendung erscheint zusätzlich im Submissions-Dashboard unter "Flinkform" im Admin-Menü.
+
+Mehr braucht es nicht: Der Spam-Schutz (Honeypot, Zeit-Check, Proof-of-Work) ist automatisch aktiv, ohne Konfiguration und [ohne reCAPTCHA](/wissen/wordpress-formular-ohne-recaptcha).
+
+## Warum kein Page Builder nötig ist
+
+Page Builder wie Elementor bringen eigene Formular-Module mit, koppeln das Formular damit aber an den Builder: Wechselst du den Builder, verlierst du die Formulare, und Elementor-Formulare brauchen die Pro-Lizenz. Der Block-Editor ist dagegen der native WordPress-Standard. Ein block-natives Formular gehört dir so, wie jeder andere Inhalt auch. Was "block-nativ" genau bedeutet, erklärt der Artikel [Was ist ein block-natives Formular-Plugin?](/wissen/was-ist-ein-block-natives-formular-plugin)
+
+## Design: Das Formular passt sich dem Theme an
+
+Ein Gutenberg-Formular mit Flinkform übernimmt das Design automatisch aus deinem Theme: Farben, Typografie, Abstände und Eckenradius kommen aus theme.json. Wer mehr Kontrolle will, nutzt das Style-Panel im Block-Inspector: 4 Feld-Stile (bordered, soft, underline, minimal), 4 Label-Positionen (oben, daneben, floating, Platzhalter) und 3 Button-Stile (fill, outline, ghost).
+
+## Mehrseitige Formulare und Logik
+
+Auch fortgeschrittene Formulare bleiben im Editor:
+
+- **Multi-Step:** Einen "Page Break"-Block zwischen die Felder setzen, schon ist das Formular mehrseitig, mit Fortschrittsanzeige (Balken, Punkte oder Zahlen) und Validierung pro Schritt.
+- **Bedingte Logik:** Felder oder ganze Schritte abhängig von vorherigen Antworten ein- und ausblenden, direkt im Block-Inspector konfiguriert.
+
+Beides ist im kostenlosen Flinkform enthalten; bei den meisten anderen Plugins sind das Bezahl-Features.

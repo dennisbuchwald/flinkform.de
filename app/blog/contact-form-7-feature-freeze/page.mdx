@@ -1,0 +1,61 @@
+import BlogArticle from "@/components/BlogArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "Contact Form 7 im Feature Freeze: Was WordPress-Nutzer jetzt wissen müssen",
+  description:
+    "Version 6.2 ist die letzte mit neuen Funktionen, danach wechselt Contact Form 7 in den Wartungsmodus. Was das für über 10 Millionen Websites bedeutet und welche Optionen es gibt.",
+  alternates: { canonical: `${SITE_URL}/blog/contact-form-7-feature-freeze` },
+};
+
+export default function Layout({ children }) {
+  return <BlogArticle slug="contact-form-7-feature-freeze">{children}</BlogArticle>;
+}
+
+Contact Form 7, mit über 10 Millionen aktiven Installationen das meistgenutzte Formular-Plugin für WordPress, bekommt keine neuen Funktionen mehr. Entwickler Takayuki Miyoshi hat auf der WordCamp Asia 2026 angekündigt, dass Version 6.2 die letzte Feature-Version sein wird. Danach gibt es nur noch Sicherheitsupdates und kritische Bugfixes. Dieser Artikel erklärt, was das konkret bedeutet und was Betreiber jetzt tun sollten.
+
+## Was genau angekündigt wurde
+
+Auf der WordCamp Asia 2026 in Mumbai erklärte Miyoshi, dass Contact Form 7 nach Version 6.2 in den Wartungsmodus wechselt: keine neuen Funktionen mehr, aber weiterhin Sicherheits-Patches und kritische Fehlerbehebungen. Version 6.2 setzt WordPress 6.9+ und PHP 8.3+ voraus.
+
+Sein Fokus liegt künftig auf einem Nachfolge-Projekt namens Contactable.io, einem API-basierten Formulardienst, dessen Start für 2028 angepeilt ist. Ob und wie bestehende CF7-Nutzer dorthin migrieren können, ist offen.
+
+Quellen: [WPBeginner-Bericht zur Ankündigung](https://www.wpbeginner.com/news/contact-form-7-freezes-new-features-what-wordpress-users-should-do-next/), [The Repository zu Contactable.io](https://www.therepository.email/contact-form-7-creator-reveals-contactable-io-will-launch-as-restful-api), [Contact Form 7 auf WordPress.org](https://wordpress.org/plugins/contact-form-7/)
+
+## Kein Grund zur Panik, aber ein Grund zu planen
+
+Zuerst die Entwarnung: Bestehende CF7-Formulare funktionieren weiter und bekommen Sicherheitsupdates. Niemand muss diese Woche migrieren.
+
+Der Feature Freeze hat trotzdem Konsequenzen:
+
+- **Was CF7 heute nicht kann, wird es nie können.** Kein Multi-Step, keine bedingte Logik, kein Submissions-Archiv, keine Block-Editor-Integration. Für jede dieser Funktionen brauchst du Drittanbieter-Plugins, deren Zukunft jetzt ebenfalls unsicherer wird: Ihr Fundament ist eingefroren.
+- **Das Ökosystem-Risiko wächst mit der Zeit.** WordPress entwickelt sich weiter (Block-Editor, Interactivity API, PHP-Versionen). Ein Plugin im Wartungsmodus passt sich nur noch minimal an.
+- **Neue Projekte sollten nicht mehr auf CF7 starten.** Wer heute ein Projekt aufsetzt, wählt ein Fundament für die nächsten fünf bis zehn Jahre.
+
+## Der ehrliche Options-Check
+
+Wer wechseln will oder ein neues Projekt startet, hat 2026 gute Auswahl. Die relevanten Kandidaten im Überblick:
+
+| Plugin | Stärke | Schwäche |
+| --- | --- | --- |
+| **Flinkform** | Block-nativ, Multi-Step + Logik + Submissions kostenlos, Spam-Schutz ohne US-Dienst, keine IP-Speicherung | Junges Ökosystem, kein CF7-Importer |
+| **SureForms** | Block-nativ, moderner Builder, solide Free-Version | Spam-Schutz setzt auf reCAPTCHA/hCaptcha, React-lastiges Frontend |
+| **Fluent Forms** | Viele Features, gutes Preis-Leistungs-Verhältnis | Eigener Builder statt Block-Editor, US-Spam-Dienste |
+| **WPForms** | Ausgereift, riesiges Template-Angebot | Free-Version speichert keine Einsendungen, relevante Features ab 199 $/Jahr |
+
+Für DACH-Projekte kommt eine Dimension dazu, die in den meisten Vergleichen fehlt: der Datenschutz. Fast alle Alternativen delegieren den Spam-Schutz an reCAPTCHA, hCaptcha oder Turnstile. Das österreichische Bundesverwaltungsgericht hat am 13.09.2024 entschieden, dass reCAPTCHA ohne vorherige Einwilligung DSGVO-widrig ist. Details dazu im Artikel [reCAPTCHA und die DSGVO](/blog/recaptcha-dsgvo-rechtsrisiko).
+
+## Migration in der Praxis
+
+Ein CF7-Formular nach Flinkform umzuziehen ist kein Projekt, sondern eine Viertelstunde:
+
+1. Flinkform installieren (CF7 kann parallel weiterlaufen).
+2. Formular im Block-Editor nachbauen: Form-Block einfügen, Felder ergänzen, Empfänger setzen. Ein Standard-Kontaktformular ist in unter 5 Minuten gebaut.
+3. Testen, CF7-Shortcode ersetzen, fertig.
+4. Wenn alle Formulare umgezogen sind: CF7 samt Flamingo, Conditional-Fields- und Multi-Step-Plugins deaktivieren. Flamingo-Daten vorher exportieren, falls du die alten Einsendungen behalten willst.
+
+Der ausführliche Vergleich mit Tabelle und FAQ steht hier: [Contact Form 7 Alternative: Flinkform im ehrlichen Vergleich](/vergleich/contact-form-7-alternative).
+
+## Fazit
+
+Contact Form 7 hat WordPress fast zwei Jahrzehnte lang zuverlässig bedient und verabschiedet sich nun in den Ruhestand. Das ist legitim, aber es ist ein Ruhestand. Bestandsprojekte können in Ruhe planen, neue Projekte sollten auf ein aktiv entwickeltes, block-natives Plugin setzen. Wer dabei gleich das reCAPTCHA-Problem loswerden will, findet in Flinkform die Alternative, die beides löst.

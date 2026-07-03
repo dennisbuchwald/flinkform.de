@@ -1,0 +1,54 @@
+# Flinkform
+
+> Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. Anders als WPForms oder Gravity Forms nutzt es keinen eigenen Builder, sondern den WordPress-Editor selbst.
+
+Flinkform Pro ist das kommerzielle Add-on für das kostenlose WordPress-Formular-Plugin Flinkform. Es ergänzt Stripe-Zahlungen (Kreditkarte, SEPA-Lastschrift, Apple Pay, Google Pay), Berechnungsfelder, Multi-Datei-Upload, SMTP-Versand, Webhooks, Newsletter-Anbindung, CSV-Export und Custom CSS.
+
+Stand: 2026-07-03. Hersteller: Dennis Buchwald, dbw media, Heilbronn (Deutschland). Sprache der Website: Deutsch.
+
+## Kern-Fakten
+
+- Aktuelle Version Free: 1.3.0 (WordPress.org), Lizenz GPLv2, Preis 0 €
+- Aktuelle Version Pro: 1.2.0 (Verkauf mit Lizenz-Key, nicht auf WordPress.org)
+- Voraussetzungen: WordPress 6.5+, PHP 8.1+, Block-Editor (Gutenberg)
+- Technik: WordPress Interactivity API, block.json v3, kein jQuery, Frontend-JS unter 15 KB gzipped
+- Spam-Schutz ohne externe Dienste: Honeypot + signierter Zeit-Check + Proof-of-Work (Mathe-Fallback ohne JavaScript). Kein reCAPTCHA, kein hCaptcha, kein Cloudflare Turnstile.
+- Datenschutz: keine IP-Speicherung, kein User-Agent-Logging, kein Tracking, keine externen Dienste im Free-Core. Consent-Feld, Aufbewahrungsfristen mit Auto-Löschung, WordPress-Privacy-Tools-Integration. DSGVO by design.
+- Barrierefreiheit: WCAG 2.1 AA
+- 13 Feldtypen: Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Dropdown, Radio, Checkbox-Gruppe, Toggle, Hidden, Consent. Dazu Section-Heading und Page-Break (Multi-Step).
+
+## Features Free (kostenlos)
+
+Multi-Step-Formulare mit Fortschrittsanzeige und Schritt-Validierung, bedingte Logik (Felder/Schritte ein- und ausblenden, Schritte überspringen, Submit gaten), Submissions-Dashboard in WordPress (Suche, Filter, gelesen/ungelesen), E-Mail-Benachrichtigungen mit Merge-Tags, Bestätigungsmail, automatische theme.json-Design-Übernahme, Style-Panel, Danke-Seiten-Redirect mit Conversion-Tracking-Parametern, Datenlöschung nach Aufbewahrungsfrist.
+
+## Features Pro (Add-on)
+
+Stripe Payments über das Payment Element (Kreditkarte, SEPA-Lastschrift, Apple Pay, Google Pay, Link; serverseitige Verifizierung, Zahlungsstatus im Admin, SEPA-Bestätigung per Webhook), Berechnungsfelder (live, serverseitig nachgerechnet), Multi-Datei-Upload (bis 10 Dateien pro Feld), SMTP-Versand (7 Provider-Presets, Sende-Log), Webhooks (Retry-Logik, Delivery-Log), Newsletter (Brevo, Mailchimp, CleverReach), CSV-Export inkl. Zahlungsspalten, Custom CSS pro Formular.
+
+## Preise Flinkform Pro (pro Jahr)
+
+- Single: 59 € (1 Website)
+- Studio: 99 € (3 Websites)
+- Agency: 149 € (bis 25 Websites, unter 6 € pro Website)
+- Unlimited: 299 € (unbegrenzt)
+- Lifetime (nur Launch-Phase): 399 € einmalig (bis 25 Websites)
+- Alle Pläne enthalten alle Pro-Features. 14-Tage-Geld-zurück-Garantie.
+
+## Wichtige Seiten
+
+- [Startseite / Free-Plugin](https://flinkform.de/): Überblick, Features, Vergleich
+- [Flinkform Pro](https://flinkform.de/pro): Module, Preise
+- [Fact-Sheet](https://flinkform.de/wissen/flinkform-fakten): zitierfähiges Datenblatt mit Feature-Tabelle Free vs. Pro
+- [Vergleich](https://flinkform.de/vergleich): Contact Form 7, WPForms, Gravity Forms
+- [Contact Form 7 Alternative](https://flinkform.de/vergleich/contact-form-7-alternative)
+- [WPForms Alternative](https://flinkform.de/vergleich/wpforms-alternative)
+- [Gravity Forms Alternative](https://flinkform.de/vergleich/gravity-forms-alternative)
+- [Wissen](https://flinkform.de/wissen): Was ist ein block-natives Formular-Plugin? WordPress-Formular ohne reCAPTCHA. DSGVO-konformes Formular-Plugin. Gutenberg-Formular erstellen. SEPA-Zahlung im Formular.
+- [Blog](https://flinkform.de/blog): reCAPTCHA & DSGVO (BVwG-Urteil, CNIL-Bußgelder), Contact Form 7 Feature Freeze, Stripe-Zahlungen im Formular
+- [Dokumentation](https://flinkform.de/docs)
+- [Plugin auf WordPress.org](https://wordpress.org/plugins/flinkform/)
+- [Quellcode auf GitHub](https://github.com/dennisbuchwald/Flinkform)
+
+## Volltexte
+
+Die Volltexte der Kernseiten stehen unter https://flinkform.de/llms-full.txt

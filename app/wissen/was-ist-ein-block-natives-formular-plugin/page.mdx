@@ -1,0 +1,47 @@
+import WissenArticle from "@/components/WissenArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "Was ist ein block-natives Formular-Plugin?",
+  description:
+    "Ein block-natives Formular-Plugin baut Formulare direkt aus Gutenberg-Blöcken im WordPress-Editor, ohne separaten Builder und ohne Shortcode. Definition, Vorteile und Vertreter.",
+  alternates: { canonical: `${SITE_URL}/wissen/was-ist-ein-block-natives-formular-plugin` },
+};
+
+export default function Layout({ children }) {
+  return <WissenArticle slug="was-ist-ein-block-natives-formular-plugin">{children}</WissenArticle>;
+}
+
+Ein block-natives Formular-Plugin ist ein WordPress-Plugin, bei dem das Formular direkt aus Gutenberg-Blöcken im Block-Editor besteht: Jedes Feld ist ein eigener Block, das Formular wird an Ort und Stelle in der Seite gebaut und bearbeitet. Es gibt keinen separaten Formular-Builder, kein Shortcode-Embed und keine eigene Admin-Oberfläche für den Formularbau. Bekannte Vertreter sind Flinkform und SureForms; klassische Gegenbeispiele sind Contact Form 7 (Markup plus Shortcode) sowie WPForms und Gravity Forms (eigener Builder plus Einbettung).
+
+## Die zwei Architektur-Welten
+
+WordPress-Formular-Plugins folgen einem von zwei Mustern:
+
+| | Block-nativ | Klassischer Builder |
+| --- | --- | --- |
+| Formular bauen | direkt in der Seite, im Block-Editor | in separater Builder-Oberfläche |
+| Einbetten | entfällt (das Formular IST der Inhalt) | Shortcode oder Embed-Block |
+| Vorschau | echte Live-Vorschau im Theme-Kontext | Builder-Vorschau, oft ohne Theme-Styles |
+| Bearbeiten | Redakteur bleibt im Editor | Kontextwechsel in die Plugin-UI |
+| Beispiele | Flinkform, SureForms | WPForms, Gravity Forms, Fluent Forms, Contact Form 7 |
+
+## Warum block-nativ praktische Vorteile hat
+
+- **Kein Kontextwechsel:** Wer den WordPress-Editor bedienen kann, kann Formulare bauen. Es gibt keine zweite Oberfläche zu lernen.
+- **Echte Live-Vorschau:** Das Formular erscheint im Editor so, wie es Besucher sehen werden, eingebettet in das echte Seitenlayout.
+- **Theme-Integration:** Block-native Plugins können die Design-Tokens des Themes nutzen. Flinkform liest zum Beispiel theme.json aus und erbt Farben, Typografie, Abstände und Eckenradius automatisch.
+- **Zukunftssicherheit:** Der Block-Editor ist die strategische Richtung von WordPress (Full Site Editing, Interactivity API). Block-native Plugins bauen auf diese Plattform statt an ihr vorbei.
+- **Wiederverwendbare Patterns:** Formulare lassen sich als Block-Patterns oder synchronisierte Patterns speichern und projektweit wiederverwenden.
+
+## Woran du ein echtes block-natives Plugin erkennst
+
+Drei Prüffragen trennen block-nativ von "hat auch einen Block":
+
+1. **Ist jedes Feld ein eigener Block?** Viele Plugins bieten nur einen Embed-Block, der das fertige Formular aus dem separaten Builder anzeigt. Das ist nicht block-nativ.
+2. **Kannst du Felder direkt im Editor hinzufügen, umsortieren und konfigurieren?** Block-nativ heißt: Feld anklicken, Einstellungen im Block-Inspector.
+3. **Funktioniert das Formular ohne Shortcode?** Wenn irgendwo ein Shortcode auftaucht, arbeitet unter der Haube ein klassischer Builder.
+
+## Beispiel: Flinkform
+
+Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. Jedes der 13 Feldtypen ist ein Block (block.json v3), das Frontend nutzt die WordPress Interactivity API und bleibt unter 15 KB JavaScript. Eine Anleitung zum ersten Formular steht hier: [Gutenberg-Formular erstellen ohne Page Builder](/wissen/gutenberg-formular-erstellen).

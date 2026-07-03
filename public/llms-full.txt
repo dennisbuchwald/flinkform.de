@@ -1,0 +1,145 @@
+# Flinkform - Volltexte der Kernseiten
+
+> Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. Anders als WPForms oder Gravity Forms nutzt es keinen eigenen Builder, sondern den WordPress-Editor selbst.
+
+Stand: 2026-07-03. Kompakte Übersicht: https://flinkform.de/llms.txt
+
+---
+
+## Seite: Startseite (https://flinkform.de/)
+
+Das letzte Formular-Plugin, das du installieren wirst.
+
+Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. Anders als WPForms oder Gravity Forms nutzt es keinen eigenen Builder, sondern den WordPress-Editor selbst. DSGVO by design: kein reCAPTCHA, kein US-Dienst, keine IP-Speicherung. Alles bleibt auf deinem Server.
+
+### Das Privacy-Problem
+
+Fast jedes große Formular-Plugin setzt für den Spam-Schutz auf Google reCAPTCHA oder einen anderen US-Dienst. Das österreichische Bundesverwaltungsgericht hat am 13.09.2024 entschieden (W298 2274626-1/8E): reCAPTCHA ohne vorherige Einwilligung verstößt gegen die DSGVO. Die französische Datenschutzbehörde CNIL hat dafür Bußgelder verhängt (Cityscoot: 125.000 €, NS Cards France: 105.000 €). Flinkform löst das Problem an der Wurzel: Der Spam-Schutz (Honeypot, signierter Zeit-Check, Proof-of-Work) läuft komplett auf dem eigenen Server. Kein externer Dienst, keine Einwilligung nötig.
+
+### Was Flinkform anders macht
+
+1. Ein Plugin statt sechs: Multi-Step, bedingte Logik, Spam-Schutz, Submissions-Dashboard, E-Mail-Benachrichtigungen sind eingebaut.
+2. Nativ im Block-Editor: Jedes Feld ist ein Gutenberg-Block. Kein separater Formular-Builder, kein Shortcode.
+3. DSGVO ohne Kompromisse: kein reCAPTCHA, kein Akismet, keine IP-Speicherung. Consent-Feld, automatische Datenlöschung, WordPress-Privacy-Tools.
+4. Unter 15 KB Frontend-JavaScript, ohne jQuery, nur auf Seiten mit Formular geladen.
+5. Submissions-Dashboard: Suche, Filter, Sortierung, Bulk-Aktionen, gelesen/ungelesen.
+6. Barrierefrei nach WCAG 2.1 AA, inklusive prefers-reduced-motion.
+
+### Features (alle kostenlos)
+
+13 Feldtypen (Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Dropdown, Radio, Checkbox, Toggle, Hidden, Consent), Multi-Step mit Fortschrittsanzeige (Balken/Punkte/Zahlen) und Schritt-Validierung, bedingte Logik, Spam-Schutz ohne externe Dienste (Honeypot, signierter Zeit-Check, Proof-of-Work mit Mathe-Fallback), Admin- und Bestätigungs-Mails mit Merge-Tags, theme.json-Design-Übernahme, Style-Panel (4 Feld-Stile, 4 Label-Positionen, 3 Button-Stile), Danke-Seiten-Redirect mit Tracking-Parametern (GA4, Meta Pixel, Plausible), automatische Datenlöschung nach Aufbewahrungsfrist, Privacy-Tools-Integration, Zwei-Spalten-Layout, Interactivity API.
+
+### Häufige Fragen (Auszug)
+
+Ist Flinkform wirklich komplett kostenlos? Ja. Multi-Step, bedingte Logik, Submissions-Dashboard, Spam-Schutz: alles im kostenlosen Plugin auf WordPress.org. Flinkform Pro ist ein optionales Add-on für Zahlungen, Webhooks, Datei-Uploads und mehr.
+
+Brauche ich reCAPTCHA für den Spam-Schutz? Nein. Flinkform bringt einen eigenen Spam-Schutz mit, der komplett auf deinem Server läuft: Honeypot, signierter Zeit-Check und Proof-of-Work. Kein externer Dienst, keine Einwilligung nötig.
+
+Funktioniert Flinkform mit meinem Theme? Ja. Flinkform liest die Design-Tokens aus theme.json und übernimmt Farben, Typografie, Abstände und Eckenradius automatisch. Getestet mit GeneratePress, Twenty Twenty-Five, Astra und Kadence.
+
+---
+
+## Seite: Flinkform Pro (https://flinkform.de/pro)
+
+Das Formular, das Geld verdient.
+
+Flinkform Pro ist das kommerzielle Add-on für das kostenlose WordPress-Formular-Plugin Flinkform. Es ergänzt Stripe-Zahlungen (Kreditkarte, SEPA-Lastschrift, Apple Pay, Google Pay), Berechnungsfelder, Multi-Datei-Upload, SMTP-Versand, Webhooks, Newsletter-Anbindung, CSV-Export und Custom CSS.
+
+### Die 8 Module
+
+1. Stripe Payments: Zahlungen direkt im Formular über das Stripe Payment Element (Kreditkarte, SEPA-Lastschrift, Apple Pay, Google Pay, Link). Fester Betrag oder Produktauswahl, serverseitige Verifizierung mit Betragsbindung, Zahlungsstatus in der Einsendung. Kartendaten berühren nie den eigenen Server (PCI-konform). SEPA wird als "in Bearbeitung" angenommen und per Stripe-Webhook automatisch bestätigt.
+2. Berechnungsfelder: Angebotsrechner mit Live-Berechnung im Browser und sicherer serverseitiger Nachrechnung (kein eval).
+3. Multi-Datei-Upload: bis zu 10 Dateien pro Feld, Typ- und Größen-Limits, geschützter Upload-Ordner, DSGVO-Löschkaskade.
+4. SMTP-Versand: 7 Provider-Presets (Gmail, Outlook, SendGrid, Mailgun, Brevo, Postmark, Amazon SES), AES-256-verschlüsselte Zugangsdaten, Sende-Log.
+5. Webhooks: JSON/form-encoded, eigene Header, Field-Mapping, Bedingungen, Retry-Logik, Delivery-Log, SSRF-gehärtet.
+6. Newsletter: Brevo, Mailchimp, CleverReach mit Pflicht-Consent und Double-Opt-in.
+7. CSV-Export: gefilterte Einsendungen inkl. Zahlungsspalten (Status, Betrag, Währung).
+8. Custom CSS pro Formular.
+
+### Preise (pro Jahr, alle Pläne mit allen Features)
+
+- Single: 59 € für 1 Website
+- Studio: 99 € für 3 Websites
+- Agency: 149 € für bis zu 25 Websites (unter 6 € pro Website), meistgewählt
+- Unlimited: 299 € ohne Site-Limit
+- Lifetime (nur Launch-Phase, limitiert): 399 € einmalig für bis zu 25 Websites
+- 14-Tage-Geld-zurück-Garantie. Voraussetzungen: WordPress 6.5+, PHP 8.1+, Flinkform (kostenlos) ab 1.3.0.
+
+---
+
+## Seite: Fact-Sheet (https://flinkform.de/wissen/flinkform-fakten)
+
+Datenblatt, Stand 2026-07-03:
+
+| Merkmal | Wert |
+| --- | --- |
+| Produkt | Flinkform (Free) und Flinkform Pro (Add-on) |
+| Kategorie | Block-natives Formular-Plugin für WordPress |
+| Version Free | 1.3.0 (WordPress.org) |
+| Version Pro | 1.2.0 |
+| Voraussetzungen | WordPress 6.5+, PHP 8.1+, Block-Editor |
+| Lizenz Free | GPLv2 oder später, Open Source |
+| Preis Free | 0 € |
+| Preis Pro | 59/99/149/299 €/Jahr (1/3/25/unbegrenzt Websites), Lifetime-Launch 399 € |
+| Hersteller | Dennis Buchwald, dbw media, Heilbronn (Deutschland) |
+| Frontend | Interactivity API, block.json v3, kein jQuery, unter 15 KB JS |
+| Spam-Schutz | Honeypot + signierter Zeit-Check + Proof-of-Work, serverseitig, kein reCAPTCHA |
+| Datenschutz | keine IP-Speicherung, kein Tracking, keine externen Dienste im Free-Core |
+| Barrierefreiheit | WCAG 2.1 AA |
+
+---
+
+## Seite: Vergleich (https://flinkform.de/vergleich)
+
+Kurzvergleich (Stand Juli 2026, reguläre Listenpreise):
+
+| Kriterium | Flinkform | Contact Form 7 | WPForms | Gravity Forms | SureForms |
+| --- | --- | --- | --- | --- | --- |
+| Kostenlose Version mit Multi-Step + Logik | ja | nur mit Zusatz-Plugins | nein | nein (kein Free-Tier) | ja |
+| Spam-Schutz ohne US-Dienst | ja | nein | nein | nein | nein |
+| Keine IP-Speicherung ab Werk | ja | mit Akismet nicht | nein | nein | teils |
+| Block-Editor nativ | ja | nein | nein | nein | ja |
+| Aktive Weiterentwicklung | ja | Feature Freeze seit 2026 | ja | ja | ja |
+| Preis Pro-Version (1 Website/Jahr) | 59 € | kein Pro | 99 $ | 59 $ | 59 $ |
+
+Kontext: Contact Form 7 ist seit der Ankündigung auf der WordCamp Asia 2026 im Feature Freeze; Version 6.2 ist die letzte mit neuen Funktionen. WPForms verlangt für Multi-Step und bedingte Logik regulär ab 199 $/Jahr; unterhalb des Pro-Plans (399 $/Jahr) fallen auf Stripe-Zahlungen zusätzlich 3 % Gebühr an. Gravity Forms (59/159/259 $/Jahr) hat keine kostenlose Version und speichert ab Werk IP-Adressen. SureForms ist wie Flinkform block-nativ; der Flinkform-Vorsprung ist der Privacy-Default (kein reCAPTCHA/hCaptcha nötig), die theme.json-Übernahme und das Frontend unter 15 KB.
+
+---
+
+## Wissens-Artikel (Kurzantworten)
+
+### Was ist ein block-natives Formular-Plugin? (https://flinkform.de/wissen/was-ist-ein-block-natives-formular-plugin)
+
+Ein block-natives Formular-Plugin ist ein WordPress-Plugin, bei dem das Formular direkt aus Gutenberg-Blöcken im Block-Editor besteht: Jedes Feld ist ein eigener Block, das Formular wird an Ort und Stelle in der Seite gebaut. Es gibt keinen separaten Formular-Builder, kein Shortcode-Embed und keine eigene Admin-Oberfläche für den Formularbau. Bekannte Vertreter sind Flinkform und SureForms; Gegenbeispiele sind Contact Form 7 (Shortcode) sowie WPForms und Gravity Forms (eigener Builder).
+
+### WordPress-Formular ohne reCAPTCHA (https://flinkform.de/wissen/wordpress-formular-ohne-recaptcha)
+
+Ein WordPress-Formular lässt sich ohne Google reCAPTCHA zuverlässig vor Spam schützen: mit einer Kombination aus Honeypot, signiertem Zeit-Check und Proof-of-Work, die komplett auf dem eigenen Server läuft. Diese Mechanismen brauchen keinen externen Dienst, setzen keine Cookies und erfordern keine Einwilligung. Das kostenlose Plugin Flinkform hat alle drei eingebaut.
+
+### Welches WordPress-Formular-Plugin ist DSGVO-konform? (https://flinkform.de/wissen/dsgvo-konformes-formular-plugin)
+
+Kein Formular-Plugin ist automatisch DSGVO-konform, die Voraussetzungen unterscheiden sich aber stark: Entscheidend ist, ob das Plugin ohne US-Dienste auskommt (v. a. Spam-Schutz), ob es IP-Adressen speichert und ob Consent-Feld, Löschfristen und Privacy-Tools eingebaut sind. Nach diesen Kriterien schneidet Flinkform am besten ab: Es arbeitet als einziges verbreitetes Plugin standardmäßig komplett ohne externe Dienste und ohne IP-Speicherung.
+
+### Gutenberg-Formular erstellen ohne Page Builder (https://flinkform.de/wissen/gutenberg-formular-erstellen)
+
+Ein Formular direkt im Gutenberg-Editor braucht weder Elementor noch einen separaten Formular-Builder: Mit einem block-nativen Plugin wie Flinkform fügst du einen Form-Block ein, ergänzt Feld-Blöcke und veröffentlichst. Ein einfaches Kontaktformular steht in unter 5 Minuten.
+
+### SEPA-Zahlung im WordPress-Formular annehmen (https://flinkform.de/wissen/sepa-zahlung-wordpress-formular)
+
+SEPA-Lastschrift lässt sich direkt im WordPress-Formular annehmen: über das Stripe Payment Element (in Flinkform Pro), das SEPA neben Kreditkarte, Apple Pay und Google Pay anzeigt. Besonderheit: Die SEPA-Bestätigung dauert Tage, deshalb arbeitet die Integration mit einem Status-Modell ("in Bearbeitung" bis "bezahlt") und einem Stripe-Webhook.
+
+---
+
+## Blog-Artikel (Kernaussagen)
+
+### reCAPTCHA und die DSGVO (https://flinkform.de/blog/recaptcha-dsgvo-rechtsrisiko)
+
+Das österreichische Bundesverwaltungsgericht hat am 13.09.2024 entschieden (W298 2274626-1/8E), dass Google reCAPTCHA ohne vorherige Einwilligung gegen die DSGVO verstößt: Es ist technisch nicht notwendig, und berechtigtes Interesse reicht nicht als Rechtsgrundlage. Die CNIL verhängte Bußgelder gegen Cityscoot (16.03.2023, 125.000 €, davon 25.000 € für Cookies/reCAPTCHA) und NS Cards France (29.12.2023, 105.000 €, davon 15.000 € für reCAPTCHA). Das BayLDA empfiehlt, Alternativen zu prüfen. Lösung ohne US-Dienst: Honeypot, signierter Zeit-Check und Proof-of-Work auf dem eigenen Server, wie in Flinkform eingebaut.
+
+### Contact Form 7 im Feature Freeze (https://flinkform.de/blog/contact-form-7-feature-freeze)
+
+Takayuki Miyoshi hat auf der WordCamp Asia 2026 angekündigt, dass Contact Form 7 (über 10 Millionen aktive Installationen) nach Version 6.2 keine neuen Funktionen mehr bekommt und in den Wartungsmodus wechselt. Sein Fokus liegt auf dem Nachfolge-Projekt Contactable.io (geplant 2028). Bestehende Formulare laufen weiter; für neue Projekte empfiehlt sich ein aktiv entwickeltes, block-natives Plugin.
+
+### Stripe-Zahlungen im WordPress-Formular (https://flinkform.de/blog/stripe-zahlungen-wordpress-formular)
+
+Für Anzahlungen, Buchungen und Einzelverkäufe braucht es keinen Shop: Das Stripe Payment Element bringt Kreditkarte, SEPA, Apple Pay und Google Pay in ein Formularfeld. Eine saubere Integration bindet den Betrag serverseitig, verifiziert die Zahlung vor dem Speichern und fängt Doppel-Submissions ab. Flinkform Pro setzt alle drei Regeln um; Zahlungen laufen direkt auf das eigene Stripe-Konto.

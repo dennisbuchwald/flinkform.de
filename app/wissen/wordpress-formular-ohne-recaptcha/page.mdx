@@ -1,0 +1,54 @@
+import WissenArticle from "@/components/WissenArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "WordPress-Formular ohne reCAPTCHA: So geht Spam-Schutz DSGVO-konform",
+  description:
+    "Spam-Schutz ohne externen Dienst: Honeypot, signierter Zeit-Check und Proof-of-Work stoppen Formular-Spam auf dem eigenen Server, ohne Einwilligungspflicht.",
+  alternates: { canonical: `${SITE_URL}/wissen/wordpress-formular-ohne-recaptcha` },
+};
+
+export default function Layout({ children }) {
+  return <WissenArticle slug="wordpress-formular-ohne-recaptcha">{children}</WissenArticle>;
+}
+
+Ein WordPress-Formular lässt sich ohne Google reCAPTCHA zuverlässig vor Spam schützen: mit einer Kombination aus Honeypot, signiertem Zeit-Check und Proof-of-Work, die komplett auf dem eigenen Server läuft. Diese Mechanismen brauchen keinen externen Dienst, setzen keine Cookies und erfordern deshalb keine Einwilligung der Besucher. Das kostenlose Plugin Flinkform hat alle drei eingebaut; bei den meisten anderen Formular-Plugins ist reCAPTCHA oder ein vergleichbarer US-Dienst der Standardweg.
+
+## Warum reCAPTCHA ein Problem ist
+
+Google reCAPTCHA schützt vor Spam, indem es Besucher analysiert: IP-Adresse, Browser-Eigenschaften, Verhalten und ein Cookie mit eindeutiger Nutzer-ID. Genau das macht es rechtlich problematisch. Das österreichische Bundesverwaltungsgericht hat am 13.09.2024 entschieden (W298 2274626-1/8E), dass reCAPTCHA ohne vorherige Einwilligung gegen die DSGVO verstößt. Die französische CNIL hat 2023 Bußgelder verhängt, an denen reCAPTCHA-Verstöße beteiligt waren. Die Details mit allen Quellen stehen im Artikel [reCAPTCHA und die DSGVO](/blog/recaptcha-dsgvo-rechtsrisiko).
+
+Für Website-Betreiber entsteht ein Dilemma: reCAPTCHA hinter ein Consent-Banner zu legen bedeutet, dass abgelehnte Besucher ein ungeschütztes oder blockiertes Formular sehen. Die sauberere Lösung ist Spam-Schutz, der gar keine Einwilligung braucht.
+
+## Die drei Mechanismen im Detail
+
+### 1. Honeypot
+
+Das Formular enthält ein zusätzliches Feld, das per CSS unsichtbar ist. Menschen sehen es nie und lassen es leer. Spam-Bots füllen typischerweise jedes Feld aus. Ist das Honeypot-Feld gefüllt, wird die Einsendung verworfen. Kostet nichts, stört niemanden, fängt einen großen Teil des automatisierten Spams.
+
+### 2. Signierter Zeit-Check
+
+Menschen brauchen ein paar Sekunden, um ein Formular auszufüllen. Bots senden in Millisekunden. Der Server merkt sich, wann das Formular ausgeliefert wurde, und lehnt Einsendungen ab, die zu schnell kommen. Wichtig ist die Signatur: Der Zeitstempel wird kryptografisch signiert (HMAC), damit Bots ihn nicht fälschen oder wiederverwenden können.
+
+### 3. Proof-of-Work
+
+Der Browser des Besuchers löst im Hintergrund eine kleine Rechenaufgabe, unbemerkt und in Sekundenbruchteilen. Für einen einzelnen Besucher irrelevant, für einen Bot, der tausende Formulare pro Minute abschicken will, wird die Rechenlast unwirtschaftlich. Besucher ohne JavaScript bekommen als barrierefreien Fallback eine einfache Mathe-Frage.
+
+## Reicht das wirklich gegen Spam?
+
+Für die allermeisten Websites: ja. Die drei Schichten ergänzen sich, weil sie unterschiedliche Bot-Typen treffen: Der Honeypot fängt simple Formular-Crawler, der Zeit-Check stoppt Schnellfeuer-Bots, Proof-of-Work macht Massen-Spam teuer. Was sie nicht verhindern, ist gezielter manueller Spam von Menschen, aber den stoppt reCAPTCHA genauso wenig.
+
+## Vergleich der Ansätze
+
+| | Server-seitiger Schutz (Flinkform) | reCAPTCHA / hCaptcha / Turnstile |
+| --- | --- | --- |
+| Externe Requests | keine | ja, an US-Anbieter |
+| Einwilligung nötig | nein | ja (nach BVwG-Rechtsprechung) |
+| Cookie-Banner-Eintrag | nein | ja |
+| Konfiguration / API-Keys | keine | Konto + Keys nötig |
+| Nutzererlebnis | unsichtbar | teils Bilder-Rätsel |
+| Barrierefreiheit | Mathe-Fallback ohne JS | problematisch bei Screenreadern |
+
+## So setzt du es um
+
+Mit [Flinkform](/) ist nichts zu konfigurieren: Honeypot, signierter Zeit-Check und Proof-of-Work sind im kostenlosen Plugin immer aktiv. Formular im Block-Editor bauen, veröffentlichen, fertig. Es gibt keine API-Keys, keinen externen Dienst und keinen Eintrag, der in ein Cookie-Banner müsste.

@@ -1,0 +1,53 @@
+import WissenArticle from "@/components/WissenArticle";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  title: "SEPA-Zahlung im WordPress-Formular annehmen",
+  description:
+    "SEPA-Lastschrift direkt im WordPress-Formular: wie die verzögerte Bestätigung funktioniert, warum ein Webhook nötig ist und wie der Einbau mit Stripe gelingt.",
+  alternates: { canonical: `${SITE_URL}/wissen/sepa-zahlung-wordpress-formular` },
+};
+
+export default function Layout({ children }) {
+  return <WissenArticle slug="sepa-zahlung-wordpress-formular">{children}</WissenArticle>;
+}
+
+SEPA-Lastschrift lässt sich direkt in einem WordPress-Formular annehmen, ohne Shop-System: über das Stripe Payment Element, das SEPA neben Kreditkarte, Apple Pay und Google Pay als Zahlart anzeigt. Die Besonderheit gegenüber Kartenzahlung ist das Timing: Eine SEPA-Abbuchung wird erst nach mehreren Werktagen endgültig bestätigt, deshalb braucht die Integration ein Status-Modell ("in Bearbeitung" bis "bezahlt") und einen Stripe-Webhook. Flinkform Pro bringt beides mit.
+
+## Warum SEPA im DACH-Markt Pflicht ist
+
+Die Lastschrift gehört in Deutschland und Österreich zu den beliebtesten Online-Zahlarten: kein Kartenlimit, keine Kreditkarte nötig, vertraut seit Jahrzehnten. Wer im Formular nur "Kreditkarte" anbietet, verliert genau die Kunden, die am liebsten per Bankeinzug zahlen. Für Buchungen, Anzahlungen und Mitgliedsbeiträge ist SEPA oft die meistgewählte Option.
+
+## Der technische Unterschied zur Kartenzahlung
+
+| | Kreditkarte / Wallets | SEPA-Lastschrift |
+| --- | --- | --- |
+| Bestätigung | sofort (Sekunden) | nach Tagen (Banklauf) |
+| Status nach dem Absenden | "bezahlt" | "in Bearbeitung" (processing) |
+| Endgültiges Ergebnis | direkt in der Antwort | per Webhook von Stripe |
+| Rückbuchung möglich | Chargeback-Verfahren | ja, vergleichsweise einfach |
+
+Daraus folgt das Muster einer sauberen Formular-Integration:
+
+1. Der Besucher gibt seine IBAN im Payment Element ein und sendet das Formular ab.
+2. Die Einsendung wird gespeichert und als **"in Bearbeitung"** markiert. Der Besucher bekommt die normale Bestätigung.
+3. Tage später meldet Stripe per **Webhook** das Ergebnis. Die Website prüft die Signatur der Nachricht und setzt den Status auf "bezahlt" oder "fehlgeschlagen".
+4. Im Admin ist der Zahlungsstatus jeder Einsendung jederzeit sichtbar.
+
+## Was du für den Einbau brauchst
+
+- **Ein Stripe-Konto** (kostenlos), in dem SEPA-Lastschrift als Zahlart aktiviert ist.
+- **WordPress mit Flinkform + Flinkform Pro:** Das Payment-Feld in das Formular ziehen, fester Betrag oder Produktauswahl, optional ein Berechnungsfeld für dynamische Summen.
+- **Den Webhook-Endpoint eintragen:** Flinkform Pro zeigt die Webhook-URL in den Stripe-Einstellungen an; sie wird im Stripe-Dashboard hinterlegt, zusammen mit dem Signing Secret zur Signaturprüfung.
+
+Danach läuft der Ablauf automatisch: Verifizierung der Zahlung vor dem Speichern, Statusverwaltung, Webhook-Bestätigung, Doppelklick-Schutz. Der Betrag ist serverseitig an die Formular-Definition gebunden und kann nicht per manipuliertem Request verändert werden.
+
+## Häufige Fragen
+
+**Braucht es ein SEPA-Mandat?** Ja, das Mandat holt das Stripe Payment Element automatisch ein: Der Besucher bestätigt die Abbuchungsermächtigung direkt im Zahlungsformular, Stripe archiviert das Mandat.
+
+**Was passiert bei einer Rückbuchung?** Stripe meldet die Rückgabe per Webhook, die Einsendung wechselt auf "fehlgeschlagen". Du siehst im Admin sofort, welche Zahlung nicht durchging.
+
+**Gehen die Kontodaten über meinen Server?** Nein. IBAN und Mandat verarbeitet ausschließlich Stripe (PCI-konform). Dein Server erfährt nur Status, Betrag und Währung.
+
+Der große Zusammenhang (Payment Element, Sicherheitsregeln, dynamische Beträge) steht im Blog-Artikel [Stripe-Zahlungen im WordPress-Formular](/blog/stripe-zahlungen-wordpress-formular).
