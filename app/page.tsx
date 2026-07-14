@@ -66,6 +66,7 @@ const features = [
   "Automatische theme.json-Übernahme: Farben, Typografie, Abstände, Radius",
   "Style-Panel: 4 Feld-Stile, 4 Label-Positionen, 3 Button-Stile",
   "Weiterleitung auf Danke-Seite mit Conversion-Tracking-Parametern (GA4, Meta Pixel, Plausible)",
+  "Popup-tauglich: In Modals und Popups senden Formulare ohne Neuladen ab, Erfolgsmeldung und Fehler erscheinen direkt im Popup",
   "Automatische Datenlöschung nach konfigurierbarer Aufbewahrungsfrist",
   "Datenexport und Löschung über die WordPress-Privacy-Tools",
   "Zwei-Spalten-Layout mit Volle-Breite-Option pro Feld",
@@ -130,6 +131,10 @@ const faqs: FaqItem[] = [
   {
     q: "Funktioniert Flinkform mit meinem Theme?",
     a: "Ja. Flinkform liest die Design-Tokens deines Themes aus theme.json und übernimmt Farben, Typografie, Abstände und Eckenradius automatisch. Getestet mit GeneratePress, Twenty Twenty-Five, Astra und Kadence.",
+  },
+  {
+    q: "Funktioniert Flinkform in einem Popup oder Modal?",
+    a: "Ja. Liegt ein Flinkform-Formular in einem Popup oder Modal (einem Container mit role=\"dialog\" oder einem nativen dialog-Element), sendet es ohne Neuladen der Seite ab: Die Erfolgsmeldung und Validierungsfehler erscheinen direkt im Popup. Formulare außerhalb von Popups nutzen weiter den klassischen Ablauf. Es ist keine Konfiguration nötig.",
   },
   {
     q: "Kann ich meine Contact-Form-7-Formulare migrieren?",
