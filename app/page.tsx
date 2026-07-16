@@ -61,6 +61,7 @@ const features = [
   "13 Feldtypen: Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Dropdown, Radio, Checkbox, Toggle, Hidden, Consent",
   "Multi-Step-Formulare mit Fortschrittsanzeige (Balken, Punkte oder Zahlen) und Schritt-Validierung",
   "Bedingte Logik: Felder und Schritte ein-/ausblenden, Schritte überspringen, Submit-Button sperren",
+  "Einfachauswahl wahlweise als klassische Liste oder als anklickbare Buttons in deiner Markenfarbe",
   "Spam-Schutz ohne externe Dienste: Honeypot, signierter Zeit-Check, Proof-of-Work mit Mathe-Fallback ohne JavaScript",
   "Admin- und Bestätigungs-Mails mit Merge-Tags",
   "Automatische theme.json-Übernahme: Farben, Typografie, Abstände, Radius",
