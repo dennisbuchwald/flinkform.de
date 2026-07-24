@@ -30,7 +30,7 @@ const steps = [
   },
   {
     title: "5. Bedingte Logik",
-    body: "Im Block-Inspector eines Feldes die Sichtbarkeits-Regeln konfigurieren: Feld anzeigen oder verstecken, abhängig von den Antworten in anderen Feldern. Auch ganze Schritte lassen sich überspringen und der Submit-Button lässt sich sperren.",
+    body: "Im Block-Inspector eines Feldes die Sichtbarkeits-Regeln konfigurieren: Feld anzeigen oder verstecken, abhängig von den Antworten in anderen Feldern. Auch ganze Schritte lassen sich überspringen und der Submit-Button lässt sich sperren. Neben Gleichheit, Enthält und Leer/Nicht-leer stehen auch numerische Vergleiche (Größer/Kleiner) und Datumsvergleiche (vor einem Stichtag / ab einem Stichtag) zur Verfügung.",
   },
   {
     title: "6. Einsendungen verwalten",

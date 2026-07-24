@@ -53,6 +53,14 @@ const geplant = [
 
 const changelog = [
   {
+    version: "Free 1.5.2",
+    date: "2026-07",
+    items: [
+      "Bedingte Logik: neue Datums-Operatoren \"ist vor (Datum)\" und \"ist am oder nach (Datum)\" für Vergleiche gegen einen festen Stichtag im Format JJJJ-MM-TT",
+      "Floating Labels: Hintergrundfarbe der Label-Kerbe wird automatisch vom umgebenden Container erkannt, funktioniert jetzt auf jeder Hintergrundfarbe ohne manuelle Einstellung",
+    ],
+  },
+  {
     version: "Free 1.3.0",
     date: "2026-07-03",
     items: [
