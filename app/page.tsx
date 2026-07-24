@@ -58,7 +58,7 @@ const pillars = [
 ];
 
 const features = [
-  "13 Feldtypen: Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Dropdown, Radio, Checkbox, Toggle, Hidden, Consent",
+  "14 Feldtypen: Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Dropdown, Radio, Checkbox, Toggle, Hidden, Consent, Adresse",
   "Multi-Step-Formulare mit Fortschrittsanzeige (Balken, Punkte oder Zahlen) und Schritt-Validierung",
   "Bedingte Logik: Felder und Schritte ein-/ausblenden, Schritte überspringen, Submit-Button sperren. Datumsvergleiche inklusive (vor/ab einem Stichtag)",
   "Einfachauswahl wahlweise als klassische Liste oder als anklickbare Buttons in deiner Markenfarbe",

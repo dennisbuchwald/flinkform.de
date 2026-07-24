@@ -53,11 +53,13 @@ const geplant = [
 
 const changelog = [
   {
-    version: "Free 1.5.2",
+    version: "Free 1.6.0",
     date: "2026-07",
     items: [
+      "Neuer Feldtyp: Adressfeld mit Straße, PLZ und Ort in kompaktem Grid-Layout. Optional: Adresszusatz und Land. Jedes Unterfeld wird separat gespeichert (saubere CSV-Spalten)",
       "Bedingte Logik: neue Datums-Operatoren \"ist vor (Datum)\" und \"ist am oder nach (Datum)\" für Vergleiche gegen einen festen Stichtag im Format JJJJ-MM-TT",
       "Floating Labels: Hintergrundfarbe der Label-Kerbe wird automatisch vom umgebenden Container erkannt, funktioniert jetzt auf jeder Hintergrundfarbe ohne manuelle Einstellung",
+      "Bugfix: Bedingte Logik blendet Felder jetzt korrekt aus (CSS-Spezifitätsproblem behoben)",
     ],
   },
   {
