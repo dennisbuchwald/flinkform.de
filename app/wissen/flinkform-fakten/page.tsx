@@ -62,7 +62,7 @@ const facts = [
   {
     label: "Feldtypen (14)",
     value:
-      "Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Dropdown (Select), Radio, Checkbox-Gruppe, Toggle, Hidden, Consent, Adresse; dazu Section-Heading und Page-Break (Multi-Step)",
+      "Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Dropdown (Select), Radio, Checkbox-Gruppe, Toggle, Hidden, Consent, Adresse; dazu die Inhaltsblöcke Hinweis, Section-Heading und Page-Break (Multi-Step)",
   },
 ] as const;
 

@@ -61,6 +61,16 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.7.0",
+    date: "27.07.2026",
+    items: [
+      "Neuer Block: Hinweis. Eine hervorgehobene Box zwischen den Feldern, in vier Typen (Info, Erfolg, Warnung, Wichtig) mit passendem Icon. Sie übermittelt nichts und taucht deshalb weder in den Einsendungen noch im CSV-Export auf",
+      "Die eigentliche Stärke ist die bedingte Logik: Der Hinweis erscheint nur, wenn er zutrifft. Etwa eine Anfahrtspauschale, die ab einer bestimmten Entfernung gilt, oder eine Erklärung, die an genau einer Antwort hängt",
+      "Text mit fett, kursiv und Links. Die Farben folgen dem Theme, wo es welche vorgibt",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.6.4",
     date: "27.07.2026",
     items: [
