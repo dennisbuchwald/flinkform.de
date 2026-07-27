@@ -61,6 +61,16 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.7.2",
+    date: "27.07.2026",
+    items: [
+      "Die Spam-Frage (\"Was ergibt 2 + 2?\") blitzt beim harten Neuladen nicht mehr auf. Sie ist der Fallback für Besucher ohne JavaScript und stand bisher so lange auf dem Schirm, bis die Rechenaufgabe im Hintergrund gelöst war. Jetzt ist sie von Anfang an ausgeblendet, wo JavaScript läuft, und kommt zurück, sobald der Löser nicht durchkommt oder ein langsames Gerät zu lange braucht",
+      "Gleichmäßige Abstände bei Floating Labels. Der Platz für die angehobene Beschriftung hing bisher am einzelnen Textfeld, weshalb Zeilen je nach Nachbarblock unterschiedlich weit auseinanderlagen. Er sitzt jetzt am Zeilenabstand des Formulars und gilt für jede Zeile gleich",
+      "Kein Springen mehr beim Laden: Dieser Platz ändert seine Größe nicht mehr, wenn die Farberkennung der Label-Kerbe greift",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.7.1",
     date: "27.07.2026",
     items: [
