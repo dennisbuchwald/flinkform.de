@@ -61,6 +61,14 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.7.1",
+    date: "27.07.2026",
+    items: [
+      "Bedingte Felder und Hinweise blitzen beim Laden nicht mehr kurz auf. Bisher wurde alles zunächst sichtbar ausgeliefert und erst ausgeblendet, sobald das JavaScript lief. Der Server ermittelt den Anfangszustand jetzt selbst und liefert ausgeblendete Blöcke von vornherein ausgeblendet aus",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.7.0",
     date: "27.07.2026",
     items: [
