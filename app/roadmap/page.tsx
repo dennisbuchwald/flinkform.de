@@ -61,6 +61,14 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.8.1",
+    date: "27.07.2026",
+    items: [
+      "Der Block-Editor ist endlich übersetzt. Die deutschen Sprachdateien für den Editor lagen dem Plugin immer bei, WordPress hat sie aber nie gelesen: Es sucht sie standardmäßig nur in einem Ordner, den translate.wordpress.org befüllt. Dadurch blieb der komplette Formular-Inspector englisch, selbst auf Seiten, deren Frontend und Adminbereich korrekt deutsch waren",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.8.0",
     date: "27.07.2026",
     items: [
