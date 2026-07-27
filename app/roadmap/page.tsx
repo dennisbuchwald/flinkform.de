@@ -61,6 +61,15 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.8.2",
+    date: "27.07.2026",
+    items: [
+      "Ein Absenden-Button, den eine Absende-Bedingung sperrt, sieht jetzt auch gesperrt aus. Er war zwar schon deaktiviert, behielt aber Farbe, Hover und normalen Mauszeiger, sodass nur ein grauer Hinweistext darunter davon zeugte. Jetzt ausgegraut, entsättigt und mit Sperr-Mauszeiger, in allen drei Button-Stilen",
+      "Der Hinweis darunter richtet sich am Button aus, statt über die volle Formularbreite zentriert zu stehen",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.8.1",
     date: "27.07.2026",
     items: [
