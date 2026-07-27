@@ -51,10 +51,18 @@ const geplant = [
   },
 ];
 
+/**
+ * Kuratierte Auswahl, keine Vollspiegelung: reine Wartungs-Patches bleiben
+ * draußen, das vollständige Changelog steht unter der Liste verlinkt auf
+ * WordPress.org. Regel für die Einträge: `version` nennt immer den echten
+ * Bereich, in dem die aufgeführten Punkte erschienen sind. Nichts unter einer
+ * Versionsnummer bündeln, zu der es nicht gehört.
+ */
 const changelog = [
   {
-    version: "Free 1.6.3",
-    date: "2026-07-27",
+    bereich: "Free",
+    version: "1.6.3",
+    date: "27.07.2026",
     items: [
       "Deutsche Übersetzung wiederhergestellt: Version 1.6.1 hatte die Sprachdateien aus einer unvollständigen Vorlage neu erzeugt und dabei 243 bereits übersetzte Texte verloren. Deutsche Installationen sahen große Teile der Oberfläche wieder auf Englisch. Jetzt sind 387 von 392 Texten übersetzt (der Rest sind URLs)",
       "Adressfeld: bei der Label-Position \"Floating\" lagen Beschriftung und Platzhalter übereinander. Die Unterfelder folgen jetzt der Label-Einstellung des Formulars, genau wie jedes andere Textfeld",
@@ -63,26 +71,56 @@ const changelog = [
     ],
   },
   {
-    version: "Free 1.6.0",
-    date: "2026-07",
+    bereich: "Free",
+    version: "1.6.0 - 1.6.2",
+    date: "24.07.2026",
     items: [
-      "Neuer Feldtyp: Adressfeld mit Straße, PLZ und Ort in kompaktem Grid-Layout. Optional: Adresszusatz und Land. Jedes Unterfeld wird separat gespeichert (saubere CSV-Spalten)",
-      "Bedingte Logik: neue Datums-Operatoren \"ist vor (Datum)\" und \"ist am oder nach (Datum)\" für Vergleiche gegen einen festen Stichtag im Format JJJJ-MM-TT",
-      "Floating Labels: Hintergrundfarbe der Label-Kerbe wird automatisch vom umgebenden Container erkannt, funktioniert jetzt auf jeder Hintergrundfarbe ohne manuelle Einstellung",
-      "Bugfix: Bedingte Logik blendet Felder jetzt korrekt aus (CSS-Spezifitätsproblem behoben)",
+      "Neuer Feldtyp: Adressfeld mit Straße, PLZ und Ort in kompaktem Grid-Layout. Optional Adresszusatz und Land. Jedes Unterfeld wird separat gespeichert, das ergibt saubere CSV-Spalten",
+      "Die Unterfelder des Adressfelds übernehmen alle Formular-Einstellungen: Feldstil, Label-Position, Abstände und Fehlerzustände",
     ],
   },
   {
-    version: "Free 1.3.0",
-    date: "2026-07-03",
+    bereich: "Free",
+    version: "1.5.2 - 1.5.3",
+    date: "24.07.2026",
+    items: [
+      "Bedingte Logik: neue Datums-Operatoren \"ist vor (Datum)\" und \"ist am oder nach (Datum)\" für Vergleiche gegen einen festen Stichtag im Format JJJJ-MM-TT",
+      "Floating Labels: die Hintergrundfarbe der Label-Kerbe wird automatisch vom umgebenden Container erkannt und passt damit auf jeder Fläche, ohne manuelle Einstellung",
+      "Bugfix: bedingte Logik blendet Felder jetzt korrekt aus (CSS-Spezifitätsproblem)",
+    ],
+  },
+  {
+    bereich: "Free",
+    version: "1.5.0 - 1.5.1",
+    date: "17.07.2026",
+    items: [
+      "Das Radio-Feld kann seine Auswahl als anklickbare Buttons statt als Liste darstellen. Die aktive Option füllt sich mit der Primärfarbe des Formulars. Technisch bleiben es echte Radio-Inputs, Tastatur und Screenreader funktionieren unverändert",
+      "Button-Form wählbar: Pille, abgerundet oder eckig",
+    ],
+  },
+  {
+    bereich: "Free",
+    version: "1.4.0 - 1.4.4",
+    date: "14.07.2026",
+    items: [
+      "Formulare in Popups und Modals senden jetzt ohne Seitenreload. Erfolgsmeldung und Validierungsfehler erscheinen direkt im Popup, es bleibt offen und die Besucherin sieht das Ergebnis. Alle serverseitigen Schutzmechanismen laufen unverändert mit",
+      "Wichtiger Fix: Formulare außerhalb des Seiteninhalts, etwa im Footer, in einem Header-Template-Teil oder in einem seitenweiten Popup, wurden beim Absenden still verworfen. Sie werden jetzt zuverlässig gefunden und gespeichert",
+      "Die Gültigkeit des Spam-Tokens beträgt 30 Minuten statt 5. Wer eine lange Seite liest oder ein Popup erst später öffnet, wird nicht mehr grundlos abgewiesen",
+    ],
+  },
+  {
+    bereich: "Free",
+    version: "1.3.0 - 1.3.1",
+    date: "03.07.2026",
     items: [
       "Doppelklick-Schutz: Doppelklick, Zurück-Taste oder parallele Requests erzeugen keine doppelten Einsendungen, Mails oder Zahlungen mehr",
       "Neuer Erweiterungspunkt für Add-ons zur Darstellung von Feldwerten im Admin (Flinkform Pro zeigt damit Upload-Dateien als Download-Links)",
     ],
   },
   {
-    version: "Pro 1.2.0",
-    date: "2026-07",
+    bereich: "Pro",
+    version: "1.2.0 - 1.2.1",
+    date: "05.07.2026",
     items: [
       "Stripe Payment Element: Apple Pay, Google Pay und Link zusätzlich zu Kreditkarte und SEPA-Lastschrift",
       "SEPA-Lastschrift mit automatischer Bestätigung per Stripe-Webhook",
@@ -92,19 +130,14 @@ const changelog = [
     ],
   },
   {
-    version: "Free 1.2.x",
-    date: "2026-06",
-    items: [
-      "Neu gestaltete Fehlermeldungen mit Inline-Icons und sanfter Animation",
-      "Seiten mit Formular werden vom Full-Page-Caching ausgenommen (verhindert abgelaufene Spam-Tokens)",
-    ],
-  },
-  {
-    version: "Free 1.1.0",
-    date: "2026-06",
+    bereich: "Free",
+    version: "1.1.0 - 1.2.1",
+    date: "30.06.2026",
     items: [
       "Consent-Feld wird serverseitig zuverlässig als Pflichtfeld erzwungen",
       "Datenschutz-Link als Platzhalter direkt im Einwilligungstext",
+      "Neu gestaltete Fehlermeldungen mit Inline-Icons und sanfter Animation",
+      "Seiten mit Formular werden vom Full-Page-Caching ausgenommen, das verhindert abgelaufene Spam-Tokens",
     ],
   },
 ];
@@ -184,9 +217,21 @@ export default function RoadmapPage() {
         </h2>
         <div className="space-y-6">
           {changelog.map((release) => (
-            <div key={release.version} className="card p-7">
+            <div
+              key={`${release.bereich} ${release.version}`}
+              className="card p-7"
+            >
               <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
                 <h3 className="font-(family-name:--font-display) text-lg font-bold">
+                  <span
+                    className={`mr-2.5 rounded-full px-2.5 py-1 align-middle text-xs font-semibold uppercase tracking-wide ${
+                      release.bereich === "Pro"
+                        ? "bg-gradient-brand text-white"
+                        : "bg-ink/5 text-ink-soft"
+                    }`}
+                  >
+                    {release.bereich}
+                  </span>
                   {release.version}
                 </h3>
                 <span className="text-sm text-ink-muted">{release.date}</span>
