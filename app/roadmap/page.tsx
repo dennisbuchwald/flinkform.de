@@ -61,6 +61,15 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.8.3",
+    date: "27.07.2026",
+    items: [
+      "Auswahlfelder wurden in Safari falsch dargestellt. WebKit ignoriert bei einem Dropdown die vertikalen Innenabstände und bemisst die Höhe allein aus der Schrift, wodurch die Box kleiner war als ihr eigener Text: Safari schnitt die gewählte Option oben ab und das Floating-Label lag darauf. Flinkform zeichnet das Feld jetzt selbst, damit es in jedem Browser genauso hoch ist wie alle anderen",
+      "Ein frisch eingefügtes Feld trägt jetzt eine Beschriftung in der Sprache der Website. Die Standardwerte stehen in einer JSON-Datei und liefen nie durch die Übersetzung, weshalb ein neues Datumsfeld auch auf einer deutschen Seite \"Date\" hieß. Selbst gesetzte Beschriftungen bleiben unangetastet",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.8.2",
     date: "27.07.2026",
     items: [
