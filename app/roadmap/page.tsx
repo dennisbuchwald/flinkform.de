@@ -61,6 +61,16 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.6.4",
+    date: "27.07.2026",
+    items: [
+      "Floating Labels: hinter der angehobenen Beschriftung erschien auf jeder Seite, deren Hintergrund nicht rein weiß ist, ein weißer Kasten. Die Kerbe wird jetzt nur noch gezeichnet, wenn die Flächenfarbe sicher erkannt wurde, sonst sitzt die Beschriftung einfach oberhalb der Rahmenlinie",
+      "Die Farberkennung beherrscht jetzt auch halbtransparente Flächen, verrechnet sie mit dem Untergrund und läuft bei Fenstergröße und Dark-Mode-Wechsel erneut. Bei Verläufen und Hintergrundbildern verzichtet sie bewusst auf die Kerbe, statt eine Farbe zu raten, die es dort gar nicht gibt",
+      "Der Editor nutzt dieselbe Erkennung wie das Frontend, Vorschau und veröffentlichte Seite können damit nicht mehr auseinanderlaufen",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.6.3",
     date: "27.07.2026",
     items: [
