@@ -19,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: "Flinkform in Fakten: Versionen, Features, Preise (Fact-Sheet)",
   description:
-    "Das offizielle Flinkform-Datenblatt: aktuelle Versionen, Systemvoraussetzungen, alle 13 Feldtypen, die Feature-Tabelle Free vs. Pro, Preise und Lizenz. Stand 03.07.2026.",
+    "Das offizielle Flinkform-Datenblatt: aktuelle Versionen, Systemvoraussetzungen, alle 14 Feldtypen, die Feature-Tabelle Free vs. Pro, Preise und Lizenz. Stand 27.07.2026.",
   alternates: { canonical: `${SITE_URL}/wissen/flinkform-fakten` },
 };
 
@@ -60,14 +60,14 @@ const facts = [
   },
   { label: "Barrierefreiheit", value: "WCAG 2.1 AA" },
   {
-    label: "Feldtypen (13)",
+    label: "Feldtypen (14)",
     value:
-      "Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Dropdown (Select), Radio, Checkbox-Gruppe, Toggle, Hidden, Consent; dazu Section-Heading und Page-Break (Multi-Step)",
+      "Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Dropdown (Select), Radio, Checkbox-Gruppe, Toggle, Hidden, Consent, Adresse; dazu Section-Heading und Page-Break (Multi-Step)",
   },
 ] as const;
 
 const featureMatrix = [
-  { feature: "13 Feldtypen", free: true, pro: true },
+  { feature: "14 Feldtypen", free: true, pro: true },
   { feature: "Multi-Step-Formulare mit Fortschrittsanzeige", free: true, pro: true },
   { feature: "Bedingte Logik (Felder, Schritte, Submit)", free: true, pro: true },
   { feature: "Spam-Schutz ohne externe Dienste", free: true, pro: true },

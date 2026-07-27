@@ -213,7 +213,7 @@ export default function Page() {
                 bedingte Logik und Spam-Schutz ohne externe Dienste,
                 kostenlos. Jedes Feld ist ein Gutenberg-Block: Du baust das
                 Formular direkt in der Seite, mit Live-Vorschau in deinem
-                Theme-Design. 13 Feldtypen, Multi-Step mit
+                Theme-Design. 14 Feldtypen, Multi-Step mit
                 Fortschrittsanzeige, bedingte Logik zum Ein- und Ausblenden
                 von Feldern und Schritten, dazu ein Submissions-Dashboard
                 mit Suche und Filtern.

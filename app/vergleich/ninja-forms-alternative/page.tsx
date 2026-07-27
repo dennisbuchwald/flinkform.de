@@ -168,7 +168,7 @@ export default function Page() {
               </p>
               <p>
                 Flinkform zieht die Grenze anders: Das kostenlose Plugin
-                enthält 13 Feldtypen,{" "}
+                enthält 14 Feldtypen,{" "}
                 <Link href="/wissen/multi-step-formular-wordpress">
                   Multi-Step-Formulare
                 </Link>{" "}

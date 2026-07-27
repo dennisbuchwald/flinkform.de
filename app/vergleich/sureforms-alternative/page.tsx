@@ -188,7 +188,7 @@ export default function Page() {
               </p>
               <ul>
                 <li>
-                  <strong>Flinkform kostenlos:</strong> 13 Feldtypen
+                  <strong>Flinkform kostenlos:</strong> 14 Feldtypen
                   inklusive Datum, Multi-Step mit Fortschrittsanzeige und
                   Schritt-Validierung, bedingte Logik inklusive
                   Schritte-Überspringen, Submissions-Dashboard,

@@ -131,7 +131,7 @@ const compareRows = [
 const steps = [
   {
     title: "Flinkform installieren",
-    desc: "Das kostenlose Plugin aus dem WordPress.org-Verzeichnis. 13 Feldtypen, Multi-Step, bedingte Logik, Spam-Schutz.",
+    desc: "Das kostenlose Plugin aus dem WordPress.org-Verzeichnis. 14 Feldtypen, Multi-Step, bedingte Logik, Spam-Schutz.",
   },
   {
     title: "Pro aktivieren",
@@ -300,7 +300,7 @@ export default function ProPage() {
 
       {/* ── HIGHLIGHTS ── */}
       <Section>
-        <SectionHeading sub="Alles zusätzlich zu den 13 Feldtypen, Multi-Step, bedingter Logik und dem Spam-Schutz des kostenlosen Plugins.">
+        <SectionHeading sub="Alles zusätzlich zu den 14 Feldtypen, Multi-Step, bedingter Logik und dem Spam-Schutz des kostenlosen Plugins.">
           Im Detail
         </SectionHeading>
         <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-2">

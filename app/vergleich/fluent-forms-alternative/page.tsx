@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     q: "Hat Flinkform so viele Feldtypen wie Fluent Forms?",
-    a: "Nein. Fluent Forms Pro wirbt mit über 55 Feldtypen inklusive Quiz, Umfragen und Nutzer-Registrierung. Flinkform konzentriert sich auf 13 Feldtypen plus Section-Heading und Page-Break, dazu Multi-Step und bedingte Logik kostenlos. Wer Quiz- oder Registrierungs-Formulare braucht, ist bei Fluent Forms besser aufgehoben.",
+    a: "Nein. Fluent Forms Pro wirbt mit über 55 Feldtypen inklusive Quiz, Umfragen und Nutzer-Registrierung. Flinkform konzentriert sich auf 14 Feldtypen plus Section-Heading und Page-Break, dazu Multi-Step und bedingte Logik kostenlos. Wer Quiz- oder Registrierungs-Formulare braucht, ist bei Fluent Forms besser aufgehoben.",
   },
   {
     q: "Speichert Fluent Forms IP-Adressen?",

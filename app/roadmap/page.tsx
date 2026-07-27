@@ -53,6 +53,16 @@ const geplant = [
 
 const changelog = [
   {
+    version: "Free 1.6.3",
+    date: "2026-07-27",
+    items: [
+      "Deutsche Übersetzung wiederhergestellt: Version 1.6.1 hatte die Sprachdateien aus einer unvollständigen Vorlage neu erzeugt und dabei 243 bereits übersetzte Texte verloren. Deutsche Installationen sahen große Teile der Oberfläche wieder auf Englisch. Jetzt sind 387 von 392 Texten übersetzt (der Rest sind URLs)",
+      "Adressfeld: bei der Label-Position \"Floating\" lagen Beschriftung und Platzhalter übereinander. Die Unterfelder folgen jetzt der Label-Einstellung des Formulars, genau wie jedes andere Textfeld",
+      "Der rote Rahmen an fehlerhaften Feldern erscheint wieder. Ein CSS-Selektor traf ins Leere, dadurch war die Fehlermarkierung am Eingabefeld unsichtbar (die Fehlermeldung darunter war immer da)",
+      "Bedingte Logik kann sich jetzt auf Adressfelder beziehen. Die Regel-Auswahl bietet die einzelnen Unterfelder an (Straße, PLZ, Ort) statt des Sammelfelds, gegen das eine Regel nie greifen konnte",
+    ],
+  },
+  {
     version: "Free 1.6.0",
     date: "2026-07",
     items: [
