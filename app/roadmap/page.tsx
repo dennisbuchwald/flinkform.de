@@ -61,6 +61,16 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.8.0",
+    date: "27.07.2026",
+    items: [
+      "Absender pro Formular: Name und E-Mail-Adresse lassen sich jetzt direkt einstellen. Beide Mails kommen dann von deiner eigenen Adresse statt von \"wordpress@deine-domain\". Ganz ohne SMTP-Plugin, weil der Absender eine wp_mail-Einstellung ist und unabhängig davon greift, wie deine Seite Mails verschickt",
+      "Antwort-an für die Bestätigungsmail an den Absender. Bisher hatte nur die Admin-Benachrichtigung eins. Damit kann das Formular von der Website-Adresse senden, während Antworten dort landen, wo du sie tatsächlich liest",
+      "Der Editor warnt, wenn die Absenderadresse auf einer anderen Domain liegt als die Website. Der eigene Server darf nicht für fremde Domains senden, solche Mails scheitern an SPF und landen im Spam",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.7.2",
     date: "27.07.2026",
     items: [

@@ -6,7 +6,7 @@ export const GITHUB_URL = "https://github.com/dennisbuchwald/Flinkform";
 export const DEMO_URL = "https://demo.flinkform.de"; // Platzhalter, Demo-Instanz folgt
 export const CONTACT_MAIL = "dennis@dbw-media.de";
 
-export const FREE_VERSION = "1.7.2";
+export const FREE_VERSION = "1.8.0";
 export const PRO_VERSION = "1.2.1";
 export const FACTS_UPDATED = "2026-07-27";
 
