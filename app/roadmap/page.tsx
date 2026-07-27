@@ -61,6 +61,15 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.8.4",
+    date: "27.07.2026",
+    items: [
+      "Style- und Skript-Updates kommen jetzt tatsächlich im Browser an. Jede Datei wurde unter der Adresse \"?ver=0.1.0\" ausgeliefert, einem Wert, der sich seit dem allerersten Commit nie geändert hat. Über gut dreißig Releases hinweg war die URL damit identisch, und Browser, CDNs und Seiten-Caches behielten die zuerst geladene Fassung. Eine Korrektur konnte auf dem Server richtig sein und im Browser trotzdem fehlen",
+      "Die Adressen tragen jetzt die Plugin-Version, jedes künftige Update erneuert den Cache also von selbst. Für dieses eine Update ist noch ein hartes Neuladen nötig, weil die alte Adresse im Cache liegt",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.8.3",
     date: "27.07.2026",
     items: [
