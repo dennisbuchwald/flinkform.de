@@ -61,6 +61,16 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.9.0",
+    date: "27.07.2026",
+    items: [
+      "Bedingungs-Gruppen: Eine Bedingung war bisher eine flache Regelliste mit einer einzigen Verknüpfung, womit sich \"(A oder B oder C) und D\" nicht ausdrücken ließ. Jetzt lässt sich innerhalb einer Bedingung eine Gruppe anlegen, die ihre eigene ALLE/EINE-Verknüpfung hat und in der Ebene darüber wie eine einzelne Regel zählt",
+      "Der Anlass: Absenden nur erlauben, wenn der errechnete Termin leer ist, vor dem Urlaub liegt oder danach - und gleichzeitig die Postleitzahl nicht ausgeschlossen ist",
+      "Bestehende Bedingungen bleiben unangetastet und müssen nicht angepasst werden",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.8.4",
     date: "27.07.2026",
     items: [
