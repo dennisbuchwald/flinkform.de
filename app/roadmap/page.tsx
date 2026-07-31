@@ -61,6 +61,17 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.10.0",
+    date: "31.07.2026",
+    items: [
+      "Ein ausgeblendetes Feld zählt nicht mehr mit: Sein Wert wurde weiter gelesen, wenn andere Bedingungen geprüft wurden. Ein Wechsel der Auswahl konnte deshalb einen Hinweis stehen lassen oder den Absenden-Button über einer Antwort sperren, die niemand mehr sehen oder ändern konnte - während der Server das Feld längst verworfen hatte. Browser und Server bewerteten dasselbe Formular unterschiedlich",
+      "Ausgeblendet heißt jetzt auf beiden Seiten leer. Die Sichtbarkeit wird zuerst zu Ende gerechnet, damit auch eine Kette greift (ein Feld ausblenden macht die Regel des nächsten wahr) und ein widersprüchlicher Aufbau sauber stehen bleibt statt zu kreisen",
+      "Die Benachrichtigung an dich ist endlich lesbar: echtes HTML mit Klartext-Alternative, Feld-Beschriftungen statt interner Namen, Luft zwischen den Angaben, Datum als TT.MM.JJJJ, Zeilenumbrüche erhalten, E-Mail und Telefon als Link - und nur die Felder, die wirklich ausgefüllt wurden",
+      "Ein eigener Text bleibt Wort für Wort erhalten und bekommt nur denselben Rahmen",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.9.0",
     date: "27.07.2026",
     items: [
