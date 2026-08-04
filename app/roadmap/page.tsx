@@ -61,6 +61,20 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.11.0",
+    date: "04.08.2026",
+    items: [
+      "Dieses Release verdanken wir einem wunderbar detaillierten Nutzerbericht - danke, Daniel!",
+      "Enter mitten im Formular konnte alle Buttons dauerhaft ausgrauen: Der Lade-Zustand wurde scharf geschaltet, bevor die Schritt-Sperre das Absenden abbrach - die Seite blieb stehen, die Buttons blieben tot. Jetzt prüft der Lade-Zustand nach, und Enter wirkt auf einem Zwischenschritt wie ein Klick auf Weiter, Prüfung inklusive",
+      "Der letzte Schritt wurde im Browser nie geprüft: Jeder Weiter-Klick prüfte seinen Schritt, aber Absenden ging ungeprüft zum Server - eine Pflicht-Einwilligung auf dem letzten Schritt sah aus, als würde sie ignoriert. Jetzt bekommt der letzte Schritt (und jedes einseitige Formular) dieselbe Prüfung mit denselben Meldungen am Feld",
+      "Ein Auswahlfeld ohne Platzhalter hatte still die erste Option vorausgewählt - ein Pflicht-Auswahlfeld konnte so nie leer sein und Bedingungen feuerten ohne Zutun. Jetzt führt jedes einfache Auswahlfeld mit einer leeren Bitte-wählen-Option",
+      "Telefonfelder weisen Buchstaben jetzt schon im Browser ab, Adress-Teilfelder tragen echte Autocomplete-Angaben (Straße, PLZ, Ort, Land)",
+      "Auswahl, Radio und Checkbox-Gruppe lassen sich per Block-Umschalter ineinander umwandeln - Optionen, Feldname und alle Bedingungen bleiben erhalten",
+      "Die Einwilligung heißt im Eingang und in der Benachrichtigung jetzt Einwilligung: Ja statt internem Namen und einer nackten 1; Zeitstempel folgen dem Datumsformat und der Zeitzone der Website",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.10.0",
     date: "31.07.2026",
     items: [
