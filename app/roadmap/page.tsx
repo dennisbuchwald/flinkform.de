@@ -64,7 +64,7 @@ const changelog = [
     version: "1.11.1",
     date: "06.08.2026",
     items: [
-      "Die Consent-Checkbox (und jede Checkbox/Radio-Box) konnte auf dem Handy zu einem winzigen Punkt schrumpfen: Ein langer Text in derselben Zeile drückte die Box zusammen. Jetzt hält sie feste 20 Pixel, schrumpft nie, richtet sich an der ersten Textzeile aus und übernimmt beim Anhaken die Primärfarbe des Formulars - nochmal danke, Daniel!",
+      "Die Consent-Checkbox (und jede Checkbox/Radio-Box) konnte auf dem Handy zu einem winzigen Punkt schrumpfen: Ein langer Text in derselben Zeile drückte die Box zusammen. Jetzt hält sie feste 20 Pixel, schrumpft nie, richtet sich an der ersten Textzeile aus und übernimmt beim Anhaken die Primärfarbe des Formulars",
       "Die aufgeklappte Liste eines Auswahlfelds konnte in Edge unter Windows unlesbar sein: Die Liste wird hell gezeichnet, die Schrift erbte aber die helle Farbe dunkler Websites - weiß auf weiß. Die Einträge haben jetzt feste, lesbare Farben; Browser mit eigener Listen-Darstellung ignorieren das einfach",
     ],
   },
