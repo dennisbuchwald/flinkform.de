@@ -61,6 +61,17 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.12.0",
+    date: "07.08.2026",
+    items: [
+      "Farben ohne CSS: Die Abschnittsüberschrift bekommt die native WordPress-Farboption (Block-Seitenleiste, inklusive Theme-Palette) - Überschriften in deiner Highlight-Farbe sind zwei Klicks",
+      "Im Style-Panel des Formulars gibt es zwei neue Farbfelder: eines für Feld-Beschriftungen und Gruppen-Überschriften, eines für Hilfetexte und den Einwilligungssatz - gerade auf dunklen Hintergründen Gold wert",
+      "Dabei gleich mitgefixt: Themes setzen Überschrift-Farben oft als direkte Regel, wodurch die gewählte Blockfarbe nie am Titel ankam - jetzt übernehmen Titel und Beschreibung die Farbe zuverlässig",
+      "Nichts eingestellt heißt wie bisher: alles erbt vom Theme, bestehende Formulare ändern sich nicht. Getestet mit WordPress 7.0.2",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.11.1",
     date: "06.08.2026",
     items: [
