@@ -65,7 +65,7 @@ const features = [
   "Spam-Schutz ohne externe Dienste: Honeypot, signierter Zeit-Check, Proof-of-Work mit Mathe-Fallback ohne JavaScript",
   "Admin- und Bestätigungs-Mails mit Merge-Tags",
   "Automatische theme.json-Übernahme: Farben, Typografie, Abstände, Radius",
-  "Style-Panel: 4 Feld-Stile, 4 Label-Positionen (Floating Labels passen sich automatisch an den Hintergrund an), 3 Button-Stile",
+  "Style-Panel: 4 Feld-Stile, 4 Label-Positionen (Floating Labels passen sich automatisch an den Hintergrund an), 3 Button-Stile, Farben für Beschriftungen, Hinweistexte und Überschriften direkt im Editor",
   "Weiterleitung auf Danke-Seite mit Conversion-Tracking-Parametern (GA4, Meta Pixel, Plausible)",
   "Popup-tauglich: In Modals und Popups senden Formulare ohne Neuladen ab, Erfolgsmeldung und Fehler erscheinen direkt im Popup",
   "Automatische Datenlöschung nach konfigurierbarer Aufbewahrungsfrist",
@@ -131,7 +131,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "Funktioniert Flinkform mit meinem Theme?",
-    a: "Ja. Flinkform liest die Design-Tokens deines Themes aus theme.json und übernimmt Farben, Typografie, Abstände und Eckenradius automatisch. Getestet mit GeneratePress, Twenty Twenty-Five, Astra und Kadence.",
+    a: "Ja. Flinkform liest die Design-Tokens deines Themes aus theme.json und übernimmt Farben, Typografie, Abstände und Eckenradius automatisch. Getestet mit GeneratePress, Twenty Twenty-Five, Astra und Kadence. Und wo das Theme nicht passt, stellst du Farben für Überschriften, Beschriftungen und Hinweistexte direkt im Editor ein, ganz ohne CSS.",
   },
   {
     q: "Funktioniert Flinkform in einem Popup oder Modal?",
