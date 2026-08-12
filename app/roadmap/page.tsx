@@ -61,6 +61,16 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.12.1",
+    date: "12.08.2026",
+    items: [
+      "Über dem Absenden-Button konnte eine unerklärliche Lücke stehen: Sobald der Browser die Aufgabe des eingebauten Spam-Schutzes gelöst hat, stecken in dessen Container nur noch unsichtbare Felder - der leere Container belegte aber weiterhin eine Zeile im Formular-Layout, samt der Abstände darüber und darunter",
+      "Am deutlichsten sichtbar war das bei zweispaltigen Formularen mit schwebenden Beschriftungen, weil dort der Zeilenabstand am größten ist",
+      "Der Container verschwindet jetzt vollständig aus dem Layout, solange die Aufgabe gelöst wird, und kommt zusammen mit der sichtbaren Ersatzfrage zurück, falls der Browser sie nicht lösen kann. Am Spam-Schutz selbst ändert sich nichts",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.12.0",
     date: "07.08.2026",
     items: [
