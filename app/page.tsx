@@ -68,6 +68,7 @@ const features = [
   "Style-Panel: 4 Feld-Stile, 4 Label-Positionen (Floating Labels passen sich automatisch an den Hintergrund an), 3 Button-Stile, Farben für Beschriftungen, Hinweistexte und Überschriften direkt im Editor",
   "Weiterleitung auf Danke-Seite mit Conversion-Tracking-Parametern (GA4, Meta Pixel, Plausible)",
   "Popup-tauglich: In Modals und Popups senden Formulare ohne Neuladen ab, Erfolgsmeldung und Fehler erscheinen direkt im Popup",
+  "Barrierefreiheit eingebaut: echte Label-Verknüpfungen, Fehler-Ansagen für Screenreader, Fokus-Management über alle Schritte, Spam-Schutz ohne CAPTCHA. Formular-Markup besteht axe-core (WCAG 2.1 A/AA) ohne Verstöße",
   "Automatische Datenlöschung nach konfigurierbarer Aufbewahrungsfrist",
   "Datenexport und Löschung über die WordPress-Privacy-Tools",
   "Zwei-Spalten-Layout mit Volle-Breite-Option pro Feld",
@@ -128,6 +129,10 @@ const faqs: FaqItem[] = [
   {
     q: "Ist Flinkform DSGVO-konform?",
     a: "Flinkform ist auf Datenschutz gebaut: keine IP-Speicherung, kein User-Agent-Logging, keine externen Dienste, kein Tracking. Consent-Feld, automatische Datenlöschung pro Formular und die WordPress-Privacy-Tools (Datenexport und Löschung) sind eingebaut.",
+  },
+  {
+    q: "Ist Flinkform barrierefrei?",
+    a: "Barrierefreiheit ist eingebaut, nicht nachgerüstet: echte Label-Verknüpfungen, fieldset/legend für Auswahlgruppen, Fehlermeldungen werden Screenreadern angesagt und mit dem Feld verknüpft, der Fokus springt aufs erste fehlerhafte Feld, Schrittwechsel werden per aria-live angekündigt, Fokus-Ringe bleiben sichtbar und der Spam-Schutz kommt ohne CAPTCHA aus. Das Formular-Markup besteht automatisierte axe-core-Prüfungen gegen WCAG 2.1 A/AA ohne Verstöße, auch im Fehlerzustand. Ein formales Audit mit Screenreader-Protokoll steht noch aus. Deine Farbwahl im Editor beeinflusst den Kontrast und liegt in deiner Hand.",
   },
   {
     q: "Funktioniert Flinkform mit meinem Theme?",
