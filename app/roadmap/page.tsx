@@ -61,6 +61,17 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.12.2",
+    date: "17.08.2026",
+    items: [
+      "Wichtiger Fix: Ein Formular konnte sich wegen einer Pflicht-Checkbox-Gruppe weigern abzusenden, die gar nicht sichtbar war. Typischer Fall: ein Entweder/Oder-Formular, bei dem je nach Auswahl unterschiedliche Felder erscheinen - die Gruppe des nicht gewählten Zweigs blieb versteckt, zählte aber weiter als unbeantwortet",
+      "Weil die Fehlermeldung im ausgeblendeten Bereich gerendert wurde, sah es aus, als würde der Absenden-Button einfach nichts tun",
+      "Alle anderen Feldtypen waren nie betroffen: Ausgeblendete Felder werden deaktiviert, und ein deaktiviertes Feld nimmt der Browser automatisch von der Prüfung aus. Die Gruppen-Prüfung ist selbst gebaut und hat diese Regel bisher nicht angewendet - jetzt schon",
+      "Der Server hat solche Einsendungen immer akzeptiert, beide Seiten sind also wieder einig. Getestet mit WordPress 7.0.3",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.12.1",
     date: "12.08.2026",
     items: [
