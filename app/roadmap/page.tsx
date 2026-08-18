@@ -61,6 +61,15 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.13.1",
+    date: "18.08.2026",
+    items: [
+      "Kleiner Nachschliff zu 1.13.0: In einem Sekundenbruchteil direkt nach der automatischen Token-Erneuerung hatte das Formular kurz einen frischen Token, aber noch keine passende Lösung - ein Absenden genau in diesem winzigen Fenster hätte noch verloren gehen können",
+      "Der neue Token wird jetzt erst gelöst und dann zusammen mit seiner Lösung in einem Zug gesetzt. Der alte, noch gültige Token bleibt währenddessen absendbar. Das Fenster gibt es damit nicht mehr - das Versprechen \"keine Anfrage geht verloren\" ist jetzt lückenlos",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.13.0",
     date: "18.08.2026",
     items: [
