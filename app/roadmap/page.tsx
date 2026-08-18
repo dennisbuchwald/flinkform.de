@@ -61,6 +61,17 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.13.0",
+    date: "18.08.2026",
+    items: [
+      "Wichtiger Fix: Eine Anfrage konnte spurlos verloren gehen. Der Anti-Spam-Token gilt 30 Minuten. Lag ein Formular länger offen (langes mehrstufiges Formular, offener Tab, ein Cache, der eine ältere Seite ausliefert), führte das Absenden lautlos zur Startseite - ohne Meldung, ohne Mail, die Eingaben weg",
+      "Eine Anfrage vom eigenen Server ist nie ein Bot: Ein abgelaufener oder bereits benutzter Token verwirft die Anfrage nicht mehr. Das Formular erscheint erneut mit allen Eingaben und dem Hinweis, dass die Sitzung abgelaufen ist und man erneut senden soll - der zweite Versuch geht durch. Auch der Weg ohne JavaScript ist abgedeckt",
+      "Neu: Der Token erneuert sich jetzt im Browser, bevor er ablaufen kann - so entsteht die Situation oben meist gar nicht erst. Formulare in einem Popup reparieren einen abgelaufenen Token automatisch und senden einmal neu, ohne dass man etwas neu tippt. Die Seite darf jetzt auch gecacht werden, ohne dass das Absenden bricht",
+      "Fix: Doppelklick oder erneutes Senden per Zurück-Button landet nicht mehr auf der Startseite - die erste Anfrage wird einmal gespeichert, ein zweiter Versuch zeigt die Erfolgsmeldung",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.12.2",
     date: "17.08.2026",
     items: [
