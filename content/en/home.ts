@@ -18,10 +18,10 @@ export const home: HomeDict = {
       "Flinkform is a block-native form plugin for the WordPress block editor. It offers multi-step forms, conditional logic, and spam protection without third-party services, for free. Unlike WPForms or Gravity Forms, it doesn't use a separate builder - it lives inside the WordPress editor itself.",
     sub: "Privacy by design: no reCAPTCHA, no US-based service, no IP logging. Everything stays on your own server.",
     ctaPrimary: "Get it free on WordPress.org",
-    ctaSecondary: "Try the live demo →",
+    ctaSecondary: "Try the demo →",
     versionLine: "Version 1.3.0 · WordPress 6.5+ · PHP 8.1+ · GPLv2",
     demoCaption:
-      "This is what Flinkform feels like: multi-step, live calculations, no reCAPTCHA. The whole thing runs as a real WordPress install on demo.flinkform.de.",
+      "Multi-step, live calculations, no reCAPTCHA. It all runs as a real WordPress install on demo.flinkform.de, ready to click through and submit.",
   },
   pillars: {
     heading: "What makes Flinkform different",

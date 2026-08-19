@@ -18,10 +18,10 @@ export const home = {
       "Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. Anders als WPForms oder Gravity Forms nutzt es keinen eigenen Builder, sondern den WordPress-Editor selbst.",
     sub: "DSGVO by design: kein reCAPTCHA, kein US-Dienst, keine IP-Speicherung. Alles bleibt auf deinem Server.",
     ctaPrimary: "Kostenlos auf WordPress.org",
-    ctaSecondary: "Live ausprobieren →",
+    ctaSecondary: "Demo ausprobieren →",
     versionLine: "Version 1.3.0 · WordPress 6.5+ · PHP 8.1+ · GPLv2",
     demoCaption:
-      "So fühlt sich Flinkform an: Multi-Step, Live-Berechnung, ohne reCAPTCHA. Auf demo.flinkform.de läuft das Ganze als echte WordPress-Installation.",
+      "Multi-Step, Live-Berechnung, ohne reCAPTCHA. Auf demo.flinkform.de läuft das als echte WordPress-Installation, zum Durchklicken und Absenden.",
   },
   pillars: {
     heading: "Was Flinkform anders macht",

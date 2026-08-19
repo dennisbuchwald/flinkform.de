@@ -13,6 +13,8 @@ export const common = {
   mobileNavLabel: "Mobile Navigation",
   menuOpenLabel: "Menü öffnen",
   downloadFree: "Kostenlos laden",
+  liveDemo: "Demo",
+  liveDemoTitle: "Live-Demo öffnen: eine echte WordPress-Installation mit Flinkform",
   languageSwitcher: {
     label: "Sprache",
     de: "Deutsch",

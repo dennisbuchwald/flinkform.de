@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { WPORG_URL } from "@/lib/site";
+import { DEMO_URL, WPORG_URL } from "@/lib/site";
 import { localizedHref, type Locale } from "@/lib/i18n/routes";
 import { common as commonDe } from "@/content/de/common";
 import { common as commonEn } from "@/content/en/common";
@@ -45,6 +45,16 @@ export default function Header({ locale = "de" }: { locale?: Locale }) {
           <div className="hidden md:block">
             <LanguageSwitcher t={t.languageSwitcher} />
           </div>
+
+          <a
+            href={DEMO_URL}
+            target="_blank"
+            rel="noopener"
+            title={t.liveDemoTitle}
+            className="hidden rounded-full bg-gradient-brand px-4.5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:inline-block"
+          >
+            {t.liveDemo}
+          </a>
 
           <a
             href={WPORG_URL}
@@ -100,8 +110,16 @@ export default function Header({ locale = "de" }: { locale?: Locale }) {
                 <LanguageSwitcherInline t={t.languageSwitcher} />
               </div>
               <a
+                href={DEMO_URL}
+                target="_blank"
+                rel="noopener"
+                className="mt-1 block rounded-xl bg-gradient-brand px-3.5 py-2.5 text-center text-sm font-semibold text-white"
+              >
+                {t.liveDemo}
+              </a>
+              <a
                 href={WPORG_URL}
-                className="mt-1 block rounded-xl bg-ink px-3.5 py-2.5 text-center text-sm font-semibold text-white"
+                className="mt-1.5 block rounded-xl bg-ink px-3.5 py-2.5 text-center text-sm font-semibold text-white"
               >
                 {t.downloadFree}
               </a>
