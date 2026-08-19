@@ -14,7 +14,7 @@ export const common = {
   menuOpenLabel: "Menü öffnen",
   downloadFree: "Kostenlos laden",
   liveDemo: "Demo",
-  liveDemoTitle: "Live-Demo öffnen: eine echte WordPress-Installation mit Flinkform",
+  liveDemoTitle: "Live-Demo öffnen: Flinkform zum Ausprobieren",
   languageSwitcher: {
     label: "Sprache",
     de: "Deutsch",

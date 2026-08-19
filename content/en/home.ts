@@ -21,7 +21,7 @@ export const home: HomeDict = {
     ctaSecondary: "Try the demo →",
     versionLine: "Version 1.3.0 · WordPress 6.5+ · PHP 8.1+ · GPLv2",
     demoCaption:
-      "Multi-step, live calculations, no reCAPTCHA. It all runs as a real WordPress install on demo.flinkform.de, ready to click through and submit.",
+      "Multi-step, live calculations, no reCAPTCHA. Click through it and submit it yourself on demo.flinkform.de.",
   },
   pillars: {
     heading: "What makes Flinkform different",

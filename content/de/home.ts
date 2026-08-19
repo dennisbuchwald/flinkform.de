@@ -21,7 +21,7 @@ export const home = {
     ctaSecondary: "Demo ausprobieren →",
     versionLine: "Version 1.3.0 · WordPress 6.5+ · PHP 8.1+ · GPLv2",
     demoCaption:
-      "Multi-Step, Live-Berechnung, ohne reCAPTCHA. Auf demo.flinkform.de läuft das als echte WordPress-Installation, zum Durchklicken und Absenden.",
+      "Multi-Step, Live-Berechnung, ohne reCAPTCHA. Auf demo.flinkform.de kannst du alles durchklicken und absenden.",
   },
   pillars: {
     heading: "Was Flinkform anders macht",
