@@ -19,7 +19,7 @@ export const home: HomeDict = {
     sub: "Privacy by design: no reCAPTCHA, no US-based service, no IP logging. Everything stays on your own server.",
     ctaPrimary: "Get it free on WordPress.org",
     ctaSecondary: "Try the demo →",
-    versionLine: "Version 1.3.0 · WordPress 6.5+ · PHP 8.1+ · GPLv2",
+    versionLine: "Version {version} · WordPress 6.5+ · PHP 8.1+ · GPLv2",
     demoCaption:
       "Multi-step, live calculations, no reCAPTCHA. Click through it and submit it yourself on demo.flinkform.de.",
   },

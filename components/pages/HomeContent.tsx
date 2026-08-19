@@ -5,7 +5,7 @@ import CompareTable from "@/components/CompareTable";
 import Faq from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
-import { DEMO_URL, WPORG_URL, softwareSchemaFree } from "@/lib/site";
+import { DEMO_URL, FREE_VERSION, WPORG_URL, softwareSchemaFree } from "@/lib/site";
 import { localizedHref, type Locale } from "@/lib/i18n/routes";
 import type { HomeDict } from "@/content/de/home";
 
@@ -55,7 +55,9 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
                 {t.hero.ctaSecondary}
               </a>
             </div>
-            <p className="mt-4 text-sm text-ink-muted">{t.hero.versionLine}</p>
+            <p className="mt-4 text-sm text-ink-muted">
+              {t.hero.versionLine.replace("{version}", FREE_VERSION)}
+            </p>
           </div>
 
           <div id="demo" className="scroll-mt-24">

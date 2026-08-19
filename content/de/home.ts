@@ -19,7 +19,7 @@ export const home = {
     sub: "DSGVO by design: kein reCAPTCHA, kein US-Dienst, keine IP-Speicherung. Alles bleibt auf deinem Server.",
     ctaPrimary: "Kostenlos auf WordPress.org",
     ctaSecondary: "Demo ausprobieren →",
-    versionLine: "Version 1.3.0 · WordPress 6.5+ · PHP 8.1+ · GPLv2",
+    versionLine: "Version {version} · WordPress 6.5+ · PHP 8.1+ · GPLv2",
     demoCaption:
       "Multi-Step, Live-Berechnung, ohne reCAPTCHA. Auf demo.flinkform.de kannst du alles durchklicken und absenden.",
   },
