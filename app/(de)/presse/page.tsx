@@ -162,7 +162,7 @@ export default function PressePage() {
         <h2 className="mb-6 font-(family-name:--font-display) text-2xl font-bold tracking-tight">
           Fakten auf einen Blick
         </h2>
-        <div className="card overflow-x-auto">
+        <div className="card relative overflow-x-auto">
           <table className="w-full min-w-[520px] border-collapse text-left">
             <caption className="sr-only">Flinkform-Fakten für die Presse</caption>
             <tbody>

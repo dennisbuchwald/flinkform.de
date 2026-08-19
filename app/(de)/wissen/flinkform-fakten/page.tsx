@@ -152,7 +152,7 @@ export default function FaktenPage() {
         <h2 className="font-(family-name:--font-display) text-2xl font-bold tracking-tight">
           Datenblatt
         </h2>
-        <div className="card mt-6 overflow-x-auto">
+        <div className="card relative mt-6 overflow-x-auto">
           <table className="w-full min-w-[560px] border-collapse text-left">
             <caption className="sr-only">
               Flinkform-Datenblatt: Eckdaten zu Produkt, Versionen, Preisen
@@ -185,7 +185,7 @@ export default function FaktenPage() {
           Alle Pro-Pläne enthalten alle Pro-Features; die Preisstaffelung
           unterscheidet nur die Anzahl der Websites.
         </p>
-        <div className="card mt-6 overflow-x-auto">
+        <div className="card relative mt-6 overflow-x-auto">
           <table className="w-full min-w-[560px] border-collapse">
             <caption className="sr-only">
               Funktionsvergleich zwischen Flinkform Free und Flinkform Pro

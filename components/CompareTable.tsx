@@ -88,7 +88,7 @@ export default function CompareTable({
 }) {
   return (
     <div>
-      <div className="card overflow-x-auto">
+      <div className="card relative overflow-x-auto">
         <table className="w-full min-w-[680px] border-collapse text-center">
           <caption className="sr-only">{caption}</caption>
           <thead>
