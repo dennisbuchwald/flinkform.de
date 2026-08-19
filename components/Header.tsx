@@ -4,7 +4,7 @@ import { WPORG_URL } from "@/lib/site";
 import { localizedHref, type Locale } from "@/lib/i18n/routes";
 import { common as commonDe } from "@/content/de/common";
 import { common as commonEn } from "@/content/en/common";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import LanguageSwitcher, { LanguageSwitcherInline } from "@/components/LanguageSwitcher";
 
 const dictionaries = { de: commonDe, en: commonEn };
 
@@ -42,7 +42,7 @@ export default function Header({ locale = "de" }: { locale?: Locale }) {
         </nav>
 
         <div className="flex items-center gap-3">
-          <div className="hidden sm:block">
+          <div className="hidden md:block">
             <LanguageSwitcher t={t.languageSwitcher} />
           </div>
 
@@ -96,8 +96,8 @@ export default function Header({ locale = "de" }: { locale?: Locale }) {
                   {item.label}
                 </Link>
               ))}
-              <div className="mt-1 flex justify-center border-t border-line pt-2.5 sm:hidden">
-                <LanguageSwitcher t={t.languageSwitcher} />
+              <div className="mt-1 border-t border-line pt-2.5">
+                <LanguageSwitcherInline t={t.languageSwitcher} />
               </div>
               <a
                 href={WPORG_URL}

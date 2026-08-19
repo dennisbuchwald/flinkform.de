@@ -32,6 +32,17 @@ export function otherLocaleHref(pathname: string): string | null {
     : null;
 }
 
+/** DE- und EN-URL der aktuellen Seite, für den Sprachumschalter (EN ist null ohne Übersetzung). */
+export function localeHrefs(pathname: string): { de: string; en: string | null } {
+  if (localeOfPath(pathname) === "en") {
+    return { de: dePathFor(pathname), en: pathname };
+  }
+  return {
+    de: pathname,
+    en: (TRANSLATED_PATHS as readonly string[]).includes(pathname) ? enPathFor(pathname) : null,
+  };
+}
+
 /**
  * Content-Dictionaries verwenden überall kanonische (deutsche) Pfade als
  * hrefs, z. B. "/pro#preise". Diese Funktion hängt für locale="en" das
