@@ -110,6 +110,15 @@ export const roadmap: RoadmapDict = {
   changelog: [
     {
       area: "Free",
+      version: "1.13.2",
+      date: "Aug 19, 2026",
+      items: [
+        "Editor fix: in the style panel, the labels on the choice buttons were getting cut off - \"Bordered / Soft / Underlined / Minimal\" turned into \"Borde… / Under… / Minim…\", leaving you guessing at the setting. Options with more than two or three short choices are now select fields, fully readable in every language",
+        "Nothing changes on the form itself: same values, same defaults, existing forms look exactly as before. Reported by Eric Saner - thank you!",
+      ],
+    },
+    {
+      area: "Free",
       version: "1.13.1",
       date: "Aug 18, 2026",
       items: [
