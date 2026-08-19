@@ -61,6 +61,15 @@ const geplant = [
 const changelog = [
   {
     bereich: "Free",
+    version: "1.13.2",
+    date: "19.08.2026",
+    items: [
+      "Editor-Fix: Im Stil-Panel wurden die Beschriftungen der Auswahlknöpfe abgeschnitten - aus \"Umrandet / Weich / Unterstrichen / Minimal\" wurde \"Umran… / Unter… / Minim…\", man konnte die Einstellung nur noch raten. Einstellungen mit mehr als zwei, drei kurzen Optionen sind jetzt Auswahlfelder und in jeder Sprache vollständig lesbar",
+      "Am Formular selbst ändert sich nichts: gleiche Werte, gleiche Voreinstellungen, bestehende Formulare sehen aus wie vorher. Gemeldet von Eric Saner - danke dafür!",
+    ],
+  },
+  {
+    bereich: "Free",
     version: "1.13.1",
     date: "18.08.2026",
     items: [
