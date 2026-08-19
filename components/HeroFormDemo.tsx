@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import type { Locale } from "@/lib/i18n/routes";
 
 /**
  * Nachgebautes Flinkform-Mockup (HTML/CSS/React, kein iframe, kein WordPress):
@@ -8,17 +9,89 @@ import { useMemo, useState } from "react";
  * Show, don't tell.
  */
 
-const PROJECT_OPTIONS = [
-  { label: "Website", price: 0 },
-  { label: "Onlineshop", price: 400 },
-  { label: "Landingpage", price: 0 },
-] as const;
+const STRINGS = {
+  de: {
+    urlBar: "deine-website.de/anfrage",
+    stepOf: (step: number) => `Schritt ${step} von 3`,
+    stepLabels: ["Projekt", "Umfang", "Kontakt"],
+    projectOptions: [
+      { label: "Website", price: 0 },
+      { label: "Onlineshop", price: 400 },
+      { label: "Landingpage", price: 0 },
+    ],
+    projectLegend: "Was möchtest du anfragen?",
+    projectError: "Bitte wähle eine Option aus.",
+    next: "Weiter",
+    back: "Zurück",
+    hoursLabel: (hours: number) => `Geschätzter Umfang: ${hours} Stunden`,
+    hoursMin: "5 h",
+    hoursMax: "60 h",
+    priceLabel: "Geschätzter Preis",
+    priceBadge: "Berechnungsfeld · Pro",
+    priceNote: "rechnet live, serverseitig verifiziert",
+    nameLabel: "Name",
+    namePlaceholder: "Max Mustermann",
+    emailLabel: "E-Mail",
+    emailPlaceholder: "max@beispiel.de",
+    consent:
+      "Ich stimme zu, dass meine Angaben zur Bearbeitung der Anfrage gespeichert werden. (Consent-Feld, eingebaut)",
+    nameEmailError: "Bitte fülle Name und E-Mail aus.",
+    consentError: "Bitte stimme zu, um fortzufahren.",
+    sending: "Wird gesendet …",
+    submit: "Anfrage absenden",
+    thanksTitle: "Danke! Deine Anfrage ist da.",
+    thanksDesc:
+      "Genau so fühlt sich Flinkform für deine Besucher an. Gebaut in 5 Minuten, direkt im Block-Editor.",
+    again: "Nochmal durchklicken",
+    footer: ["Spam-Schutz aktiv: ohne reCAPTCHA", "Frontend-JS unter 15 KB", "Erbt dein Theme-Design"],
+    numberLocale: "de-DE",
+    currency: "EUR" as const,
+  },
+  en: {
+    urlBar: "your-website.com/inquiry",
+    stepOf: (step: number) => `Step ${step} of 3`,
+    stepLabels: ["Project", "Scope", "Contact"],
+    projectOptions: [
+      { label: "Website", price: 0 },
+      { label: "Online store", price: 400 },
+      { label: "Landing page", price: 0 },
+    ],
+    projectLegend: "What would you like to request?",
+    projectError: "Please choose an option.",
+    next: "Next",
+    back: "Back",
+    hoursLabel: (hours: number) => `Estimated scope: ${hours} hours`,
+    hoursMin: "5 h",
+    hoursMax: "60 h",
+    priceLabel: "Estimated price",
+    priceBadge: "Calculation field · Pro",
+    priceNote: "calculates live, verified server-side",
+    nameLabel: "Name",
+    namePlaceholder: "Jane Smith",
+    emailLabel: "Email",
+    emailPlaceholder: "jane@example.com",
+    consent:
+      "I agree that my details will be stored to process this request. (Built-in consent field)",
+    nameEmailError: "Please fill in your name and email.",
+    consentError: "Please agree to continue.",
+    sending: "Sending …",
+    submit: "Send request",
+    thanksTitle: "Thanks! Your request is in.",
+    thanksDesc:
+      "This is exactly what Flinkform feels like for your visitors. Built in 5 minutes, right in the block editor.",
+    again: "Click through again",
+    footer: ["Spam protection active: no reCAPTCHA", "Frontend JS under 15 KB", "Inherits your theme design"],
+    numberLocale: "en-US",
+    currency: "EUR" as const,
+  },
+} as const;
 
 const HOURLY_RATE = 90;
 
 type Step = 0 | 1 | 2 | 3;
 
-export default function HeroFormDemo() {
+export default function HeroFormDemo({ locale = "de" }: { locale?: Locale }) {
+  const t = STRINGS[locale];
   const [step, setStep] = useState<Step>(0);
   const [project, setProject] = useState<string>("");
   const [hours, setHours] = useState<number>(10);
@@ -28,17 +101,13 @@ export default function HeroFormDemo() {
   const [error, setError] = useState("");
   const [sending, setSending] = useState(false);
 
-  const surcharge =
-    PROJECT_OPTIONS.find((o) => o.label === project)?.price ?? 0;
-  const total = useMemo(
-    () => hours * HOURLY_RATE + surcharge,
-    [hours, surcharge],
-  );
+  const surcharge = t.projectOptions.find((o) => o.label === project)?.price ?? 0;
+  const total = useMemo(() => hours * HOURLY_RATE + surcharge, [hours, surcharge]);
 
   const fmt = (n: number) =>
-    n.toLocaleString("de-DE", {
+    n.toLocaleString(t.numberLocale, {
       style: "currency",
-      currency: "EUR",
+      currency: t.currency,
       minimumFractionDigits: 0,
     });
 
@@ -53,11 +122,11 @@ export default function HeroFormDemo() {
 
   function submit() {
     if (!name.trim() || !email.includes("@")) {
-      setError("Bitte fülle Name und E-Mail aus.");
+      setError(t.nameEmailError);
       return;
     }
     if (!consent) {
-      setError("Bitte stimme zu, um fortzufahren.");
+      setError(t.consentError);
       return;
     }
     setError("");
@@ -92,7 +161,7 @@ export default function HeroFormDemo() {
         <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
         <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
         <span className="ml-3 truncate rounded-md bg-line/60 px-3 py-1 text-xs text-ink-muted">
-          deine-website.de/anfrage
+          {t.urlBar}
         </span>
       </div>
 
@@ -102,12 +171,8 @@ export default function HeroFormDemo() {
             {/* Fortschritt */}
             <div className="mb-6">
               <div className="mb-2 flex items-center justify-between text-xs font-medium text-ink-muted">
-                <span>Schritt {step + 1} von 3</span>
-                <span>
-                  {step === 0 && "Projekt"}
-                  {step === 1 && "Umfang"}
-                  {step === 2 && "Kontakt"}
-                </span>
+                <span>{t.stepOf(step + 1)}</span>
+                <span>{(t.stepLabels as readonly string[])[step]}</span>
               </div>
               <div className="h-1.5 overflow-hidden rounded-full bg-line">
                 <div
@@ -120,13 +185,13 @@ export default function HeroFormDemo() {
             {step === 0 && (
               <fieldset>
                 <legend className="mb-3 text-[0.95rem] font-semibold text-ink">
-                  Was möchtest du anfragen?{" "}
+                  {t.projectLegend}{" "}
                   <span aria-hidden="true" className="text-brand-pink">
                     *
                   </span>
                 </legend>
                 <div className="grid gap-2.5">
-                  {PROJECT_OPTIONS.map((option) => (
+                  {t.projectOptions.map((option) => (
                     <label
                       key={option.label}
                       className={`flex cursor-pointer items-center justify-between rounded-xl border px-4 py-3 text-[0.95rem] transition-colors ${
@@ -158,12 +223,10 @@ export default function HeroFormDemo() {
                 </div>
                 <button
                   type="button"
-                  onClick={() =>
-                    next(1, project !== "", "Bitte wähle eine Option aus.")
-                  }
+                  onClick={() => next(1, project !== "", t.projectError)}
                   className="mt-5 w-full rounded-xl bg-ink py-3 text-[0.95rem] font-semibold text-white transition-colors hover:bg-ink-soft"
                 >
-                  Weiter
+                  {t.next}
                 </button>
               </fieldset>
             )}
@@ -174,7 +237,7 @@ export default function HeroFormDemo() {
                   htmlFor="demo-hours"
                   className="mb-3 block text-[0.95rem] font-semibold text-ink"
                 >
-                  Geschätzter Umfang: {hours} Stunden
+                  {t.hoursLabel(hours)}
                 </label>
                 <input
                   id="demo-hours"
@@ -187,8 +250,8 @@ export default function HeroFormDemo() {
                   className="w-full accent-brand-violet"
                 />
                 <div className="mt-1 flex justify-between text-xs text-ink-muted">
-                  <span>5 h</span>
-                  <span>60 h</span>
+                  <span>{t.hoursMin}</span>
+                  <span>{t.hoursMax}</span>
                 </div>
 
                 {/* Berechnungsfeld (Pro) */}
@@ -196,9 +259,9 @@ export default function HeroFormDemo() {
                   <div className="flex items-center justify-between gap-3">
                     <div>
                       <p className="text-xs font-medium text-ink-muted">
-                        Geschätzter Preis
+                        {t.priceLabel}
                         <span className="ml-2 whitespace-nowrap rounded-full bg-gradient-pro px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-white">
-                          Berechnungsfeld · Pro
+                          {t.priceBadge}
                         </span>
                       </p>
                       <p
@@ -212,7 +275,7 @@ export default function HeroFormDemo() {
                       {hours} h × {fmt(HOURLY_RATE)}
                       {surcharge > 0 && <> + {fmt(surcharge)}</>}
                       <br />
-                      rechnet live, serverseitig verifiziert
+                      {t.priceNote}
                     </p>
                   </div>
                 </div>
@@ -223,14 +286,14 @@ export default function HeroFormDemo() {
                     onClick={() => setStep(0)}
                     className="rounded-xl border border-line bg-white px-5 py-3 text-[0.95rem] font-semibold text-ink-soft transition-colors hover:border-ink-muted/40"
                   >
-                    Zurück
+                    {t.back}
                   </button>
                   <button
                     type="button"
                     onClick={() => next(2, true, "")}
                     className="grow rounded-xl bg-ink py-3 text-[0.95rem] font-semibold text-white transition-colors hover:bg-ink-soft"
                   >
-                    Weiter
+                    {t.next}
                   </button>
                 </div>
               </div>
@@ -243,7 +306,7 @@ export default function HeroFormDemo() {
                     htmlFor="demo-name"
                     className="mb-1.5 block text-sm font-semibold text-ink"
                   >
-                    Name{" "}
+                    {t.nameLabel}{" "}
                     <span aria-hidden="true" className="text-brand-pink">
                       *
                     </span>
@@ -253,7 +316,7 @@ export default function HeroFormDemo() {
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="Max Mustermann"
+                    placeholder={t.namePlaceholder}
                     className={inputClass}
                   />
                 </div>
@@ -262,7 +325,7 @@ export default function HeroFormDemo() {
                     htmlFor="demo-email"
                     className="mb-1.5 block text-sm font-semibold text-ink"
                   >
-                    E-Mail{" "}
+                    {t.emailLabel}{" "}
                     <span aria-hidden="true" className="text-brand-pink">
                       *
                     </span>
@@ -272,7 +335,7 @@ export default function HeroFormDemo() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="max@beispiel.de"
+                    placeholder={t.emailPlaceholder}
                     className={inputClass}
                   />
                 </div>
@@ -283,10 +346,7 @@ export default function HeroFormDemo() {
                     onChange={(e) => setConsent(e.target.checked)}
                     className="mt-0.5 h-4 w-4 shrink-0 accent-brand-violet"
                   />
-                  <span>
-                    Ich stimme zu, dass meine Angaben zur Bearbeitung der
-                    Anfrage gespeichert werden. (Consent-Feld, eingebaut)
-                  </span>
+                  <span>{t.consent}</span>
                 </label>
                 <div className="flex gap-3">
                   <button
@@ -294,7 +354,7 @@ export default function HeroFormDemo() {
                     onClick={() => setStep(1)}
                     className="rounded-xl border border-line bg-white px-5 py-3 text-[0.95rem] font-semibold text-ink-soft transition-colors hover:border-ink-muted/40"
                   >
-                    Zurück
+                    {t.back}
                   </button>
                   <button
                     type="button"
@@ -302,7 +362,7 @@ export default function HeroFormDemo() {
                     disabled={sending}
                     className="grow rounded-xl bg-ink py-3 text-[0.95rem] font-semibold text-white transition-colors hover:bg-ink-soft disabled:opacity-70"
                   >
-                    {sending ? "Wird gesendet …" : "Anfrage absenden"}
+                    {sending ? t.sending : t.submit}
                   </button>
                 </div>
               </div>
@@ -333,18 +393,17 @@ export default function HeroFormDemo() {
               </svg>
             </span>
             <p className="mt-4 font-(family-name:--font-display) text-xl font-bold text-ink">
-              Danke! Deine Anfrage ist da.
+              {t.thanksTitle}
             </p>
             <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-ink-muted">
-              Genau so fühlt sich Flinkform für deine Besucher an. Gebaut in
-              5 Minuten, direkt im Block-Editor.
+              {t.thanksDesc}
             </p>
             <button
               type="button"
               onClick={reset}
               className="mt-5 rounded-full border border-line bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-ink-muted/40"
             >
-              Nochmal durchklicken
+              {t.again}
             </button>
           </div>
         )}
@@ -352,11 +411,12 @@ export default function HeroFormDemo() {
 
       {/* Fußzeile des Mockups */}
       <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 border-t border-line bg-paper px-4 py-2.5 text-[0.7rem] text-ink-muted">
-        <span>Spam-Schutz aktiv: ohne reCAPTCHA</span>
-        <span aria-hidden="true">·</span>
-        <span>Frontend-JS unter 15 KB</span>
-        <span aria-hidden="true">·</span>
-        <span>Erbt dein Theme-Design</span>
+        {t.footer.map((item, i) => (
+          <span key={item} className="flex items-center gap-x-5">
+            {i > 0 && <span aria-hidden="true">·</span>}
+            {item}
+          </span>
+        ))}
       </div>
     </div>
   );

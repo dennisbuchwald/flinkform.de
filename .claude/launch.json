@@ -4,7 +4,7 @@
     {
       "name": "flinkform-dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": ["--prefix", "/Users/dennisbuchwald/Arbeitsplatz/01_Code/01_Webprojekte/flinkform.de/flinkform.de", "run", "dev"],
       "port": 3000
     }
   ]

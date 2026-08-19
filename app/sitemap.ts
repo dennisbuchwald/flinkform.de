@@ -3,14 +3,28 @@ import { SITE_URL } from "@/lib/site";
 import { posts } from "@/lib/posts";
 import { wissen } from "@/lib/wissen";
 import { vergleiche } from "@/lib/vergleiche";
+import { TRANSLATED_PATHS, enPathFor } from "@/lib/i18n/routes";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
+  /**
+   * P1-Seiten existieren zweisprachig unter identischen Slugs unter /en.
+   * Jeder DE- und EN-Eintrag bekommt gegenseitige hreflang-Alternates,
+   * x-default zeigt auf die deutsche Version (Haupt-URL der Marke).
+   */
+  const bilingualRoutes: MetadataRoute.Sitemap = TRANSLATED_PATHS.flatMap((path) => {
+    const deUrl = `${SITE_URL}${path}`;
+    const enUrl = `${SITE_URL}${enPathFor(path)}`;
+    const languages = { de: deUrl, en: enUrl, "x-default": deUrl };
+    const priority = path === "/" ? 1 : path === "/pro" ? 0.9 : 0.8;
+    return [
+      { url: deUrl, lastModified: now, priority, alternates: { languages } },
+      { url: enUrl, lastModified: now, priority, alternates: { languages } },
+    ];
+  });
+
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/`, lastModified: now, priority: 1 },
-    { url: `${SITE_URL}/pro`, lastModified: now, priority: 0.9 },
-    { url: `${SITE_URL}/vergleich`, lastModified: now, priority: 0.8 },
     { url: `${SITE_URL}/blog`, lastModified: now, priority: 0.7 },
     { url: `${SITE_URL}/wissen`, lastModified: now, priority: 0.7 },
     {
@@ -19,8 +33,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     { url: `${SITE_URL}/docs`, lastModified: now, priority: 0.6 },
-    { url: `${SITE_URL}/rechner`, lastModified: now, priority: 0.7 },
-    { url: `${SITE_URL}/roadmap`, lastModified: now, priority: 0.6 },
     { url: `${SITE_URL}/ueber`, lastModified: now, priority: 0.5 },
     { url: `${SITE_URL}/presse`, lastModified: now, priority: 0.5 },
   ];
@@ -43,5 +55,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...vergleichRoutes, ...blogRoutes, ...wissenRoutes];
+  return [...bilingualRoutes, ...staticRoutes, ...vergleichRoutes, ...blogRoutes, ...wissenRoutes];
 }

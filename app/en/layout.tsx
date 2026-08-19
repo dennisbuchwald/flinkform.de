@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/bricolage-grotesque";
-import "./globals.css";
+import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/site";
+import { common } from "@/content/en/common";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Flinkform - Das privacy-first Formular-Plugin für WordPress",
+    default: "Flinkform - The Privacy-First Form Plugin for WordPress",
     template: "%s | Flinkform",
   },
   description:
-    "Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Multi-Step, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. DSGVO by design, aus Deutschland.",
+    "Flinkform is a block-native form plugin for the WordPress block editor. Multi-step forms, conditional logic and spam protection without third-party services, free. Privacy by design, made in Germany.",
   openGraph: {
     siteName: "Flinkform",
-    locale: "de_DE",
+    locale: "en_US",
     type: "website",
   },
   alternates: {
@@ -39,10 +40,7 @@ const organizationSchema = {
     addressLocality: "Heilbronn",
     addressCountry: "DE",
   },
-  sameAs: [
-    "https://www.dennisbuchwald.de",
-    "https://github.com/dbwmedia",
-  ],
+  sameAs: ["https://www.dennisbuchwald.de", "https://github.com/dbwmedia"],
 };
 
 const personSchema = {
@@ -51,7 +49,7 @@ const personSchema = {
   "@id": `${SITE_URL}/#dennis`,
   name: "Dennis Buchwald",
   url: `${SITE_URL}/ueber`,
-  jobTitle: "WordPress-Entwickler und Gründer von dbw media",
+  jobTitle: "WordPress developer and founder of dbw media",
   worksFor: { "@id": `${SITE_URL}/#organization` },
   sameAs: [
     "https://www.dennisbuchwald.de",
@@ -67,30 +65,30 @@ const websiteSchema = {
   "@id": `${SITE_URL}/#website`,
   url: SITE_URL,
   name: "Flinkform",
-  inLanguage: "de",
+  inLanguage: "en",
   publisher: { "@id": `${SITE_URL}/#organization` },
 };
 
-export default function RootLayout({
+export default function EnglishRootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" className="h-full antialiased">
+    <html lang="en" className="h-full antialiased">
       <body className="flex min-h-full flex-col">
         <JsonLd data={[organizationSchema, personSchema, websiteSchema]} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-100 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
         >
-          Zum Inhalt springen
+          {common.skipLink}
         </a>
-        <Header />
+        <Header locale="en" />
         <main id="main" className="grow">
           {children}
         </main>
-        <Footer />
+        <Footer locale="en" />
       </body>
     </html>
   );

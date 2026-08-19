@@ -7,10 +7,14 @@ function Cell({
   value,
   highlight,
   accent,
+  yesLabel,
+  noLabel,
 }: {
   value: CompareCell;
   highlight?: boolean;
   accent: Accent;
+  yesLabel: string;
+  noLabel: string;
 }) {
   if (value === true) {
     return (
@@ -32,7 +36,7 @@ function Cell({
             strokeLinejoin="round"
           />
         </svg>
-        <span className="sr-only">Ja</span>
+        <span className="sr-only">{yesLabel}</span>
       </span>
     );
   }
@@ -47,7 +51,7 @@ function Cell({
             strokeLinecap="round"
           />
         </svg>
-        <span className="sr-only">Nein</span>
+        <span className="sr-only">{noLabel}</span>
       </span>
     );
   }
@@ -68,6 +72,8 @@ export default function CompareTable({
   rows,
   note,
   accent = "brand",
+  yesLabel = "Ja",
+  noLabel = "Nein",
 }: {
   caption: string;
   /** Erste Spalte ist immer Flinkform (hervorgehoben). */
@@ -76,6 +82,9 @@ export default function CompareTable({
   note?: ReactNode;
   /** "pro" nur in Pro-Kontexten (Farbcodierung der Marke). */
   accent?: Accent;
+  /** sr-only Label für Häkchen/Kreuz, z. B. "Yes"/"No" auf Englisch. */
+  yesLabel?: string;
+  noLabel?: string;
 }) {
   return (
     <div>
@@ -114,7 +123,13 @@ export default function CompareTable({
                     key={i}
                     className={`px-3 py-3.5 ${i === 0 ? "bg-brand-violet/5" : ""}`}
                   >
-                    <Cell value={cell} highlight={i === 0} accent={accent} />
+                    <Cell
+                      value={cell}
+                      highlight={i === 0}
+                      accent={accent}
+                      yesLabel={yesLabel}
+                      noLabel={noLabel}
+                    />
                   </td>
                 ))}
               </tr>
