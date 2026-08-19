@@ -2,11 +2,16 @@
 
 import { useMemo, useState } from "react";
 import type { Locale } from "@/lib/i18n/routes";
+import { DEMO_URL } from "@/lib/site";
 
 /**
  * Nachgebautes Flinkform-Mockup (HTML/CSS/React, kein iframe, kein WordPress):
  * ein durchklickbares Multi-Step-Formular mit live rechnendem Berechnungsfeld.
  * Show, don't tell.
+ *
+ * Der primäre "Weiter"-Button des ersten Schritts führt bewusst nach draußen
+ * auf die echte Demo-Installation; der Textlink darunter startet stattdessen
+ * das Mockup, damit Live-Berechnung und Erfolgsansicht erreichbar bleiben.
  */
 
 const STRINGS = {
@@ -22,6 +27,8 @@ const STRINGS = {
     projectLegend: "Was möchtest du anfragen?",
     projectError: "Bitte wähle eine Option aus.",
     next: "Weiter",
+    demoHint: "Öffnet die echte Demo-Installation",
+    mockupHint: "oder das Mockup hier durchklicken",
     back: "Zurück",
     hoursLabel: (hours: number) => `Geschätzter Umfang: ${hours} Stunden`,
     hoursMin: "5 h",
@@ -59,6 +66,8 @@ const STRINGS = {
     projectLegend: "What would you like to request?",
     projectError: "Please choose an option.",
     next: "Next",
+    demoHint: "Opens the real demo install",
+    mockupHint: "or click through the mockup here",
     back: "Back",
     hoursLabel: (hours: number) => `Estimated scope: ${hours} hours`,
     hoursMin: "5 h",
@@ -221,12 +230,21 @@ export default function HeroFormDemo({ locale = "de" }: { locale?: Locale }) {
                     </label>
                   ))}
                 </div>
+                <a
+                  href={DEMO_URL}
+                  target="_blank"
+                  rel="noopener"
+                  title={t.demoHint}
+                  className="mt-5 block w-full rounded-xl bg-ink py-3 text-center text-[0.95rem] font-semibold text-white transition-colors hover:bg-ink-soft"
+                >
+                  {t.next}
+                </a>
                 <button
                   type="button"
                   onClick={() => next(1, project !== "", t.projectError)}
-                  className="mt-5 w-full rounded-xl bg-ink py-3 text-[0.95rem] font-semibold text-white transition-colors hover:bg-ink-soft"
+                  className="mt-2.5 w-full text-center text-xs text-ink-muted underline decoration-line underline-offset-2 transition-colors hover:text-ink-soft"
                 >
-                  {t.next}
+                  {t.mockupHint}
                 </button>
               </fieldset>
             )}
@@ -398,13 +416,23 @@ export default function HeroFormDemo({ locale = "de" }: { locale?: Locale }) {
             <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-ink-muted">
               {t.thanksDesc}
             </p>
-            <button
-              type="button"
-              onClick={reset}
-              className="mt-5 rounded-full border border-line bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-ink-muted/40"
-            >
-              {t.again}
-            </button>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href={DEMO_URL}
+                target="_blank"
+                rel="noopener"
+                className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ink-soft"
+              >
+                {t.demoHint}
+              </a>
+              <button
+                type="button"
+                onClick={reset}
+                className="rounded-full border border-line bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-ink-muted/40"
+              >
+                {t.again}
+              </button>
+            </div>
           </div>
         )}
       </div>

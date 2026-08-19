@@ -5,7 +5,7 @@ import CompareTable from "@/components/CompareTable";
 import Faq from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
-import { WPORG_URL, softwareSchemaFree } from "@/lib/site";
+import { DEMO_URL, WPORG_URL, softwareSchemaFree } from "@/lib/site";
 import { localizedHref, type Locale } from "@/lib/i18n/routes";
 import type { HomeDict } from "@/content/de/home";
 
@@ -47,7 +47,9 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
                 {t.hero.ctaPrimary}
               </a>
               <a
-                href="#demo"
+                href={DEMO_URL}
+                target="_blank"
+                rel="noopener"
                 className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-ink-muted/40"
               >
                 {t.hero.ctaSecondary}

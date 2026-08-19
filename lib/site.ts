@@ -3,7 +3,8 @@ export const SITE_NAME = "Flinkform";
 
 export const WPORG_URL = "https://wordpress.org/plugins/flinkform/";
 export const GITHUB_URL = "https://github.com/dennisbuchwald/Flinkform";
-export const DEMO_URL = "https://demo.flinkform.de"; // Platzhalter, Demo-Instanz folgt
+/** Live demo: a real WordPress install running Flinkform + Flinkform Pro. */
+export const DEMO_URL = "https://demo.flinkform.de";
 export const CONTACT_MAIL = "dennis@dbw-media.de";
 
 export const FREE_VERSION = "1.13.2";
