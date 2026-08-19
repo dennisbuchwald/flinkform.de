@@ -109,6 +109,14 @@ export const roadmap = {
   changelogHeading: "Zuletzt erschienen",
   changelog: [
     {
+      area: "Pro",
+      version: "1.2.2",
+      date: "19.08.2026",
+      items: [
+        "Stripe-Zahlungen scheiterten, wenn der Besucher in WordPress eingeloggt war. Betroffen war vor allem, wer seine eigene Seite testet: Statt der Zahlung erschien \"Security check failed\". Für ausgeloggte Besucher hat die Zahlung immer funktioniert",
+      ],
+    },
+    {
       area: "Free",
       version: "1.13.3",
       date: "19.08.2026",

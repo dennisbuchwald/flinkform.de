@@ -109,6 +109,14 @@ export const roadmap: RoadmapDict = {
   changelogHeading: "Recently Shipped",
   changelog: [
     {
+      area: "Pro",
+      version: "1.2.2",
+      date: "Aug 19, 2026",
+      items: [
+        "Stripe payments failed whenever the visitor was logged in to WordPress. It hit site owners testing their own page hardest: instead of the payment, \"Security check failed\" appeared. For logged-out visitors, the payment always worked",
+      ],
+    },
+    {
       area: "Free",
       version: "1.13.3",
       date: "Aug 19, 2026",

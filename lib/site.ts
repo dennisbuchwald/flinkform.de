@@ -8,7 +8,7 @@ export const DEMO_URL = "https://demo.flinkform.de";
 export const CONTACT_MAIL = "dennis@dbw-media.de";
 
 export const FREE_VERSION = "1.13.3";
-export const PRO_VERSION = "1.2.1";
+export const PRO_VERSION = "1.2.2";
 export const FACTS_UPDATED = "2026-07-27";
 
 /**
