@@ -110,6 +110,15 @@ export const roadmap: RoadmapDict = {
   changelog: [
     {
       area: "Free",
+      version: "1.13.3",
+      date: "Aug 19, 2026",
+      items: [
+        "Style fix: with the \"Floating\" label position, the resting label sat at the bottom edge of the field instead of in the middle - visible wherever a field is taller than its input: with help text underneath, or in a two-column row stretched to match a taller neighbour",
+        "The label is now anchored to the input itself, whatever else the field carries. The lifted state, the notch in the border, and textareas, selects and date fields are unchanged",
+      ],
+    },
+    {
+      area: "Free",
       version: "1.13.2",
       date: "Aug 19, 2026",
       items: [

@@ -110,6 +110,15 @@ export const roadmap = {
   changelog: [
     {
       area: "Free",
+      version: "1.13.3",
+      date: "19.08.2026",
+      items: [
+        "Stil-Fix: Bei der Beschriftungsposition \"Schwebend\" saß die ruhende Beschriftung am unteren Feldrand statt mittig im Feld - sichtbar überall dort, wo ein Feld höher ist als sein Eingabefeld: mit Hilfetext darunter oder in einer zweispaltigen Zeile, die sich am höheren Nachbarn ausrichtet",
+        "Die Beschriftung hängt jetzt am Eingabefeld selbst, egal was sonst noch im Feld steht. Der angehobene Zustand, die Kerbe in der Linie sowie Textfelder, Auswahllisten und Datumsfelder bleiben unverändert",
+      ],
+    },
+    {
+      area: "Free",
       version: "1.13.2",
       date: "19.08.2026",
       items: [
