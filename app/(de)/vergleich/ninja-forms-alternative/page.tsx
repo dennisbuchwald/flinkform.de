@@ -79,7 +79,6 @@ export default function Page() {
       slug="ninja-forms-alternative"
       competitor="Ninja Forms"
       h1="Ninja Forms Alternative: Ohne Add-on-Rechnung"
-      updated="2026-07-03"
       answerFirst="Flinkform ist eine kostenlose Ninja-Forms-Alternative aus Deutschland: Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste sind im freien Plugin enthalten. Bei Ninja Forms ist jede dieser Funktionen ein eigenes bezahltes Add-on, das Komplettpaket kostet regulär 499 Dollar pro Jahr. Dazu baut Flinkform Formulare direkt im Block-Editor statt in einer separaten Builder-Umgebung."
       tldrColumns={["Flinkform", "Ninja Forms"]}
       tldrRows={tldrRows}

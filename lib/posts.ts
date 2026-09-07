@@ -2,7 +2,10 @@ export type Post = {
   slug: string;
   title: string;
   description: string;
+  /** Erstveröffentlichung, wird zu datePublished. */
   date: string;
+  /** Letzte inhaltliche Änderung. Fehlt sie, gilt das Veröffentlichungsdatum. */
+  updated?: string;
   tag: string;
   readingMinutes: number;
 };

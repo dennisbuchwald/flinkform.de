@@ -3,7 +3,8 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { Section } from "@/components/Section";
 import { SITE_URL, WPORG_URL } from "@/lib/site";
-import { breadcrumbNode, faqNode, graph } from "@/lib/schema";
+import { articleNode, breadcrumbNode, faqNode, graph } from "@/lib/schema";
+import { ogImageUrl } from "@/lib/og-articles";
 import { faqFromMdx } from "@/lib/faq-mdx";
 import { getWissen } from "@/lib/wissen";
 
@@ -23,16 +24,14 @@ export default function WissenArticle({
   // Fragen und Antworten kommen aus dem sichtbaren FAQ-Block dieses Artikels.
   const faqs = faqFromMdx("wissen", entry.slug);
 
-  const articleSchema = {
-    "@type": "Article",
-    "@id": `${pageUrl}#article`,
+  const articleSchema = articleNode({
+    url: pageUrl,
     headline: entry.title,
     description: entry.description,
-    inLanguage: "de",
+    datePublished: entry.published,
     dateModified: entry.updated,
-    author: { "@id": `${SITE_URL}/#dennis` },
-    mainEntityOfPage: pageUrl,
-  };
+    image: ogImageUrl("wissen", entry.slug),
+  });
 
   return (
     <>

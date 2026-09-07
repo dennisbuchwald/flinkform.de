@@ -82,7 +82,6 @@ export default function Page() {
       slug="formidable-forms-alternative"
       competitor="Formidable Forms"
       h1="Formidable Forms Alternative: Formulare und Rechner ohne 399-Dollar-Plan"
-      updated="2026-07-03"
       answerFirst="Flinkform ist eine Formidable-Forms-Alternative aus Deutschland für alle, die Formulare und Preisrechner brauchen, aber keine komplette App-Plattform: Multi-Step, bedingte Logik und Submissions-Dashboard sind kostenlos, Berechnungsfelder kosten mit Flinkform Pro ab 59 Euro pro Jahr. Bei Formidable Forms liegen Rechner erst im Business-Plan für regulär 399 Dollar pro Jahr, und die kostenlose Version hat weder bedingte Logik noch mehrseitige Formulare. Nur wer Formidable Views braucht, also Frontend-Ausgabe von Daten, ist dort richtig."
       tldrColumns={["Flinkform", "Formidable Forms"]}
       tldrRows={tldrRows}

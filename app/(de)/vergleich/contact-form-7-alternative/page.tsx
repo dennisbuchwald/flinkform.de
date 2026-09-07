@@ -65,7 +65,6 @@ export default function Page() {
       slug="contact-form-7-alternative"
       competitor="Contact Form 7"
       h1="Contact Form 7 Alternative: Warum jetzt der richtige Zeitpunkt für den Wechsel ist"
-      updated="2026-07-03"
       answerFirst="Flinkform ist eine moderne Contact Form 7 Alternative für WordPress: block-nativ, kostenlos, mit Multi-Step-Formularen, bedingter Logik, Submissions-Dashboard und Spam-Schutz ohne externe Dienste. Der Wechsel ist 2026 besonders naheliegend, weil Contact Form 7 offiziell im Feature Freeze ist: Version 6.2 ist die letzte mit neuen Funktionen."
       tldrColumns={["Flinkform", "Contact Form 7"]}
       tldrRows={tldrRows}

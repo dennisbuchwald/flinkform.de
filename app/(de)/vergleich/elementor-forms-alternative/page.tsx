@@ -82,7 +82,6 @@ export default function Page() {
       slug="elementor-forms-alternative"
       competitor="Elementor Forms"
       h1="Elementor Forms Alternative: Formulare ohne Page-Builder-Abo"
-      updated="2026-07-03"
       answerFirst="Elementor Forms gibt es nur als Teil von Elementor Pro: ab 59 Dollar pro Jahr, und im günstigsten Plan werden Einsendungen nicht einmal gespeichert. Flinkform ist die kostenlose Alternative ohne Elementor: ein block-natives Formular-Plugin, das in jedem Theme und im nativen WordPress-Editor funktioniert, mit Multi-Step, bedingter Logik und Spam-Schutz ohne externe Dienste. Fair gesagt: Wer Elementor Pro ohnehin bezahlt, hat den Form Builder schon an Bord."
       tldrColumns={["Flinkform", "Elementor Forms"]}
       tldrRows={tldrRows}

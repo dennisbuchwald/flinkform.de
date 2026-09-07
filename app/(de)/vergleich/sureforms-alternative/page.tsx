@@ -79,7 +79,6 @@ export default function Page() {
       slug="sureforms-alternative"
       competitor="SureForms"
       h1="SureForms Alternative: Block-nativ gegen block-nativ"
-      updated="2026-07-03"
       answerFirst="Flinkform ist eine SureForms-Alternative aus Deutschland. Beide Plugins bauen Formulare direkt im WordPress-Block-Editor, doch Flinkform stoppt Spam komplett ohne reCAPTCHA, hCaptcha oder Turnstile, erbt dein Theme-Design über theme.json und lädt unter 15 KB Frontend-JavaScript. Multi-Step-Formulare sind bei Flinkform kostenlos, bei SureForms Teil des Bezahlplans. SureForms punktet dafür mit AI-Formular-Generator und kostenlosen Stripe-Basiszahlungen."
       tldrColumns={["Flinkform", "SureForms"]}
       tldrRows={tldrRows}

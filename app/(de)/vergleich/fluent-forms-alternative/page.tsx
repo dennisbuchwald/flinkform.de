@@ -72,7 +72,6 @@ export default function Page() {
       slug="fluent-forms-alternative"
       competitor="Fluent Forms"
       h1="Fluent Forms Alternative: Block-nativ und DSGVO-sauber"
-      updated="2026-07-03"
       answerFirst="Flinkform ist eine Fluent-Forms-Alternative aus Deutschland: Multi-Step-Formulare und bedingte Logik sind im kostenlosen Plugin enthalten, der Spam-Schutz läuft ohne reCAPTCHA oder andere US-Dienste, und es werden keine IP-Adressen gespeichert. Fluent Forms bietet viel fürs Geld, sperrt Multi-Step aber hinter der Pro-Version (regulär ab 79 Dollar pro Jahr) und setzt beim Spam-Schutz auf reCAPTCHA, hCaptcha oder Turnstile. Dazu baut Flinkform Formulare direkt im WordPress-Block-Editor statt in einem eigenen Builder."
       tldrColumns={["Flinkform", "Fluent Forms"]}
       tldrRows={tldrRows}

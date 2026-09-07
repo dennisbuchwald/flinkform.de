@@ -3,7 +3,8 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { Section, Eyebrow } from "@/components/Section";
 import { SITE_URL, WPORG_URL } from "@/lib/site";
-import { breadcrumbNode, faqNode, graph } from "@/lib/schema";
+import { articleNode, breadcrumbNode, faqNode, graph } from "@/lib/schema";
+import { ogImageUrl } from "@/lib/og-articles";
 import { faqFromMdx } from "@/lib/faq-mdx";
 import { getPost } from "@/lib/posts";
 
@@ -20,17 +21,14 @@ export default function BlogArticle({
   // Fragen und Antworten kommen aus dem sichtbaren FAQ-Block dieses Artikels.
   const faqs = faqFromMdx("blog", post.slug);
 
-  const articleSchema = {
-    "@type": "Article",
-    "@id": `${pageUrl}#article`,
+  const articleSchema = articleNode({
+    url: pageUrl,
     headline: post.title,
     description: post.description,
-    inLanguage: "de",
     datePublished: post.date,
-    dateModified: post.date,
-    author: { "@id": `${SITE_URL}/#dennis` },
-    mainEntityOfPage: pageUrl,
-  };
+    dateModified: post.updated ?? post.date,
+    image: ogImageUrl("blog", post.slug),
+  });
 
   return (
     <>

@@ -82,7 +82,6 @@ export default function Page() {
       slug="typeform-alternative"
       competitor="Typeform"
       h1="Typeform Alternative: Das gleiche Gefühl, auf deinem Server"
-      updated="2026-07-03"
       answerFirst="Flinkform ist eine DSGVO-freundliche Typeform-Alternative für WordPress: Multi-Step-Formulare mit einer Frage pro Schritt, bedingter Logik und Fortschrittsanzeige, kostenlos und ohne Antwort-Limits. Der entscheidende Unterschied ist der Datenfluss: Typeform speichert Einsendungen im Standard auf US-Servern (AWS Virginia) und rechnet monatlich nach Response-Kontingenten ab. Flinkform läuft als Plugin auf deinem eigenen Server, die Daten verlassen deine WordPress-Installation nicht."
       tldrColumns={["Flinkform", "Typeform"]}
       tldrRows={tldrRows}

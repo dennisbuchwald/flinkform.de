@@ -66,7 +66,6 @@ export default function Page() {
       slug="gravity-forms-alternative"
       competitor="Gravity Forms"
       h1="Gravity Forms Alternative: Kostenlos, DSGVO-konform und block-nativ"
-      updated="2026-07-03"
       answerFirst="Flinkform ist eine kostenlose Gravity Forms Alternative für WordPress: Multi-Step-Formulare, bedingte Logik und Submissions-Dashboard sind im freien Plugin enthalten, das es bei Gravity Forms gar nicht gibt (Einstieg: 59 Dollar pro Jahr). Dazu kommt der Datenschutz-Unterschied: Flinkform schützt vor Spam ohne US-Dienste und speichert keine IP-Adressen."
       tldrColumns={["Flinkform", "Gravity Forms"]}
       tldrRows={tldrRows}

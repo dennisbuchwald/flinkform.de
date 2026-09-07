@@ -62,7 +62,6 @@ export default function Page() {
       slug="wpforms-alternative"
       competitor="WPForms"
       h1="WPForms Alternative: Alle Features, ohne die Paywall"
-      updated="2026-07-03"
       answerFirst="Flinkform ist eine kostenlose WPForms-Alternative aus Deutschland: Multi-Step-Formulare, bedingte Logik und Submissions-Dashboard sind im freien Plugin enthalten. Bei WPForms brauchst du dafür mindestens den Basic-Plan (regulär 99 Dollar pro Jahr), die modernen Lead Forms sogar den Pro-Plan für 399 Dollar, und die Lite-Version speichert nicht einmal Einsendungen. Dazu arbeitet Flinkform ohne US-Spam-Dienste und speichert keine IP-Adressen."
       tldrColumns={["Flinkform", "WPForms"]}
       tldrRows={tldrRows}

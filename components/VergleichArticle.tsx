@@ -5,7 +5,9 @@ import Faq from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import { Section, Eyebrow } from "@/components/Section";
 import { SITE_URL, WPORG_URL, type FaqItem } from "@/lib/site";
-import { breadcrumbNode, graph } from "@/lib/schema";
+import { articleNode, breadcrumbNode, graph } from "@/lib/schema";
+import { ogImageUrl } from "@/lib/og-articles";
+import { getVergleich } from "@/lib/vergleiche";
 
 export type VergleichSection = { heading: string; body: ReactNode };
 
@@ -17,7 +19,6 @@ export default function VergleichArticle({
   slug,
   competitor,
   h1,
-  updated,
   answerFirst,
   tldrColumns,
   tldrRows,
@@ -28,7 +29,6 @@ export default function VergleichArticle({
   slug: string;
   competitor: string;
   h1: string;
-  updated: string;
   answerFirst: string;
   tldrColumns: readonly string[];
   tldrRows: readonly { feature: string; cells: readonly CompareCell[] }[];
@@ -36,17 +36,18 @@ export default function VergleichArticle({
   sections: readonly VergleichSection[];
   faqs: readonly FaqItem[];
 }) {
+  const entry = getVergleich(slug);
+  const updated = entry.updated;
   const pageUrl = `${SITE_URL}/vergleich/${slug}`;
 
-  const articleSchema = {
-    "@type": "Article",
-    "@id": `${pageUrl}#article`,
+  const articleSchema = articleNode({
+    url: pageUrl,
     headline: h1,
-    inLanguage: "de",
+    description: entry.desc,
+    datePublished: entry.published,
     dateModified: updated,
-    author: { "@id": `${SITE_URL}/#dennis` },
-    mainEntityOfPage: pageUrl,
-  };
+    image: ogImageUrl("vergleich", slug),
+  });
 
   return (
     <>

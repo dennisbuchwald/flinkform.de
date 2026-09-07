@@ -73,7 +73,6 @@ export default function Page() {
       slug="jotform-alternative"
       competitor="Jotform"
       h1="Jotform Alternative: Unbegrenzte Einsendungen auf deinem eigenen Server"
-      updated="2026-07-03"
       answerFirst="Flinkform ist eine DSGVO-freundliche Jotform-Alternative für WordPress: ein block-natives Formular-Plugin, das unbegrenzte Formulare und Einsendungen kostenlos auf deinem eigenen Server speichert. Jotform ist ein US-Cloud-Dienst mit monatlichen Limits: Der Free-Plan erlaubt 5 Formulare und 100 Einsendungen pro Monat mit Jotform-Branding, größere Pläne kosten 408 bis 1.188 Dollar pro Jahr. Dazu speichert Jotform die IP-Adresse jeder Einsendung, ohne Abschaltmöglichkeit."
       tldrColumns={["Flinkform", "Jotform"]}
       tldrRows={tldrRows}

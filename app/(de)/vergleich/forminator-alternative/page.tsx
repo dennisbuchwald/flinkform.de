@@ -76,7 +76,6 @@ export default function Page() {
       slug="forminator-alternative"
       competitor="Forminator"
       h1="Forminator Alternative: Leichtgewicht statt Feature-Paket"
-      updated="2026-07-03"
       answerFirst="Flinkform ist eine leichtgewichtige, DSGVO-freundliche Forminator-Alternative aus Deutschland: Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos und mit unter 15 KB Frontend-JS. Forminator hat eine sehr großzügige Free-Version, speichert aber ab Werk IP-Adressen, setzt beim Spam-Schutz auf US-Dienste wie reCAPTCHA und lädt auf Formular-Seiten rund 129 KB Assets. Wer schlanke Kontakt- und Anfrage-Formulare ohne Datenschutz-Nacharbeit will, ist mit Flinkform schneller am Ziel."
       tldrColumns={["Flinkform", "Forminator"]}
       tldrRows={tldrRows}
