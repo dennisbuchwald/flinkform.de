@@ -9,6 +9,7 @@ import { SITE_URL, WPORG_URL, type FaqItem } from "@/lib/site";
 import { articleNode, breadcrumbNode, faqNode, graph } from "@/lib/schema";
 import { ogImageUrl } from "@/lib/og-articles";
 import { getVergleich } from "@/lib/vergleiche";
+import RelatedLinks from "@/components/RelatedLinks";
 
 export type VergleichSection = {
   heading: string;
@@ -169,6 +170,10 @@ export default function VergleichArticle({
             </div>
           </div>
         </div>
+      </Section>
+
+      <Section className="!py-8">
+        <RelatedLinks hrefs={entry.related} />
       </Section>
 
       <Section>

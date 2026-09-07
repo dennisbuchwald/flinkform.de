@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { Section } from "@/components/Section";
+import RelatedLinks from "@/components/RelatedLinks";
 import { SITE_URL, WPORG_URL } from "@/lib/site";
 import { articleNode, breadcrumbNode, faqNode, graph } from "@/lib/schema";
 import { ogImageUrl } from "@/lib/og-articles";
@@ -84,6 +85,8 @@ export default function WissenArticle({
 
       <Section>
         <article className="prose-flink">{children}</article>
+
+        <RelatedLinks hrefs={entry.related} className="mt-14" />
 
         <aside className="prose-flink mt-14">
           <div className="rounded-2xl border border-line bg-white p-7">

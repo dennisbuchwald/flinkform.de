@@ -6,6 +6,11 @@ export type WissenEntry = {
   published: string;
   /** Letzte inhaltliche Änderung, wird zu dateModified. */
   updated: string;
+  /**
+   * Passende Vergleichsseiten als interne Links. Nur dort gesetzt, wo der
+   * Artikeltext noch nicht selbst auf den Vergleich verweist.
+   */
+  related?: readonly string[];
 };
 
 export const wissen: WissenEntry[] = [
@@ -16,6 +21,10 @@ export const wissen: WissenEntry[] = [
       "Definition der Kategorie: Was block-nativ bedeutet, wie es sich von klassischen Formular-Buildern unterscheidet und welche Plugins dazugehören.",
     published: "2026-07-03",
     updated: "2026-07-03",
+    related: [
+      "/vergleich/sureforms-alternative",
+      "/vergleich/elementor-forms-alternative",
+    ],
   },
   {
     slug: "wordpress-formular-ohne-recaptcha",
@@ -24,6 +33,10 @@ export const wissen: WissenEntry[] = [
       "Honeypot, signierter Zeit-Check und Proof-of-Work stoppen Spam ohne externen Dienst. Wie die drei Mechanismen funktionieren und warum sie reichen.",
     published: "2026-07-03",
     updated: "2026-07-03",
+    related: [
+      "/vergleich/contact-form-7-alternative",
+      "/vergleich/forminator-alternative",
+    ],
   },
   {
     slug: "dsgvo-konformes-formular-plugin",
@@ -32,6 +45,10 @@ export const wissen: WissenEntry[] = [
       "Die ehrliche Übersicht: Welche Formular-Plugins Daten an US-Dienste senden, welche IP-Adressen speichern und worauf es bei der Auswahl ankommt.",
     published: "2026-07-03",
     updated: "2026-07-03",
+    related: [
+      "/vergleich/typeform-alternative",
+      "/vergleich/jotform-alternative",
+    ],
   },
   {
     slug: "gutenberg-formular-erstellen",
@@ -40,6 +57,10 @@ export const wissen: WissenEntry[] = [
       "Schritt für Schritt: ein Formular direkt im WordPress-Block-Editor bauen, ohne Elementor, ohne separaten Formular-Builder, ohne Shortcode.",
     published: "2026-07-03",
     updated: "2026-07-03",
+    related: [
+      "/vergleich/elementor-forms-alternative",
+      "/vergleich/sureforms-alternative",
+    ],
   },
   {
     slug: "sepa-zahlung-wordpress-formular",
@@ -48,6 +69,9 @@ export const wissen: WissenEntry[] = [
       "SEPA-Lastschrift direkt im Formular: wie die verzögerte Bestätigung funktioniert, was der Stripe-Webhook macht und wie der Einbau gelingt.",
     published: "2026-07-03",
     updated: "2026-07-03",
+    related: [
+      "/vergleich/formidable-forms-alternative",
+    ],
   },
   {
     slug: "multi-step-formular-wordpress",
@@ -72,6 +96,9 @@ export const wissen: WissenEntry[] = [
       "WordPress-Formular-Mails landen im Spam, weil wp_mail() ohne Authentifizierung sendet. Ursachen, SPF/DKIM/DMARC erklärt und die Lösung per SMTP.",
     published: "2026-07-03",
     updated: "2026-07-03",
+    related: [
+      "/vergleich/contact-form-7-alternative",
+    ],
   },
   {
     slug: "formular-spam-stoppen-wordpress",
@@ -80,6 +107,10 @@ export const wissen: WissenEntry[] = [
       "Honeypot, Zeit-Check, Proof-of-Work, Quiz, reCAPTCHA, hCaptcha, Turnstile und Akismet im Vergleich: Wirksamkeit, Nutzerfreundlichkeit, DSGVO und Kosten.",
     published: "2026-07-03",
     updated: "2026-07-03",
+    related: [
+      "/vergleich/contact-form-7-alternative",
+      "/vergleich/forminator-alternative",
+    ],
   },
   {
     slug: "wordpress-formular-ohne-plugin",
@@ -88,6 +119,9 @@ export const wissen: WissenEntry[] = [
       "Technisch ja: eigenes HTML plus PHP-Handler im Theme. Praktisch musst du Validierung, CSRF-Schutz, Spam-Abwehr, Mail-Versand und DSGVO-Löschung selbst bauen.",
     published: "2026-07-03",
     updated: "2026-07-03",
+    related: [
+      "/vergleich/contact-form-7-alternative",
+    ],
   },
   {
     slug: "barrierefreies-formular-bfsg",
@@ -96,6 +130,9 @@ export const wissen: WissenEntry[] = [
       "Das BFSG gilt seit dem 28.06.2025. Was das für WordPress-Formulare bedeutet: EN 301 549, WCAG 2.1 AA, Labels, Fehlermeldungen, Tastatur, Kontrast und ARIA.",
     published: "2026-07-03",
     updated: "2026-07-03",
+    related: [
+      "/vergleich/wpforms-alternative",
+    ],
   },
   {
     slug: "was-kostet-wordpress-formular-plugin",
@@ -104,6 +141,10 @@ export const wissen: WissenEntry[] = [
       "Alle Preise der großen WordPress-Formular-Plugins im Überblick (Stand Juli 2026). Plus versteckte Kosten: Renewal-Preise, Transaktionsgebühren, Add-on-Modelle.",
     published: "2026-07-03",
     updated: "2026-07-03",
+    related: [
+      "/vergleich/wpforms-alternative",
+      "/vergleich/gravity-forms-alternative",
+    ],
   },
   {
     slug: "cookie-banner-kontaktformular",
@@ -112,6 +153,9 @@ export const wissen: WissenEntry[] = [
       "Ein Kontaktformular selbst braucht keinen Cookie-Banner. Einwilligungspflichtig wird es erst durch eingebettete Drittdienste wie reCAPTCHA. So testest du dein Formular selbst.",
     published: "2026-07-03",
     updated: "2026-07-03",
+    related: [
+      "/vergleich/typeform-alternative",
+    ],
   },
   {
     slug: "bewerbungsformular-wordpress",
@@ -120,6 +164,10 @@ export const wissen: WissenEntry[] = [
       "Bewerbungsformular in WordPress bauen: Multi-Step-Formular mit Datei-Uploads für Lebenslauf und Zeugnisse, Pflicht-Consent und automatischer Löschfrist.",
     published: "2026-07-03",
     updated: "2026-07-03",
+    related: [
+      "/vergleich/ninja-forms-alternative",
+      "/vergleich/jotform-alternative",
+    ],
   },
   {
     slug: "angebotsrechner-wordpress",
@@ -136,6 +184,9 @@ export const wissen: WissenEntry[] = [
       "Formular-Conversions sauber messen: Danke-Seiten-Redirect als Conversion-Event, GA4-Schlüsselereignis, Meta Pixel Lead-Event und die cookiefreie Alternative Plausible.",
     published: "2026-07-03",
     updated: "2026-07-03",
+    related: [
+      "/vergleich/wpforms-alternative",
+    ],
   },
 ];
 
