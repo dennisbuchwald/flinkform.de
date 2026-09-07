@@ -3,7 +3,8 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { Section, Eyebrow } from "@/components/Section";
 import { SITE_URL, WPORG_URL } from "@/lib/site";
-import { breadcrumbNode, graph } from "@/lib/schema";
+import { breadcrumbNode, faqNode, graph } from "@/lib/schema";
+import { faqFromMdx } from "@/lib/faq-mdx";
 import { getPost } from "@/lib/posts";
 
 /** Gemeinsamer Rahmen für Blog-Artikel: Kopf, Datum, Schema, Prosa, CTA. */
@@ -15,16 +16,20 @@ export default function BlogArticle({
   children: ReactNode;
 }) {
   const post = getPost(slug);
+  const pageUrl = `${SITE_URL}/blog/${post.slug}`;
+  // Fragen und Antworten kommen aus dem sichtbaren FAQ-Block dieses Artikels.
+  const faqs = faqFromMdx("blog", post.slug);
 
   const articleSchema = {
     "@type": "Article",
+    "@id": `${pageUrl}#article`,
     headline: post.title,
     description: post.description,
     inLanguage: "de",
     datePublished: post.date,
     dateModified: post.date,
     author: { "@id": `${SITE_URL}/#dennis` },
-    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+    mainEntityOfPage: pageUrl,
   };
 
   return (
@@ -37,6 +42,14 @@ export default function BlogArticle({
             { name: "Blog", path: "/blog" },
             { name: post.title, path: `/blog/${post.slug}` },
           ]),
+          ...(faqs.length > 0
+            ? [
+                faqNode(faqs, {
+                  url: pageUrl,
+                  isPartOf: `${pageUrl}#article`,
+                }),
+              ]
+            : []),
         ])}
       />
 

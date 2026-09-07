@@ -36,13 +36,16 @@ export default function VergleichArticle({
   sections: readonly VergleichSection[];
   faqs: readonly FaqItem[];
 }) {
+  const pageUrl = `${SITE_URL}/vergleich/${slug}`;
+
   const articleSchema = {
     "@type": "Article",
+    "@id": `${pageUrl}#article`,
     headline: h1,
     inLanguage: "de",
     dateModified: updated,
     author: { "@id": `${SITE_URL}/#dennis` },
-    mainEntityOfPage: `${SITE_URL}/vergleich/${slug}`,
+    mainEntityOfPage: pageUrl,
   };
 
   return (
@@ -143,7 +146,11 @@ export default function VergleichArticle({
       </Section>
 
       <Section>
-        <Faq items={[...faqs]} />
+        <Faq
+          items={[...faqs]}
+          pageUrl={pageUrl}
+          articleId={`${pageUrl}#article`}
+        />
       </Section>
     </>
   );

@@ -3,7 +3,8 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { Section } from "@/components/Section";
 import { SITE_URL, WPORG_URL } from "@/lib/site";
-import { breadcrumbNode, graph } from "@/lib/schema";
+import { breadcrumbNode, faqNode, graph } from "@/lib/schema";
+import { faqFromMdx } from "@/lib/faq-mdx";
 import { getWissen } from "@/lib/wissen";
 
 /**
@@ -18,15 +19,19 @@ export default function WissenArticle({
   children: ReactNode;
 }) {
   const entry = getWissen(slug);
+  const pageUrl = `${SITE_URL}/wissen/${entry.slug}`;
+  // Fragen und Antworten kommen aus dem sichtbaren FAQ-Block dieses Artikels.
+  const faqs = faqFromMdx("wissen", entry.slug);
 
   const articleSchema = {
     "@type": "Article",
+    "@id": `${pageUrl}#article`,
     headline: entry.title,
     description: entry.description,
     inLanguage: "de",
     dateModified: entry.updated,
     author: { "@id": `${SITE_URL}/#dennis` },
-    mainEntityOfPage: `${SITE_URL}/wissen/${entry.slug}`,
+    mainEntityOfPage: pageUrl,
   };
 
   return (
@@ -39,6 +44,14 @@ export default function WissenArticle({
             { name: "Wissen", path: "/wissen" },
             { name: entry.title, path: `/wissen/${entry.slug}` },
           ]),
+          ...(faqs.length > 0
+            ? [
+                faqNode(faqs, {
+                  url: pageUrl,
+                  isPartOf: `${pageUrl}#article`,
+                }),
+              ]
+            : []),
         ])}
       />
 
