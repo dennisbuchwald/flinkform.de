@@ -234,6 +234,27 @@ export function faqNode(
   };
 }
 
+/**
+ * Google bemängelt reine Datumsangaben in Article: es will eine vollständige
+ * ISO-8601-Zeit mit Zeitzone. Im Content-Modell bleibt das Datum trotzdem
+ * schlicht "2026-07-03" - der Zeitanteil entsteht erst hier, als Tagesbeginn
+ * in der Zeitzone des Herausgebers.
+ */
+function berlinOffset(isoDate: string): string {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Europe/Berlin",
+    timeZoneName: "longOffset",
+  }).formatToParts(new Date(`${isoDate}T12:00:00Z`));
+  const label = parts.find((part) => part.type === "timeZoneName")?.value ?? "";
+  const offset = label.replace("GMT", "");
+  return /^[+-]\d{2}:\d{2}$/.test(offset) ? offset : "+01:00";
+}
+
+export function isoDateTime(date: string): string {
+  if (date.includes("T")) return date;
+  return `${date}T00:00:00${berlinOffset(date)}`;
+}
+
 export type ArticleInput = {
   /** Absolute URL der Seite, ohne Fragment. */
   url: string;
@@ -262,8 +283,8 @@ export function articleNode({
     headline,
     ...(description ? { description } : {}),
     inLanguage: locale,
-    datePublished,
-    dateModified,
+    datePublished: isoDateTime(datePublished),
+    dateModified: isoDateTime(dateModified),
     author: ref(ID.person),
     publisher: ref(ID.organization),
     ...(image ? { image } : {}),
