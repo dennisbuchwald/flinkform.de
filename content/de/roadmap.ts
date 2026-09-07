@@ -109,6 +109,27 @@ export const roadmap = {
   changelogHeading: "Zuletzt erschienen",
   changelog: [
     {
+      area: "Free",
+      version: "1.14.1",
+      date: "07.09.2026",
+      items: [
+        "Korrektur: In 1.14.0 standen Plugin-Name, Autor und Beschreibung im Plugin-Header versehentlich falsch, sichtbar in der Plugin-Liste im WordPress-Backend. Wieder wie vorher, ohne funktionale Änderung",
+      ],
+    },
+    {
+      area: "Free",
+      version: "1.14.0",
+      date: "07.09.2026",
+      items: [
+        "Seiten mit einem Formular lassen sich wieder cachen. Bisher hat jede Seite mit einem Flinkform-Formular den Seiten-Cache für sich selbst abgeschaltet, weil im HTML ein Spam-Token, ein Sicherheits-Nonce und ein signierter Renderzeitpunkt standen, die nur für genau einen Aufruf gelten. Auf einer für dieses Release vermessenen Website waren das rund 0,7 Sekunden zusätzliche Serverzeit pro Aufruf, ausgerechnet auf den Seiten, auf denen Anfragen entstehen sollen",
+        "Diese Werte lädt Flinkform jetzt im Hintergrund nach, sobald ein Besucher das Formular zum ersten Mal berührt. Die ausgelieferte Seite ist damit ganz normales, cachebares HTML. Wer nur vorbeiscrollt, löst gar keine Anfrage an den Server aus",
+        "Am Spam-Schutz ändert sich nichts: gleicher Proof-of-Work, gleicher signierter Einmal-Token, gleicher Honeypot. Die Mindest-Ausfüllzeit wird sogar genauer, weil sie jetzt ab dem Moment zählt, in dem der Besucher am Formular ankommt, und nicht mehr ab dem Zeitpunkt, an dem die Seite gebaut wurde",
+        "Ohne JavaScript funktioniert das Formular weiterhin. Diese Besucher bekommen einen Link auf eine ungecachte Fassung derselben Seite, die sich genau wie bisher verhält, inklusive Rechenaufgabe",
+        "Einsendungen, die eintreffen, bevor das Nachladen fertig war, gehen nicht verloren: Alles Eingetippte bleibt erhalten, das Formular kommt gefüllt zurück und bittet ums erneute Senden",
+        "Neu unter Werkzeuge → Website-Zustand: eine Prüfung, die dir zeigt, ob deine Formularseiten tatsächlich gecacht werden. Formulare mit Zahlungsfeld (Pro) bleiben bewusst ungecacht, weil das Zahlungsfeld eigene aufrufbezogene Daten mitbringt",
+      ],
+    },
+    {
       area: "Pro",
       version: "1.2.2",
       date: "19.08.2026",

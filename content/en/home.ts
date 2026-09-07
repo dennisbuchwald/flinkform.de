@@ -41,7 +41,7 @@ export const home: HomeDict = {
       },
       {
         title: "Under 15 KB, no jQuery",
-        desc: "The entire frontend JavaScript bundle stays under 15 KB gzipped, and it only loads on pages that actually contain a form. Server-side rendering shows forms instantly.",
+        desc: "The entire frontend JavaScript bundle stays under 15 KB gzipped, and it only loads on pages that actually contain a form. Your pages also stay cacheable: Flinkform does not switch off your page cache, the way form plugins tend to.",
       },
       {
         title: "Submissions dashboard",
@@ -179,6 +179,10 @@ export const home: HomeDict = {
       {
         q: "Is Flinkform accessible?",
         a: "Accessibility is built in, not bolted on: real label associations, fieldset/legend for choice groups, error messages are announced to screen readers and linked to their field, focus jumps to the first invalid field, step changes are announced via aria-live, focus rings stay visible, and spam protection needs no CAPTCHA. The form markup passes automated axe-core checks against WCAG 2.1 A/AA with zero violations, including in the error state. A formal audit with a screen-reader protocol is still outstanding. The color choices you make in the editor affect contrast and are your responsibility.",
+      },
+      {
+        q: "Does Flinkform work with my caching plugin?",
+        a: "Yes, and the page stays cached. Many form plugins exclude every page with a form from the page cache, because the markup holds values that are only valid for a single request. Since version 1.14.0, Flinkform loads those values only once a visitor actually touches the form. The page that gets served is plain, cacheable HTML, and someone who only scrolls past never triggers a request. Spam protection is unchanged. Under Tools and Site Health, a check tells you whether your form pages are really being cached.",
       },
       {
         q: "Does Flinkform work with my theme?",

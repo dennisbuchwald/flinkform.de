@@ -44,11 +44,11 @@ export const LEGAL = {
  * Die einzige Stelle für Versionsnummern. Speist JSON-LD, llms.txt und jede
  * sichtbare Versionsangabe - nirgendwo sonst eine Version hart schreiben.
  */
-export const FREE_VERSION = "1.13.3";
+export const FREE_VERSION = "1.14.1";
 export const PRO_VERSION = "1.2.2";
 /** Kleinste Free-Version, auf der Flinkform Pro läuft. */
 export const MIN_FREE_FOR_PRO = "1.3.0";
-export const FACTS_UPDATED = "2026-07-27";
+export const FACTS_UPDATED = "2026-09-07";
 
 /**
  * Die eine konsistente Entity-Definition (GEO). Überall exakt so verwenden,

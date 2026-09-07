@@ -41,7 +41,7 @@ export const home = {
       },
       {
         title: "Unter 15 KB, ohne jQuery",
-        desc: "Das gesamte Frontend-JavaScript bleibt unter 15 KB gzipped. Assets laden nur auf Seiten, die ein Formular enthalten. Server-Side Rendering zeigt Formulare sofort.",
+        desc: "Das gesamte Frontend-JavaScript bleibt unter 15 KB gzipped. Assets laden nur auf Seiten, die ein Formular enthalten. Und deine Seiten bleiben cachebar: Flinkform schaltet den Seiten-Cache nicht ab, wie es Formular-Plugins sonst gern tun.",
       },
       {
         title: "Submissions-Dashboard",
@@ -180,6 +180,10 @@ export const home = {
       {
         q: "Ist Flinkform barrierefrei?",
         a: "Barrierefreiheit ist eingebaut, nicht nachgerüstet: echte Label-Verknüpfungen, fieldset/legend für Auswahlgruppen, Fehlermeldungen werden Screenreadern angesagt und mit dem Feld verknüpft, der Fokus springt aufs erste fehlerhafte Feld, Schrittwechsel werden per aria-live angekündigt, Fokus-Ringe bleiben sichtbar und der Spam-Schutz kommt ohne CAPTCHA aus. Das Formular-Markup besteht automatisierte axe-core-Prüfungen gegen WCAG 2.1 A/AA ohne Verstöße, auch im Fehlerzustand. Ein formales Audit mit Screenreader-Protokoll steht noch aus. Deine Farbwahl im Editor beeinflusst den Kontrast und liegt in deiner Hand.",
+      },
+      {
+        q: "Funktioniert Flinkform mit meinem Caching-Plugin?",
+        a: "Ja, und die Seite bleibt gecacht. Viele Formular-Plugins schließen jede Seite mit Formular vom Seiten-Cache aus, weil im HTML Werte stehen, die nur für einen einzigen Aufruf gelten. Flinkform lädt diese Werte seit Version 1.14.0 erst dann nach, wenn ein Besucher das Formular tatsächlich berührt. Die ausgelieferte Seite ist damit ganz normales, cachebares HTML, und wer nur vorbeiscrollt, löst keine Anfrage an den Server aus. Der Spam-Schutz bleibt unverändert. Unter Werkzeuge und Website-Zustand zeigt dir eine Prüfung, ob deine Formularseiten wirklich gecacht werden.",
       },
       {
         q: "Funktioniert Flinkform mit meinem Theme?",

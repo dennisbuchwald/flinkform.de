@@ -109,6 +109,27 @@ export const roadmap: RoadmapDict = {
   changelogHeading: "Recently Shipped",
   changelog: [
     {
+      area: "Free",
+      version: "1.14.1",
+      date: "Sep 7, 2026",
+      items: [
+        "Fix: 1.14.0 shipped with the wrong plugin name, author and description in the plugin header, which is what the Plugins screen in WordPress showed. Back to the previous values, no functional change",
+      ],
+    },
+    {
+      area: "Free",
+      version: "1.14.0",
+      date: "Sep 7, 2026",
+      items: [
+        "Pages with a form can be cached again. Until now, every page holding a Flinkform form switched the page cache off for itself, because the markup carried a spam token, a security nonce and a signed render time that are only valid for a single request. On a site measured for this release that cost about 0.7 seconds of extra server time per view, on exactly the pages that are meant to bring in enquiries",
+        "Flinkform now loads those values in the background the moment a visitor first touches the form. The page that gets served is plain, cacheable HTML. Someone who only scrolls past never triggers a request at all",
+        "Spam protection is unchanged: the same proof-of-work, the same signed single-use token, the same honeypot. The minimum fill time actually gets more accurate, because it now counts from the moment the visitor reaches the form rather than from when the page was built",
+        "The form still works without JavaScript. Those visitors get a link to an uncached version of the same page, which behaves exactly as before, arithmetic question included",
+        "Submissions that arrive before the background load finished are no longer lost: everything typed is kept, the form comes back filled in and asks you to send it again",
+        "New under Tools → Site Health: a check that tells you whether your form pages are actually being cached. Forms with a payment field (Pro) deliberately stay uncached, because the payment field brings request-specific data of its own",
+      ],
+    },
+    {
       area: "Pro",
       version: "1.2.2",
       date: "Aug 19, 2026",
