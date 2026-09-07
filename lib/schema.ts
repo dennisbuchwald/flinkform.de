@@ -139,11 +139,11 @@ function flinkformNode(locale: Locale): SchemaNode {
     url: SITE_URL,
     downloadUrl: WPORG_URL,
     installUrl: WPORG_URL,
-    codeRepository: GITHUB_URL,
     license: "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
     inLanguage: locale,
     description: ENTITY_FREE,
     featureList: FEATURE_LIST,
+    sameAs: [WPORG_URL, GITHUB_URL],
     author: ref(ID.person),
     publisher: ref(ID.organization),
     offers: [
