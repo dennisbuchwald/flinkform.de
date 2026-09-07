@@ -2,7 +2,7 @@
 
 > Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. Anders als WPForms oder Gravity Forms nutzt es keinen eigenen Builder, sondern den WordPress-Editor selbst.
 
-Stand: 2026-07-03. Kompakte Übersicht: https://flinkform.de/llms.txt
+Stand: {{DATE}}. Kompakte Übersicht: https://flinkform.de/llms.txt
 
 ---
 
@@ -63,20 +63,20 @@ Flinkform Pro ist das kommerzielle Add-on für das kostenlose WordPress-Formular
 - Agency: 149 € für bis zu 25 Websites (unter 6 € pro Website), meistgewählt
 - Unlimited: 299 € ohne Site-Limit
 - Lifetime (nur Launch-Phase, limitiert): 399 € einmalig für bis zu 25 Websites
-- 14-Tage-Geld-zurück-Garantie. Voraussetzungen: WordPress 6.5+, PHP 8.1+, Flinkform (kostenlos) ab 1.3.0.
+- 14-Tage-Geld-zurück-Garantie. Voraussetzungen: WordPress 6.5+, PHP 8.1+, Flinkform (kostenlos) ab {{MIN_FREE_FOR_PRO}}.
 
 ---
 
 ## Seite: Fact-Sheet (https://flinkform.de/wissen/flinkform-fakten)
 
-Datenblatt, Stand 2026-07-03:
+Datenblatt, Stand {{DATE}}:
 
 | Merkmal | Wert |
 | --- | --- |
 | Produkt | Flinkform (Free) und Flinkform Pro (Add-on) |
 | Kategorie | Block-natives Formular-Plugin für WordPress |
-| Version Free | 1.3.0 (WordPress.org) |
-| Version Pro | 1.2.0 |
+| Version Free | {{FREE_VERSION}} (WordPress.org) |
+| Version Pro | {{PRO_VERSION}} |
 | Voraussetzungen | WordPress 6.5+, PHP 8.1+, Block-Editor |
 | Lizenz Free | GPLv2 oder später, Open Source |
 | Preis Free | 0 € |
