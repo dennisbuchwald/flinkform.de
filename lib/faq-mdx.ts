@@ -43,8 +43,39 @@ export function faqFromMdx(section: Section, slug: string): FaqItem[] {
     return [];
   }
 
-  const items = parseFaqSection(source);
+  const items = dedupe([
+    ...parseAnswerBlocks(source),
+    ...parseFaqSection(source),
+  ]);
   cache.set(key, items);
+  return items;
+}
+
+/** Erste Nennung gewinnt, damit dieselbe Frage nie doppelt im Markup steht. */
+function dedupe(items: readonly FaqItem[]): FaqItem[] {
+  const seen = new Set<string>();
+  return items.filter((item) => {
+    const key = item.q.toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+/**
+ * Eine Frage-Überschrift mit direkt folgendem <AnswerBlock> ist eine echte
+ * Frage-Antwort-Einheit auf der Seite und wandert deshalb mit ins FAQ-Markup.
+ * Überschriften ohne Fragezeichen bleiben außen vor.
+ */
+export function parseAnswerBlocks(source: string): FaqItem[] {
+  const pattern =
+    /^##\s+(.+\?)[ \t]*\r?\n\s*<AnswerBlock>([\s\S]*?)<\/AnswerBlock>/gm;
+  const items: FaqItem[] = [];
+  for (const match of source.matchAll(pattern)) {
+    const q = stripMarkdown(match[1].trim());
+    const a = stripMarkdown(match[2].trim());
+    if (q && a) items.push({ q, a });
+  }
   return items;
 }
 

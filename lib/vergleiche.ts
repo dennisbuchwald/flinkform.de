@@ -27,7 +27,7 @@ export const vergleiche: Vergleich[] = [
     badge: "Paywall-Check",
     desc: "Multi-Step und bedingte Logik kosten bei WPForms regulär ab 199 Dollar pro Jahr, die Lite-Version speichert keine Einsendungen. Der ehrliche Preis- und Funktionsvergleich.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-07",
   },
   {
     slug: "gravity-forms-alternative",

@@ -55,7 +55,7 @@ export const wissen: WissenEntry[] = [
     description:
       "Mehrseitige Formulare direkt im Block-Editor: Page-Break-Block einfügen, Fortschrittsanzeige wählen, fertig. Mit Flinkform kostenlos, bei WPForms und Gravity Forms nur in der Bezahlversion.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-07",
   },
   {
     slug: "bedingte-logik-wordpress-formular",

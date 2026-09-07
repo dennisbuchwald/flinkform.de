@@ -1,15 +1,24 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import AnswerBlock from "@/components/AnswerBlock";
 import CompareTable, { type CompareCell } from "@/components/CompareTable";
 import Faq from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import { Section, Eyebrow } from "@/components/Section";
 import { SITE_URL, WPORG_URL, type FaqItem } from "@/lib/site";
-import { articleNode, breadcrumbNode, graph } from "@/lib/schema";
+import { articleNode, breadcrumbNode, faqNode, graph } from "@/lib/schema";
 import { ogImageUrl } from "@/lib/og-articles";
 import { getVergleich } from "@/lib/vergleiche";
 
-export type VergleichSection = { heading: string; body: ReactNode };
+export type VergleichSection = {
+  heading: string;
+  /**
+   * Zitierfähige Kurzantwort direkt unter der Überschrift. Ist die Überschrift
+   * eine Frage, wandert das Paar zusätzlich ins FAQPage-Markup der Seite.
+   */
+  answer?: string;
+  body: ReactNode;
+};
 
 /**
  * Gemeinsames Template für die "Alternative zu X"-Seiten: Antwort-zuerst-
@@ -40,6 +49,17 @@ export default function VergleichArticle({
   const updated = entry.updated;
   const pageUrl = `${SITE_URL}/vergleich/${slug}`;
 
+  /**
+   * Sichtbare FAQ-Items plus die Frage-Überschriften mit Kurzantwort: beide
+   * stehen wörtlich auf der Seite, deshalb dürfen beide ins Markup.
+   */
+  const schemaFaqs = [
+    ...sections
+      .filter((section) => section.answer && section.heading.trim().endsWith("?"))
+      .map((section) => ({ q: section.heading, a: section.answer as string })),
+    ...faqs,
+  ];
+
   const articleSchema = articleNode({
     url: pageUrl,
     headline: h1,
@@ -59,6 +79,10 @@ export default function VergleichArticle({
             { name: "Vergleich", path: "/vergleich" },
             { name: competitor, path: `/vergleich/${slug}` },
           ]),
+          faqNode(schemaFaqs, {
+            url: pageUrl,
+            isPartOf: `${pageUrl}#article`,
+          }),
         ])}
       />
 
@@ -112,6 +136,7 @@ export default function VergleichArticle({
         <Section key={section.heading} className="!py-8">
           <div className="prose-flink">
             <h2 className="!mt-0">{section.heading}</h2>
+            {section.answer && <AnswerBlock>{section.answer}</AnswerBlock>}
             {section.body}
           </div>
         </Section>
@@ -147,11 +172,7 @@ export default function VergleichArticle({
       </Section>
 
       <Section>
-        <Faq
-          items={[...faqs]}
-          pageUrl={pageUrl}
-          articleId={`${pageUrl}#article`}
-        />
+        <Faq items={[...faqs]} withSchema={false} />
       </Section>
     </>
   );

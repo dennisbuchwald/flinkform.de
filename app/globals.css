@@ -199,6 +199,27 @@ body {
 .prose-flink li::marker {
   color: #7e56ff;
 }
+/* Zitierfähige Kurzantwort unter einer Frage-Überschrift (siehe AnswerBlock) */
+.answer-block,
+.prose-flink .answer-block {
+  margin: 0 0 1.5rem;
+  padding-left: 1.1rem;
+  border-left: 3px solid #7e56ff;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+.prose-flink .answer-block p {
+  margin: 0 0 0.75rem;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+.prose-flink .answer-block p:last-child {
+  margin-bottom: 0;
+}
 .prose-flink strong {
   color: var(--color-ink);
   font-weight: 600;

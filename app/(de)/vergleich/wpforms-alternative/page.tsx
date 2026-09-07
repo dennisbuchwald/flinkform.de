@@ -86,6 +86,8 @@ export default function Page() {
         },
         {
           heading: "Das Paywall-Modell im Detail",
+          answer:
+            "WPForms verteilt Grundfunktionen auf Preisstufen: Lite speichert keine Einsendungen, gespeicherte Einsendungen plus bedingte Logik und mehrseitige Formulare gibt es ab Basic (regulär 99 $ pro Jahr), die modernen Lead Forms und Stripe ohne 3-%-Aufschlag erst ab Pro (399 $ pro Jahr). Bei Flinkform sind Multi-Step, bedingte Logik und das Submissions-Dashboard im kostenlosen Plugin enthalten. Stand Juli 2026, reguläre Preise nach dem ersten Jahr.",
           body: (
             <>
               <p>
@@ -180,6 +182,8 @@ export default function Page() {
         },
         {
           heading: "Wann du NICHT wechseln solltest",
+          answer:
+            "Bleib bei WPForms, wenn du auf eine der vielen WPForms-spezifischen Integrationen angewiesen bist (etwa Salesforce oder HubSpot im Elite-Plan), sehr viele fertige Formular-Vorlagen brauchst oder bewusst einen visuellen Builder außerhalb des Block-Editors bevorzugst.",
           body: (
             <ul>
               <li>
