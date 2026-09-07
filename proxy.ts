@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { AI_CRAWLER_LOG_TAG, detectAiCrawler } from "@/lib/ai-crawlers";
 
 /**
  * Geo-Voreinstellung für Erstbesucher ohne Sprach-Cookie: nur der neutrale
@@ -12,8 +13,39 @@ const CRAWLER_UA =
 
 const DACH_COUNTRIES = new Set(["DE", "AT", "CH"]);
 
+/**
+ * Zählt Abrufe durch KI-Crawler, damit überhaupt messbar ist, ob die
+ * Einladung in der robots.txt angenommen wird.
+ *
+ * Bewusst nur eine Zeile ins Server-Log, kein Speicher und kein Zähler:
+ * Serverless-Instanzen sind kurzlebig, ein eigener Zähler würde je nach
+ * Instanz andere Zahlen liefern. Erfasst werden ausschließlich Bot-Name,
+ * Pfad und Zeitstempel - keine IP, kein Cookie, kein Fingerprint, und
+ * menschliche Zugriffe gar nicht. Auswertung: scripts/ai-crawler-report.mjs
+ */
+function logAiCrawler(request: NextRequest, userAgent: string) {
+  const bot = detectAiCrawler(userAgent);
+  if (!bot) return;
+
+  console.log(
+    JSON.stringify({
+      tag: AI_CRAWLER_LOG_TAG,
+      bot,
+      path: request.nextUrl.pathname,
+      at: new Date().toISOString(),
+    }),
+  );
+}
+
 export function proxy(request: NextRequest) {
   const userAgent = request.headers.get("user-agent") ?? "";
+  logAiCrawler(request, userAgent);
+
+  // Alles Weitere betrifft nur die Sprachweiche auf der neutralen Startseite.
+  if (request.nextUrl.pathname !== "/") {
+    return NextResponse.next();
+  }
+
   if (CRAWLER_UA.test(userAgent)) {
     return NextResponse.next();
   }
@@ -46,6 +78,13 @@ function redirectToEn(request: NextRequest) {
   return response;
 }
 
+/**
+ * Läuft über alle Seiten- und Text-Routen (robots.txt, llms.txt und Sitemap
+ * eingeschlossen - gerade die sind für KI-Crawler interessant), aber nicht
+ * über Assets: die verzerren die Zählung nur und kosten Rechenzeit.
+ */
 export const config = {
-  matcher: "/",
+  matcher: [
+    "/((?!_next/static|_next/image|.*\\.(?:png|jpe?g|gif|svg|webp|avif|ico|woff2?|css|js|map)$).*)",
+  ],
 };
