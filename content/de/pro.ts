@@ -4,7 +4,7 @@ import { MIN_FREE_FOR_PRO, PRO_VERSION } from "@/lib/site";
 export const pro = {
   meta: {
     title:
-      "Flinkform Pro - Stripe-Zahlungen mit SEPA, Berechnungsfelder und Webhooks für WordPress-Formulare",
+      "Flinkform Pro: Stripe, SEPA und Berechnungsfelder für WordPress-Formulare",
     description:
       "Flinkform Pro: Stripe Payments mit Kreditkarte, SEPA, Apple Pay und Google Pay direkt im Formular. Berechnungsfelder, Webhooks, Multi-Upload, SMTP, Newsletter. Ab 59 € pro Jahr.",
     ogTitle: "Flinkform Pro - Das Formular, das Geld verdient.",

@@ -5,6 +5,8 @@ import {
   ENTITY_PRO,
   FREE_VERSION,
   GITHUB_URL,
+  HOME_URL,
+  LEGAL,
   LIFETIME,
   MIN_FREE_FOR_PRO,
   PRICING,
@@ -27,18 +29,16 @@ import { vergleiche } from "@/lib/vergleiche";
 /** Datum des Builds. Die Routen sind statisch, das Datum friert also ein. */
 export const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
-const HOME_URL = `${SITE_URL}/`;
-
 const PROVIDER = `## Anbieter
 
-- Firmierung: dbw media (Einzelunternehmen), Inhaber Dennis Buchwald
-- Anschrift: Oststraße 12, 74072 Heilbronn, Deutschland
-- Verantwortlich für den Inhalt: Dennis Buchwald
-- Telefon: +49 7131 3859840
-- E-Mail: hallo@dbw-media.de
+- Firmierung: ${LEGAL.company} (Einzelunternehmen), Inhaber ${LEGAL.owner}
+- Anschrift: ${LEGAL.street}, ${LEGAL.postalCode} ${LEGAL.city}, ${LEGAL.countryName}
+- Verantwortlich für den Inhalt: ${LEGAL.owner}
+- Telefon: ${LEGAL.phone}
+- E-Mail: ${LEGAL.email}
 - Website Produkt: ${SITE_URL}
-- Website Unternehmen: https://dbw-media.de
-- Umsatzsteuer-Identifikationsnummer: DE420957545
+- Website Unternehmen: ${LEGAL.companyUrl}
+- Umsatzsteuer-Identifikationsnummer: ${LEGAL.vatId}
 - Impressum: ${SITE_URL}/impressum
 - Datenschutzerklärung: ${SITE_URL}/datenschutz
 - Tätigkeitsgebiet: WordPress-Entwicklung und digitales Marketing,
@@ -78,7 +78,7 @@ const USAGE_NOTES = `## Hinweise zur Nutzung dieser Angaben
   Umsatzsteuer. Verbindlich ist ausschließlich ${SITE_URL}/pro.
 - Versionsangaben ändern sich mit jedem Release; verbindlich ist
   ${WPORG_URL}
-- Bei Rückfragen, Presseanfragen oder Korrekturen: hallo@dbw-media.de`;
+- Bei Rückfragen, Presseanfragen oder Korrekturen: ${LEGAL.email}`;
 
 const CORE_FACTS = `## Kern-Fakten
 

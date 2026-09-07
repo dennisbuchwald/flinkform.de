@@ -1,4 +1,12 @@
 export const SITE_URL = "https://flinkform.de";
+/**
+ * Die kanonische Schreibweise der Startseite: ohne Schrägstrich.
+ *
+ * Nicht willkürlich gewählt - Next.js normalisiert Canonical-URLs bei
+ * trailingSlash: false ohnehin auf diese Form. Damit Canonical, hreflang,
+ * Sitemap und llms.txt nicht auseinanderlaufen, gilt sie überall.
+ */
+export const HOME_URL = SITE_URL;
 export const SITE_NAME = "Flinkform";
 
 export const WPORG_URL = "https://wordpress.org/plugins/flinkform/";
@@ -6,6 +14,31 @@ export const GITHUB_URL = "https://github.com/dennisbuchwald/Flinkform";
 /** Live demo: a real WordPress install running Flinkform + Flinkform Pro. */
 export const DEMO_URL = "https://demo.flinkform.de";
 export const CONTACT_MAIL = "dennis@dbw-media.de";
+
+/**
+ * Anbieterangaben. Eine Quelle für Impressum, JSON-LD und llms.txt - so kann
+ * die Marke nirgends widersprüchlich beschrieben werden.
+ */
+export const LEGAL = {
+  company: "dbw media",
+  legalName: "dbw media – Dennis Buchwald",
+  owner: "Dennis Buchwald",
+  street: "Oststraße 12",
+  postalCode: "74072",
+  city: "Heilbronn",
+  region: "Baden-Württemberg",
+  country: "DE",
+  countryName: "Deutschland",
+  phone: "+49 7131 3859840",
+  /** In der Schreibweise für tel:-Links. */
+  phoneHref: "+4971313859840",
+  email: "hallo@dbw-media.de",
+  vatId: "DE420957545",
+  companyUrl: "https://dbw-media.de",
+  /** Auslieferung der Website. Verifiziert über den Response-Header. */
+  host: "Vercel Inc.",
+  hostPrivacyUrl: "https://vercel.com/legal/privacy-policy",
+} as const;
 
 /**
  * Die einzige Stelle für Versionsnummern. Speist JSON-LD, llms.txt und jede

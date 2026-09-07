@@ -3,7 +3,7 @@ import { MIN_FREE_FOR_PRO, PRO_VERSION } from "@/lib/site";
 
 export const pro: ProDict = {
   meta: {
-    title: "Flinkform Pro - Stripe Payments with SEPA, Calculation Fields and Webhooks for WordPress Forms",
+    title: "Flinkform Pro: Stripe, SEPA and Calculation Fields for WordPress Forms",
     description:
       "Flinkform Pro: Stripe Payments with credit card, SEPA, Apple Pay, and Google Pay right inside your form. Calculation fields, webhooks, multi-upload, SMTP, newsletter. From €59/year.",
     ogTitle: "Flinkform Pro - The Form That Makes Money.",

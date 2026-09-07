@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/site";
+import { HOME_URL, SITE_URL } from "@/lib/site";
 import { posts } from "@/lib/posts";
 import { wissen } from "@/lib/wissen";
 import { vergleiche } from "@/lib/vergleiche";
@@ -14,7 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
    * x-default zeigt auf die deutsche Version (Haupt-URL der Marke).
    */
   const bilingualRoutes: MetadataRoute.Sitemap = TRANSLATED_PATHS.flatMap((path) => {
-    const deUrl = `${SITE_URL}${path}`;
+    // Die Startseite trägt dieselbe Schreibweise wie ihr Canonical.
+    const deUrl = path === "/" ? HOME_URL : `${SITE_URL}${path}`;
     const enUrl = `${SITE_URL}${enPathFor(path)}`;
     const languages = { de: deUrl, en: enUrl, "x-default": deUrl };
     const priority = path === "/" ? 1 : path === "/pro" ? 0.9 : 0.8;
@@ -35,6 +36,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/docs`, lastModified: now, priority: 0.6 },
     { url: `${SITE_URL}/ueber`, lastModified: now, priority: 0.5 },
     { url: `${SITE_URL}/presse`, lastModified: now, priority: 0.5 },
+    { url: `${SITE_URL}/impressum`, lastModified: now, priority: 0.2 },
+    { url: `${SITE_URL}/datenschutz`, lastModified: now, priority: 0.2 },
   ];
 
   const vergleichRoutes: MetadataRoute.Sitemap = vergleiche.map((v) => ({
