@@ -1,6 +1,7 @@
 import JsonLd from "@/components/JsonLd";
+import { breadcrumbNode, graph } from "@/lib/schema";
 import { Section, Eyebrow } from "@/components/Section";
-import { GITHUB_URL, breadcrumbSchema } from "@/lib/site";
+import { GITHUB_URL } from "@/lib/site";
 import { localizedHref, type Locale } from "@/lib/i18n/routes";
 import type { RoadmapDict } from "@/content/de/roadmap";
 
@@ -8,10 +9,10 @@ export default function RoadmapContent({ locale, t }: { locale: Locale; t: Roadm
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
+        data={graph([breadcrumbNode([
           { name: t.breadcrumb.home, path: localizedHref(locale, "/") },
           { name: t.breadcrumb.roadmap, path: localizedHref(locale, "/roadmap") },
-        ])}
+        ])])}
       />
 
       <div className="border-b border-line bg-white">

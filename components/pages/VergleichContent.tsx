@@ -1,8 +1,9 @@
 import Link from "next/link";
 import CompareTable from "@/components/CompareTable";
 import JsonLd from "@/components/JsonLd";
+import { breadcrumbNode, graph } from "@/lib/schema";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
-import { breadcrumbSchema } from "@/lib/site";
+
 import { localizedHref, type Locale } from "@/lib/i18n/routes";
 import type { VergleichDict } from "@/content/de/vergleich";
 
@@ -17,10 +18,10 @@ export default function VergleichContent({ locale, t }: { locale: Locale; t: Ver
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
+        data={graph([breadcrumbNode([
           { name: t.breadcrumb.home, path: localizedHref(locale, "/") },
           { name: t.breadcrumb.vergleich, path: localizedHref(locale, "/vergleich") },
-        ])}
+        ])])}
       />
 
       <div className="border-b border-line bg-white">

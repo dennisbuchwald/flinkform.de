@@ -4,12 +4,8 @@ import CompareTable, { type CompareCell } from "@/components/CompareTable";
 import Faq from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import { Section, Eyebrow } from "@/components/Section";
-import {
-  SITE_URL,
-  WPORG_URL,
-  breadcrumbSchema,
-  type FaqItem,
-} from "@/lib/site";
+import { SITE_URL, WPORG_URL, type FaqItem } from "@/lib/site";
+import { breadcrumbNode, graph } from "@/lib/schema";
 
 export type VergleichSection = { heading: string; body: ReactNode };
 
@@ -41,7 +37,6 @@ export default function VergleichArticle({
   faqs: readonly FaqItem[];
 }) {
   const articleSchema = {
-    "@context": "https://schema.org",
     "@type": "Article",
     headline: h1,
     inLanguage: "de",
@@ -53,14 +48,14 @@ export default function VergleichArticle({
   return (
     <>
       <JsonLd
-        data={[
+        data={graph([
           articleSchema,
-          breadcrumbSchema([
+          breadcrumbNode([
             { name: "Flinkform", path: "/" },
             { name: "Vergleich", path: "/vergleich" },
             { name: competitor, path: `/vergleich/${slug}` },
           ]),
-        ]}
+        ])}
       />
 
       <div className="border-b border-line bg-white">

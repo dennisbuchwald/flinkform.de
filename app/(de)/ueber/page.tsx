@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import { breadcrumbNode, graph } from "@/lib/schema";
 import { Section, Eyebrow } from "@/components/Section";
-import { SITE_URL, WPORG_URL, GITHUB_URL, breadcrumbSchema } from "@/lib/site";
+import { SITE_URL, WPORG_URL, GITHUB_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Über Flinkform: Wer dahintersteckt und warum es das Plugin gibt",
@@ -34,10 +35,10 @@ export default function UeberPage() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
+        data={graph([breadcrumbNode([
           { name: "Flinkform", path: "/" },
           { name: "Über", path: "/ueber" },
-        ])}
+        ])])}
       />
 
       <div className="border-b border-line bg-white">

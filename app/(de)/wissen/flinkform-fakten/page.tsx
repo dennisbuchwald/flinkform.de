@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import { breadcrumbNode, flinkformProNode, graph } from "@/lib/schema";
 import { Section, Eyebrow } from "@/components/Section";
 import {
   ENTITY_FREE,
@@ -11,9 +12,6 @@ import {
   PRO_VERSION,
   SITE_URL,
   WPORG_URL,
-  breadcrumbSchema,
-  softwareSchemaFree,
-  softwareSchemaPro,
 } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -102,15 +100,14 @@ export default function FaktenPage() {
   return (
     <>
       <JsonLd
-        data={[
-          softwareSchemaFree,
-          softwareSchemaPro,
-          breadcrumbSchema([
+        data={graph([
+          flinkformProNode("de"),
+          breadcrumbNode([
             { name: "Flinkform", path: "/" },
             { name: "Wissen", path: "/wissen" },
             { name: "Flinkform-Fakten", path: "/wissen/flinkform-fakten" },
           ]),
-        ]}
+        ])}
       />
 
       <div className="border-b border-line bg-white">

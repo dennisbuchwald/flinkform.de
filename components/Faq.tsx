@@ -1,22 +1,34 @@
 import JsonLd from "@/components/JsonLd";
-import { faqSchema, type FaqItem } from "@/lib/site";
+import { faqNode, graph } from "@/lib/schema";
+import { type FaqItem } from "@/lib/site";
 
 /**
  * FAQ-Accordion auf <details>/<summary>-Basis: funktioniert ohne JavaScript,
- * ist tastaturbedienbar und liefert das FAQPage-Schema gleich mit.
+ * ist tastaturbedienbar und liefert das FAQPage-Schema gleich mit. Sichtbarer
+ * Text und Schema stammen aus derselben Liste, sie können nicht auseinanderlaufen.
  */
 export default function Faq({
   items,
   heading = "Häufige Fragen",
   withSchema = true,
+  pageUrl,
+  articleId,
 }: {
   items: readonly FaqItem[];
   heading?: string;
   withSchema?: boolean;
+  /** Absolute URL der Seite, erzeugt die @id des FAQPage-Knotens. */
+  pageUrl?: string;
+  /** @id des Article-Knotens derselben Seite, für isPartOf. */
+  articleId?: string;
 }) {
   return (
     <section aria-labelledby="faq-heading">
-      {withSchema && <JsonLd data={faqSchema(items)} />}
+      {withSchema && (
+        <JsonLd
+          data={graph([faqNode(items, { url: pageUrl, isPartOf: articleId })])}
+        />
+      )}
       <h2
         id="faq-heading"
         className="font-(family-name:--font-display) text-3xl font-bold tracking-tight"

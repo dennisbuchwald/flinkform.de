@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { Section } from "@/components/Section";
-import { SITE_URL, WPORG_URL, breadcrumbSchema } from "@/lib/site";
+import { SITE_URL, WPORG_URL } from "@/lib/site";
+import { breadcrumbNode, graph } from "@/lib/schema";
 import { getWissen } from "@/lib/wissen";
 
 /**
@@ -19,7 +20,6 @@ export default function WissenArticle({
   const entry = getWissen(slug);
 
   const articleSchema = {
-    "@context": "https://schema.org",
     "@type": "Article",
     headline: entry.title,
     description: entry.description,
@@ -32,14 +32,14 @@ export default function WissenArticle({
   return (
     <>
       <JsonLd
-        data={[
+        data={graph([
           articleSchema,
-          breadcrumbSchema([
+          breadcrumbNode([
             { name: "Flinkform", path: "/" },
             { name: "Wissen", path: "/wissen" },
             { name: entry.title, path: `/wissen/${entry.slug}` },
           ]),
-        ]}
+        ])}
       />
 
       <div className="border-b border-line bg-white">

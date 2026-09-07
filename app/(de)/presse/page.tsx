@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import JsonLd from "@/components/JsonLd";
+import { breadcrumbNode, graph } from "@/lib/schema";
 import { Section, Eyebrow } from "@/components/Section";
 import {
   ENTITY_FREE,
@@ -11,7 +12,6 @@ import {
   WPORG_URL,
   GITHUB_URL,
   CONTACT_MAIL,
-  breadcrumbSchema,
 } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -40,9 +40,11 @@ export default function PressePage() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Flinkform", path: "/" },
-          { name: "Presse", path: "/presse" },
+        data={graph([
+          breadcrumbNode([
+            { name: "Flinkform", path: "/" },
+            { name: "Presse", path: "/presse" },
+          ]),
         ])}
       />
 

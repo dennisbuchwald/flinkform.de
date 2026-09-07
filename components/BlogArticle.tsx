@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { Section, Eyebrow } from "@/components/Section";
-import { SITE_URL, WPORG_URL, breadcrumbSchema } from "@/lib/site";
+import { SITE_URL, WPORG_URL } from "@/lib/site";
+import { breadcrumbNode, graph } from "@/lib/schema";
 import { getPost } from "@/lib/posts";
 
 /** Gemeinsamer Rahmen für Blog-Artikel: Kopf, Datum, Schema, Prosa, CTA. */
@@ -16,7 +17,6 @@ export default function BlogArticle({
   const post = getPost(slug);
 
   const articleSchema = {
-    "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.description,
@@ -30,14 +30,14 @@ export default function BlogArticle({
   return (
     <>
       <JsonLd
-        data={[
+        data={graph([
           articleSchema,
-          breadcrumbSchema([
+          breadcrumbNode([
             { name: "Flinkform", path: "/" },
             { name: "Blog", path: "/blog" },
             { name: post.title, path: `/blog/${post.slug}` },
           ]),
-        ]}
+        ])}
       />
 
       <div className="border-b border-line bg-white">

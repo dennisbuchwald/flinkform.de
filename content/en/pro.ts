@@ -1,4 +1,5 @@
 import type { ProDict } from "@/content/de/pro";
+import { MIN_FREE_FOR_PRO, PRO_VERSION } from "@/lib/site";
 
 export const pro: ProDict = {
   meta: {
@@ -20,7 +21,7 @@ export const pro: ProDict = {
     sub: "Visitors pay by SEPA, Apple Pay, or card, no shop system required. Prices calculate live. Submissions flow straight into your CRM. One add-on instead of five plugins.",
     ctaPrimary: "Reserve your spot",
     ctaSecondary: "See pricing",
-    versionLine: "Version 1.2.0 · requires Flinkform (free) 1.3.0+ · 14-day money-back guarantee",
+    versionLine: `Version ${PRO_VERSION} · requires Flinkform (free) ${MIN_FREE_FOR_PRO}+ · 14-day money-back guarantee`,
   },
   needs: {
     heading: "A contact form is enough? Not for long.",
@@ -209,7 +210,7 @@ export const pro: ProDict = {
     items: [
       { label: "WordPress", value: "6.5+" },
       { label: "PHP", value: "8.1+" },
-      { label: "Flinkform", value: "1.3.0+" },
+      { label: "Flinkform", value: `${MIN_FREE_FOR_PRO}+` },
       { label: "Price", value: "From €59/yr" },
     ],
     noFlinkformPre: "Don't have Flinkform yet? ",

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import { breadcrumbNode, graph } from "@/lib/schema";
 import { Section, Eyebrow } from "@/components/Section";
-import { SITE_URL, breadcrumbSchema } from "@/lib/site";
+import { SITE_URL } from "@/lib/site";
 import { posts } from "@/lib/posts";
 
 export const metadata: Metadata = {
@@ -16,10 +17,10 @@ export default function BlogIndex() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
+        data={graph([breadcrumbNode([
           { name: "Flinkform", path: "/" },
           { name: "Blog", path: "/blog" },
-        ])}
+        ])])}
       />
 
       <div className="border-b border-line bg-white">

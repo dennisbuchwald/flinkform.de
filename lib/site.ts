@@ -7,8 +7,14 @@ export const GITHUB_URL = "https://github.com/dennisbuchwald/Flinkform";
 export const DEMO_URL = "https://demo.flinkform.de";
 export const CONTACT_MAIL = "dennis@dbw-media.de";
 
+/**
+ * Die einzige Stelle für Versionsnummern. Speist JSON-LD, llms.txt und jede
+ * sichtbare Versionsangabe - nirgendwo sonst eine Version hart schreiben.
+ */
 export const FREE_VERSION = "1.13.3";
 export const PRO_VERSION = "1.2.2";
+/** Kleinste Free-Version, auf der Flinkform Pro läuft. */
+export const MIN_FREE_FOR_PRO = "1.3.0";
 export const FACTS_UPDATED = "2026-07-27";
 
 /**
@@ -64,62 +70,7 @@ export const LIFETIME = {
 
 export type FaqItem = { q: string; a: string };
 
-export function faqSchema(faqs: readonly FaqItem[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
-}
-
-export function breadcrumbSchema(
-  items: readonly { name: string; path: string }[],
-) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: items.map((item, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: item.name,
-      item: `${SITE_URL}${item.path}`,
-    })),
-  };
-}
-
-export const softwareSchemaFree = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "Flinkform",
-  description: ENTITY_FREE,
-  applicationCategory: "Plugin",
-  operatingSystem: "WordPress",
-  softwareVersion: FREE_VERSION,
-  url: SITE_URL,
-  downloadUrl: WPORG_URL,
-  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-  author: { "@id": `${SITE_URL}/#dennis` },
-};
-
-export const softwareSchemaPro = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "Flinkform Pro",
-  description: ENTITY_PRO,
-  applicationCategory: "Plugin",
-  operatingSystem: "WordPress",
-  softwareVersion: PRO_VERSION,
-  url: `${SITE_URL}/pro`,
-  offers: {
-    "@type": "AggregateOffer",
-    lowPrice: "59",
-    highPrice: "299",
-    priceCurrency: "EUR",
-    offerCount: "4",
-  },
-  author: { "@id": `${SITE_URL}/#dennis` },
-};
+/**
+ * Das JSON-LD selbst liegt in lib/schema.ts - hier stehen nur die Daten,
+ * aus denen es gebaut wird.
+ */

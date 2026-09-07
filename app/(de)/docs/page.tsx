@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import { breadcrumbNode, graph } from "@/lib/schema";
 import { Section, Eyebrow } from "@/components/Section";
-import { SITE_URL, WPORG_URL, breadcrumbSchema } from "@/lib/site";
+import { SITE_URL, WPORG_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Dokumentation: Erste Schritte mit Flinkform",
@@ -42,10 +43,10 @@ export default function DocsPage() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
+        data={graph([breadcrumbNode([
           { name: "Flinkform", path: "/" },
           { name: "Dokumentation", path: "/docs" },
-        ])}
+        ])])}
       />
 
       <div className="border-b border-line bg-white">

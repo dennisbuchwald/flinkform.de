@@ -5,7 +5,8 @@ import Faq from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import ProInquiryForm from "@/components/ProInquiryForm";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
-import { LIFETIME, PRICING, breadcrumbSchema, softwareSchemaPro } from "@/lib/site";
+import { LIFETIME, PRICING } from "@/lib/site";
+import { breadcrumbNode, flinkformProNode, graph } from "@/lib/schema";
 import { localizedHref, type Locale } from "@/lib/i18n/routes";
 import type { ProDict } from "@/content/de/pro";
 
@@ -22,13 +23,13 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
   return (
     <>
       <JsonLd
-        data={[
-          softwareSchemaPro,
-          breadcrumbSchema([
+        data={graph([
+          flinkformProNode(locale),
+          breadcrumbNode([
             { name: t.breadcrumb.home, path: homeHref },
             { name: t.breadcrumb.pro, path: proHref },
           ]),
-        ]}
+        ])}
       />
 
       {/* ── HERO ── */}

@@ -1,9 +1,10 @@
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import { breadcrumbNode, graph } from "@/lib/schema";
 import KostenRechner from "@/components/KostenRechner";
 import Faq from "@/components/Faq";
 import { Section, Eyebrow } from "@/components/Section";
-import { WPORG_URL, breadcrumbSchema } from "@/lib/site";
+import { WPORG_URL } from "@/lib/site";
 import { localizedHref, type Locale } from "@/lib/i18n/routes";
 import type { RechnerDict } from "@/content/de/rechner";
 
@@ -18,10 +19,10 @@ export default function RechnerContent({ locale, t }: { locale: Locale; t: Rechn
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
+        data={graph([breadcrumbNode([
           { name: t.breadcrumb.home, path: localizedHref(locale, "/") },
           { name: t.breadcrumb.rechner, path: localizedHref(locale, "/rechner") },
-        ])}
+        ])])}
       />
 
       <div className="border-b border-line bg-white">

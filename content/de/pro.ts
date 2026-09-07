@@ -1,4 +1,5 @@
 import type { Widen } from "@/lib/i18n/widen";
+import { MIN_FREE_FOR_PRO, PRO_VERSION } from "@/lib/site";
 
 export const pro = {
   meta: {
@@ -21,7 +22,7 @@ export const pro = {
     sub: "Besucher zahlen per SEPA, Apple Pay oder Karte, ohne Shop-System. Preise berechnen sich live. Einsendungen fließen automatisch ins CRM. Ein Add-on statt fünf Plugins.",
     ctaPrimary: "Unverbindlich vormerken",
     ctaSecondary: "Preise ansehen",
-    versionLine: "Version 1.2.0 · benötigt Flinkform (kostenlos) ab 1.3.0 · 14 Tage Geld-zurück-Garantie",
+    versionLine: `Version ${PRO_VERSION} · benötigt Flinkform (kostenlos) ab ${MIN_FREE_FOR_PRO} · 14 Tage Geld-zurück-Garantie`,
   },
   needs: {
     heading: "Ein Kontaktformular reicht? Nicht lange.",
@@ -209,7 +210,7 @@ export const pro = {
     items: [
       { label: "WordPress", value: "6.5+" },
       { label: "PHP", value: "8.1+" },
-      { label: "Flinkform", value: "1.3.0+" },
+      { label: "Flinkform", value: `${MIN_FREE_FOR_PRO}+` },
       { label: "Preis", value: "Ab 59 €/J." },
     ],
     noFlinkformPre: "Noch kein Flinkform? ",

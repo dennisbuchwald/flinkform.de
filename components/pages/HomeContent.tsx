@@ -3,9 +3,8 @@ import Image from "next/image";
 import HeroFormDemo from "@/components/HeroFormDemo";
 import CompareTable from "@/components/CompareTable";
 import Faq from "@/components/Faq";
-import JsonLd from "@/components/JsonLd";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
-import { DEMO_URL, FREE_VERSION, WPORG_URL, softwareSchemaFree } from "@/lib/site";
+import { DEMO_URL, FREE_VERSION, WPORG_URL } from "@/lib/site";
 import { localizedHref, type Locale } from "@/lib/i18n/routes";
 import type { HomeDict } from "@/content/de/home";
 
@@ -18,8 +17,6 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
   const ui = i18n[locale];
   return (
     <>
-      <JsonLd data={softwareSchemaFree} />
-
       {/* ── HERO ── */}
       <div className="border-b border-line bg-white">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-14 sm:px-8 lg:grid-cols-[1.05fr_1fr] lg:pb-20 lg:pt-20">
