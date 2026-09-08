@@ -110,6 +110,16 @@ export const roadmap: RoadmapDict = {
   changelog: [
     {
       area: "Free",
+      version: "1.14.2",
+      date: "Sep 8, 2026",
+      items: [
+        "Important fix: in one specific case a submission could still be lost despite 1.14.0. Leave a filled-in form in a background tab for twenty minutes and come back: the automatic token renewal also renewed the signed timestamp, and clicking Send within the next two seconds — exactly what returning to a finished form looks like — was treated as a bot and dropped silently",
+        "The timestamp is now written once, when the visitor reaches the form, and never moved again. The token keeps renewing as before",
+        "Also: the strings added in 1.14.0 are now translated into German. On German sites the \"please send again\" message and the no-JavaScript route had been showing English text",
+      ],
+    },
+    {
+      area: "Free",
       version: "1.14.1",
       date: "Sep 7, 2026",
       items: [

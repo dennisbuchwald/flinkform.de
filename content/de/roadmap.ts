@@ -110,6 +110,16 @@ export const roadmap = {
   changelog: [
     {
       area: "Free",
+      version: "1.14.2",
+      date: "08.09.2026",
+      items: [
+        "Wichtiger Fix: In einem bestimmten Fall konnte eine Einsendung trotz 1.14.0 noch verloren gehen. Wer ein ausgefülltes Formular zwanzig Minuten in einem Hintergrund-Tab liegen ließ und dann zurückkam, bekam mit der automatischen Token-Erneuerung auch einen neuen Zeitstempel. Ein Klick auf Absenden in den folgenden zwei Sekunden, also genau das, was jemand tut, der zu einem fertigen Formular zurückkehrt, wurde als Bot gewertet und stillschweigend verworfen",
+        "Der Zeitstempel wird jetzt einmal geschrieben, wenn der Besucher am Formular ankommt, und danach nicht mehr angefasst. Der Token erneuert sich weiterhin wie bisher",
+        "Außerdem: Die in 1.14.0 neu hinzugekommenen Texte sind jetzt auf Deutsch. Auf deutschen Seiten erschienen die Meldung \"bitte erneut senden\" und der No-JavaScript-Ausweg vorher auf Englisch",
+      ],
+    },
+    {
+      area: "Free",
       version: "1.14.1",
       date: "07.09.2026",
       items: [
