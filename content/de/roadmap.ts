@@ -109,6 +109,20 @@ export const roadmap = {
   changelogHeading: "Zuletzt erschienen",
   changelog: [
     {
+      area: "Free",
+      version: "1.15.0",
+      date: "28.09.2026",
+      items: [
+        "Contact-Form-7-Import: Unter Flinkform → Aus CF7 importieren wird jedes CF7-Formular samt Mails und Erfolgsmeldung zu einem Flinkform-Formular, und die Seiten werden umgestellt. Mit Vorschau vorher, Rückgängig pro Formular, Contact Form 7 selbst bleibt unangetastet",
+        "Fünf Startvorlagen beim Einfügen eines Formulars: Kontakt, Rückruf, Projektanfrage in drei Schritten, Terminanfrage und Newsletter, jeweils mit Einwilligungsfeld",
+        "Einsendungen: Papierkorb mit Wiederherstellen, Anzahl ungelesener Einsendungen im Menü und ein Mail-Status pro Einsendung. Der Website-Zustand warnt, wenn Benachrichtigungen nicht rausgehen",
+        "Mails und Einsendungen zeigen bei Auswahlfeldern die Beschriftung statt des internen Werts",
+        "Fehlermeldungen unter Feldern erscheinen in der Sprache der Website statt in der des Browsers, und Felder werden beim Verlassen geprüft",
+        "Neu im Editor: \"Optionale Felder kennzeichnen\", Autofill-Einstellung für Textfelder, Werte-Auswahl in Bedingungen und ein Hinweis \"Bedingt\" an Feldern mit Bedingung",
+        "Mehrstufige Formulare springen beim Laden nicht mehr und behalten Eingaben bei einem Neuladen der Seite",
+      ],
+    },
+    {
       area: "Pro",
       version: "1.3.2",
       date: "28.09.2026",

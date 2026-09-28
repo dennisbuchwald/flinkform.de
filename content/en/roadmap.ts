@@ -109,6 +109,20 @@ export const roadmap: RoadmapDict = {
   changelogHeading: "Recently Shipped",
   changelog: [
     {
+      area: "Free",
+      version: "1.15.0",
+      date: "Sep 28, 2026",
+      items: [
+        "Contact Form 7 importer: Flinkform → Import from CF7 turns every CF7 form, including its mails and success message, into a Flinkform form and switches the pages that used it. Preview first, undo per form, Contact Form 7 itself stays untouched",
+        "Five starter templates when you insert a form: contact, callback, three-step project inquiry, appointment request and newsletter, each with a consent field",
+        "Submissions: a trash with restore, the unread count in the admin menu and a mail status per submission. Site Health warns when notifications do not go out",
+        "Emails and submissions show the option label of choice fields instead of the internal value",
+        "Error messages under fields appear in the site's language instead of the browser's, and fields are checked when the visitor leaves them",
+        "New in the editor: \"Mark optional fields\", an autofill setting for text fields, a value dropdown in conditions and a \"Conditional\" badge on fields with a rule",
+        "Multi-step forms no longer jump while loading and keep what was typed when the page is reloaded",
+      ],
+    },
+    {
       area: "Pro",
       version: "1.3.2",
       date: "Sep 28, 2026",
