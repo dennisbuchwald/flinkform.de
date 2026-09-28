@@ -89,7 +89,7 @@ const CORE_FACTS = `## Kern-Fakten
 - Spam-Schutz ohne externe Dienste: Honeypot + signierter Zeit-Check + Proof-of-Work (Mathe-Fallback ohne JavaScript). Kein reCAPTCHA, kein hCaptcha, kein Cloudflare Turnstile.
 - Datenschutz: keine IP-Speicherung, kein User-Agent-Logging, kein Tracking, keine externen Dienste im Free-Core. Consent-Feld, Aufbewahrungsfristen mit Auto-Löschung, WordPress-Privacy-Tools-Integration. DSGVO by design.
 - Barrierefreiheit: WCAG 2.1 AA
-- 13 Feldtypen: Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Dropdown, Radio, Checkbox-Gruppe, Toggle, Hidden, Consent. Dazu Section-Heading und Page-Break (Multi-Step).`;
+- 14 Feldtypen: Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Adresse, Dropdown, Radio, Checkbox-Gruppe, Toggle, Hidden, Consent. Dazu Section-Heading und Page-Break (Multi-Step).`;
 
 const FEATURES = `## Features Free (kostenlos)
 

@@ -27,19 +27,22 @@ export const vergleich = {
     columns: ["Flinkform", "Contact Form 7", "WPForms", "Gravity Forms", "SureForms"],
     rows: [
       {
-        feature: "Kostenlose Version mit Multi-Step + Logik",
-        cells: [true, "nur mit Zusatz-Plugins", false, false, true],
+        feature: "Multi-Step + bedingte Logik kostenlos",
+        cells: [true, "nur mit Zusatz-Plugins", false, "keine Gratis-Version", false],
       },
-      { feature: "Spam-Schutz ohne US-Dienst", cells: [true, false, false, false, false] },
+      {
+        feature: "Spam-Schutz ab Werk, ohne externen Dienst",
+        cells: ["dreistufig", "nein", "Anti-Spam-Token", "Honeypot, einschalten", "Honeypot, einschalten"],
+      },
       {
         feature: "Keine IP-Speicherung ab Werk",
-        cells: [true, "mit Akismet nicht", false, false, "teils"],
+        cells: [true, "speichert keine Einsendungen", "Pro speichert IP, abschaltbar", "speichert IP, abschaltbar", true],
       },
-      { feature: "Block-Editor nativ", cells: [true, false, false, false, true] },
-      { feature: "Aktive Weiterentwicklung", cells: [true, "Feature Freeze", true, true, true] },
-      { feature: "Preis Pro (1 Website/Jahr)", cells: ["59 €", "kein Pro", "99 $", "59 $", "59 $"] },
+      { feature: "Formular entsteht im Block-Editor", cells: [true, false, false, false, true] },
+      { feature: "Neue Funktionen", cells: [true, "nach 6.2 nur Wartung", true, true, true] },
+      { feature: "Preis Pro (1 Website/Jahr)", cells: ["59 €", "kein Pro", "99 $", "59 $", "kein Einzelplan, 149 $ für 5"] },
     ],
-    note: "Stand Juli 2026. SureForms ist wie Flinkform block-nativ und einen ehrlichen Blick wert; der Flinkform-Vorsprung liegt beim Privacy-Default (kein reCAPTCHA/hCaptcha nötig), der theme.json-Übernahme und dem Frontend unter 15 KB.",
+    note: "Stand 28. September 2026, reguläre Listenpreise und Herstellerdokumentation. SureForms ist wie Flinkform block-nativ, speichert ebenfalls keine IP-Adressen ab Werk und ist einen ehrlichen Blick wert. Der Unterschied: Bei Flinkform sind Multi-Step und bedingte Logik kostenlos.",
   },
 } as const;
 

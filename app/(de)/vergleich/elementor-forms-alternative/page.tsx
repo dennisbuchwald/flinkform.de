@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Elementor Forms Alternative ohne Elementor: Flinkform im Vergleich",
   description:
-    "Elementor Forms gibt es nur mit Elementor Pro ab 59 Dollar pro Jahr, im Essential-Plan ohne gespeicherte Einsendungen. Flinkform funktioniert kostenlos in jedem Theme und im nativen WordPress-Editor.",
+    "Elementor Forms gibt es nur mit Elementor Pro ab 59 Dollar pro Jahr, im Essential-Plan für Neukunden ohne gespeicherte Einsendungen. Flinkform funktioniert kostenlos in jedem Theme und im nativen WordPress-Editor.",
   alternates: { canonical: `${SITE_URL}/vergleich/elementor-forms-alternative` },
 };
 
@@ -21,7 +21,7 @@ const tldrRows = [
   },
   {
     feature: "Einsendungen speichern",
-    cells: ["kostenlos", "erst ab Advanced Solo, nicht im Essential-Plan"],
+    cells: ["kostenlos", "für Neukunden erst ab Advanced, nicht im Essential-Plan"],
   },
   {
     feature: "Formular-Aufbau",
@@ -49,7 +49,7 @@ const tldrRows = [
 const faqs = [
   {
     q: "Gibt es Elementor Forms kostenlos?",
-    a: "Nein. Das kostenlose Elementor enthält gar kein Formular-Widget. Der Form Builder ist komplett Teil von Elementor Pro, ab 59 Dollar pro Jahr (Essential, Stand Juli 2026). Und selbst im Essential-Plan werden Einsendungen nicht in der Datenbank gespeichert, dafür brauchst du mindestens Advanced Solo.",
+    a: "Nein. Das kostenlose Elementor enthält gar kein Formular-Widget. Der Form Builder ist komplett Teil von Elementor Pro, ab 59 Dollar pro Jahr (Essential, Stand September 2026). Und im Essential-Plan werden Einsendungen für Neukunden seit Dezember 2023 nicht in der Datenbank gespeichert, dafür brauchst du mindestens den Advanced-Plan.",
   },
   {
     q: "Kann ich Flinkform nutzen, obwohl meine Website mit Elementor gebaut ist?",
@@ -75,10 +75,10 @@ export default function Page() {
       slug="elementor-forms-alternative"
       competitor="Elementor Forms"
       h1="Elementor Forms Alternative: Formulare ohne Page-Builder-Abo"
-      answerFirst="Elementor Forms gibt es nur als Teil von Elementor Pro: ab 59 Dollar pro Jahr, und im günstigsten Plan werden Einsendungen nicht einmal gespeichert. Flinkform ist die kostenlose Alternative ohne Elementor: ein block-natives Formular-Plugin, das in jedem Theme und im nativen WordPress-Editor funktioniert, mit Multi-Step, bedingter Logik und Spam-Schutz ohne externe Dienste. Fair gesagt: Wer Elementor Pro ohnehin bezahlt, hat den Form Builder schon an Bord."
+      answerFirst="Elementor Forms gibt es nur als Teil von Elementor Pro: ab 59 Dollar pro Jahr, und im günstigsten Plan werden Einsendungen für Neukunden nicht einmal gespeichert. Flinkform ist die kostenlose Alternative ohne Elementor: ein block-natives Formular-Plugin, das in jedem Theme und im nativen WordPress-Editor funktioniert, mit Multi-Step, bedingter Logik und Spam-Schutz ohne externe Dienste. Fair gesagt: Wer Elementor Pro ohnehin bezahlt, hat den Form Builder schon an Bord."
       tldrColumns={["Flinkform", "Elementor Forms"]}
       tldrRows={tldrRows}
-      tldrNote="Stand Juli 2026, USD-Listenpreise für Elementor Pro. Der Essential-Plan (59 $/Jahr) enthält den Form Builder, speichert laut offizieller Pricing-Seite aber keine Formular-Einsendungen."
+      tldrNote="Stand September 2026, USD-Listenpreise für Elementor Pro. Der Essential-Plan (59 $/Jahr) enthält den Form Builder. Form Submissions sind darin laut Elementor-Ankündigung vom Dezember 2023 für Neukunden nicht enthalten."
       sections={[
         {
           heading: "Was Elementor Forms gut macht",
@@ -114,19 +114,19 @@ export default function Page() {
                   <strong>Es gibt keine kostenlose Version.</strong> Das freie
                   Elementor enthält gar keine Formulare. Ein simples
                   Kontaktformular kostet dich also mindestens den
-                  Essential-Plan: 59 $ pro Jahr (Stand Juli 2026), jedes Jahr
+                  Essential-Plan: 59 $ pro Jahr (Stand September 2026), jedes Jahr
                   aufs Neue.
                 </li>
                 <li>
                   <strong>
                     Essential speichert keine Einsendungen.
                   </strong>{" "}
-                  Auf der offiziellen Pricing-Seite steht beim Essential-Plan
-                  wörtlich, dass Form Submissions nicht enthalten sind. Geht
-                  die Benachrichtigungs-Mail verloren, ist die Anfrage weg.
-                  Wer Einsendungen in der Datenbank will, braucht mindestens
-                  Advanced Solo. Diese Beschneidung des Essential-Plans für
-                  Neukunden hat unter anderem WP Tavern dokumentiert.
+                  Elementor hat im Dezember 2023 angekündigt, dass Form
+                  Submissions im Essential-Plan für Neukunden nicht mehr
+                  enthalten sind. Geht die Benachrichtigungs-Mail verloren,
+                  ist die Anfrage weg. Wer Einsendungen in der Datenbank will,
+                  braucht mindestens den Advanced-Plan. Diese Beschneidung hat
+                  unter anderem WP Tavern dokumentiert.
                 </li>
               </ul>
               <p>
@@ -203,9 +203,10 @@ export default function Page() {
                 Jahren offenen GitHub-Issue dokumentiert. Für den
                 Spam-Schutz bietet Elementor nativ Google reCAPTCHA v2 und
                 v3 plus ein Honeypot-Feld; hCaptcha oder Turnstile gehen nur
-                über Drittanbieter-Plugins. Das österreichische
-                Bundesverwaltungsgericht hat am 13.09.2024 entschieden, dass
-                reCAPTCHA ohne vorherige Einwilligung DSGVO-widrig ist.
+                über Drittanbieter-Plugins. Seit April 2026 arbeitet Google bei reCAPTCHA als
+                Auftragsverarbeiter. Das ist einfacher als früher, bleibt
+                aber Aufwand: AV-Vertrag, Eintrag in der
+                Datenschutzerklärung, Übermittlung in die USA.
                 Details dazu:{" "}
                 <Link href="/blog/recaptcha-dsgvo-rechtsrisiko">
                   reCAPTCHA und die DSGVO
@@ -258,8 +259,8 @@ export default function Page() {
               kostenlos, in jedem Theme. Brauchst du später Stripe-Zahlungen,
               Datei-Uploads oder Webhooks, kostet{" "}
               <Link href="/pro">Flinkform Pro</Link> 59 € pro Jahr, exakt so
-              viel wie der Elementor-Essential-Plan, der nicht einmal
-              Einsendungen speichert. Wie sich Flinkform gegen klassische
+              viel wie der Elementor-Essential-Plan, der für Neukunden nicht
+              einmal Einsendungen speichert. Wie sich Flinkform gegen klassische
               Formular-Plugins schlägt, zeigt der{" "}
               <Link href="/vergleich/wpforms-alternative">
                 WPForms-Vergleich

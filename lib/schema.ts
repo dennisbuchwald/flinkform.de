@@ -115,7 +115,7 @@ const proOfferNode: SchemaNode = {
 const FEATURE_LIST = [
   "Multi-Step-Formulare mit Fortschrittsanzeige und Schritt-Validierung",
   "Bedingte Logik für Felder, Schritte und Submit",
-  "13 Feldtypen inklusive Consent-Feld",
+  "14 Feldtypen inklusive Adress- und Consent-Feld",
   "Spam-Schutz per Honeypot, signiertem Zeit-Check und Proof-of-Work",
   "Kein reCAPTCHA, kein hCaptcha, kein Turnstile",
   "Submissions-Dashboard in WordPress mit Suche und Filter",

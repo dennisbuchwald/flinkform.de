@@ -210,15 +210,15 @@ export default function Page() {
             <>
               <p>
                 Formidable Forms speichert standardmäßig die IP-Adresse jeder
-                Einsendung. Abschalten kannst du das in den Global Settings,
-                die Einstellung wirkt aber nur auf künftige Einsendungen,
-                Bestandsdaten musst du manuell bereinigen. Für den
-                Spam-Schutz setzt Formidable neben einem Honeypot auf
-                Akismet, reCAPTCHA, hCaptcha oder Cloudflare Turnstile, also
-                US-Dienste, die Besucherdaten verarbeiten. Das
-                österreichische Bundesverwaltungsgericht hat am 13.09.2024
-                entschieden, dass reCAPTCHA ohne vorherige Einwilligung
-                DSGVO-widrig ist.
+                Einsendung. Abschalten kannst du das in den Global Settings
+                unter "Disable storing IPs". Beim Spam-Schutz ist Formidable
+                gut aufgestellt: Honeypot und ein JavaScript-Token sind ab
+                Werk in jedem Formular aktiv. Für mehr Schutz kommen Akismet,
+                reCAPTCHA, hCaptcha oder Cloudflare Turnstile dazu, also
+                externe Dienste. Seit April 2026 arbeitet Google bei reCAPTCHA als
+                Auftragsverarbeiter. Das ist einfacher als früher, bleibt
+                aber Aufwand: AV-Vertrag, Eintrag in der
+                Datenschutzerklärung, Übermittlung in die USA.
               </p>
               <p>
                 Flinkform speichert keine IP-Adressen und keine User-Agents,
@@ -229,8 +229,7 @@ export default function Page() {
                 automatischer Löschung und die Anbindung an die
                 WordPress-Privacy-Tools. Hintergründe:{" "}
                 <Link href="/blog/recaptcha-dsgvo-rechtsrisiko">
-                  reCAPTCHA und die DSGVO: Warum dein Kontaktformular ein
-                  Rechtsrisiko ist
+                  reCAPTCHA und die DSGVO
                 </Link>
                 .
               </p>

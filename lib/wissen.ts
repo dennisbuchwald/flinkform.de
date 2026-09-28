@@ -32,7 +32,7 @@ export const wissen: WissenEntry[] = [
     description:
       "Honeypot, signierter Zeit-Check und Proof-of-Work stoppen Spam ohne externen Dienst. Wie die drei Mechanismen funktionieren und warum sie reichen.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-28",
     related: [
       "/vergleich/contact-form-7-alternative",
       "/vergleich/forminator-alternative",
@@ -44,7 +44,7 @@ export const wissen: WissenEntry[] = [
     description:
       "Die ehrliche Übersicht: Welche Formular-Plugins Daten an US-Dienste senden, welche IP-Adressen speichern und worauf es bei der Auswahl ankommt.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-28",
     related: [
       "/vergleich/typeform-alternative",
       "/vergleich/jotform-alternative",
@@ -106,7 +106,7 @@ export const wissen: WissenEntry[] = [
     description:
       "Honeypot, Zeit-Check, Proof-of-Work, Quiz, reCAPTCHA, hCaptcha, Turnstile und Akismet im Vergleich: Wirksamkeit, Nutzerfreundlichkeit, DSGVO und Kosten.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-28",
     related: [
       "/vergleich/contact-form-7-alternative",
       "/vergleich/forminator-alternative",
@@ -138,9 +138,9 @@ export const wissen: WissenEntry[] = [
     slug: "was-kostet-wordpress-formular-plugin",
     title: "Was kostet ein WordPress-Formular-Plugin? Der Preisvergleich 2026",
     description:
-      "Alle Preise der großen WordPress-Formular-Plugins im Überblick (Stand Juli 2026). Plus versteckte Kosten: Renewal-Preise, Transaktionsgebühren, Add-on-Modelle.",
+      "Alle Preise der großen WordPress-Formular-Plugins im Überblick (Stand September 2026). Plus versteckte Kosten: Renewal-Preise, Transaktionsgebühren, Add-on-Modelle.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-28",
     related: [
       "/vergleich/wpforms-alternative",
       "/vergleich/gravity-forms-alternative",
@@ -152,7 +152,7 @@ export const wissen: WissenEntry[] = [
     description:
       "Ein Kontaktformular selbst braucht keinen Cookie-Banner. Einwilligungspflichtig wird es erst durch eingebettete Drittdienste wie reCAPTCHA. So testest du dein Formular selbst.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-28",
     related: [
       "/vergleich/typeform-alternative",
     ],

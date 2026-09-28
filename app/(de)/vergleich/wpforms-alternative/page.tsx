@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "Ist WPForms schlecht?",
-    a: "Nein. WPForms ist poliert, hat einen ausgereiften Drag-&-Drop-Builder, viele Vorlagen und ein großes Ökosystem. Es ist aber ein US-Produkt mit Paywall-Modell: Die Funktionen, die Flinkform kostenlos mitbringt, kosten bei WPForms regulär ab 99 Dollar pro Jahr, und der Spam-Schutz hängt an US-Diensten.",
+    a: "Nein. WPForms ist poliert, hat einen ausgereiften Drag-&-Drop-Builder, viele Vorlagen und ein großes Ökosystem. Es ist aber ein US-Produkt mit Paywall-Modell: Die Funktionen, die Flinkform kostenlos mitbringt, kosten bei WPForms regulär ab 99 Dollar pro Jahr.",
   },
   {
     q: "Kann Flinkform Zahlungen wie WPForms?",
@@ -61,10 +61,10 @@ export default function Page() {
       slug="wpforms-alternative"
       competitor="WPForms"
       h1="WPForms Alternative: Alle Features, ohne die Paywall"
-      answerFirst="Flinkform ist eine kostenlose WPForms-Alternative aus Deutschland: Multi-Step-Formulare, bedingte Logik und Submissions-Dashboard sind im freien Plugin enthalten. Bei WPForms brauchst du dafür mindestens den Basic-Plan (regulär 99 Dollar pro Jahr), die modernen Lead Forms sogar den Pro-Plan für 399 Dollar, und die Lite-Version speichert nicht einmal Einsendungen. Dazu arbeitet Flinkform ohne US-Spam-Dienste und speichert keine IP-Adressen."
+      answerFirst="Flinkform ist eine kostenlose WPForms-Alternative aus Deutschland: Multi-Step-Formulare, bedingte Logik und Submissions-Dashboard sind im freien Plugin enthalten. Bei WPForms brauchst du dafür mindestens den Basic-Plan (regulär 99 Dollar pro Jahr), die modernen Lead Forms sogar den Pro-Plan für 399 Dollar, und die Lite-Version speichert nicht einmal Einsendungen. Dazu bringt Flinkform einen mehrstufigen Spam-Schutz ohne externen Dienst mit und speichert keine IP-Adressen."
       tldrColumns={["Flinkform", "WPForms"]}
       tldrRows={tldrRows}
-      tldrNote="Stand Juli 2026, reguläre Listenpreise laut wpforms.com/pricing (Renewal-Preise, nicht die Erstjahres-Rabatte)."
+      tldrNote="Stand 28. September 2026, reguläre Listenpreise laut wpforms.com/pricing (Renewal-Preise, nicht die Erstjahres-Rabatte)."
       sections={[
         {
           heading: "Was WPForms gut macht",
@@ -133,24 +133,26 @@ export default function Page() {
             <>
               <p>
                 Für DACH-Agenturen und Freelancer ist der zweite Unterschied
-                oft wichtiger als der Preis: WPForms ist ein US-Produkt und
-                setzt für den Spam-Schutz auf reCAPTCHA, hCaptcha oder
-                Cloudflare Turnstile, alles US-Dienste, die Besucherdaten
-                verarbeiten. Das österreichische Bundesverwaltungsgericht hat
-                am 13.09.2024 entschieden, dass reCAPTCHA ohne vorherige
-                Einwilligung DSGVO-widrig ist. Zudem speichert WPForms bei
-                Einsendungen standardmäßig die IP-Adresse.
+                oft wichtiger als der Preis. WPForms bringt ab Werk einen
+                Anti-Spam-Token mit, der einfache Bots zuverlässig abfängt.
+                Wer mehr Schutz will, landet bei reCAPTCHA, hCaptcha oder
+                Cloudflare Turnstile, also bei einem externen Dienst. Seit
+                April 2026 arbeitet Google bei reCAPTCHA als
+                Auftragsverarbeiter. Das macht den Einsatz einfacher, aber
+                nicht aufwandsfrei: AV-Vertrag, Eintrag in der
+                Datenschutzerklärung, Übermittlung in die USA. Dazu speichern
+                die Bezahlversionen von WPForms bei Einsendungen ab Werk die
+                IP-Adresse, abschaltbar in den Einstellungen.
               </p>
               <p>
                 Flinkform dreht das um: Der Spam-Schutz (Honeypot, signierter
                 Zeit-Check, Proof-of-Work) läuft komplett auf deinem Server,
                 keine IP-Speicherung, kein User-Agent-Logging, kein externer
-                Dienst. Es gibt nichts zu konfigurieren und nichts, was in
-                die Datenschutzerklärung eingetragen werden müsste. Mehr
+                Dienst. Es gibt nichts zu konfigurieren und keinen
+                Drittanbieter, der in die Datenschutzerklärung müsste. Mehr
                 dazu:{" "}
                 <Link href="/blog/recaptcha-dsgvo-rechtsrisiko">
-                  reCAPTCHA und die DSGVO: Warum dein Kontaktformular ein
-                  Rechtsrisiko ist
+                  reCAPTCHA und die DSGVO
                 </Link>
                 .
               </p>

@@ -140,10 +140,11 @@ export default function Page() {
               </ul>
               <p>
                 Sechs Plugins für ein Kontaktformular. Sechs Update-Zyklen,
-                sechs potenzielle Konflikte, sechs Einträge in der
-                Datenschutzerklärung. Und der Spam-Schutz hängt an Google
-                reCAPTCHA, das ohne Einwilligung DSGVO-widrig ist (dazu
-                gleich mehr).
+                sechs potenzielle Konflikte. Und beim Spam-Schutz ist der
+                Hersteller selbst deutlich: Turnstile oder reCAPTCHA seien
+                ein Muss, einen eingebauten Honeypot gibt es nicht. Beides
+                sind externe Dienste mit AV-Vertrag und Eintrag in der
+                Datenschutzerklärung.
               </p>
             </>
           ),
@@ -175,15 +176,13 @@ export default function Page() {
                 <li>
                   <strong>Spam-Schutz ohne externe Dienste.</strong>{" "}
                   Honeypot, signierter Zeit-Check und Proof-of-Work laufen
-                  komplett auf deinem Server. Kein reCAPTCHA, keine
-                  Einwilligung nötig. Das österreichische
-                  Bundesverwaltungsgericht hat am 13.09.2024 entschieden,
-                  dass reCAPTCHA ohne Einwilligung gegen die DSGVO verstößt.
+                  komplett auf deinem Server. Kein reCAPTCHA, kein
+                  Turnstile, kein AV-Vertrag mit einem Dritten.
                 </li>
                 <li>
                   <strong>Sieht ab Werk gut aus.</strong> Flinkform erbt
                   Farben, Typografie und Abstände aus deinem Theme
-                  (theme.json). CF7-Formulare sind ungestylt.
+                  (theme.json). CF7 überlässt das Styling dir.
                 </li>
                 <li>
                   <strong>Schlank.</strong> Unter 15 KB Frontend-JS, ohne
@@ -262,11 +261,11 @@ export default function Page() {
             <p>
               Contact Form 7 war über 15 Jahre die Standard-Antwort auf
               WordPress-Formulare und hat sich seinen Ruhestand verdient.
-              Genau das ist der Punkt: Es ist jetzt im Ruhestand. Wer 2026
-              ein Formular-Plugin auswählt, sollte eines wählen, das aktiv
-              entwickelt wird, im Block-Editor zu Hause ist und Datenschutz
-              nicht an US-Dienste delegiert. Flinkform macht genau das,
-              kostenlos.
+              Genau das ist der Punkt: Nach Version 6.2 geht es in den
+              Ruhestand. Wer 2026 ein Formular-Plugin auswählt, sollte eines
+              wählen, das weiterentwickelt wird, im Block-Editor zu Hause
+              ist und Spam ohne externen Dienst abwehrt. Flinkform macht
+              genau das, kostenlos.
             </p>
           ),
         },

@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "SureForms Alternative aus Deutschland: Flinkform im ehrlichen Vergleich",
   description:
-    "SureForms und Flinkform sind beide block-nativ. Der Unterschied: Flinkform stoppt Spam ohne reCAPTCHA, hCaptcha oder Turnstile, erbt dein Theme-Design über theme.json und lädt unter 15 KB Frontend-JS. Der ehrliche Vergleich.",
+    "SureForms und Flinkform sind beide block-nativ. Der Unterschied: Bei Flinkform sind Multi-Step und bedingte Logik kostenlos, und der Spam-Schutz ist ab Werk dreistufig, ohne externen Dienst. Der ehrliche Vergleich.",
   alternates: { canonical: `${SITE_URL}/vergleich/sureforms-alternative` },
 };
 
@@ -19,10 +19,10 @@ const tldrRows = [
     feature: "Multi-Step-Formulare",
     cells: ["kostenlos", "nur Pro"],
   },
-  { feature: "Bedingte Logik", cells: ["kostenlos", "kostenlos"] },
+  { feature: "Bedingte Logik", cells: ["kostenlos", "nur Pro"] },
   {
-    feature: "Spam-Schutz ohne externen Dienst",
-    cells: [true, "Honeypot; CAPTCHA via Google, hCaptcha oder Turnstile"],
+    feature: "Spam-Schutz ab Werk, ohne externen Dienst",
+    cells: ["Honeypot, Zeit-Check, Proof-of-Work", "Honeypot einschalten, mehr über reCAPTCHA, hCaptcha, Turnstile"],
   },
   { feature: "Keine IP-Speicherung ab Werk", cells: [true, true] },
   {
@@ -33,7 +33,7 @@ const tldrRows = [
     feature: "Stripe-Zahlungen",
     cells: [
       "Pro-Add-on, inkl. SEPA-Lastschrift",
-      "Basis kostenlos, PayPal nur Pro",
+      "Basis-Zahlungen kostenlos",
     ],
   },
   {
@@ -45,11 +45,11 @@ const tldrRows = [
 const faqs = [
   {
     q: "Ist SureForms DSGVO-konform?",
-    a: "SureForms macht vieles richtig: IP-Logging ist ab Werk deaktiviert, und es gibt einen GDPR-Compliance-Modus pro Formular. Der Spam-Schutz jenseits des Honeypots hängt aber an reCAPTCHA, hCaptcha oder Cloudflare Turnstile, also an externen Diensten, die Besucherdaten verarbeiten und laut BVwG-Urteil vom 13.09.2024 eine vorherige Einwilligung brauchen. Flinkform braucht gar keinen externen Dienst.",
+    a: "SureForms macht vieles richtig: IP-Logging ist ab Werk deaktiviert, und es gibt einen GDPR-Compliance-Modus pro Formular. Für Spam-Schutz über den Honeypot hinaus bietet SureForms reCAPTCHA, hCaptcha oder Cloudflare Turnstile an, also externe Dienste. Seit April 2026 ist Google bei reCAPTCHA Auftragsverarbeiter, das bedeutet AV-Vertrag, Eintrag in der Datenschutzerklärung und Übermittlung in die USA. Flinkform braucht gar keinen externen Dienst.",
   },
   {
     q: "Was kostet SureForms?",
-    a: "Der Solo-Plan kostet 59 Dollar im ersten Jahr und regulär 69 Dollar pro Jahr bei Verlängerung, für 1 Website (Stand Juli 2026). Alle Bezahlpläne enthalten alle Features, es skaliert nur die Anzahl der Websites. Es gibt eine 14-Tage-Geld-zurück-Garantie. Die kostenlose Version auf WordPress.org enthält unter anderem bedingte Logik, Stripe-Basiszahlungen und einen limitierten AI-Formular-Generator.",
+    a: "Einen Plan für eine einzelne Website gibt es nicht mehr. Der Einstieg ist Team für 5 Websites, regulär 149 Dollar pro Jahr (99 Dollar im ersten Jahr), darüber Agency für 100 Websites zu 229 Dollar (Stand September 2026). Alle Bezahlpläne enthalten alle Features, es skaliert nur die Anzahl der Websites, und es gibt eine 14-Tage-Geld-zurück-Garantie. Die kostenlose Version auf WordPress.org enthält unter anderem Einsendungen im Dashboard, Stripe-Basiszahlungen und einen limitierten AI-Formular-Generator; Multi-Step und bedingte Logik gehören zu den Bezahlplänen.",
   },
   {
     q: "Was kann SureForms, das Flinkform nicht kann?",
@@ -71,10 +71,10 @@ export default function Page() {
       slug="sureforms-alternative"
       competitor="SureForms"
       h1="SureForms Alternative: Block-nativ gegen block-nativ"
-      answerFirst="Flinkform ist eine SureForms-Alternative aus Deutschland. Beide Plugins bauen Formulare direkt im WordPress-Block-Editor, doch Flinkform stoppt Spam komplett ohne reCAPTCHA, hCaptcha oder Turnstile, erbt dein Theme-Design über theme.json und lädt unter 15 KB Frontend-JavaScript. Multi-Step-Formulare sind bei Flinkform kostenlos, bei SureForms Teil des Bezahlplans. SureForms punktet dafür mit AI-Formular-Generator und kostenlosen Stripe-Basiszahlungen."
+      answerFirst="Flinkform ist eine SureForms-Alternative aus Deutschland. Beide Plugins bauen Formulare direkt im WordPress-Block-Editor, doch Flinkform schützt ab Werk dreistufig vor Spam, ohne reCAPTCHA, hCaptcha oder Turnstile, übernimmt dein Theme-Design über theme.json und lädt unter 15 KB Frontend-JavaScript. Multi-Step-Formulare und bedingte Logik sind bei Flinkform kostenlos, bei SureForms Teil des Bezahlplans. SureForms punktet dafür mit AI-Formular-Generator und kostenlosen Stripe-Basiszahlungen."
       tldrColumns={["Flinkform", "SureForms"]}
       tldrRows={tldrRows}
-      tldrNote="Stand Juli 2026. SureForms-Angaben laut wordpress.org/plugins/sureforms und sureforms.com (Solo-Plan: 59 $ Erstjahr, 69 $ Renewal)."
+      tldrNote="Stand September 2026. SureForms-Angaben laut wordpress.org/plugins/sureforms und sureforms.com/plans (Team: 149 $ regulär für 5 Websites, einen Einzel-Website-Plan gibt es nicht mehr)."
       sections={[
         {
           heading: "Was SureForms gut macht",
@@ -137,15 +137,13 @@ export default function Page() {
           body: (
             <>
               <p>
-                Hier trennen sich die Wege. SureForms bietet einen Honeypot
-                und setzt darüber hinaus auf Google reCAPTCHA, hCaptcha oder
-                Cloudflare Turnstile. Das sind externe Dienste, die
-                Besucherdaten verarbeiten. Das österreichische
-                Bundesverwaltungsgericht hat am 13.09.2024 entschieden, dass
-                reCAPTCHA ohne vorherige Einwilligung DSGVO-widrig ist, und
-                die französische CNIL hat den reCAPTCHA-Einsatz ohne
-                Einwilligung bereits in zwei Bußgeldverfahren sanktioniert
-                (Cityscoot 2023, NS Cards France 2023). Details dazu:{" "}
+                Hier trennen sich die Wege. SureForms bietet einen Honeypot,
+                den du einschaltest, und darüber hinaus Google reCAPTCHA,
+                hCaptcha oder Cloudflare Turnstile. Das sind externe Dienste.
+                Seit April 2026 arbeitet Google bei reCAPTCHA als
+                Auftragsverarbeiter. Das ist einfacher als früher, bleibt
+                aber Aufwand: AV-Vertrag, Eintrag in der
+                Datenschutzerklärung, Übermittlung in die USA. Details dazu:{" "}
                 <Link href="/blog/recaptcha-dsgvo-rechtsrisiko">
                   reCAPTCHA und die DSGVO
                 </Link>
@@ -155,8 +153,9 @@ export default function Page() {
                 Flinkform braucht keinen dieser Dienste: Honeypot, ein
                 signierter Zeit-Check und Proof-of-Work im Browser laufen
                 komplett auf deinem Server, mit einer Mathe-Frage als
-                Fallback ohne JavaScript. Nichts zu konfigurieren, nichts für
-                die Datenschutzerklärung, kein Consent-Banner nötig. Der
+                Fallback ohne JavaScript. Nichts zu konfigurieren, kein
+                Drittanbieter in der Datenschutzerklärung, kein
+                Consent-Banner nötig. Der
                 ehrliche Gegenpunkt: Flinkform bietet bewusst gar keine
                 CAPTCHA-Provider-Anbindung an, auch nicht optional. Wer
                 zwingend Turnstile einsetzen will, kann das mit Flinkform
@@ -187,15 +186,15 @@ export default function Page() {
                 </li>
                 <li>
                   <strong>SureForms kostenlos:</strong> über 15 Feldtypen,
-                  bedingte Logik, Entries-Verwaltung, Stripe-Basiszahlungen
-                  und der limitierte AI-Generator. Multi-Step, Datei-Upload
-                  und sogar der Datums-Picker sind dagegen Pro-Features.
+                  Entries-Verwaltung, Stripe-Basiszahlungen und der limitierte
+                  AI-Generator. Multi-Step und bedingte Logik sind dagegen
+                  Bezahlfunktionen.
                 </li>
               </ul>
               <p>
                 Ehrlich eingeordnet: Kostenlose Stripe-Zahlungen sind ein
-                echter SureForms-Vorteil, den kein anderes Plugin dieser
-                Serie bietet. Umgekehrt bekommst du{" "}
+                echter SureForms-Vorteil gegenüber Flinkform, bei dem Stripe
+                zu Pro gehört. Umgekehrt bekommst du{" "}
                 <Link href="/wissen/multi-step-formular-wordpress">
                   Multi-Step-Formulare
                 </Link>{" "}
@@ -205,7 +204,7 @@ export default function Page() {
           ),
         },
         {
-          heading: "Preise und SEPA (Stand Juli 2026)",
+          heading: "Preise und SEPA (Stand September 2026)",
           body: (
             <>
               <p>
@@ -215,9 +214,10 @@ export default function Page() {
               </p>
               <ul>
                 <li>
-                  <strong>SureForms Solo:</strong> 59 $ im ersten Jahr, 69 $
-                  pro Jahr bei Verlängerung, 1 Website. Größere Pläne
-                  skalieren über die Website-Anzahl.
+                  <strong>SureForms:</strong> Einen Plan für eine einzelne
+                  Website gibt es nicht mehr. Team kostet regulär 149 $ pro
+                  Jahr für 5 Websites (99 $ im ersten Jahr), Agency 229 $ für
+                  100 Websites.
                 </li>
                 <li>
                   <strong>Flinkform Pro:</strong> 59 € (1 Website), 99 € (3),

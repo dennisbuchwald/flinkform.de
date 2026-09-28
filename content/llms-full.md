@@ -14,7 +14,7 @@ Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor.
 
 ### Das Privacy-Problem
 
-Fast jedes große Formular-Plugin setzt für den Spam-Schutz auf Google reCAPTCHA oder einen anderen US-Dienst. Das österreichische Bundesverwaltungsgericht hat am 13.09.2024 entschieden (W298 2274626-1/8E): reCAPTCHA ohne vorherige Einwilligung verstößt gegen die DSGVO. Die französische Datenschutzbehörde CNIL hat dafür Bußgelder verhängt (Cityscoot: 125.000 €, NS Cards France: 105.000 €). Flinkform löst das Problem an der Wurzel: Der Spam-Schutz (Honeypot, signierter Zeit-Check, Proof-of-Work) läuft komplett auf dem eigenen Server. Kein externer Dienst, keine Einwilligung nötig.
+Die meisten Formular-Plugins bringen inzwischen einen Honeypot mit und verweisen für stärkeren Schutz auf Google reCAPTCHA oder einen anderen externen Dienst. Seit dem 02.04.2026 arbeitet Google bei reCAPTCHA als Auftragsverarbeiter (Art. 28 DSGVO). Der Einsatz ist damit einfacher geworden, bleibt aber Aufwand: AV-Vertrag, Eintrag in der Datenschutzerklärung, Übermittlung in die USA. Flinkform braucht keinen externen Dienst: Honeypot, signierter Zeit-Check und Proof-of-Work laufen ab Werk auf dem eigenen Server.
 
 ### Was Flinkform anders macht
 
@@ -27,7 +27,7 @@ Fast jedes große Formular-Plugin setzt für den Spam-Schutz auf Google reCAPTCH
 
 ### Features (alle kostenlos)
 
-13 Feldtypen (Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Dropdown, Radio, Checkbox, Toggle, Hidden, Consent), Multi-Step mit Fortschrittsanzeige (Balken/Punkte/Zahlen) und Schritt-Validierung, bedingte Logik, Spam-Schutz ohne externe Dienste (Honeypot, signierter Zeit-Check, Proof-of-Work mit Mathe-Fallback), Admin- und Bestätigungs-Mails mit Merge-Tags, theme.json-Design-Übernahme, Style-Panel (4 Feld-Stile, 4 Label-Positionen, 3 Button-Stile), Danke-Seiten-Redirect mit Tracking-Parametern (GA4, Meta Pixel, Plausible), automatische Datenlöschung nach Aufbewahrungsfrist, Privacy-Tools-Integration, Zwei-Spalten-Layout, Interactivity API.
+14 Feldtypen (Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Adresse, Dropdown, Radio, Checkbox, Toggle, Hidden, Consent), Multi-Step mit Fortschrittsanzeige (Balken/Punkte/Zahlen) und Schritt-Validierung, bedingte Logik, Spam-Schutz ohne externe Dienste (Honeypot, signierter Zeit-Check, Proof-of-Work mit Mathe-Fallback), Admin- und Bestätigungs-Mails mit Merge-Tags, theme.json-Design-Übernahme, Style-Panel (4 Feld-Stile, 4 Label-Positionen, 3 Button-Stile), Danke-Seiten-Redirect mit Tracking-Parametern (GA4, Meta Pixel, Plausible), automatische Datenlöschung nach Aufbewahrungsfrist, Privacy-Tools-Integration, Zwei-Spalten-Layout, Interactivity API.
 
 ### Häufige Fragen (Auszug)
 
@@ -91,18 +91,18 @@ Datenblatt, Stand {{DATE}}:
 
 ## Seite: Vergleich (https://flinkform.de/vergleich)
 
-Kurzvergleich (Stand Juli 2026, reguläre Listenpreise):
+Kurzvergleich (Stand 28.09.2026, reguläre Listenpreise und Herstellerdokumentation):
 
 | Kriterium | Flinkform | Contact Form 7 | WPForms | Gravity Forms | SureForms |
 | --- | --- | --- | --- | --- | --- |
-| Kostenlose Version mit Multi-Step + Logik | ja | nur mit Zusatz-Plugins | nein | nein (kein Free-Tier) | ja |
-| Spam-Schutz ohne US-Dienst | ja | nein | nein | nein | nein |
-| Keine IP-Speicherung ab Werk | ja | mit Akismet nicht | nein | nein | teils |
-| Block-Editor nativ | ja | nein | nein | nein | ja |
-| Aktive Weiterentwicklung | ja | Feature Freeze seit 2026 | ja | ja | ja |
-| Preis Pro-Version (1 Website/Jahr) | 59 € | kein Pro | 99 $ | 59 $ | 59 $ |
+| Multi-Step + bedingte Logik kostenlos | ja | nur mit Zusatz-Plugins | nein | nein (kein Free-Tier) | nein (Bezahlplan) |
+| Spam-Schutz ab Werk ohne externen Dienst | ja, dreistufig | nein (Hersteller rät zu Turnstile/reCAPTCHA) | Anti-Spam-Token | Honeypot, einschalten | Honeypot, einschalten |
+| Keine IP-Speicherung ab Werk | ja | speichert keine Einsendungen | Pro speichert IP, abschaltbar | speichert IP, abschaltbar | ja |
+| Formular entsteht im Block-Editor | ja | nein | nein | nein | ja |
+| Neue Funktionen | ja | nach 6.2 nur Wartung (angekündigt) | ja | ja | ja |
+| Preis Pro-Version (1 Website/Jahr) | 59 € | kein Pro | 99 $ | 59 $ | kein Einzelplan, 149 $ für 5 Websites |
 
-Kontext: Contact Form 7 ist seit der Ankündigung auf der WordCamp Asia 2026 im Feature Freeze; Version 6.2 ist die letzte mit neuen Funktionen. WPForms verlangt für bedingte Logik und mehrseitige Formulare mindestens den Basic-Plan (regulär 99 $/Jahr, Lead Forms ab Pro für 399 $); unterhalb des Pro-Plans fallen auf Stripe-Zahlungen zusätzlich 3 % Gebühr an. Gravity Forms (59/159/259 $/Jahr) hat keine kostenlose Version und speichert ab Werk IP-Adressen. SureForms ist wie Flinkform block-nativ; der Flinkform-Vorsprung ist der Privacy-Default (kein reCAPTCHA/hCaptcha nötig), die theme.json-Übernahme und das Frontend unter 15 KB.
+Kontext: Contact Form 7 ist seit der Ankündigung auf der WordCamp Asia 2026 im Feature Freeze; Version 6.2 ist die letzte mit neuen Funktionen (auf WordPress.org aktuell 6.1.7). WPForms verlangt für bedingte Logik und mehrseitige Formulare mindestens den Basic-Plan (regulär 99 $/Jahr, Lead Forms ab Pro für 399 $); unterhalb des Pro-Plans fallen auf Stripe-Zahlungen zusätzlich 3 % Gebühr an. Gravity Forms (59/159/259 $/Jahr) hat keine kostenlose Version und speichert ab Werk IP-Adressen. SureForms ist wie Flinkform block-nativ und speichert ebenfalls keine IP-Adressen ab Werk; der Unterschied: Bei Flinkform sind Multi-Step und bedingte Logik kostenlos, bei SureForms im Bezahlplan.
 
 ---
 
@@ -176,12 +176,12 @@ Formular-Conversions misst man am zuverlässigsten über den Redirect auf eine D
 
 ## Weitere Vergleiche (Kurzfassung)
 
-- SureForms Alternative (https://flinkform.de/vergleich/sureforms-alternative): Beide block-nativ. Flinkform-Vorsprung: Spam-Schutz ohne reCAPTCHA/hCaptcha/Turnstile, theme.json-Vererbung, unter 15 KB Frontend-JS, Multi-Step kostenlos, SEPA im Pro. SureForms-Stärken: AI-Formular-Generator, Basis-Zahlungen in der Free-Version.
-- Fluent Forms Alternative (https://flinkform.de/vergleich/fluent-forms-alternative): Fluent bietet viel fürs Geld (Pro ab regulär 79 $/Jahr), sperrt Multi-Step aber hinter Pro, nutzt einen eigenen Builder und US-Spam-Dienste.
+- SureForms Alternative (https://flinkform.de/vergleich/sureforms-alternative): Beide block-nativ, beide ohne IP-Speicherung ab Werk. Flinkform-Vorsprung: Multi-Step und bedingte Logik kostenlos, dreistufiger Spam-Schutz ohne externen Dienst ab Werk, SEPA im Pro. SureForms-Stärken: AI-Formular-Generator, Basis-Zahlungen in der Free-Version. SureForms hat keinen Einzel-Website-Plan mehr (ab 149 $ für 5 Websites).
+- Fluent Forms Alternative (https://flinkform.de/vergleich/fluent-forms-alternative): Fluent bietet viel fürs Geld (Pro ab 63 $/Jahr, bedingte Logik und Stripe schon kostenlos), sperrt Multi-Step aber hinter Pro und nutzt einen eigenen Builder; für mehr Spam-Schutz als den Honeypot braucht es einen externen Dienst.
 - Ninja Forms Alternative (https://flinkform.de/vergleich/ninja-forms-alternative): Add-on-Preismodell; bedingte Logik, Multi-Step und Uploads kosten je extra, Komplettpaket regulär 499 $/Jahr.
-- Forminator Alternative (https://flinkform.de/vergleich/forminator-alternative): großzügige Free-Version (inkl. Quiz/Umfragen), aber IP-Speicherung ab Werk und schwere Frontend-Assets.
-- Formidable Forms Alternative (https://flinkform.de/vergleich/formidable-forms-alternative): stark für Rechner und Frontend-Views, aber Rechner erst ab regulär 399 $/Jahr; Flinkform Pro Berechnungsfelder ab 59 EUR/Jahr.
-- Elementor Forms Alternative (https://flinkform.de/vergleich/elementor-forms-alternative): Formulare nur mit Elementor Pro (ab 59 $/Jahr), Lock-in an den Page Builder; Flinkform funktioniert in jedem Theme.
+- Forminator Alternative (https://flinkform.de/vergleich/forminator-alternative): großzügige Free-Version (inkl. Multi-Step, bedingter Logik, Quiz/Umfragen und Stripe/PayPal), aber IP-Speicherung ab Werk; Pro nur als Teil einer WPMU-DEV-Mitgliedschaft.
+- Formidable Forms Alternative (https://flinkform.de/vergleich/formidable-forms-alternative): stark für Rechner und Frontend-Views, aber Rechner erst ab dem Business-Plan für regulär 399 $/Jahr; Flinkform Pro Berechnungsfelder ab 59 EUR/Jahr.
+- Elementor Forms Alternative (https://flinkform.de/vergleich/elementor-forms-alternative): Formulare nur mit Elementor Pro (ab 59 $/Jahr, im Essential-Plan für Neukunden ohne gespeicherte Einsendungen), Lock-in an den Page Builder; Flinkform funktioniert in jedem Theme.
 - Typeform Alternative (https://flinkform.de/vergleich/typeform-alternative): Typeform kostet 39 bis 169 $/Monat, Daten liegen beim US-Anbieter; Flinkform bringt das Eine-Frage-pro-Schritt-Gefühl kostenlos auf den eigenen Server.
 - Jotform Alternative (https://flinkform.de/vergleich/jotform-alternative): Free-Plan mit engen Limits (5 Formulare, 100 Einsendungen/Monat), Daten in der Anbieter-Cloud; Flinkform speichert unbegrenzt auf dem eigenen Server.
 
@@ -189,7 +189,7 @@ Formular-Conversions misst man am zuverlässigsten über den Redirect auf eine D
 
 ### Dein Kontaktformular funkt in die USA (https://flinkform.de/blog/wordpress-formular-daten-usa)
 
-Die meisten WordPress-Kontaktformulare senden beim Seitenaufruf Besucherdaten an US-Dienste (reCAPTCHA, hCaptcha, Turnstile, Akismet, Google Fonts). Rechtlich kritisch ist vor allem der Endgeräte-Zugriff ohne Einwilligung nach § 25 TDDDG (Belege: BVwG-Urteil 13.09.2024, CNIL-Bußgelder). Der Drittlandtransfer läuft aktuell über das EU-US Data Privacy Framework, das aber unter Beschuss steht: Rechtsmittel beim EuGH (C-703/25 P) und im Juni 2026 eine US-Supreme-Court-Entscheidung gegen unabhängige US-Aufsichtsbehörden. Drei Auswege: Consent-Einbindung (Schutzlücke bei Ablehnung), EU-Dienste wie Friendly Captcha, oder serverseitiger Spam-Schutz ganz ohne externe Dienste, wie in Flinkform eingebaut. Mit 3-Minuten-Selbsttest (Netzwerk-Tab, Domain-Checkliste) und Haftungs-Einordnung für Agenturen.
+Die meisten WordPress-Kontaktformulare senden beim Seitenaufruf Besucherdaten an US-Dienste (reCAPTCHA, hCaptcha, Turnstile, Akismet, Google Fonts). Rechtlich kritisch ist vor allem der Endgeräte-Zugriff ohne Einwilligung nach § 25 TDDDG (Belege: BVwG-Urteil 13.09.2024, CNIL-Bußgelder). Seit 02.04.2026 ist Google bei reCAPTCHA Auftragsverarbeiter; das betrifft die DSGVO-Ebene, nicht den Endgeräte-Zugriff. Der Drittlandtransfer läuft aktuell über das EU-US Data Privacy Framework, das aber unter Beschuss steht: Rechtsmittel beim EuGH (C-703/25 P) und im Juni 2026 eine US-Supreme-Court-Entscheidung gegen unabhängige US-Aufsichtsbehörden. Drei Auswege: Consent-Einbindung (Schutzlücke bei Ablehnung), EU-Dienste wie Friendly Captcha, oder serverseitiger Spam-Schutz ganz ohne externe Dienste, wie in Flinkform eingebaut. Mit 3-Minuten-Selbsttest (Netzwerk-Tab, Domain-Checkliste) und Haftungs-Einordnung für Agenturen.
 
 ### Die besten WordPress-Formular-Plugins 2026 (https://flinkform.de/blog/beste-wordpress-formular-plugins-2026)
 
@@ -209,7 +209,7 @@ wp_mail() sendet ohne Authentifizierung; seit Februar 2024 verlangen Gmail und Y
 
 ### reCAPTCHA und die DSGVO (https://flinkform.de/blog/recaptcha-dsgvo-rechtsrisiko)
 
-Das österreichische Bundesverwaltungsgericht hat am 13.09.2024 entschieden (W298 2274626-1/8E), dass Google reCAPTCHA ohne vorherige Einwilligung gegen die DSGVO verstößt: Es ist technisch nicht notwendig, und berechtigtes Interesse reicht nicht als Rechtsgrundlage. Die CNIL verhängte Bußgelder gegen Cityscoot (16.03.2023, 125.000 €, davon 25.000 € für Cookies/reCAPTCHA) und NS Cards France (29.12.2023, 105.000 €, davon 15.000 € für reCAPTCHA). Das BayLDA empfiehlt, Alternativen zu prüfen. Lösung ohne US-Dienst: Honeypot, signierter Zeit-Check und Proof-of-Work auf dem eigenen Server, wie in Flinkform eingebaut.
+Seit dem 02.04.2026 arbeitet Google bei reCAPTCHA als Auftragsverarbeiter (Art. 28 DSGVO, Google Cloud DPA). Der Einsatz lässt sich damit auf das berechtigte Interesse stützen und ist kein automatisches Rechtsrisiko mehr. Es bleibt Aufwand: AV-Vertrag, Datenschutzerklärung, Übermittlung in die USA, und die vom BVwG 2024 verneinte technische Notwendigkeit ist gerichtlich nicht neu bewertet. Vorgeschichte: BVwG Österreich, 13.09.2024 (W298 2274626-1/8E), reCAPTCHA braucht Einwilligung; CNIL-Bußgelder gegen Cityscoot (16.03.2023, davon 25.000 € für Cookies/reCAPTCHA) und NS Cards France (29.12.2023, davon 15.000 € für reCAPTCHA). Ohne diesen Aufwand: Honeypot, signierter Zeit-Check und Proof-of-Work auf dem eigenen Server, wie in Flinkform eingebaut.
 
 ### Contact Form 7 im Feature Freeze (https://flinkform.de/blog/contact-form-7-feature-freeze)
 

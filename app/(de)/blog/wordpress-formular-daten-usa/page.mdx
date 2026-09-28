@@ -22,14 +22,14 @@ Ein Formular ist selten allein. Das typische Setup lädt beim Seitenaufruf still
 
 | Dienst | Was übertragen wird | Empfänger | Einwilligung nötig? |
 | --- | --- | --- | --- |
-| Google reCAPTCHA | IP, Browser-Daten, Verhalten, Cookie `_GRECAPTCHA` mit Nutzer-ID | Google (USA) | Ja (BVwG 13.09.2024) |
+| Google reCAPTCHA | IP, Browser-Daten, Verhalten, Cookie `_GRECAPTCHA` mit Nutzer-ID | Google (USA) | Seit 04/2026 Auftragsverarbeitung, für den Gerätezugriff offen (BVwG 2024: ja) |
 | hCaptcha | IP, Browser-Daten, Challenge-Daten | Intuition Machines (USA) | Sichere Variante: ja |
 | Cloudflare Turnstile | IP, Browser-Signale | Cloudflare (USA) | Rechtlich umstritten |
 | Akismet | Komplette Einsendung inkl. IP und Metadaten | Automattic (USA) | AV-Vertrag + Transparenz nötig |
 | Google Fonts (CDN) | IP bei jedem Seitenaufruf | Google (USA) | LG München: unzulässig ohne Einwilligung |
 | SMTP-SaaS (z. B. SendGrid, Mailgun) | Mail-Inhalte inkl. Formulardaten | je nach Anbieter (oft USA) | AV-Vertrag nötig, Serverstandort prüfen |
 
-Der entscheidende Punkt: Diese Requests passieren beim Laden der Seite. Der Besucher muss nichts absenden, um erfasst zu werden. Genau das hat das österreichische Bundesverwaltungsgericht im reCAPTCHA-Fall beanstandet, die Details stehen in unserem [Artikel zum BVwG-Urteil und den CNIL-Bußgeldern](/blog/recaptcha-dsgvo-rechtsrisiko).
+Der entscheidende Punkt: Diese Requests passieren beim Laden der Seite. Der Besucher muss nichts absenden, um erfasst zu werden. Genau das hat das österreichische Bundesverwaltungsgericht im reCAPTCHA-Fall beanstandet, was sich seitdem geändert hat, steht in unserem [Artikel zu reCAPTCHA und der DSGVO](/blog/recaptcha-dsgvo-rechtsrisiko).
 
 ## Der 3-Minuten-Selbsttest
 
@@ -48,11 +48,11 @@ Beim Thema "Daten in die USA" werden drei verschiedene Rechtsfragen ständig ver
 
 ### Ebene 1: Zugriff aufs Endgerät (§ 25 TDDDG)
 
-Wer Cookies setzt oder Informationen vom Gerät des Besuchers ausliest, braucht dafür grundsätzlich eine vorherige Einwilligung. Das deutsche TDDDG (bis 2024: TTDSG) setzt die ePrivacy-Richtlinie um; Österreich und Frankreich haben Parallelen. Genau hier haben reCAPTCHA und Co. ihr größtes Problem: Das BVwG-Urteil vom 13.09.2024 (W298 2274626-1/8E) und die CNIL-Bußgelder gegen Cityscoot (125.000 €) und NS Cards France (105.000 €) stützen sich auf diese Ebene. Wichtig: **Diese Pflicht gilt unabhängig davon, wo der Anbieter sitzt.** Ein EU-CAPTCHA mit Tracking-Cookie bräuchte genauso eine Einwilligung.
+Wer Cookies setzt oder Informationen vom Gerät des Besuchers ausliest, braucht dafür grundsätzlich eine vorherige Einwilligung. Das deutsche TDDDG (bis 2024: TTDSG) setzt die ePrivacy-Richtlinie um; Österreich und Frankreich haben Parallelen. Genau hier haben reCAPTCHA und Co. ihr größtes Problem: Das BVwG-Urteil vom 13.09.2024 (W298 2274626-1/8E) und die CNIL-Bußgelder gegen Cityscoot (125.000 €) und NS Cards France (105.000 €) stützen sich auf diese Ebene. Wichtig: **Diese Pflicht gilt unabhängig davon, wo der Anbieter sitzt.** Ein EU-CAPTCHA mit Tracking-Cookie bräuchte genauso eine Einwilligung. Die Umstellung von reCAPTCHA auf Auftragsverarbeitung im April 2026 betrifft die DSGVO-Rolle von Google (Ebene 2). Ob der Zugriff auf das Endgerät als unbedingt erforderlich gilt, ist damit nicht beantwortet.
 
 ### Ebene 2: DSGVO-Grundpflichten
 
-Für jede Verarbeitung personenbezogener Daten (und die IP-Adresse ist eine) brauchst du eine Rechtsgrundlage, einen Auftragsverarbeitungsvertrag mit dem Dienstleister und eine korrekte Datenschutzerklärung. Das Bayerische Landesamt für Datenschutzaufsicht formuliert es beim Thema reCAPTCHA trocken: Wer nicht erklären kann, wie Google die Nutzerdaten verarbeitet, kann Nutzer nicht transparent informieren ([BayLDA-FAQ](https://www.lda.bayern.de/de/faq.html)).
+Für jede Verarbeitung personenbezogener Daten (und die IP-Adresse ist eine) brauchst du eine Rechtsgrundlage, einen Auftragsverarbeitungsvertrag mit dem Dienstleister und eine korrekte Datenschutzerklärung. Bei reCAPTCHA hat sich hier am meisten getan: Seit dem 02.04.2026 ist Google Auftragsverarbeiter, der Vertrag ist das Google Cloud Data Processing Addendum, und die Bot-Abwehr lässt sich nach Einschätzung von Datenschutz-Fachleuten auf das berechtigte Interesse stützen. Das Bayerische Landesamt für Datenschutzaufsicht formuliert es beim Thema reCAPTCHA trocken: Wer nicht erklären kann, wie Google die Nutzerdaten verarbeitet, kann Nutzer nicht transparent informieren ([BayLDA-FAQ](https://www.lda.bayern.de/de/faq.html)).
 
 ### Ebene 3: Der Drittlandtransfer (die USA-Frage)
 
@@ -67,14 +67,14 @@ Ehrliche Einordnung: Das DPF gilt heute. Wer sich aber strategisch darauf verlä
 
 ## "Aber der Anbieter ist doch DPF-zertifiziert!"
 
-Das häufigste Missverständnis. Die DPF-Zertifizierung löst genau eine der drei Ebenen: den Drittlandtransfer. Sie ersetzt **keine** Einwilligung nach § 25 TDDDG, **keinen** AV-Vertrag und **keine** Transparenzpflicht. Ein DPF-zertifiziertes reCAPTCHA ohne Consent bleibt genauso rechtswidrig, wie es das BVwG festgestellt hat. Und sollte der EuGH oder die politische Entwicklung das DPF kippen, steht jede Architektur, die auf US-Diensten aufbaut, über Nacht ohne Transfergrundlage da.
+Das häufigste Missverständnis. Die DPF-Zertifizierung löst genau eine der drei Ebenen: den Drittlandtransfer. Sie ersetzt **keine** Einwilligung nach § 25 TDDDG, **keinen** AV-Vertrag und **keine** Transparenzpflicht. Ob reCAPTCHA ohne Consent auskommt, entscheidet sich auf Ebene 1, nicht am DPF. Und sollte der EuGH oder die politische Entwicklung das DPF kippen, steht jede Architektur, die auf US-Diensten aufbaut, über Nacht ohne Transfergrundlage da.
 
 ## Die Haftungsfrage: Wer trägt das Risiko?
 
 Verantwortlicher im Sinne der DSGVO ist der Website-Betreiber, nicht das Plugin und nicht Google. Bei Agentur-Projekten heißt das praktisch:
 
 - **Der Kunde** steht als Betreiber im Impressum und ist erster Adressat für Beschwerden, Auskunftsersuchen und Bußgelder.
-- **Die Agentur** haftet gegenüber dem Kunden, wenn sie ein Setup ausliefert, das dokumentiert rechtswidrig ist, spätestens seit den Urteilen ist "wussten wir nicht" schwer zu argumentieren.
+- **Die Agentur** haftet gegenüber dem Kunden, wenn sie ein Setup ausliefert, dessen Rechtsgrundlage nicht sauber geklärt und dokumentiert ist. Seit den Urteilen der letzten Jahre ist "wussten wir nicht" schwer zu argumentieren.
 - **Abmahnungen** kommen dazu: Schon das Google-Fonts-Urteil des LG München (Az. 3 O 17493/20, 100 € Schadensersatz für eine übermittelte IP) löste 2022 eine Abmahnwelle aus. Die Muster sind auf Formulare übertragbar.
 
 Wer 30 Kundenseiten mit demselben Formular-Stack betreut, multipliziert dieses Risiko 30-fach. Das ist der Grund, warum diese Frage für Agenturen keine Detailfrage ist.
@@ -83,7 +83,7 @@ Wer 30 Kundenseiten mit demselben Formular-Stack betreut, multipliziert dieses R
 
 ### Weg 1: US-Dienste sauber per Einwilligung einbinden
 
-reCAPTCHA und Co. laden erst nach aktivem Opt-in im Consent-Banner. **Vorteil:** Du kannst beim gewohnten Dienst bleiben. **Nachteile:** Besucher, die ablehnen (je nach Website 30 bis 60 Prozent), sehen ein blockiertes oder ungeschütztes Formular. Du brauchst ein sauber konfiguriertes Consent-Management, die Datenschutzerklärung wächst, und das Transfer-Risiko (Ebene 3) bleibt bestehen. Ein Spam-Schutz, der nur bei der Hälfte der Besucher aktiv ist, ist außerdem ein halber Spam-Schutz.
+reCAPTCHA und Co. laden erst nach aktivem Opt-in im Consent-Banner. Seit April 2026 gibt es bei reCAPTCHA auf DSGVO-Ebene zusätzlich den Weg über das berechtigte Interesse, die Frage nach dem Gerätezugriff (Ebene 1) klärt das aber nicht. **Vorteil:** Du kannst beim gewohnten Dienst bleiben. **Nachteile:** Besucher, die ablehnen (je nach Website 30 bis 60 Prozent), sehen ein blockiertes oder ungeschütztes Formular. Du brauchst ein sauber konfiguriertes Consent-Management, die Datenschutzerklärung wächst, und das Transfer-Risiko (Ebene 3) bleibt bestehen. Ein Spam-Schutz, der nur bei der Hälfte der Besucher aktiv ist, ist außerdem ein halber Spam-Schutz.
 
 ### Weg 2: Europäische Dienste
 
@@ -109,7 +109,7 @@ Wenn du schon im Netzwerk-Tab bist, prüfe gleich den Rest der Seite. Die häufi
 ## Checkliste für dein Formular-Setup
 
 1. Netzwerk-Test durchgeführt (privates Fenster, alles abgelehnt)?
-2. Kein CAPTCHA-Dienst lädt ohne Einwilligung?
+2. Für jeden CAPTCHA-Dienst: Rechtsgrundlage, AV-Vertrag und Datenschutzerklärung geklärt?
 3. Spam-Schutz funktioniert auch für Besucher, die Consent ablehnen?
 4. IP-Adressen und User-Agents werden nicht unnötig gespeichert?
 5. Aufbewahrungsfrist für Einsendungen definiert und automatisiert?
@@ -123,4 +123,4 @@ Wenn du schon im Netzwerk-Tab bist, prüfe gleich den Rest der Seite. Die häufi
 
 ---
 
-**Quellen:** [BVwG-Urteil W298 2274626-1/8E im RIS](https://www.ris.bka.gv.at/JudikaturEntscheidung.wxe?Abfrage=Bvwg&Dokumentnummer=BVWGT_20240913_W298_2274626_1_00) · [CNIL zu Cityscoot (Légifrance)](https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000047346903) · [CNIL zu NS Cards France](https://www.cnil.fr/fr/paiement-electronique-la-cnil-inflige-une-amende-de-105-000-euros-ns-cards-france) · [BayLDA-FAQ](https://www.lda.bayern.de/de/faq.html) · [EuG-Urteil zum DPF (Latombe, T-553/23)](https://www.dsgvo-portal.de/news/latombe_eug-urteil-angemessenheit-eu-us-data-privacy-framework.php) · [Dr. Datenschutz zum US Supreme Court und DPF](https://www.dr-datenschutz.de/us-supreme-court-greift-saeule-des-transatlantischen-datentransfers-an/) · [Borncity zur DPF-Entwicklung Juni 2026](https://borncity.com/blog/2026/06/30/wurde-das-us-eu-transatlantic-datentransfer-abkommen-gerade-pulverisiert/)
+**Quellen:** [reCAPTCHA als Auftragsverarbeitung seit 02.04.2026 (datenschutzticker.de)](https://www.datenschutzticker.de/2026/03/google-recaptcha-was-die-neue-auftragsverarbeitung-fuer-websitebetreiber-bedeutet/) · [BVwG-Urteil W298 2274626-1/8E im RIS](https://www.ris.bka.gv.at/JudikaturEntscheidung.wxe?Abfrage=Bvwg&Dokumentnummer=BVWGT_20240913_W298_2274626_1_00) · [CNIL zu Cityscoot (Légifrance)](https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000047346903) · [CNIL zu NS Cards France](https://www.cnil.fr/fr/paiement-electronique-la-cnil-inflige-une-amende-de-105-000-euros-ns-cards-france) · [BayLDA-FAQ](https://www.lda.bayern.de/de/faq.html) · [EuG-Urteil zum DPF (Latombe, T-553/23)](https://www.dsgvo-portal.de/news/latombe_eug-urteil-angemessenheit-eu-us-data-privacy-framework.php) · [Dr. Datenschutz zum US Supreme Court und DPF](https://www.dr-datenschutz.de/us-supreme-court-greift-saeule-des-transatlantischen-datentransfers-an/) · [Borncity zur DPF-Entwicklung Juni 2026](https://borncity.com/blog/2026/06/30/wurde-das-us-eu-transatlantic-datentransfer-abkommen-gerade-pulverisiert/)

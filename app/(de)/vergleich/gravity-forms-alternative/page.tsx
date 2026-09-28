@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title:
     "Gravity Forms Alternative DSGVO: Flinkform im ehrlichen Vergleich",
   description:
-    "Gravity Forms hat keine kostenlose Version und startet bei 59 Dollar pro Jahr. Flinkform bietet Multi-Step, bedingte Logik und Submissions-Dashboard kostenlos, mit Spam-Schutz ohne US-Dienste.",
+    "Gravity Forms hat keine kostenlose Version und startet bei 59 Dollar pro Jahr. Flinkform bietet Multi-Step, bedingte Logik und Submissions-Dashboard kostenlos, mit Spam-Schutz ohne externen Dienst.",
   alternates: {
     canonical: `${SITE_URL}/vergleich/gravity-forms-alternative`,
   },
@@ -65,7 +65,7 @@ export default function Page() {
       slug="gravity-forms-alternative"
       competitor="Gravity Forms"
       h1="Gravity Forms Alternative: Kostenlos, DSGVO-konform und block-nativ"
-      answerFirst="Flinkform ist eine kostenlose Gravity Forms Alternative für WordPress: Multi-Step-Formulare, bedingte Logik und Submissions-Dashboard sind im freien Plugin enthalten, das es bei Gravity Forms gar nicht gibt (Einstieg: 59 Dollar pro Jahr). Dazu kommt der Datenschutz-Unterschied: Flinkform schützt vor Spam ohne US-Dienste und speichert keine IP-Adressen."
+      answerFirst="Flinkform ist eine kostenlose Gravity Forms Alternative für WordPress: Multi-Step-Formulare, bedingte Logik und Submissions-Dashboard sind im freien Plugin enthalten, das es bei Gravity Forms gar nicht gibt (Einstieg: 59 Dollar pro Jahr). Dazu kommt der Datenschutz-Unterschied: Flinkform schützt ab Werk vor Spam, ohne externen Dienst, und speichert keine IP-Adressen."
       tldrColumns={["Flinkform", "Gravity Forms"]}
       tldrRows={tldrRows}
       tldrNote="Stand Juli 2026, Listenpreise laut gravityforms.com/pricing."
@@ -127,19 +127,20 @@ export default function Page() {
           body: (
             <>
               <p>
-                Gravity Forms ist ein US-Produkt. Der empfohlene Spam-Schutz
-                läuft über reCAPTCHA, Cloudflare Turnstile oder Akismet,
-                alles Dienste, die Besucherdaten an externe Server senden.
-                Das österreichische Bundesverwaltungsgericht hat am
-                13.09.2024 entschieden, dass reCAPTCHA ohne vorherige
-                Einwilligung gegen die DSGVO verstößt; die französische CNIL
-                hat entsprechende Bußgelder verhängt. Zusätzlich speichert
-                Gravity Forms standardmäßig die IP-Adresse jeder Einsendung.
+                Gravity Forms ist ein US-Produkt. Einen Honeypot bringt es
+                mit, den schaltest du pro Formular ein. Für mehr Schutz gibt
+                es reCAPTCHA, Cloudflare Turnstile oder Akismet, also externe
+                Dienste. Seit April 2026 arbeitet Google bei reCAPTCHA als
+                Auftragsverarbeiter. Das ist einfacher als früher, bleibt
+                aber Aufwand: AV-Vertrag, Eintrag in der
+                Datenschutzerklärung, Übermittlung in die USA. Zusätzlich
+                speichert Gravity Forms standardmäßig die IP-Adresse jeder
+                Einsendung, abschaltbar pro Formular.
               </p>
               <p>
                 Flinkform braucht das alles nicht: Honeypot, signierter
                 Zeit-Check und Proof-of-Work laufen auf deinem Server, ohne
-                externen Dienst, ohne Einwilligungspflicht, ohne
+                externen Dienst, ohne AV-Vertrag mit einem Dritten, ohne
                 IP-Speicherung. Hintergründe im Artikel{" "}
                 <Link href="/blog/recaptcha-dsgvo-rechtsrisiko">
                   reCAPTCHA und die DSGVO

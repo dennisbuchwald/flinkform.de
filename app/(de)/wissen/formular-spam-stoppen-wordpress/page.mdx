@@ -22,7 +22,7 @@ Formular-Spam in WordPress lässt sich mit zwei Ansätzen stoppen: serverseitige
 | Zeit-Check (signiert) | Gut gegen Schnellfeuer-Bots | Unsichtbar | Keine externen Requests, keine Einwilligung | Kostenlos |
 | Proof-of-Work | Gut gegen Massen-Spam | Unsichtbar (rechnet im Hintergrund) | Keine externen Requests, keine Einwilligung | Kostenlos |
 | Frage / Quiz | Mittel, Antworten sind lernbar | Zusatzfeld, stört leicht | Keine externen Requests, keine Einwilligung | Kostenlos |
-| reCAPTCHA (Google) | Sehr gut | Teils Bilder-Rätsel, Hürde für Screenreader | Externe Requests an Google, Einwilligung nötig (BVwG 13.09.2024) | Kostenlos bis Kontingent, darüber kostenpflichtig |
+| reCAPTCHA (Google) | Sehr gut | Teils Bilder-Rätsel, Hürde für Screenreader | Externe Requests an Google, seit 04/2026 AV-Vertrag nötig, Übermittlung in die USA | Kostenlos bis Kontingent, darüber kostenpflichtig |
 | hCaptcha | Sehr gut | Teils Bilder-Rätsel | Externe Requests an US-Anbieter, Einwilligung empfohlen | Basis kostenlos, Enterprise kostenpflichtig |
 | Turnstile (Cloudflare) | Sehr gut | Meist unsichtbar | Externe Requests an Cloudflare (US), Einwilligung rechtlich umstritten | Kostenlos |
 | Akismet | Sehr gut | Unsichtbar | Formulardaten gehen an US-Server, AV-Vertrag nötig | Privat kostenlos, kommerziell kostenpflichtig |
@@ -42,7 +42,7 @@ Einzeln hat jede Methode Lücken. Kombiniert decken sie unterschiedliche Bot-Typ
 
 reCAPTCHA, hCaptcha, Turnstile und Akismet erkennen Spam sehr zuverlässig, das muss man ihnen lassen. Sie analysieren dafür Besucher- oder Inhaltsdaten auf fremden Servern, und genau da beginnt das Problem:
 
-- **reCAPTCHA** analysiert IP-Adresse, Browser-Eigenschaften und Verhalten und setzt ein Cookie mit Nutzer-ID. Das österreichische Bundesverwaltungsgericht hat am 13.09.2024 entschieden (W298 2274626-1/8E), dass der Einsatz ohne vorherige Einwilligung gegen die DSGVO verstößt. Die französische CNIL hat Bußgelder verhängt, an denen reCAPTCHA-Verstöße beteiligt waren. Details und Quellen: [reCAPTCHA und die DSGVO](/blog/recaptcha-dsgvo-rechtsrisiko).
+- **reCAPTCHA** analysiert IP-Adresse, Browser-Eigenschaften und Verhalten und setzt ein Cookie mit Nutzer-ID. 2024 entschied das österreichische Bundesverwaltungsgericht (W298 2274626-1/8E), dass das eine Einwilligung braucht. Seit dem 2. April 2026 ist Google bei reCAPTCHA Auftragsverarbeiter, damit ist der Einsatz einfacher geworden, bleibt aber Aufwand: AV-Vertrag, Datenschutzerklärung, Übermittlung in die USA. Einordnung und Quellen: [reCAPTCHA und die DSGVO](/blog/recaptcha-dsgvo-rechtsrisiko).
 - **hCaptcha** stammt vom US-Anbieter Intuition Machines. Auch hier gehen Requests an fremde Server, eine Einwilligung ist die sichere Variante.
 - **Turnstile** von Cloudflare ist für Besucher meist unsichtbar und kostenlos. Die Daten laufen trotzdem über einen US-Anbieter; ob das ohne Einwilligung zulässig ist, ist rechtlich umstritten.
 - **Akismet** prüft nicht den Besucher, sondern den Inhalt: Die komplette Einsendung inklusive Metadaten geht an Server von Automattic in den USA. Dafür brauchst du einen Auftragsverarbeitungsvertrag und einen Hinweis in der Datenschutzerklärung. Für kommerzielle Websites ist Akismet kostenpflichtig.

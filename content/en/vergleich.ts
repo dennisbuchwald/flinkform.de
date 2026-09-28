@@ -88,18 +88,21 @@ export const vergleich: VergleichDict = {
     columns: ["Flinkform", "Contact Form 7", "WPForms", "Gravity Forms", "SureForms"],
     rows: [
       {
-        feature: "Free version with multi-step + logic",
-        cells: [true, "extra plugins required", false, false, true],
+        feature: "Multi-step forms + conditional logic, free",
+        cells: [true, "add-on plugins only", false, "no free version", false],
       },
-      { feature: "Spam protection without a US service", cells: [true, false, false, false, false] },
+      {
+        feature: "Built-in spam protection, no external service",
+        cells: ["three layers", "no", "anti-spam token", "honeypot, needs enabling", "honeypot, needs enabling"],
+      },
       {
         feature: "No IP logging by default",
-        cells: [true, "not with Akismet", false, false, "partially"],
+        cells: [true, "stores no submissions", "Pro stores IPs, can be disabled", "stores IPs, can be disabled", true],
       },
-      { feature: "Native to the block editor", cells: [true, false, false, false, true] },
-      { feature: "Active development", cells: [true, "Feature freeze", true, true, true] },
-      { feature: "Pro price (1 site/year)", cells: ["€59", "no Pro tier", "$99", "$59", "$59"] },
+      { feature: "Forms built in the block editor", cells: [true, false, false, false, true] },
+      { feature: "New features", cells: [true, "maintenance only after 6.2", true, true, true] },
+      { feature: "Pro price (1 site/year)", cells: ["€59", "no Pro tier", "$99", "$59", "no single-site plan, $149 for 5"] },
     ],
-    note: "As of July 2026. SureForms, like Flinkform, is block-native and worth an honest look; Flinkform's edge is the privacy-first default (no reCAPTCHA/hCaptcha needed), automatic theme.json inheritance, and a frontend under 15 KB.",
+    note: "As of September 28, 2026, regular list prices and each vendor's own documentation. SureForms, like Flinkform, is block-native, also skips IP logging by default, and is worth an honest look. The difference: with Flinkform, multi-step forms and conditional logic are free.",
   },
 };

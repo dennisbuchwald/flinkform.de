@@ -67,9 +67,10 @@ function buildAnbieter(t: RechnerDict["calc"]): Anbieter[] {
       pick: ((sites, pro) => {
         // Multi-Step + erweiterte Features nur in Pro. Limits: 1/5/unbegrenzt.
         void pro;
-        if (sites <= 1) return { price: 79, currency: "USD", plan: "Pro Single" };
-        if (sites <= 5) return { price: 159, currency: "USD", plan: "Pro Agency" };
-        return { price: 299, currency: "USD", plan: "Pro Unlimited" };
+        // Stand 28.09.2026 laut fluentforms.com/pricing, siehe docs/vergleich-quellen.md
+        if (sites <= 1) return { price: 63, currency: "USD", plan: "Pro Single" };
+        if (sites <= 5) return { price: 127, currency: "USD", plan: "Pro Agency" };
+        return { price: 239, currency: "USD", plan: "Pro Unlimited" };
       }) as PlanPicker,
       note: t.vendors.fluentforms.note,
     },

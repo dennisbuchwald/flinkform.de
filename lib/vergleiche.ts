@@ -63,7 +63,7 @@ export const vergleiche: Vergleich[] = [
     competitor: "SureForms",
     title: "SureForms Alternative",
     badge: "Block vs. Block",
-    desc: "Beide block-nativ, der ehrlichste Vergleich der Serie. Der Flinkform-Vorsprung: Spam-Schutz ohne reCAPTCHA, theme.json-Vererbung und unter 15 KB Frontend-JS.",
+    desc: "Beide block-nativ, der ehrlichste Vergleich der Serie. Der Flinkform-Vorsprung: Multi-Step und bedingte Logik kostenlos, dazu dreistufiger Spam-Schutz ohne externen Dienst.",
     published: "2026-07-03",
     updated: "2026-07-03",
     related: [
@@ -77,7 +77,7 @@ export const vergleiche: Vergleich[] = [
     competitor: "Fluent Forms",
     title: "Fluent Forms Alternative",
     badge: "Preis-Check",
-    desc: "Fluent Forms bietet viel fürs Geld, sperrt Multi-Step aber hinter Pro und setzt auf US-Spam-Dienste. Flinkform kann beides kostenlos, ohne externe Dienste.",
+    desc: "Fluent Forms bietet viel fürs Geld, sperrt Multi-Step aber hinter Pro. Flinkform kann Multi-Step und bedingte Logik kostenlos, Spam-Schutz ohne externen Dienst inklusive.",
     published: "2026-07-03",
     updated: "2026-07-03",
     related: [
@@ -105,7 +105,7 @@ export const vergleiche: Vergleich[] = [
     competitor: "Forminator",
     title: "Forminator Alternative",
     badge: "Leichtgewicht-Check",
-    desc: "Forminator hat eine großzügige Free-Version, speichert aber ab Werk IP-Adressen und lädt schwere Assets. Flinkform bleibt unter 15 KB und speichert keine IPs.",
+    desc: "Forminator hat eine großzügige Free-Version, speichert aber ab Werk IP-Adressen. Flinkform speichert keine und schützt ab Werk dreistufig vor Spam, ohne externen Dienst.",
     published: "2026-07-03",
     updated: "2026-07-03",
     related: [

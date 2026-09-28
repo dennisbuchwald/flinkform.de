@@ -6,14 +6,14 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Fluent Forms Alternative auf Deutsch: Flinkform im ehrlichen Vergleich",
   description:
-    "Fluent Forms bietet viel fürs Geld, sperrt aber Multi-Step hinter Pro und setzt auf US-Spam-Dienste. Flinkform: Multi-Step und bedingte Logik kostenlos, Spam-Schutz ohne externe Dienste, keine IP-Speicherung.",
+    "Fluent Forms bietet viel fürs Geld, sperrt aber Multi-Step hinter Pro. Flinkform: Multi-Step und bedingte Logik kostenlos, mehrstufiger Spam-Schutz ohne externe Dienste, keine IP-Speicherung.",
   alternates: { canonical: `${SITE_URL}/vergleich/fluent-forms-alternative` },
 };
 
 const tldrRows = [
   {
     feature: "Multi-Step-Formulare",
-    cells: ["kostenlos", "nur Pro (regulär ab 79 $/Jahr)"],
+    cells: ["kostenlos", "nur Pro (ab 63 $/Jahr)"],
   },
   { feature: "Bedingte Logik", cells: ["kostenlos", "kostenlos"] },
   {
@@ -34,7 +34,7 @@ const tldrRows = [
   },
   {
     feature: "Regulärer Einstiegspreis Pro",
-    cells: ["59 €/Jahr (1 Website)", "79 $/Jahr (1 Website)"],
+    cells: ["59 €/Jahr (1 Website)", "63 $/Jahr (1 Website)"],
   },
   {
     feature: "Sitz / Datenverständnis",
@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     q: "Ist Fluent Forms schlecht?",
-    a: "Nein, im Gegenteil: Fluent Forms gehört zu den fairsten Angeboten am Markt. Die kostenlose Version kann bedingte Logik, Conversational Forms und Entry-Export, alle Bezahl-Tarife enthalten alle Features. Die Schwachpunkte liegen woanders: Multi-Step ist Pro-only, der Spam-Schutz hängt an US-Diensten wie reCAPTCHA, und die Formulare entstehen in einem eigenen Builder statt im Block-Editor.",
+    a: "Nein, im Gegenteil: Fluent Forms gehört zu den fairsten Angeboten am Markt. Die kostenlose Version kann bedingte Logik, Conversational Forms und Entry-Export, alle Bezahl-Tarife enthalten alle Features. Die Schwachpunkte liegen woanders: Multi-Step ist Pro-only, für mehr Spam-Schutz als den Honeypot brauchst du einen externen Dienst wie reCAPTCHA, und die Formulare entstehen in einem eigenen Builder statt im Block-Editor.",
   },
   {
     q: "Hat Flinkform so viele Feldtypen wie Fluent Forms?",
@@ -71,10 +71,10 @@ export default function Page() {
       slug="fluent-forms-alternative"
       competitor="Fluent Forms"
       h1="Fluent Forms Alternative: Block-nativ und DSGVO-sauber"
-      answerFirst="Flinkform ist eine Fluent-Forms-Alternative aus Deutschland: Multi-Step-Formulare und bedingte Logik sind im kostenlosen Plugin enthalten, der Spam-Schutz läuft ohne reCAPTCHA oder andere US-Dienste, und es werden keine IP-Adressen gespeichert. Fluent Forms bietet viel fürs Geld, sperrt Multi-Step aber hinter der Pro-Version (regulär ab 79 Dollar pro Jahr) und setzt beim Spam-Schutz auf reCAPTCHA, hCaptcha oder Turnstile. Dazu baut Flinkform Formulare direkt im WordPress-Block-Editor statt in einem eigenen Builder."
+      answerFirst="Flinkform ist eine Fluent-Forms-Alternative aus Deutschland: Multi-Step-Formulare und bedingte Logik sind im kostenlosen Plugin enthalten, der Spam-Schutz kommt ohne externen Dienst aus, und es werden keine IP-Adressen gespeichert. Fluent Forms bietet viel fürs Geld, sperrt Multi-Step aber hinter der Pro-Version (ab 63 Dollar pro Jahr) und bietet für stärkeren Spam-Schutz als den Honeypot reCAPTCHA, hCaptcha oder Turnstile an. Dazu baut Flinkform Formulare direkt im WordPress-Block-Editor statt in einem eigenen Builder."
       tldrColumns={["Flinkform", "Fluent Forms"]}
       tldrRows={tldrRows}
-      tldrNote="Stand Juli 2026, reguläre Listenpreise laut fluentforms.com/pricing (Renewal-Preise, nicht die Erstjahres-Rabatte von bis zu 30 %)."
+      tldrNote="Stand 28. September 2026, Listenpreise laut fluentforms.com/pricing."
       sections={[
         {
           heading: "Was Fluent Forms gut macht",
@@ -133,28 +133,27 @@ export default function Page() {
           ),
         },
         {
-          heading: "Spam-Schutz: US-Dienste gegen lokale Prüfung",
+          heading: "Spam-Schutz: Honeypot plus Dienst, oder alles lokal",
           body: (
             <>
               <p>
-                Für den Spam-Schutz bindet Fluent Forms externe Dienste an:
-                Google reCAPTCHA, hCaptcha oder Cloudflare Turnstile,
-                ergänzt um Honeypot und optionale Anbindungen wie Akismet.
-                Alle drei CAPTCHA-Dienste sind US-Dienste, die Besucherdaten
-                verarbeiten. Das österreichische Bundesverwaltungsgericht
-                hat am 13.09.2024 entschieden, dass reCAPTCHA ohne vorherige
-                Einwilligung DSGVO-widrig ist, und die französische CNIL hat
-                2023 in zwei Fällen Bußgelder verhängt, in denen reCAPTCHA
-                eine Rolle spielte. Ein Nutzer-Review kritisiert zudem, dass
-                das reCAPTCHA-Badge bei Fluent Forms seitenweit eingeblendet
-                wird.
+                Fluent Forms bringt einen Honeypot mit, den du in den
+                globalen Einstellungen einschaltest. Der fängt einfache Bots.
+                Laut Fluent Forms selbst hilft er aber nicht gegen Spam, der
+                von Hand abgeschickt wird, und dafür empfiehlt der Hersteller
+                Google reCAPTCHA. Alternativ gibt es hCaptcha, Cloudflare
+                Turnstile oder Akismet, alles externe Dienste. Seit April
+                2026 arbeitet Google bei reCAPTCHA als Auftragsverarbeiter.
+                Das ist einfacher als vorher, bleibt aber Aufwand:
+                AV-Vertrag, Eintrag in der Datenschutzerklärung, Übermittlung
+                in die USA.
               </p>
               <p>
                 Flinkform braucht keinen dieser Dienste: Honeypot,
                 signierter Zeit-Check und Proof-of-Work laufen komplett auf
                 deinem Server, mit Mathe-Fallback für Besucher ohne
                 JavaScript. Kein API-Key, kein externer Request, kein
-                Eintrag in der Datenschutzerklärung. Hintergründe:{" "}
+                Drittanbieter in der Datenschutzerklärung. Hintergründe:{" "}
                 <Link href="/blog/recaptcha-dsgvo-rechtsrisiko">
                   reCAPTCHA und die DSGVO
                 </Link>{" "}
@@ -273,12 +272,14 @@ export default function Page() {
               Fluent Forms ist ein faires, funktionsreiches Produkt und
               einer der besten eigenständigen Builder am Markt. Wer aber ein
               Formular sucht, das Multi-Step und bedingte Logik kostenlos
-              mitbringt, direkt im Block-Editor entsteht und ohne
-              US-Spam-Dienste und IP-Speicherung auskommt, bekommt mit
-              Flinkform das konsequentere Werkzeug für den DACH-Raum. Und wenn
-              es später Zahlungen oder Webhooks braucht, ist{" "}
-              <Link href="/pro">Flinkform Pro</Link> mit 59 € im Jahr sogar
-              günstiger als der Einstieg bei Fluent Forms. Weitere
+              mitbringt, direkt im Block-Editor entsteht und ohne externe
+              Spam-Dienste und IP-Speicherung auskommt, bekommt mit
+              Flinkform das konsequentere Werkzeug für den DACH-Raum. Ehrlich
+              gerechnet: Brauchst du Multi-Step und Zahlungen zusammen, zahlst
+              du bei beiden etwa gleich viel. Bei Fluent Forms sind Stripe und
+              bedingte Logik kostenlos und Multi-Step kostet, bei Flinkform ist
+              es umgekehrt, dort kostet{" "}
+              <Link href="/pro">Flinkform Pro</Link> 59 € im Jahr. Weitere
               Vergleiche findest du in der{" "}
               <Link href="/vergleich">Vergleichsübersicht</Link>.
             </p>

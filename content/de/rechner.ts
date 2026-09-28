@@ -42,7 +42,7 @@ export const rechner = {
         note: "Keine kostenlose Version, jede Website braucht eine Lizenz.",
       },
       fluentforms: {
-        note: "Free-Version solide, Multi-Step und Zahlungen stecken in Pro.",
+        note: "Free-Version solide, mit bedingter Logik und Stripe. Multi-Step steckt in Pro.",
       },
     },
   },

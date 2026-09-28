@@ -42,7 +42,7 @@ export const rechner: RechnerDict = {
         note: "No free tier - every website needs a license.",
       },
       fluentforms: {
-        note: "The free version is solid; multi-step forms and payments live in Pro.",
+        note: "The free version is solid, with conditional logic and Stripe. Multi-step forms live in Pro.",
       },
     },
   },

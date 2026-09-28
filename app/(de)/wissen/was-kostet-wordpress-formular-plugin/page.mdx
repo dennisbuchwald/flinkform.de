@@ -4,7 +4,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata = {
   title: "Was kostet ein WordPress-Formular-Plugin? Der Preisvergleich 2026",
   description:
-    "Alle Preise der großen WordPress-Formular-Plugins im Überblick (Stand Juli 2026): von 0 Euro bis 599 USD pro Jahr. Plus versteckte Kosten: Renewal-Preise, Transaktionsgebühren, Add-on-Modelle.",
+    "Alle Preise der großen WordPress-Formular-Plugins im Überblick (Stand September 2026): von 0 Euro bis 599 USD pro Jahr. Plus versteckte Kosten: Renewal-Preise, Transaktionsgebühren, Add-on-Modelle.",
   alternates: { canonical: `${SITE_URL}/wissen/was-kostet-wordpress-formular-plugin` },
 };
 
@@ -12,9 +12,9 @@ export default function Layout({ children }) {
   return <WissenArticle slug="was-kostet-wordpress-formular-plugin">{children}</WissenArticle>;
 }
 
-Ein WordPress-Formular-Plugin kostet zwischen 0 Euro und rund 599 US-Dollar pro Jahr (Stand Juli 2026). Kostenlose Plugins wie Contact Form 7 oder Flinkform decken Kontaktformulare vollständig ab; Bezahlversionen beginnen bei 59 bis 99 Euro beziehungsweise Dollar pro Jahr und skalieren über die Anzahl der Websites oder den Funktionsumfang. Entscheidend ist nicht der beworbene Preis, sondern der reguläre Renewal-Preis: Viele Anbieter zeigen Erstjahres-Rabatte von 40 bis 50 Prozent, die Verlängerung kostet dann das Doppelte.
+Ein WordPress-Formular-Plugin kostet zwischen 0 Euro und rund 599 US-Dollar pro Jahr (Stand September 2026). Kostenlose Plugins wie Contact Form 7 oder Flinkform decken Kontaktformulare vollständig ab; Bezahlversionen beginnen bei 59 bis 99 Euro beziehungsweise Dollar pro Jahr und skalieren über die Anzahl der Websites oder den Funktionsumfang. Entscheidend ist nicht der beworbene Preis, sondern der reguläre Renewal-Preis: Viele Anbieter zeigen Erstjahres-Rabatte von 40 bis 50 Prozent, die Verlängerung kostet dann das Doppelte.
 
-## Die große Preistabelle (Stand Juli 2026)
+## Die große Preistabelle (Stand September 2026)
 
 Alle Angaben sind reguläre Listenpreise pro Jahr, keine Erstjahres-Rabatte. Plugin-Preise gelten pro Lizenz (mit Site-Limits), SaaS-Dienste rechnen pro Monat und Antwortvolumen ab.
 
@@ -24,12 +24,12 @@ Alle Angaben sind reguläre Listenpreise pro Jahr, keine Erstjahres-Rabatte. Plu
 | Contact Form 7 | Ja, komplett kostenlos | Keine | Kostenlos, aber im Feature Freeze |
 | WPForms | Ja (Lite) | 99 / 199 / 399 / 599 $ | Feature-Treppe, 3 % Transaktionsgebühr unterhalb des Pro-Plans |
 | Gravity Forms | Nein | 59 / 159 / 259 $ | Nur bezahlt, Add-ons je nach Stufe |
-| Fluent Forms | Ja, mit bedingter Logik | 79 / 159 / 299 $ (1 / 5 / unbegrenzte Sites) | Alle Features in jedem Plan, Multi-Step nur Pro |
+| Fluent Forms | Ja, mit bedingter Logik und Stripe | 63 / 127 / 239 $ (1 / 5 / unbegrenzte Sites) | Alle Features in jedem Plan, Multi-Step nur Pro |
 | Ninja Forms | Ja, ohne Add-ons | 99 / 199 / 499 $ | Add-on-Modell, bedingte Logik nur bezahlt |
-| Formidable Forms | Ja (Lite, ohne bedingte Logik) | 79 / 199 / 399 / 599 $ | Feature-Treppe, beworbene Preise sind Erstjahres-Rabatte von 50 % |
-| Forminator | Ja, sehr großzügig (inkl. Stripe/PayPal) | 60 / 100 / 200 $ (1 / 3 / 10 Sites) | Alle Features in jedem Plan |
-| SureForms | Ja, block-nativ | Solo: 69 $ regulär (Erstjahr 59 $), 1 Site | Alle Features in jedem Plan |
-| Elementor Pro (Forms) | Nein, Formulare nur in Pro | ab 59 $ (Essential speichert keine Einsendungen) | An Elementor gebunden, kein eigenständiges Plugin |
+| Formidable Forms | Ja (Lite, ohne mehrseitige Formulare) | 79 / 199 / 399 / 599 $ | Feature-Treppe, beworbene Preise sind Erstjahres-Rabatte von 50 % |
+| Forminator | Ja, sehr großzügig (inkl. Multi-Step, bedingter Logik, Stripe/PayPal) | Pro nur mit WPMU-DEV-Mitgliedschaft | Pro ist Teil eines Plugin-Bundles |
+| SureForms | Ja, block-nativ | 149 / 229 $ (5 / 100 Sites), kein Einzel-Website-Plan | Alle Features in jedem Plan |
+| Elementor Pro (Forms) | Nein, Formulare nur in Pro | ab 59 $ (Essential speichert für Neukunden keine Einsendungen) | An Elementor gebunden, kein eigenständiges Plugin |
 | Typeform (SaaS) | Ja, 100 Antworten/Monat | ab 28 $ pro Monat (jährliche Abrechnung) | Monatsabo, Limits über Antwortvolumen |
 | Jotform (SaaS) | Ja, 5 Formulare, 100 Einsendungen/Monat | ab 34 $ pro Monat (jährliche Abrechnung) | Monatsabo, Limits über Einsendungen und Speicher |
 
@@ -49,22 +49,26 @@ Der Sticker-Preis ist selten der echte Preis. Vier Muster tauchen immer wieder a
 
 ## Rechenbeispiel: Agentur mit 10 Kundensites
 
-Für Agenturen entscheidet der Preis pro Website. Reguläre Jahrespreise für 10 Sites (Stand Juli 2026):
+Für Agenturen entscheidet der Preis pro Website. Reguläre Jahrespreise für 10 Sites (Stand 28. September 2026):
 
 | Lösung | Benötigter Plan | Pro Jahr | Pro Website |
 | --- | --- | --- | --- |
 | Flinkform Pro | Agency (bis 25 Sites) | 149 € | rund 15 € (unter 6 € bei vollen 25 Sites) |
 | Ninja Forms | Pro (20 Sites) | 199 $ | rund 20 $ |
-| Forminator | Pro Plus (10 Sites) | 200 $ | 20 $ |
-| Fluent Forms | Unlimited (Agency deckt nur 5 Sites) | 299 $ | rund 30 $ |
+| SureForms | Agency (Team deckt nur 5 Sites) | 229 $ | rund 23 $ |
+| Fluent Forms | Unlimited (Agency deckt nur 5 Sites) | 239 $ | rund 24 $ |
+| Gravity Forms | Elite (Pro deckt nur 3 Sites) | 259 $ | rund 26 $ |
 | Formidable Forms | Elite (Business deckt nur 7 Sites) | 599 $ | rund 60 $ |
+| WPForms | Elite (Pro deckt nur 5 Sites) | 599 $ | rund 60 $ |
 | Jotform Silver (SaaS) | 1 Account, 50 Formulare | 468 $ | rund 47 $ |
+
+Forminator fehlt bewusst: Die Pro-Version gibt es nur als Teil einer WPMU-DEV-Mitgliedschaft, eine vergleichbare Lizenz für 10 Websites nennt der Anbieter nicht.
 
 Dazu kommt bei den meisten Plugins: Der günstige Erstjahres-Preis gilt nur einmal, ab Jahr zwei zahlst du den vollen Satz. Bei Flinkform gibt es keine Streichpreise, der [Preis auf der Pro-Seite](/pro) ist der Preis, den du auch bei der Verlängerung zahlst. Zum Launch gibt es zusätzlich eine Lifetime-Lizenz für einmalig 399 € (bis 25 Sites).
 
 ## Wann kostenlos völlig reicht
 
-Ehrliche Einordnung: Für ein Kontaktformular mit Name, E-Mail und Nachricht brauchst du kein Bezahl-Plugin. Contact Form 7 erledigt das seit Jahren kostenlos, auch wenn es sich inzwischen im [Feature Freeze](/blog/contact-form-7-feature-freeze) befindet. Auch Forminator bietet in der Free-Version auffällig viel, inklusive Stripe- und PayPal-Zahlungen. Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. Genau diese beiden Features (Multi-Step und bedingte Logik) kosten bei WPForms, Ninja Forms und Fluent Forms Geld.
+Ehrliche Einordnung: Für ein Kontaktformular mit Name, E-Mail und Nachricht brauchst du kein Bezahl-Plugin. Contact Form 7 erledigt das seit Jahren kostenlos, auch wenn es sich inzwischen im [Feature Freeze](/blog/contact-form-7-feature-freeze) befindet. Auch Forminator bietet in der Free-Version auffällig viel, inklusive Stripe- und PayPal-Zahlungen. Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. Genau diese beiden Features (Multi-Step und bedingte Logik) kosten bei WPForms und Ninja Forms Geld, bei Fluent Forms zumindest Multi-Step.
 
 Bezahlen lohnt sich erst, wenn du Zahlungen, Datei-Uploads, Berechnungen, SMTP oder Webhooks brauchst, oder wenn du als Agentur viele Sites mit einer Lizenz abdecken willst. Welche Free-Version zu welchem Anwendungsfall passt, zeigt der Artikel zu den [besten WordPress-Formular-Plugins 2026](/blog/beste-wordpress-formular-plugins-2026).
 
@@ -72,7 +76,7 @@ Bezahlen lohnt sich erst, wenn du Zahlungen, Datei-Uploads, Berechnungen, SMTP o
 
 ### Was kostet ein WordPress-Formular-Plugin im Durchschnitt?
 
-Bezahlversionen kosten regulär 59 bis 599 US-Dollar beziehungsweise Euro pro Jahr (Stand Juli 2026). Der Einstieg für eine einzelne Website liegt bei den meisten Anbietern zwischen 59 und 99 pro Jahr. Kostenlose Versionen gibt es von fast allen Anbietern, mit sehr unterschiedlichem Funktionsumfang.
+Bezahlversionen kosten regulär 59 bis 599 US-Dollar beziehungsweise Euro pro Jahr (Stand September 2026). Der Einstieg für eine einzelne Website liegt bei den meisten Anbietern zwischen 59 und 99 pro Jahr. Kostenlose Versionen gibt es von fast allen Anbietern, mit sehr unterschiedlichem Funktionsumfang.
 
 ### Reicht ein kostenloses Formular-Plugin?
 

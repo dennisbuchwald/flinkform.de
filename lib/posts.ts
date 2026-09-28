@@ -18,6 +18,7 @@ export const posts: Post[] = [
     description:
       "Welche Daten WordPress-Formulare an US-Dienste senden, wie du es in 3 Minuten selbst prüfst, was die Rechtslage 2026 wirklich sagt (TDDDG, DSGVO, Data Privacy Framework) und die drei sauberen Auswege.",
     date: "2026-07-03",
+    updated: "2026-09-28",
     tag: "DSGVO",
     readingMinutes: 12,
   },
@@ -28,6 +29,7 @@ export const posts: Post[] = [
     description:
       "Neun Formular-Plugins im ehrlichen Vergleich: Flinkform, Contact Form 7, WPForms, Gravity Forms, Fluent Forms, SureForms, Ninja Forms, Forminator und Formidable. Mit klarer Empfehlung pro Anwendungsfall.",
     date: "2026-07-03",
+    updated: "2026-09-28",
     tag: "WordPress",
     readingMinutes: 10,
   },
@@ -51,11 +53,11 @@ export const posts: Post[] = [
   },
   {
     slug: "recaptcha-dsgvo-rechtsrisiko",
-    title:
-      "reCAPTCHA und die DSGVO: Warum dein Kontaktformular ein Rechtsrisiko ist",
+    title: "reCAPTCHA und die DSGVO: Was seit April 2026 gilt",
     description:
-      "BVwG-Urteil, zwei CNIL-Bußgelder, klare Worte vom BayLDA: Google reCAPTCHA ohne Einwilligung ist rechtswidrig. Was das für WordPress-Formulare bedeutet und wie Spam-Schutz ohne US-Dienst funktioniert.",
+      "Seit dem 02.04.2026 ist Google bei reCAPTCHA Auftragsverarbeiter. Was sich geändert hat, was vom BVwG-Urteil 2024 und den CNIL-Bußgeldern bleibt und welcher Aufwand übrig ist, mit Quellen.",
     date: "2026-07-03",
+    updated: "2026-09-28",
     tag: "DSGVO",
     readingMinutes: 8,
   },
@@ -66,6 +68,7 @@ export const posts: Post[] = [
     description:
       "Version 6.2 ist die letzte mit neuen Funktionen. Was der Wartungsmodus für über 10 Millionen Websites bedeutet, welche Optionen es gibt und wann ein Wechsel sinnvoll ist.",
     date: "2026-07-03",
+    updated: "2026-09-28",
     tag: "WordPress",
     readingMinutes: 6,
   },

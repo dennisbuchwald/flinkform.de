@@ -129,11 +129,11 @@ export const home: HomeDict = {
       },
       {
         feature: "New features",
-        cells: [true, "maintenance only since 6.2", true, true, true],
+        cells: [true, "maintenance only after 6.2 (announced)", true, true, true],
       },
       {
         feature: "Pro version price (1 site)",
-        cells: ["€59/yr", "no Pro tier", "$99/yr", "$59/yr", "$59/yr"],
+        cells: ["€59/yr", "no Pro tier", "$99/yr", "$59/yr", "no single-site plan, $149 for 5"],
       },
     ],
     note: "As of September 28, 2026. Regular list prices and each vendor's own documentation. According to its author, Contact Form 7 doesn't store submissions and has no multi-step forms or conditional logic, each of which needs a separate add-on.",

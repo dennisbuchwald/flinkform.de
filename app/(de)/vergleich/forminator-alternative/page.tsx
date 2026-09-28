@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Forminator Alternative: Flinkform im ehrlichen Vergleich",
   description:
-    "Forminator hat eine großzügige Free-Version, speichert aber ab Werk IP-Adressen und lädt rund 129 KB Assets. Flinkform: Multi-Step, bedingte Logik, Spam-Schutz ohne US-Dienste, unter 15 KB JS.",
+    "Forminator hat eine großzügige Free-Version, speichert aber ab Werk IP-Adressen. Flinkform: Multi-Step, bedingte Logik und Spam-Schutz ohne externen Dienst, kostenlos und ohne IP-Speicherung.",
   alternates: { canonical: `${SITE_URL}/vergleich/forminator-alternative` },
 };
 
@@ -33,10 +33,6 @@ const tldrRows = [
   },
   { feature: "Quizze & Umfragen", cells: [false, true] },
   {
-    feature: "Pro-Updates ohne Extra-Plugin",
-    cells: [true, "braucht WPMU DEV Dashboard"],
-  },
-  {
     feature: "Sitz / Datenverständnis",
     cells: ["Deutschland, DSGVO by design", "USA (Incsub / WPMU DEV)"],
   },
@@ -45,19 +41,19 @@ const tldrRows = [
 const faqs = [
   {
     q: "Ist Forminator wirklich kostenlos?",
-    a: "Die Free-Version ist eine der großzügigsten am Markt: Conditional Logic, Multi-Step, Datei-Uploads, Stripe- und PayPal-Zahlungen, Quizze und Umfragen kosten nichts. Bezahlt wird für E-Signatur, Stripe-Abos, PDF-Generierung und Geolocation. Forminator Pro kostet regulär 60 bis 200 Dollar pro Jahr, je nach Anzahl der Websites.",
+    a: "Die Free-Version ist eine der großzügigsten am Markt: Conditional Logic, Multi-Step, Datei-Uploads, Stripe- und PayPal-Zahlungen, Quizze und Umfragen kosten nichts. Bezahlt wird für E-Signatur, Stripe-Abos, PDF-Generierung und Geolocation. Forminator Pro gibt es nur als Teil einer WPMU-DEV-Mitgliedschaft, nicht als einzelne Lizenz.",
   },
   {
     q: "Speichert Forminator IP-Adressen?",
-    a: "Ja, standardmäßig wird die IP-Adresse jeder Einsendung gespeichert, die Standard-Aufbewahrung liegt bei 12 Monaten. Beides lässt sich in den Privacy-Einstellungen ändern, aber du musst aktiv eingreifen. Flinkform speichert grundsätzlich keine IP-Adressen und keine User-Agents, ohne Konfiguration.",
+    a: "Ja, standardmäßig wird die IP-Adresse jeder Einsendung gespeichert. Das lässt sich in den Privacy-Einstellungen ändern, aber du musst aktiv eingreifen. Flinkform speichert grundsätzlich keine IP-Adressen und keine User-Agents, ohne Konfiguration.",
   },
   {
     q: "Ist Forminator DSGVO-konform nutzbar?",
-    a: "Mit Nacharbeit ja: IP-Speicherung abschalten, Aufbewahrungsfristen setzen und beim Spam-Schutz beachten, dass reCAPTCHA, hCaptcha und Turnstile US-Dienste sind, die Besucherdaten verarbeiten. Das österreichische Bundesverwaltungsgericht hat am 13.09.2024 entschieden, dass reCAPTCHA ohne vorherige Einwilligung DSGVO-widrig ist. Flinkform braucht keinen dieser Dienste.",
+    a: "Mit Nacharbeit ja: IP-Speicherung abschalten, Aufbewahrungsfristen setzen und beim Spam-Schutz entscheiden. Den eingebauten Honeypot schaltest du pro Formular ein, für mehr Schutz kommen reCAPTCHA, hCaptcha oder Turnstile dazu. Seit April 2026 ist Google bei reCAPTCHA Auftragsverarbeiter, das heißt AV-Vertrag, Eintrag in der Datenschutzerklärung und Übermittlung in die USA. Flinkform braucht keinen dieser Dienste.",
   },
   {
-    q: "Warum ist Forminator so schwer?",
-    a: "Forminator lädt auf Formular-Seiten laut unabhängigen Messungen rund 47 KB CSS und 82 KB JavaScript, weil der Funktionsumfang (Zahlungen, Quizze, Umfragen, Berechnungen) mitgeliefert wird. Flinkform kommt mit unter 15 KB Frontend-JS aus und lädt Assets nur auf Seiten, die tatsächlich ein Formular enthalten.",
+    q: "Forminator ist doch kostenlos. Warum dann Flinkform?",
+    a: "Weil kostenlos nicht der Unterschied ist, das sind beide. Der Unterschied liegt im Standard: Forminator speichert ab Werk IP-Adressen, und den Honeypot schaltest du pro Formular selbst ein. Flinkform speichert keine IP-Adressen und schützt ab Werk dreistufig, mit Honeypot, signiertem Zeit-Check und Proof-of-Work. Dazu entsteht das Formular im Block-Editor statt in einem eigenen Builder.",
   },
   {
     q: "Kann Flinkform Quizze und Umfragen wie Forminator?",
@@ -71,10 +67,10 @@ export default function Page() {
       slug="forminator-alternative"
       competitor="Forminator"
       h1="Forminator Alternative: Leichtgewicht statt Feature-Paket"
-      answerFirst="Flinkform ist eine leichtgewichtige, DSGVO-freundliche Forminator-Alternative aus Deutschland: Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos und mit unter 15 KB Frontend-JS. Forminator hat eine sehr großzügige Free-Version, speichert aber ab Werk IP-Adressen, setzt beim Spam-Schutz auf US-Dienste wie reCAPTCHA und lädt auf Formular-Seiten rund 129 KB Assets. Wer schlanke Kontakt- und Anfrage-Formulare ohne Datenschutz-Nacharbeit will, ist mit Flinkform schneller am Ziel."
+      answerFirst="Flinkform ist eine DSGVO-freundliche Forminator-Alternative aus Deutschland: Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos und mit unter 15 KB Frontend-JS. Forminator hat eine sehr großzügige Free-Version, speichert aber ab Werk IP-Adressen, und den eingebauten Honeypot musst du pro Formular einschalten. Für mehr Schutz bietet Forminator reCAPTCHA, hCaptcha oder Turnstile an. Wer schlanke Kontakt- und Anfrage-Formulare ohne Datenschutz-Nacharbeit will, ist mit Flinkform schneller am Ziel."
       tldrColumns={["Flinkform", "Forminator"]}
       tldrRows={tldrRows}
-      tldrNote="Stand Juli 2026. Forminator-Pro-Preise regulär 60 bis 200 $/Jahr laut wpmudev.com (die aktuelle 40-Prozent-Aktion ist ein Rabatt, kein Normalpreis). Asset-Größen laut unabhängiger Messung (wpmagnetar.com)."
+      tldrNote="Stand 28. September 2026. Forminator Pro gibt es nur als Teil einer WPMU-DEV-Mitgliedschaft, eine Einzellizenz bietet der Anbieter nicht an."
       sections={[
         {
           heading: "Was Forminator gut macht",
@@ -104,19 +100,18 @@ export default function Page() {
             <>
               <p>
                 Forminator speichert standardmäßig die IP-Adresse jeder
-                Einsendung, mit einer Standard-Aufbewahrung von 12 Monaten.
-                Beides lässt sich abschalten bzw. verkürzen, aber du musst
-                es wissen und aktiv tun, auf jeder Website neu. Beim
-                Spam-Schutz bietet Forminator reCAPTCHA, hCaptcha,
-                Cloudflare Turnstile und Akismet an, alles Dienste, die
-                Besucherdaten an US-Anbieter übertragen. Das österreichische
-                Bundesverwaltungsgericht hat am 13.09.2024 entschieden, dass
-                reCAPTCHA ohne vorherige Einwilligung DSGVO-widrig ist, und
-                die französische CNIL hat den reCAPTCHA-Einsatz ohne
-                Einwilligung bereits mehrfach mitsanktioniert. Mehr dazu:{" "}
+                Einsendung. Das lässt sich in den Privacy-Einstellungen
+                abschalten, aber du musst es wissen und aktiv tun, auf jeder
+                Website neu. Beim Spam-Schutz bringt Forminator einen
+                Honeypot mit, den du pro Formular einschaltest. Für mehr
+                Schutz bietet es reCAPTCHA, hCaptcha, Cloudflare Turnstile
+                und Akismet an, alles externe Dienste von US-Anbietern. Seit
+                April 2026 arbeitet Google bei reCAPTCHA als
+                Auftragsverarbeiter. Das ist einfacher als früher, bleibt
+                aber Aufwand: AV-Vertrag, Eintrag in der
+                Datenschutzerklärung, Übermittlung in die USA. Mehr dazu:{" "}
                 <Link href="/blog/recaptcha-dsgvo-rechtsrisiko">
-                  reCAPTCHA und die DSGVO: Warum dein Kontaktformular ein
-                  Rechtsrisiko ist
+                  reCAPTCHA und die DSGVO
                 </Link>
                 .
               </p>
@@ -138,16 +133,16 @@ export default function Page() {
           ),
         },
         {
-          heading: "Gewicht: 129 KB gegen unter 15 KB",
+          heading: "Umfang: Taschenmesser gegen Spezialwerkzeug",
           body: (
             <>
               <p>
-                Der große Funktionsumfang wird mitgeliefert, auch wenn du
-                nur ein Kontaktformular brauchst: Forminator lädt auf
-                Formular-Seiten laut unabhängiger Messung rund 47 KB CSS und
-                82 KB JavaScript. Dazu kommt, dass die Vorschau im Builder
-                ein separater Schritt ist, du siehst beim Bauen nicht live,
-                wie das Formular in deinem Theme aussieht.
+                Forminator ist mehr als ein Formular-Plugin: Quizze,
+                Umfragen, Polls und Zahlungen stecken schon in der
+                kostenlosen Version. Wer das braucht, bekommt sehr viel. Wer
+                nur ein Kontakt- oder Anfrageformular will, baut es trotzdem
+                in einem eigenen Builder außerhalb des Block-Editors, und die
+                Vorschau ist dort ein eigener Schritt.
               </p>
               <p>
                 Flinkform ist als{" "}
@@ -159,9 +154,8 @@ export default function Page() {
                 Theme-Design. Im Frontend nutzt es die WordPress
                 Interactivity API, kein jQuery, unter 15 KB JavaScript, und
                 Assets werden nur auf Seiten geladen, die tatsächlich ein
-                Formular enthalten. Farben, Schrift und Eckenradius erbt es
-                automatisch über theme.json, statt eigene Styles
-                mitzubringen.
+                Formular enthalten. Farben, Schrift und Eckenradius übernimmt
+                es automatisch aus der theme.json deines Themes.
               </p>
             </>
           ),
@@ -241,11 +235,12 @@ export default function Page() {
           body: (
             <p>
               Forminator ist das Schweizer Taschenmesser unter den
-              Formular-Plugins: extrem viel kostenlos, aber schwer, mit
-              IP-Speicherung ab Werk und Spam-Schutz über US-Dienste. Wenn
+              Formular-Plugins: extrem viel kostenlos, dafür mit
+              IP-Speicherung ab Werk und einem Honeypot, den du selbst
+              einschalten musst. Wenn
               du Quizze, Umfragen oder kostenlose Zahlungen brauchst, bleib
               dabei. Wenn du Kontakt-, Anfrage- oder Multi-Step-Formulare
-              willst, die schnell laden, dein Theme-Design erben und ohne
+              willst, die dein Theme-Design übernehmen und ohne
               Datenschutz-Nacharbeit auskommen, ist Flinkform die schlankere
               Wahl: kostenlos, unter 15 KB Frontend-JS, Spam-Schutz ohne
               externe Dienste (wie das funktioniert, steht unter{" "}

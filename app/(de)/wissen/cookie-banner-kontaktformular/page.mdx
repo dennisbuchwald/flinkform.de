@@ -21,7 +21,7 @@ Die Regel ist einfach: Einwilligung ist nötig, wenn auf dem Gerät des Besucher
 Für Formulare heißt das konkret:
 
 - **Keine Einwilligung nötig:** Das Formular verarbeitet die eingegebenen Daten, um die Anfrage zu beantworten. Rechtsgrundlage ist die Vertragsanbahnung oder das berechtigte Interesse, nicht die Einwilligung.
-- **Einwilligung nötig:** Das Formular bettet einen Drittdienst ein, der Besucher trackt oder Cookies zu eigenen Zwecken setzt. Das Bundesverwaltungsgericht in Österreich hat am 13.09.2024 entschieden (W298 2274626-1/8E), dass Google reCAPTCHA ohne vorherige Einwilligung gegen die DSGVO verstößt. Die französische CNIL hat 2023 in zwei Fällen Bußgelder verhängt, an denen reCAPTCHA-Einsatz ohne Einwilligung beteiligt war (Cityscoot und NS Cards France). Alle Details stehen im Artikel [reCAPTCHA und die DSGVO](/blog/recaptcha-dsgvo-rechtsrisiko).
+- **Einwilligung nötig:** Das Formular bettet einen Drittdienst ein, der Besucher trackt oder Cookies zu eigenen Zwecken setzt. Bei Google reCAPTCHA ist das der klassische Fall: Das Bundesverwaltungsgericht in Österreich entschied 2024 (W298 2274626-1/8E), dass reCAPTCHA eine Einwilligung braucht, die französische CNIL hatte 2023 in zwei Fällen Bußgelder verhängt (Cityscoot und NS Cards France). Seit April 2026 ist Google bei reCAPTCHA Auftragsverarbeiter. Das ändert die DSGVO-Seite. Ob das Cookie `_GRECAPTCHA` als unbedingt erforderlich gilt und damit ohne Einwilligung gesetzt werden darf, ist damit nicht entschieden. Alle Details stehen im Artikel [reCAPTCHA und die DSGVO](/blog/recaptcha-dsgvo-rechtsrisiko).
 
 ## Was sind technisch notwendige Cookies?
 
@@ -36,7 +36,7 @@ Nicht technisch notwendig sind dagegen Cookies für Analytics, Werbung, A/B-Test
 | Formularfelder (Name, E-Mail, Nachricht) | Nein |
 | Session-Cookie für Fehlermeldungen (kurzlebig, httpOnly) | Nein, technisch notwendig |
 | CSRF-Token / Nonce | Nein, technisch notwendig |
-| Google reCAPTCHA | Ja (BVwG, 13.09.2024) |
+| Google reCAPTCHA | Umstritten: seit 04/2026 Auftragsverarbeitung, für das Cookie offen (BVwG 2024: ja) |
 | hCaptcha, Turnstile und andere externe CAPTCHAs | Ja, Drittdienst mit Datenübertragung |
 | Analytics-Cookie auf der Formularseite | Ja |
 | Extern geladene Fonts oder Skripte des Plugin-Anbieters | Datenübertragung an Dritte, kritisch |

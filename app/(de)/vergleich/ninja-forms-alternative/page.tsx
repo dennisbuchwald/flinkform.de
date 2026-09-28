@@ -48,7 +48,7 @@ const tldrRows = [
 const faqs = [
   {
     q: "Was kostet Ninja Forms wirklich?",
-    a: "Die regulären Jahrespreise liegen bei 99 $ (Plus, 3 Websites, 16 Add-ons), 199 $ (Pro, 20 Websites, 28 Add-ons) und 499 $ (Elite, alle Add-ons, unbegrenzte Websites). Die beworbenen Rabattpreise gelten nur im ersten Jahr. Einzelne Add-ons wie Conditional Logic kosten à la carte rund 49 $ pro Jahr.",
+    a: "Die regulären Jahrespreise liegen bei 99 $ (Plus, 3 Websites), 199 $ (Pro, 20 Websites) und 499 $ (Elite, alle Add-ons, unbegrenzte Websites). Die beworbenen Rabattpreise gelten nur im ersten Jahr. Einzelne Add-ons wie Conditional Logic kosten à la carte rund 49 $ pro Jahr.",
   },
   {
     q: "Ist Ninja Forms kostenlos nutzbar?",
@@ -64,7 +64,7 @@ const faqs = [
   },
   {
     q: "Ist Ninja Forms DSGVO-konform?",
-    a: "Ninja Forms bringt brauchbare Datenschutz-Werkzeuge mit, etwa ein Ablaufdatum für Einsendungen, und speichert die IP-Adresse nach Doku-Lage nicht ab Werk. Der Spam-Schutz hängt aber an US-Diensten wie reCAPTCHA, hCaptcha oder Turnstile. Das österreichische Bundesverwaltungsgericht hat am 13.09.2024 entschieden, dass reCAPTCHA ohne Einwilligung DSGVO-widrig ist. Flinkform braucht keinen dieser Dienste.",
+    a: "Ninja Forms bringt brauchbare Datenschutz-Werkzeuge mit, etwa ein Ablaufdatum für Einsendungen, und speichert die IP-Adresse nach Doku-Lage nicht ab Werk. Dazu kommt ein Honeypot ab Werk in jedem Formular. Für mehr Schutz brauchst du einen externen Dienst wie reCAPTCHA, hCaptcha oder Turnstile, bei reCAPTCHA seit April 2026 mit AV-Vertrag und Übermittlung in die USA. Flinkform braucht keinen dieser Dienste.",
   },
 ];
 
@@ -190,25 +190,25 @@ export default function Page() {
                 Fairerweise zuerst das Positive: Ninja Forms speichert die
                 IP-Adresse nach Doku-Lage nicht automatisch mit jeder
                 Einsendung, und das Ablaufdatum für Einsendungen ist ein
-                gutes Datenschutz-Feature. Beim Spam-Schutz setzt Ninja
-                Forms aber auf externe US-Dienste: reCAPTCHA, hCaptcha,
-                Cloudflare Turnstile oder Akismet. Alle verarbeiten
-                Besucherdaten auf fremden Servern. Das österreichische
-                Bundesverwaltungsgericht hat am 13.09.2024 entschieden,
-                dass reCAPTCHA ohne vorherige Einwilligung DSGVO-widrig
-                ist, und die französische CNIL hat den Einsatz bereits
-                zweimal mit Bußgeldern belegt.
+                gutes Datenschutz-Feature. Auch beim Spam-Schutz macht Ninja
+                Forms einen soliden Anfang: Jedes Formular bekommt ab Werk
+                einen Honeypot, ohne dass du etwas einstellen musst. Wer
+                mehr will, landet bei reCAPTCHA, hCaptcha, Cloudflare
+                Turnstile oder Akismet, also bei externen Diensten. Seit
+                April 2026 arbeitet Google bei reCAPTCHA als
+                Auftragsverarbeiter. Das ist einfacher als früher, bleibt
+                aber Aufwand: AV-Vertrag, Eintrag in der
+                Datenschutzerklärung, Übermittlung in die USA.
               </p>
               <p>
-                Flinkform braucht keinen dieser Dienste: Honeypot,
-                signierter Zeit-Check und Proof-of-Work laufen komplett auf
-                deinem Server, mit Mathe-Fallback ohne JavaScript. Keine
-                IP-Speicherung, kein User-Agent-Logging, kein Eintrag in
-                der Datenschutzerklärung nötig. Die Details stehen im
-                Artikel{" "}
+                Flinkform geht einen Schritt weiter, ohne externen Dienst:
+                Honeypot, signierter Zeit-Check und Proof-of-Work laufen
+                komplett auf deinem Server, mit Mathe-Fallback ohne
+                JavaScript. Keine IP-Speicherung, kein User-Agent-Logging,
+                kein Drittanbieter in der Datenschutzerklärung. Die
+                Einordnung steht im Artikel{" "}
                 <Link href="/blog/recaptcha-dsgvo-rechtsrisiko">
-                  reCAPTCHA und die DSGVO: Warum dein Kontaktformular ein
-                  Rechtsrisiko ist
+                  reCAPTCHA und die DSGVO
                 </Link>
                 .
               </p>
@@ -281,10 +281,10 @@ export default function Page() {
               Ninja Forms ist ein solides Plugin mit langer Historie, aber
               das Add-on-Preismodell rechnet sich fast nie: Bedingte
               Logik, Multi-Step und Uploads kosten je extra, das
-              Komplettpaket regulär 499 Dollar pro Jahr, und der
-              Spam-Schutz hängt an US-Diensten. Flinkform liefert
-              Multi-Step, bedingte Logik und DSGVO-sauberen Spam-Schutz
-              kostenlos, direkt im Block-Editor. Brauchst du Zahlungen,
+              Komplettpaket regulär 499 Dollar pro Jahr. Flinkform liefert
+              Multi-Step, bedingte Logik und einen dreistufigen
+              Spam-Schutz ohne externen Dienst kostenlos, direkt im
+              Block-Editor. Brauchst du Zahlungen,
               Uploads oder Webhooks, kostet{" "}
               <Link href="/pro">Flinkform Pro</Link> 59 € pro Jahr mit
               allen Features. Wie sich Flinkform gegen andere Builder

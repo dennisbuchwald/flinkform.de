@@ -131,11 +131,11 @@ export const home = {
       },
       {
         feature: "Neue Funktionen",
-        cells: [true, "nur noch Wartung seit 6.2", true, true, true],
+        cells: [true, "nach 6.2 nur noch Wartung (angekündigt)", true, true, true],
       },
       {
         feature: "Preis Pro-Version (1 Website)",
-        cells: ["59 €/Jahr", "kein Pro", "99 $/Jahr", "59 $/Jahr", "59 $/Jahr"],
+        cells: ["59 €/Jahr", "kein Pro", "99 $/Jahr", "59 $/Jahr", "kein Einzelplan, 149 $ für 5"],
       },
     ],
     note: "Stand: 28. September 2026. Reguläre Listenpreise und Herstellerdokumentation der jeweiligen Anbieter. Contact Form 7 speichert laut Hersteller keine Einsendungen und kennt weder Multi-Step noch bedingte Logik, dafür braucht es je ein Zusatz-Plugin.",
