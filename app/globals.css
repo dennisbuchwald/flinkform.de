@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+/*
+ * Überschriften-Schrift der Marke dbw media (siehe design-system.md).
+ * Lokal ausgeliefert, kein CDN - die Seite lädt bewusst nichts von fremden
+ * Servern.
+ *
+ * Es gibt bewusst nur diesen einen Schnitt: Von den Schnitten im
+ * dbw-media-Theme ist GT-Walsheim-Pro-Bold als einziger vollständig, alle
+ * anderen sind Demo-Dateien ohne ? ! : & % € ß. Der Bereich 700-900 sorgt
+ * dafür, dass font-bold und font-extrabold beide diese Datei nehmen, statt
+ * dass der Browser ein unsauberes Kunst-Fett rechnet.
+ */
+@font-face {
+  font-family: "GT Walsheim";
+  src: url("/fonts/gt-walsheim-bold.woff2") format("woff2");
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   /* Brand */
   --color-brand-red: #ea2b1f;
@@ -19,8 +38,8 @@
   /* Typography */
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, sans-serif;
-  --font-display: "Bricolage Grotesque Variable", "Inter Variable",
-    ui-sans-serif, system-ui, sans-serif;
+  --font-display: "GT Walsheim", "Inter Variable", ui-sans-serif, system-ui,
+    sans-serif;
 }
 
 :root {

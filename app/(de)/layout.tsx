@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "@fontsource-variable/inter";
-import "@fontsource-variable/bricolage-grotesque";
 import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -37,6 +36,15 @@ export default function RootLayout({
   return (
     <html lang="de" className="h-full antialiased">
       <body className="flex min-h-full flex-col">
+        {/* React hebt den Preload selbst in den <head>. Ein manuelles
+            <head>-Element würde ihn doppelt ausgeben. */}
+        <link
+          rel="preload"
+          href="/fonts/gt-walsheim-bold.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <JsonLd data={siteGraph("de")} />
         <a
           href="#main"
