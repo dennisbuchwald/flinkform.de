@@ -32,17 +32,10 @@ const tldrRows = [
     cells: [true, "nur innerhalb von Elementor-Layouts"],
   },
   {
-    feature: "Spam-Schutz ohne US-Dienst",
+    feature: "Spam-Schutz ab Werk, ohne externen Dienst",
     cells: [true, "reCAPTCHA v2/v3 + Honeypot"],
   },
   { feature: "Keine IP-Speicherung ab Werk", cells: [true, false] },
-  {
-    feature: "Frontend-Gewicht",
-    cells: [
-      "unter 15 KB JS, nur auf Formular-Seiten",
-      "läuft im kompletten Elementor-Stack",
-    ],
-  },
   {
     feature: "Multi-Step + bedingte Logik",
     cells: ["kostenlos", "Multi-Step in Pro enthalten"],

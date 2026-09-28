@@ -24,14 +24,13 @@ const tldrRows = [
     cells: ["kostenlos", "kostenlos"],
   },
   {
-    feature: "Spam-Schutz ohne US-Dienst",
-    cells: [true, "reCAPTCHA / hCaptcha / Turnstile / Akismet"],
+    feature: "Spam-Schutz ab Werk, ohne externen Dienst",
+    cells: ["Honeypot, Zeit-Check, Proof-of-Work", "Honeypot ab Werk, mehr über reCAPTCHA, hCaptcha, Turnstile, Akismet"],
   },
   {
     feature: "Formular-Aufbau",
     cells: ["Blöcke im Editor", "eigener Drag-&-Drop-Builder"],
   },
-  { feature: "Erbt Theme-Design (theme.json)", cells: [true, "eigene Styles"] },
   {
     feature: "Zahlungen (Stripe)",
     cells: ["Pro-Add-on, ab 59 €/Jahr", "nur als Add-on / ab Pro-Bundle"],
@@ -39,10 +38,6 @@ const tldrRows = [
   {
     feature: "Alle Features im Paket",
     cells: ["Pro: 59 bis 299 €/Jahr", "Elite: 499 $/Jahr"],
-  },
-  {
-    feature: "Frontend-Gewicht",
-    cells: ["unter 15 KB JS, kein jQuery", "eigenes CSS/JS pro Add-on"],
   },
   {
     feature: "Sitz / Datenverständnis",

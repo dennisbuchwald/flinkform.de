@@ -40,7 +40,7 @@ const tldrRows = [
     cells: [true, "erst ab Plus (79 $/Monat)"],
   },
   {
-    feature: "Spam-Schutz ohne US-Dienst",
+    feature: "Spam-Schutz ab Werk, ohne externen Dienst",
     cells: [true, "reCAPTCHA, erst ab Talent (169 $/Monat)"],
   },
   {

@@ -16,22 +16,17 @@ const tldrRows = [
     cells: [true, true],
   },
   {
-    feature: "Spam-Schutz ohne US-Dienst",
-    cells: [true, "reCAPTCHA / hCaptcha / Turnstile / Akismet"],
+    feature: "Spam-Schutz ab Werk, ohne externen Dienst",
+    cells: ["Honeypot, Zeit-Check, Proof-of-Work", "Honeypot pro Formular einschalten, mehr über reCAPTCHA, hCaptcha, Turnstile, Akismet"],
   },
   {
     feature: "Keine IP-Speicherung ab Werk",
     cells: [true, "IP wird standardmäßig gespeichert"],
   },
   {
-    feature: "Frontend-Gewicht auf Formular-Seiten",
-    cells: ["unter 15 KB JS", "ca. 47 KB CSS + 82 KB JS"],
-  },
-  {
     feature: "Formular-Aufbau",
     cells: ["Blöcke im Editor, Live-Vorschau", "eigener Builder, Vorschau separat"],
   },
-  { feature: "Erbt Theme-Design (theme.json)", cells: [true, "eigene Styles"] },
   {
     feature: "Zahlungen in der Free-Version",
     cells: ["Pro-Add-on (Stripe)", "Stripe + PayPal kostenlos"],

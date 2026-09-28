@@ -29,11 +29,10 @@ const tldrRows = [
   },
   { feature: "Formular-Aufbau", cells: ["Blöcke im Editor", "eigener Builder im Admin"] },
   {
-    feature: "Spam-Schutz ohne US-Dienst",
-    cells: [true, "reCAPTCHA / Turnstile / Akismet"],
+    feature: "Spam-Schutz ab Werk, ohne externen Dienst",
+    cells: ["Honeypot, Zeit-Check, Proof-of-Work", "Honeypot pro Formular einschalten, mehr über reCAPTCHA, Turnstile, Akismet"],
   },
   { feature: "Keine IP-Speicherung ab Werk", cells: [true, false] },
-  { feature: "Erbt Theme-Design (theme.json)", cells: [true, "eigene Styles"] },
   { feature: "Sitz / Datenverständnis", cells: ["Deutschland, DSGVO by design", "USA"] },
 ] as const;
 

@@ -37,14 +37,6 @@ const tldrRows = [
     ],
   },
   {
-    feature: "Erbt Theme-Design (theme.json)",
-    cells: [true, "eigenes Styling-System"],
-  },
-  {
-    feature: "Frontend-JS",
-    cells: ["unter 15 KB, nur auf Formular-Seiten", "keine offizielle Angabe"],
-  },
-  {
     feature: "Sitz / Hersteller",
     cells: ["Deutschland (dbw media, Heilbronn)", "Indien (Brainstorm Force)"],
   },

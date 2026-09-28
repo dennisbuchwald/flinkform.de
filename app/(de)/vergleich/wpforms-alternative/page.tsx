@@ -21,11 +21,10 @@ const tldrRows = [
   },
   { feature: "Formular-Aufbau", cells: ["Blöcke im Editor", "eigener Drag-&-Drop-Builder"] },
   {
-    feature: "Spam-Schutz ohne US-Dienst",
-    cells: [true, "reCAPTCHA / hCaptcha / Turnstile"],
+    feature: "Spam-Schutz ab Werk, ohne externen Dienst",
+    cells: ["Honeypot, Zeit-Check, Proof-of-Work", "Anti-Spam-Token ab Werk, mehr über reCAPTCHA, hCaptcha, Turnstile"],
   },
   { feature: "Keine IP-Speicherung ab Werk", cells: [true, false] },
-  { feature: "Erbt Theme-Design (theme.json)", cells: [true, "eigene Styles"] },
   {
     feature: "Stripe ohne Zusatzgebühr",
     cells: ["Pro-Add-on, 0 % Aufschlag", "erst ab Pro (399 $/Jahr), darunter +3 %"],

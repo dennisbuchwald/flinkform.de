@@ -31,8 +31,8 @@ const tldrRows = [
     cells: ["Blöcke im Editor", "eigener Fullscreen-Builder"],
   },
   {
-    feature: "Spam-Schutz ohne US-Dienst",
-    cells: [true, "reCAPTCHA / hCaptcha / Turnstile / Akismet"],
+    feature: "Spam-Schutz ab Werk, ohne externen Dienst",
+    cells: ["Honeypot, Zeit-Check, Proof-of-Work", "Honeypot und Token ab Werk, mehr über reCAPTCHA, hCaptcha, Turnstile, Akismet"],
   },
   { feature: "Keine IP-Speicherung ab Werk", cells: [true, false] },
   {

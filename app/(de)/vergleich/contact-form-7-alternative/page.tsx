@@ -26,8 +26,8 @@ const tldrRows = [
   { feature: "Multi-Step", cells: [true, "Extra-Plugin"] },
   { feature: "Bedingte Logik", cells: [true, "Extra-Plugin"] },
   {
-    feature: "Spam-Schutz ohne US-Dienst",
-    cells: [true, "reCAPTCHA oder Akismet empfohlen"],
+    feature: "Spam-Schutz ab Werk, ohne externen Dienst",
+    cells: ["Honeypot, Zeit-Check, Proof-of-Work", "nein, Hersteller rät zu Turnstile oder reCAPTCHA"],
   },
   {
     feature: "Assets nur bei Bedarf",
