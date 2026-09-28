@@ -110,6 +110,16 @@ export const roadmap = {
   changelog: [
     {
       area: "Free",
+      version: "1.14.4",
+      date: "28.09.2026",
+      items: [
+        "Die Blöcke heißen im Editor jetzt auch auf Deutsch so (\"Textfeld\" statt \"Text Field\"). Bisher zeigte der Block-Inserter auf deutschen Seiten alle Flinkform-Blöcke mit englischem Namen",
+        "Deutsch gibt es jetzt in beiden Anredeformen: \"Deutsch\" spricht mit du, passend zum Sprachpaket von WordPress.org, und \"Deutsch (Sie)\" mit Sie statt wie bisher auf Englisch zurückzufallen",
+        "Überarbeitete Beschreibung im Plugin-Verzeichnis und eine Live-Vorschau, mit der sich Flinkform vor der Installation direkt im Editor ausprobieren lässt",
+      ],
+    },
+    {
+      area: "Free",
       version: "1.14.3",
       date: "28.09.2026",
       items: [

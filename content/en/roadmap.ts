@@ -110,6 +110,16 @@ export const roadmap: RoadmapDict = {
   changelog: [
     {
       area: "Free",
+      version: "1.14.4",
+      date: "Sep 28, 2026",
+      items: [
+        "Block names are translated in the editor now (\"Textfeld\" instead of \"Text Field\" on German sites). Until now the block inserter showed every Flinkform block with its English name",
+        "German ships in both forms of address: \"Deutsch\" uses the informal du, matching the WordPress.org language pack, and \"Deutsch (Sie)\" uses the formal Sie instead of falling back to English",
+        "Reworked description in the plugin directory and a Live Preview to try Flinkform in the editor before installing it",
+      ],
+    },
+    {
+      area: "Free",
       version: "1.14.3",
       date: "Sep 28, 2026",
       items: [
