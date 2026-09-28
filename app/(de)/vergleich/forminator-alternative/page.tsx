@@ -169,8 +169,8 @@ export default function Page() {
                 WPMU-DEV-Ökosystems von Incsub (Smush, Defender, Hummingbird
                 und mehr). Das hat Vorteile, etwa den schnellen
                 WPMU-DEV-Support. Aber es bindet dich: Für Updates der
-                Pro-Version musst du das zusätzliche Plugin "WPMU DEV
-                Dashboard" installieren, und die Preislogik ist auf die
+                Pro-Version musst du das zusätzliche Plugin „WPMU DEV
+                Dashboard“ installieren, und die Preislogik ist auf die
                 Mitgliedschaft ausgerichtet. Wer nur ein Formular-Plugin
                 will, kauft ein Stück Ökosystem mit.
               </p>

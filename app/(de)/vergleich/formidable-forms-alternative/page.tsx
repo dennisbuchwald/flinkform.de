@@ -211,7 +211,7 @@ export default function Page() {
               <p>
                 Formidable Forms speichert standardmäßig die IP-Adresse jeder
                 Einsendung. Abschalten kannst du das in den Global Settings
-                unter "Disable storing IPs". Beim Spam-Schutz ist Formidable
+                unter „Disable storing IPs“. Beim Spam-Schutz ist Formidable
                 gut aufgestellt: Honeypot und ein JavaScript-Token sind ab
                 Werk in jedem Formular aktiv. Für mehr Schutz kommen Akismet,
                 reCAPTCHA, hCaptcha oder Cloudflare Turnstile dazu, also
