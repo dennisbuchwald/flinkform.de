@@ -5,7 +5,7 @@ import HeroFormDemo from "@/components/HeroFormDemo";
 import CompareTable from "@/components/CompareTable";
 import Faq from "@/components/Faq";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
-import { DEMO_URL, FREE_VERSION, WPORG_URL } from "@/lib/site";
+import { CF7_IMPORT_SINCE, DEMO_URL, FREE_VERSION, WPORG_URL } from "@/lib/site";
 import {
   CLIENT_SITES_COUNT,
   FEATURED_QUOTE,
@@ -163,6 +163,55 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
             <p key={p}>{p}</p>
           ))}
         </div>
+        {CF7_IMPORT_SINCE && (
+          <div className="mt-10 overflow-hidden rounded-3xl bg-ink p-7 text-white sm:p-10">
+            <div className="grid items-center gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+              <div>
+                <h3 className="font-(family-name:--font-display) text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
+                  {t.cf7.importShowcase.title}
+                </h3>
+                <p className="mt-4 text-[1.02rem] leading-relaxed text-white/75">{t.cf7.importShowcase.sub}</p>
+                <a
+                  href={WPORG_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-block rounded-full bg-white px-6 py-3 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5"
+                >
+                  {t.cf7.importShowcase.cta}
+                </a>
+                <p className="mt-3 text-xs text-white/50">
+                  {t.cf7.importShowcase.note.replace("{version}", CF7_IMPORT_SINCE)}
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5">
+                <div className="mb-3 hidden grid-cols-[1fr_auto_1fr] gap-3 px-1 text-[0.7rem] font-semibold uppercase tracking-wider text-white/50 sm:grid">
+                  <span>{t.cf7.importShowcase.fromLabel}</span>
+                  <span aria-hidden="true" />
+                  <span>{t.cf7.importShowcase.toLabel}</span>
+                </div>
+                <ul className="space-y-2">
+                  {t.cf7.importShowcase.rows.map(([from, to]) => (
+                    <li
+                      key={from}
+                      className="grid gap-1 rounded-xl bg-white/5 px-3 py-2.5 sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:gap-3"
+                    >
+                      <code className="break-words font-mono text-[0.8rem] text-white/60 line-through decoration-brand-pink/70">
+                        {from}
+                      </code>
+                      {/* Mobil stehen Pfeil und Ziel in einer Zeile, ab sm im Raster. */}
+                      <span className="flex items-center gap-2 sm:contents">
+                        <span aria-hidden="true" className="text-brand-magenta sm:text-center">
+                          →
+                        </span>
+                        <span className="text-sm font-semibold">{to}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        )}
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
           <div className="card p-7">
             <h3 className="text-[1.05rem] font-bold">{t.cf7.gainsHeading}</h3>

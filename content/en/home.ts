@@ -57,11 +57,29 @@ export const home: HomeDict = {
     ],
   },
   cf7: {
-    heading: "Coming from Contact Form 7?",
+    heading: CF7_IMPORT_SINCE ? "Coming from Contact Form 7? Bring it all." : "Coming from Contact Form 7?",
     intro: [
       "Contact Form 7 runs on more than 10 million sites and has done good work for many years. According to its developer, there won't be any new features after version 6.2, only security updates. So your existing forms keep working.",
-      "The real question is whether you start your next project with it again.",
+      CF7_IMPORT_SINCE
+        ? "And you don't retype a thing. Flinkform brings your forms over with an import, email settings included."
+        : "The real question is whether you start your next project with it again.",
     ],
+    importShowcase: {
+      title: "Form in. Blocks out.",
+      sub: "The importer reads your Contact Form 7 form and turns it into Flinkform blocks. It never touches Contact Form 7 itself.",
+      fromLabel: "Contact Form 7",
+      toLabel: "Flinkform",
+      rows: [
+        ["[text* your-name]", "Text field, required"],
+        ["[email* your-email]", "Email field, required"],
+        ['[select topic "Quote" "Question"]', "Dropdown with 2 options"],
+        ["[textarea your-message]", "Textarea field"],
+        ["[acceptance privacy]", "Consent"],
+        ["Mail: [your-name]", "Mail: {field:your-name}"],
+      ],
+      cta: "Install free and switch",
+      note: "Import under Flinkform in wp-admin, from version {version}.",
+    },
     gainsHeading: "What you gain by switching",
     gains: [
       "Submissions stored in WordPress, no Flamingo needed",

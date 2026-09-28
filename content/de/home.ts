@@ -60,11 +60,31 @@ export const home = {
     ],
   },
   cf7: {
-    heading: "Kommst du von Contact Form 7?",
+    heading: CF7_IMPORT_SINCE ? "Kommst du von Contact Form 7? Nimm alles mit." : "Kommst du von Contact Form 7?",
     intro: [
       "Contact Form 7 läuft auf über 10 Millionen Websites und hat viele Jahre gute Arbeit gemacht. Laut Ankündigung des Entwicklers kommen nach Version 6.2 keine neuen Funktionen mehr, nur noch Sicherheits-Updates. Deine Formulare laufen also weiter.",
-      "Die Frage ist nur, ob du beim nächsten Projekt wieder damit anfängst.",
+      CF7_IMPORT_SINCE
+        ? "Und abtippen musst du nichts. Flinkform holt deine Formulare per Import rüber, samt Mail-Einstellungen."
+        : "Die Frage ist nur, ob du beim nächsten Projekt wieder damit anfängst.",
     ],
+    // Nur sichtbar, wenn CF7_IMPORT_SINCE gesetzt ist. Die Beispielzeilen
+    // zeigen die echte Zuordnung aus der CF7-Vergleichsseite.
+    importShowcase: {
+      title: "Formular rein. Blöcke raus.",
+      sub: "Der Import liest dein Contact-Form-7-Formular und baut daraus Flinkform-Blöcke. Contact Form 7 selbst fasst er nicht an.",
+      fromLabel: "Contact Form 7",
+      toLabel: "Flinkform",
+      rows: [
+        ["[text* your-name]", "Textfeld, Pflichtfeld"],
+        ["[email* your-email]", "E-Mail-Feld, Pflichtfeld"],
+        ['[select anliegen "Angebot" "Frage"]', "Dropdown mit 2 Optionen"],
+        ["[textarea your-message]", "Mehrzeiliges Textfeld"],
+        ["[acceptance datenschutz]", "Einwilligung"],
+        ["Mail: [your-name]", "Mail: {field:your-name}"],
+      ],
+      cta: "Kostenlos installieren und umziehen",
+      note: "Import unter Flinkform im WordPress-Admin, ab Version {version}.",
+    },
     gainsHeading: "Was du beim Umstieg dazubekommst",
     gains: [
       "Einsendungen in WordPress, ohne Flamingo",
