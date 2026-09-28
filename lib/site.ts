@@ -45,9 +45,9 @@ export const LEGAL = {
  * sichtbare Versionsangabe - nirgendwo sonst eine Version hart schreiben.
  */
 export const FREE_VERSION = "1.14.4";
-export const PRO_VERSION = "1.2.2";
+export const PRO_VERSION = "1.3.1";
 /** Kleinste Free-Version, auf der Flinkform Pro läuft. */
-export const MIN_FREE_FOR_PRO = "1.3.0";
+export const MIN_FREE_FOR_PRO = "1.14.3";
 export const FACTS_UPDATED = "2026-09-07";
 
 /**
