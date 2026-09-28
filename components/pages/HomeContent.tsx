@@ -5,13 +5,63 @@ import CompareTable from "@/components/CompareTable";
 import Faq from "@/components/Faq";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
 import { DEMO_URL, FREE_VERSION, WPORG_URL } from "@/lib/site";
+import {
+  CLIENT_SITES_COUNT,
+  FEATURED_QUOTE,
+  REVIEWS,
+  REVIEWS_URL,
+  REVIEW_SUMMARY,
+} from "@/lib/reviews";
 import { localizedHref, type Locale } from "@/lib/i18n/routes";
 import type { HomeDict } from "@/content/de/home";
 
 const i18n = {
-  de: { faqHeading: "Häufige Fragen", yes: "Ja", no: "Nein" },
-  en: { faqHeading: "Frequently Asked Questions", yes: "Yes", no: "No" },
+  de: { faqHeading: "Häufige Fragen", yes: "Ja", no: "Nein", quoteOpen: "„", quoteClose: "“" },
+  en: { faqHeading: "Frequently Asked Questions", yes: "Yes", no: "No", quoteOpen: "“", quoteClose: "”" },
 } as const;
+
+function Stars({ rating, label }: { rating: number; label: string }) {
+  return (
+    <span className="inline-flex items-center gap-0.5" role="img" aria-label={label}>
+      {Array.from({ length: 5 }, (_, i) => (
+        <svg
+          key={i}
+          width="16"
+          height="16"
+          viewBox="0 0 20 20"
+          aria-hidden="true"
+          className={i < rating ? "text-amber-400" : "text-line"}
+        >
+          <path
+            fill="currentColor"
+            d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z"
+          />
+        </svg>
+      ))}
+    </span>
+  );
+}
+
+function Check({ pro = false }: { pro?: boolean }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-white ${
+        pro ? "bg-gradient-pro" : "bg-gradient-brand"
+      }`}
+    >
+      <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
+        <path
+          d="M2 6.5 4.8 9 10 3.5"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </span>
+  );
+}
 
 export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict }) {
   const ui = i18n[locale];
@@ -43,14 +93,12 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
               >
                 {t.hero.ctaPrimary}
               </a>
-              <a
-                href={DEMO_URL}
-                target="_blank"
-                rel="noopener"
+              <Link
+                href={localizedHref(locale, t.hero.ctaSecondaryHref)}
                 className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-ink-muted/40"
               >
                 {t.hero.ctaSecondary}
-              </a>
+              </Link>
             </div>
             <p className="mt-4 text-sm text-ink-muted">
               {t.hero.versionLine.replace("{version}", FREE_VERSION)}
@@ -59,13 +107,23 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
 
           <div id="demo" className="scroll-mt-24">
             <HeroFormDemo locale={locale} />
-            <p className="mt-3 text-center text-xs text-ink-muted">{t.hero.demoCaption}</p>
+            <p className="mt-3 text-center text-xs text-ink-muted">
+              {t.hero.demoCaption}{" "}
+              <a
+                href={DEMO_URL}
+                target="_blank"
+                rel="noopener"
+                className="font-semibold text-brand-violet underline decoration-brand-violet/30 underline-offset-2 hover:decoration-brand-violet"
+              >
+                {t.hero.demoLink}
+              </a>
+            </p>
           </div>
         </div>
         <div aria-hidden="true" className="h-2 bg-gradient-brand-h" />
       </div>
 
-      {/* ── 6 SÄULEN ── */}
+      {/* ── ALLES DRIN ── */}
       <Section>
         <SectionHeading sub={t.pillars.sub}>{t.pillars.heading}</SectionHeading>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -84,7 +142,152 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
         </div>
       </Section>
 
-      {/* ── DAS PRIVACY-PROBLEM ── */}
+      {/* ── CONTACT FORM 7 ── */}
+      <Section id="umstieg" className="scroll-mt-16">
+        <SectionHeading>{t.cf7.heading}</SectionHeading>
+        <div className="max-w-3xl space-y-4 text-lg leading-relaxed text-ink-soft">
+          {t.cf7.intro.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
+        </div>
+        <div className="mt-10 grid gap-5 lg:grid-cols-2">
+          <div className="card p-7">
+            <h3 className="text-[1.05rem] font-bold">{t.cf7.gainsHeading}</h3>
+            <ul className="mt-5 space-y-3.5">
+              {t.cf7.gains.map((gain) => (
+                <li key={gain} className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-ink-soft">
+                  <Check />
+                  {gain}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="card p-7">
+            <h3 className="text-[1.05rem] font-bold">{t.cf7.stepsHeading}</h3>
+            <ol className="mt-5 space-y-4">
+              {t.cf7.steps.map((step, i) => (
+                <li key={step} className="flex items-start gap-4 text-[0.95rem] leading-relaxed text-ink-soft">
+                  <span
+                    aria-hidden="true"
+                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-ink font-(family-name:--font-display) text-xs font-bold text-white"
+                  >
+                    {i + 1}
+                  </span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+        <p className="mt-6 max-w-3xl text-[0.95rem] leading-relaxed text-ink-muted">{t.cf7.honest}</p>
+        <Link
+          href={localizedHref(locale, t.cf7.ctaHref)}
+          className="mt-4 inline-block text-sm font-semibold text-brand-violet underline decoration-brand-violet/30 underline-offset-4 hover:decoration-brand-violet"
+        >
+          {t.cf7.cta}
+        </Link>
+      </Section>
+
+      {/* ── AGENTUREN ── */}
+      <Section id="agenturen" className="scroll-mt-16">
+        <Eyebrow>{t.agency.eyebrow}</Eyebrow>
+        <div className="mt-5">
+          <SectionHeading sub={t.agency.sub}>{t.agency.heading}</SectionHeading>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2">
+          {t.agency.items.map((item) => (
+            <div key={item.title} className="card p-7">
+              <h3 className="text-[1.05rem] font-bold">{item.title}</h3>
+              <p className="mt-2 text-[0.9rem] leading-relaxed text-ink-soft">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 flex flex-col gap-5 rounded-2xl border border-line bg-white p-7 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-2xl text-[1.02rem] font-semibold leading-relaxed text-ink">{t.agency.price}</p>
+          <Link
+            href={localizedHref(locale, t.agency.ctaHref)}
+            className="shrink-0 self-start rounded-full bg-gradient-pro px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-all hover:-translate-y-0.5 hover:opacity-90 sm:self-auto"
+          >
+            {t.agency.cta}
+          </Link>
+        </div>
+      </Section>
+
+      {/* ── PRO: ANWENDUNGSFÄLLE ── */}
+      <Section>
+        <div className="card relative overflow-hidden !rounded-3xl p-8 sm:p-12">
+          <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1.5 bg-gradient-pro" />
+          <div className="max-w-3xl">
+            <Eyebrow variant="pro">{t.proTeaser.eyebrow}</Eyebrow>
+            <h2 className="mt-5 font-(family-name:--font-display) text-3xl font-bold tracking-tight sm:text-4xl">
+              {t.proTeaser.title}
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-ink-soft">{t.proTeaser.desc}</p>
+          </div>
+          <div className="mt-8 grid gap-5 lg:grid-cols-3">
+            {t.proTeaser.cases.map((c) => (
+              <div key={c.title} className="flex flex-col rounded-2xl border border-line bg-paper p-6">
+                <h3 className="text-[1.05rem] font-bold">{c.title}</h3>
+                <p className="mt-2 grow text-[0.9rem] leading-relaxed text-ink-soft">{c.desc}</p>
+                <a
+                  href={`${DEMO_URL}${c.demoPath}`}
+                  target="_blank"
+                  rel="noopener"
+                  className="mt-4 text-sm font-semibold text-brand-violet underline decoration-brand-violet/30 underline-offset-4 hover:decoration-brand-violet"
+                >
+                  {c.demoText}
+                </a>
+              </div>
+            ))}
+          </div>
+          <h3 className="mt-10 text-sm font-bold uppercase tracking-widest text-ink-muted">
+            {t.proTeaser.itemsHeading}
+          </h3>
+          <ul className="mt-4 grid gap-3.5 sm:grid-cols-2">
+            {t.proTeaser.items.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-[0.95rem] text-ink-soft">
+                <Check pro />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <Link
+            href={localizedHref(locale, "/pro")}
+            className="mt-8 inline-block rounded-full bg-gradient-pro px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-all hover:-translate-y-0.5 hover:opacity-90"
+          >
+            {t.proTeaser.cta}
+          </Link>
+        </div>
+      </Section>
+
+      {/* ── VERGLEICH ── */}
+      <Section id="vergleich">
+        <SectionHeading sub={t.compare.sub}>{t.compare.heading}</SectionHeading>
+        <CompareTable
+          caption={t.compare.caption}
+          columns={t.compare.columns}
+          rows={t.compare.rows}
+          note={t.compare.note}
+          yesLabel={ui.yes}
+          noLabel={ui.no}
+        />
+        <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2">
+          <Link
+            href={localizedHref(locale, "/vergleich")}
+            className="text-sm font-semibold text-brand-violet underline decoration-brand-violet/30 underline-offset-4 hover:decoration-brand-violet"
+          >
+            {t.compare.linkAll}
+          </Link>
+          <Link
+            href={localizedHref(locale, "/rechner")}
+            className="text-sm font-semibold text-brand-violet underline decoration-brand-violet/30 underline-offset-4 hover:decoration-brand-violet"
+          >
+            {t.compare.linkCalc}
+          </Link>
+        </div>
+      </Section>
+
+      {/* ── DATENSCHUTZ ── */}
       <Section>
         <div className="overflow-hidden rounded-3xl border border-ink bg-ink text-white">
           <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-[1.2fr_1fr]">
@@ -122,6 +325,72 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
         </div>
       </Section>
 
+      {/* ── BELEGE ── */}
+      <Section id="bewertungen" className="scroll-mt-16">
+        <SectionHeading sub={t.proof.sub}>{t.proof.heading}</SectionHeading>
+        <p className="flex flex-wrap items-center gap-3 text-[0.95rem] font-semibold text-ink">
+          <Stars
+            rating={REVIEW_SUMMARY.average}
+            label={t.proof.rating
+              .replace("{average}", String(REVIEW_SUMMARY.average))
+              .replace("{count}", String(REVIEW_SUMMARY.count))}
+          />
+          <span>
+            {t.proof.rating
+              .replace("{average}", String(REVIEW_SUMMARY.average))
+              .replace("{count}", String(REVIEW_SUMMARY.count))}
+          </span>
+        </p>
+        <div className="mt-8 grid gap-5 lg:grid-cols-3">
+          {REVIEWS.filter((r) => r.published).map((review) => {
+            const text = locale === "en" && review.quoteEn ? review.quoteEn : review.quote;
+            const lang = locale === "en" && review.quoteEn ? "en" : review.lang;
+            return (
+              <figure key={review.href} className="card flex flex-col p-7">
+                <Stars rating={review.rating} label={`${review.rating}/5`} />
+                <blockquote lang={lang} className="mt-4 grow text-[0.95rem] leading-relaxed text-ink">
+                  <p>{ui.quoteOpen}{text}{ui.quoteClose}</p>
+                </blockquote>
+                <figcaption className="mt-5 text-sm text-ink-muted">
+                  <span className="font-semibold text-ink-soft">{review.author}</span>
+                  <br />
+                  <a
+                    href={review.href}
+                    className="underline decoration-line underline-offset-2 hover:text-ink"
+                  >
+                    {t.proof.source}
+                  </a>
+                </figcaption>
+              </figure>
+            );
+          })}
+        </div>
+        {FEATURED_QUOTE && (
+          <figure className="card mt-5 p-8">
+            <blockquote className="text-lg leading-relaxed text-ink">
+              <p>{ui.quoteOpen}{FEATURED_QUOTE.text}{ui.quoteClose}</p>
+            </blockquote>
+            <figcaption className="mt-4 text-sm text-ink-muted">
+              <span className="font-semibold text-ink-soft">{FEATURED_QUOTE.author}</span>, {FEATURED_QUOTE.role}
+            </figcaption>
+          </figure>
+        )}
+        {CLIENT_SITES_COUNT !== null && (
+          <p className="mt-6 text-[1.02rem] font-semibold text-ink">
+            {t.proof.clientSites.replace("{count}", String(CLIENT_SITES_COUNT))}
+          </p>
+        )}
+        <div className="mt-6 flex flex-col gap-2">
+          <a
+            href={REVIEWS_URL}
+            className="text-sm font-semibold text-brand-violet underline decoration-brand-violet/30 underline-offset-4 hover:decoration-brand-violet"
+          >
+            {t.proof.allReviews}
+          </a>
+          <p className="max-w-3xl text-xs leading-relaxed text-ink-muted">{t.proof.notice}</p>
+        </div>
+      </Section>
+
       {/* ── FEATURES ── */}
       <Section>
         <SectionHeading sub={t.features.sub}>{t.features.heading}</SectionHeading>
@@ -146,74 +415,6 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
             </li>
           ))}
         </ul>
-      </Section>
-
-      {/* ── VERGLEICH ── */}
-      <Section id="vergleich">
-        <SectionHeading sub={t.compare.sub}>{t.compare.heading}</SectionHeading>
-        <CompareTable
-          caption={t.compare.caption}
-          columns={t.compare.columns}
-          rows={t.compare.rows}
-          note={t.compare.note}
-          yesLabel={ui.yes}
-          noLabel={ui.no}
-        />
-        <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2">
-          <Link
-            href={localizedHref(locale, "/vergleich")}
-            className="text-sm font-semibold text-brand-violet underline decoration-brand-violet/30 underline-offset-4 hover:decoration-brand-violet"
-          >
-            {t.compare.linkAll}
-          </Link>
-          <Link
-            href={localizedHref(locale, "/rechner")}
-            className="text-sm font-semibold text-brand-violet underline decoration-brand-violet/30 underline-offset-4 hover:decoration-brand-violet"
-          >
-            {t.compare.linkCalc}
-          </Link>
-        </div>
-      </Section>
-
-      {/* ── PRO TEASER ── */}
-      <Section>
-        <div className="card relative overflow-hidden !rounded-3xl p-8 sm:p-12">
-          <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1.5 bg-gradient-pro" />
-          <div className="max-w-3xl">
-            <Eyebrow variant="pro">Flinkform Pro</Eyebrow>
-            <h2 className="mt-5 font-(family-name:--font-display) text-3xl font-bold tracking-tight sm:text-4xl">
-              {t.proTeaser.title}
-            </h2>
-            <p className="mt-4 text-lg leading-relaxed text-ink-soft">{t.proTeaser.desc}</p>
-            <ul className="mt-7 grid gap-3.5 sm:grid-cols-2">
-              {t.proTeaser.items.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-[0.95rem] text-ink-soft">
-                  <span
-                    aria-hidden="true"
-                    className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-gradient-pro text-white"
-                  >
-                    <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
-                      <path
-                        d="M2 6.5 4.8 9 10 3.5"
-                        stroke="currentColor"
-                        strokeWidth="2.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <Link
-              href={localizedHref(locale, "/pro")}
-              className="mt-8 inline-block rounded-full bg-gradient-pro px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-all hover:-translate-y-0.5 hover:opacity-90"
-            >
-              {t.proTeaser.cta}
-            </Link>
-          </div>
-        </div>
       </Section>
 
       {/* ── FAQ ── */}

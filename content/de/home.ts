@@ -2,87 +2,182 @@ import type { Widen } from "@/lib/i18n/widen";
 
 export const home = {
   meta: {
-    title: "Flinkform - Kostenloses WordPress Formular-Plugin, DSGVO by design",
+    title: "Flinkform - Kostenloses Formular-Plugin für den WordPress-Block-Editor",
     description:
-      "Flinkform ist ein block-natives Formular-Plugin für WordPress: Multi-Step, bedingte Logik, Spam-Schutz ohne reCAPTCHA. Kostenlos, DSGVO-konform, aus Deutschland.",
-    ogTitle: "Flinkform - Das privacy-first Formular-Plugin für WordPress",
+      "Multi-Step, bedingte Logik und Einsendungen im Dashboard, kostenlos und direkt im Block-Editor. Der einfache Umstieg von Contact Form 7, ein Plugin für alle Kundenseiten. Aus Deutschland.",
+    ogTitle: "Flinkform - Fünf Plugins. Oder dieses eine.",
     ogDescription:
-      "Multi-Step, bedingte Logik, Spam-Schutz ohne externe Dienste. Kostenlos und DSGVO by design.",
+      "Formular bauen, Einsendungen speichern, mehrseitig machen, bedingt ausblenden, Spam abwehren. Kostenlos, direkt im WordPress-Block-Editor.",
   },
   hero: {
-    eyebrow: "WordPress Formular-Plugin · Kostenlos",
-    titlePre: "Das letzte Formular-Plugin, das du ",
-    titleHighlight: "installieren",
-    titlePost: " wirst.",
+    eyebrow: "WordPress-Formular-Plugin · Kostenlos",
+    titlePre: "Fünf Plugins. Oder ",
+    titleHighlight: "dieses eine",
+    titlePost: ".",
     entity:
-      "Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. Anders als WPForms oder Gravity Forms nutzt es keinen eigenen Builder, sondern den WordPress-Editor selbst.",
-    sub: "DSGVO by design: kein reCAPTCHA, kein US-Dienst, keine IP-Speicherung. Alles bleibt auf deinem Server.",
+      "Formular bauen, Einsendungen speichern, mehrseitig machen, Felder bedingt ausblenden, Spam abwehren. Anderswo sind das fünf Plugins oder ein Bezahl-Tarif. Bei Flinkform ist es eins, kostenlos, direkt im WordPress-Block-Editor.",
+    sub: "Ohne reCAPTCHA, ohne Drittanbieter, ohne IP-Speicherung. Alles bleibt auf deinem Server.",
     ctaPrimary: "Kostenlos auf WordPress.org",
-    ctaSecondary: "Demo ausprobieren →",
+    ctaSecondary: "Von Contact Form 7 umsteigen →",
+    ctaSecondaryHref: "/vergleich/contact-form-7-alternative",
     versionLine: "Version {version} · WordPress 6.5+ · PHP 8.1+ · GPLv2",
-    demoCaption:
-      "Multi-Step, Live-Berechnung, ohne reCAPTCHA. Auf demo.flinkform.de kannst du alles durchklicken und absenden.",
+    demoCaption: "Multi-Step, Live-Berechnung, ohne reCAPTCHA.",
+    demoLink: "Alles auf der Live-Demo durchklicken →",
   },
   pillars: {
-    heading: "Was Flinkform anders macht",
-    sub: "Kein aufgesetzter Builder, keine Plugin-Sammlung, keine Datenabflüsse. Flinkform ist das Formular-Plugin, das WordPress von Haus aus haben sollte.",
+    heading: "Alles drin. Und zwar kostenlos.",
+    sub: "Multi-Step, bedingte Logik und ein Dashboard für die Einsendungen. Bei WPForms kostet dieselbe Kombination regulär ab 99 Dollar im Jahr, bei Gravity Forms gibt es sie gar nicht gratis.",
     items: [
       {
-        title: "Ein Plugin statt sechs",
-        desc: "Multi-Step, bedingte Logik, Spam-Schutz, Submissions-Dashboard, E-Mail-Benachrichtigungen: alles eingebaut. Keine Add-ons, keine Kompatibilitätsprobleme.",
+        title: "Multi-Step und bedingte Logik",
+        desc: "Formulare in Schritte teilen, Felder und ganze Schritte je nach Antwort ein- oder ausblenden. Im kostenlosen Plugin, ohne Add-on.",
       },
       {
-        title: "Nativ im Block-Editor",
-        desc: "Jedes Feld ist ein Gutenberg-Block. Kein separater Formular-Builder, kein Shortcode. Du baust Formulare wie einen normalen WordPress-Beitrag.",
+        title: "Direkt im Block-Editor",
+        desc: "Jedes Feld ist ein Block. Kein zweiter Builder, kein Shortcode. Du baust ein Formular wie einen normalen Beitrag.",
       },
       {
-        title: "DSGVO ohne Kompromisse",
-        desc: "Spam-Schutz läuft komplett auf deinem Server. Kein reCAPTCHA, kein Akismet, keine IP-Speicherung. Consent-Feld, automatische Datenlöschung und WordPress-Privacy-Tools sind eingebaut.",
+        title: "Einsendungen im Dashboard",
+        desc: "Alles landet in WordPress: Suche, Filter, gelesen und ungelesen. Geht eine Mail verloren, ist die Anfrage trotzdem da.",
       },
       {
-        title: "Unter 15 KB, ohne jQuery",
-        desc: "Das gesamte Frontend-JavaScript bleibt unter 15 KB gzipped. Assets laden nur auf Seiten, die ein Formular enthalten. Und deine Seiten bleiben cachebar: Flinkform schaltet den Seiten-Cache nicht ab, wie es Formular-Plugins sonst gern tun.",
+        title: "Datenschutz ab Werk",
+        desc: "Spam-Schutz auf deinem Server und keine IP-Speicherung, ohne dass du etwas einschaltest. Consent-Feld und automatische Löschfristen sind eingebaut.",
       },
       {
-        title: "Submissions-Dashboard",
-        desc: "Alle Einsendungen direkt in WordPress: Suche, Filter, Sortierung, Bulk-Aktionen, gelesen/ungelesen. Kein separates Plugin, kein Flamingo.",
+        title: "Schnell und cachebar",
+        desc: "Unter 15 KB JavaScript, ohne jQuery, geladen nur auf Seiten mit Formular. Und dein Seiten-Cache bleibt an, auch auf der Kontaktseite.",
       },
       {
-        title: "Barrierefrei (WCAG 2.1 AA)",
-        desc: "Volle Tastaturnavigation, Screenreader-Support, Fokus-Management bei Multi-Step. Respektiert prefers-reduced-motion.",
+        title: "Barrierefrei gebaut",
+        desc: "Tastatur, Screenreader, Fokus-Management über alle Schritte. Das Formular-Markup besteht axe-core-Prüfungen gegen WCAG 2.1 AA.",
       },
     ],
   },
+  cf7: {
+    heading: "Kommst du von Contact Form 7?",
+    intro: [
+      "Contact Form 7 läuft auf über 10 Millionen Websites und hat viele Jahre gute Arbeit gemacht. Laut Ankündigung des Entwicklers kommen nach Version 6.2 keine neuen Funktionen mehr, nur noch Sicherheits-Updates. Deine Formulare laufen also weiter.",
+      "Die Frage ist nur, ob du beim nächsten Projekt wieder damit anfängst.",
+    ],
+    gainsHeading: "Was du beim Umstieg dazubekommst",
+    gains: [
+      "Einsendungen in WordPress, ohne Flamingo",
+      "Multi-Step und bedingte Logik, ohne Zusatz-Plugin",
+      "Spam-Schutz ab Werk, ohne Turnstile oder reCAPTCHA",
+      "Das Design deines Themes, ohne eigenes CSS",
+    ],
+    stepsHeading: "So läuft der Umstieg",
+    steps: [
+      "Flinkform installieren. Contact Form 7 bleibt aktiv, beide laufen parallel.",
+      "Formular im Block-Editor nachbauen. Ein Kontaktformular dauert ein paar Minuten, mehrstufige Formulare mit Logik entsprechend länger.",
+      "Auf der Seite den Contact-Form-7-Shortcode durch den Flinkform-Block ersetzen, testen, fertig. Seite für Seite, in deinem Tempo.",
+    ],
+    honest:
+      "Einen automatischen Import gibt es noch nicht, du baust die Formulare neu. Und Datei-Uploads, die CF7 kostenlos kann, gibt es bei uns nur in Pro. Das war's an Haken.",
+    cta: "Der ganze Vergleich mit Contact Form 7 →",
+    ctaHref: "/vergleich/contact-form-7-alternative",
+  },
+  agency: {
+    eyebrow: "Für Agenturen",
+    heading: "Ein Plugin für alle Kundenseiten.",
+    sub: "Wer 25 Kundenseiten betreut, will nicht 25 Mal ein Formular-Plugin einrichten, stylen und in der Datenschutzerklärung erklären.",
+    items: [
+      {
+        title: "Einmal lernen, überall einsetzen.",
+        desc: "Gleiche Bedienung auf jeder Seite, direkt im Block-Editor. Den kennen deine Kunden schon, da gibt es nichts neu zu erklären.",
+      },
+      {
+        title: "Kein Styling pro Kunde.",
+        desc: "Flinkform übernimmt Farben, Schriften und Abstände aus der theme.json. Das Formular sieht aus wie die Seite, auf der es steht.",
+      },
+      {
+        title: "Kein Drittanbieter in der Datenschutzerklärung.",
+        desc: "Das kostenlose Plugin bindet keinen externen Dienst ein. Also gibt es auch keinen, den du bei jedem Kunden erklären musst.",
+      },
+      {
+        title: "Seiten bleiben cachebar.",
+        desc: "Viele Formular-Plugins nehmen Formularseiten aus dem Cache. Flinkform nicht. Keine Ausnahmeregeln, keine langsame Kontaktseite.",
+      },
+    ],
+    price:
+      "Flinkform Pro für Agenturen: 149 € im Jahr für bis zu 25 Websites. Unter 6 € pro Kundenseite, mit allen Pro-Funktionen.",
+    cta: "Zur Agency-Lizenz →",
+    ctaHref: "/pro#agency",
+  },
   privacyBlock: {
-    kicker: "Die unbequeme Wahrheit",
-    title:
-      "Dein Kontaktformular schickt gerade Besucherdaten in die USA. Ohne dass du es weißt.",
+    kicker: "Datenschutz",
+    title: "Mit reCAPTCHA hast du Aufwand. Mit Flinkform nicht.",
     paragraphs: [
-      "Fast jedes große Formular-Plugin löst sein Spam-Problem mit Google reCAPTCHA. Praktisch für das Plugin. Weniger praktisch für dich: Google sammelt dabei Daten deiner Besucher, und du stehst mit deinem Namen im Impressum dafür gerade.",
-      "Das ist kein Bauchgefühl, sondern dokumentierte Rechtslage: ein Gerichtsurteil in Österreich, Bußgelder in Frankreich, deutliche Worte der deutschen Aufsicht. Die Kurzfassung steht in den Karten, die Details im Blog.",
+      "Seit April 2026 arbeitet Google bei reCAPTCHA als Auftragsverarbeiter. Das hat den Einsatz einfacher gemacht, und das gehört ehrlich gesagt.",
+      "Aufwandsfrei ist reCAPTCHA trotzdem nicht: AV-Vertrag, Eintrag in der Datenschutzerklärung, im Zweifel eine Einwilligung, Übermittlung in die USA. Auf jeder Website neu.",
     ],
     highlight:
-      "Flinkform braucht das alles nicht: Der Spam-Schutz läuft komplett auf deinem Server. Kein Google, keine Einwilligung, kein Cookie-Banner. Dein Formular gehört dir.",
-    linkText: "Zum Hintergrund: BVwG-Urteil und CNIL-Bußgelder im Detail",
+      "Flinkform braucht das nicht. Honeypot, signierter Zeit-Check und Proof-of-Work laufen ab Werk auf deinem Server.",
+    linkText: "Was sich bei reCAPTCHA geändert hat",
     linkHref: "/blog/recaptcha-dsgvo-rechtsrisiko",
     stats: [
       {
-        value: "13.09.2024",
-        label: "BVwG-Urteil (W298 2274626-1): reCAPTCHA ohne Einwilligung ist DSGVO-widrig",
+        value: "02.04.2026",
+        label: "Seitdem ist Google bei reCAPTCHA Auftragsverarbeiter. Den AV-Vertrag schließt du.",
       },
       {
-        value: "125.000 €",
-        label: "CNIL-Bußgeld gegen Cityscoot, u. a. wegen reCAPTCHA ohne Einwilligung",
+        value: "3 Stufen",
+        label: "Spam-Schutz ab Werk: Honeypot, signierter Zeit-Check, Proof-of-Work",
       },
       {
         value: "0",
-        label: "externe Requests durch den Flinkform-Spam-Schutz. Alles auf deinem Server",
+        label: "externe Requests durch den Flinkform-Spam-Schutz",
       },
     ],
   },
+  proof: {
+    heading: "Glaub uns nicht. Frag die hier.",
+    sub: "Die Bewertungen von WordPress.org, unverändert übernommen.",
+    rating: "{average} von 5 Sternen aus {count} Bewertungen auf WordPress.org",
+    allReviews: "Alle Bewertungen auf WordPress.org →",
+    source: "Bewertung auf WordPress.org",
+    clientSites: "Im Einsatz auf {count} Kundenseiten von dbw media.",
+    notice:
+      "Bewerten kann auf WordPress.org jeder mit einem WordPress.org-Konto. Ob jemand das Plugin tatsächlich nutzt, prüft WordPress.org nicht, und wir auch nicht.",
+  },
+  proTeaser: {
+    eyebrow: "Flinkform Pro",
+    title: "Das Formular, das Geld verdient.",
+    desc: "Drei Formulare, die mit Flinkform Pro direkt Umsatz machen. Alle drei kannst du auf der Demo ausprobieren, mit Stripe-Testzahlungen.",
+    cases: [
+      {
+        title: "Angebot live berechnen",
+        desc: "Paket wählen, Umfang schieben, Extras anhaken: Die Summe rechnet mit, während der Besucher tippt. Beim Absenden rechnet der Server jede Formel nach.",
+        demoText: "Angebotsrechner ausprobieren →",
+        demoPath: "/angebotsrechner/",
+      },
+      {
+        title: "Anzahlung bei Buchung",
+        desc: "Die Anzahlung ist ein eigenes Berechnungsfeld, zum Beispiel 30 Prozent der Summe. Genau dieser Betrag geht an Stripe, per Karte, SEPA-Lastschrift oder Apple Pay.",
+        demoText: "Anzahlung im Rechner ansehen →",
+        demoPath: "/angebotsrechner/",
+      },
+      {
+        title: "Kurs- oder Eventanmeldung",
+        desc: "Ticket wählen, bezahlen, angemeldet. Der Server prüft, ob der bezahlte Betrag zum gewählten Ticket passt. Wer den Preis im Browser verändert, kommt nicht durch.",
+        demoText: "Workshop-Anmeldung ausprobieren →",
+        demoPath: "/workshop/",
+      },
+    ],
+    itemsHeading: "Außerdem in Pro",
+    items: [
+      "Stripe: Karte, SEPA-Lastschrift, Apple Pay, Google Pay",
+      "Datei-Upload mit bis zu 10 Dateien pro Feld",
+      "Webhooks ins CRM, SMTP-Versand mit Sende-Log",
+      "Newsletter: Brevo, Mailchimp, CleverReach",
+      "CSV-Export und Custom CSS pro Formular",
+    ],
+    cta: "Flinkform Pro entdecken · ab 59 €/Jahr",
+  },
   features: {
-    heading: "Alles drin. Alles kostenlos.",
-    sub: "Multi-Step und bedingte Logik kosten bei WPForms regulär ab 99 Dollar pro Jahr, bei Gravity Forms ab 59 Dollar. Bei Flinkform: nichts.",
+    heading: "Was drinsteckt.",
+    sub: "Die vollständige Liste. Alles im kostenlosen Plugin.",
     items: [
       "14 Feldtypen: Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Dropdown, Radio, Checkbox, Toggle, Hidden, Consent, Adresse",
       "Multi-Step-Formulare mit Fortschrittsanzeige (Balken, Punkte oder Zahlen) und Schritt-Validierung",
@@ -142,18 +237,6 @@ export const home = {
     linkAll: "Alle Vergleiche im Detail",
     linkCalc: "Kostenrechner: Was zahlst du gerade?",
   },
-  proTeaser: {
-    eyebrow: "Flinkform Pro",
-    title: "Das Formular, das Geld verdient.",
-    desc: "Besucher zahlen per SEPA, Apple Pay oder Karte direkt im Formular. Preise berechnen sich live, während sie tippen. Einsendungen landen automatisch im CRM. Ein Add-on statt fünf Plugins.",
-    items: [
-      "Stripe Payments: Karte, SEPA-Lastschrift, Apple Pay, Google Pay",
-      "Berechnungsfelder für Angebots- und Preisrechner",
-      "Webhooks ins CRM, SMTP-Versand mit Sende-Log",
-      "Datei-Upload mit bis zu 10 Dateien pro Feld",
-    ],
-    cta: "Flinkform Pro entdecken · ab 59 €/Jahr",
-  },
   faq: {
     items: [
       {
@@ -162,11 +245,19 @@ export const home = {
       },
       {
         q: "Warum nicht einfach Contact Form 7?",
-        a: "Contact Form 7 ist seit 2026 im Feature Freeze: Version 6.2 ist die letzte mit neuen Funktionen. Für Multi-Step, bedingte Logik oder ein Submissions-Dashboard brauchst du bei CF7 drei bis vier zusätzliche Plugins. Flinkform hat das alles eingebaut.",
+        a: "Contact Form 7 bekommt nach Version 6.2 keine neuen Funktionen mehr, nur noch Wartung. Es speichert von sich aus keine Einsendungen, und für Multi-Step oder bedingte Logik brauchst du je ein Zusatz-Plugin. Flinkform hat das alles eingebaut.",
+      },
+      {
+        q: "Kann ich meine Contact-Form-7-Formulare migrieren?",
+        a: "Einen automatischen Import gibt es noch nicht. Du baust die Formulare im Block-Editor neu: Ein einfaches Kontaktformular dauert unter 5 Minuten, mehrstufige Formulare mit Logik entsprechend länger. Contact Form 7 kann währenddessen aktiv bleiben, du stellst Seite für Seite um.",
       },
       {
         q: "Was unterscheidet Flinkform von WPForms oder Gravity Forms?",
         a: "WPForms und Gravity Forms nutzen einen eigenen, separaten Formular-Builder. Flinkform lebt direkt im WordPress-Block-Editor. Außerdem brauchst du für bedingte Logik und mehrseitige Formulare bei WPForms mindestens den Basic-Plan, regulär 99 Dollar pro Jahr. Bei Flinkform ist beides kostenlos.",
+      },
+      {
+        q: "Lohnt sich Flinkform für Agenturen?",
+        a: "Dafür ist die Agency-Lizenz gemacht: 149 € im Jahr für bis zu 25 Websites, unter 6 € pro Kundenseite. Das kostenlose Plugin bindet keinen externen Dienst ein, übernimmt das Design aus der theme.json und hält die Seiten cachebar. Kein Styling und kein Drittanbieter-Absatz in der Datenschutzerklärung pro Kunde.",
       },
       {
         q: "Brauche ich reCAPTCHA für den Spam-Schutz?",
@@ -193,10 +284,6 @@ export const home = {
         a: "Ja. Liegt ein Flinkform-Formular in einem Popup oder Modal (einem Container mit role=\"dialog\" oder einem nativen dialog-Element), sendet es ohne Neuladen der Seite ab: Die Erfolgsmeldung und Validierungsfehler erscheinen direkt im Popup. Formulare außerhalb von Popups nutzen weiter den klassischen Ablauf. Es ist keine Konfiguration nötig.",
       },
       {
-        q: "Kann ich meine Contact-Form-7-Formulare migrieren?",
-        a: "Einen automatischen Importer gibt es aktuell nicht. Ein einfaches Kontaktformular baust du in Flinkform aber in unter 5 Minuten neu, direkt im Block-Editor, wie einen normalen Beitrag.",
-      },
-      {
         q: "Gibt es eine Pro-Version?",
         a: "Ja. Flinkform Pro erweitert das kostenlose Plugin um Stripe-Zahlungen (Kreditkarte, SEPA-Lastschrift, Apple Pay, Google Pay), Berechnungsfelder, Multi-Datei-Upload, SMTP-Versand, Webhooks, Newsletter-Anbindung, CSV-Export und Custom CSS. Ab 59 € pro Jahr.",
       },
@@ -214,22 +301,22 @@ export const home = {
   keywordCards: [
     {
       title: "Contact Form 7 Alternative",
-      text: "Contact Form 7 ist seit 2026 im Feature Freeze. Flinkform bietet alles, was CF7 kann, plus Multi-Step, bedingte Logik und Submissions-Dashboard. In einem Plugin statt sechs.",
+      text: "Contact Form 7 bekommt nach Version 6.2 nur noch Wartung. Flinkform bringt Multi-Step, bedingte Logik, Einsendungen im Dashboard und Spam-Schutz ohne externen Dienst in einem Plugin mit, kostenlos.",
       href: "/vergleich/contact-form-7-alternative",
     },
     {
       title: "WPForms Alternative",
-      text: "WPForms verlangt für bedingte Logik und mehrseitige Formulare mindestens Basic, regulär 99 Dollar pro Jahr. Die Lite-Version speichert keine Einsendungen. Flinkform kann beides kostenlos.",
+      text: "WPForms verlangt für bedingte Logik und mehrseitige Formulare mindestens Basic, regulär 99 Dollar pro Jahr. Die Lite-Version zeigt keine Einsendungen im Dashboard. Flinkform kann beides kostenlos.",
       href: "/vergleich/wpforms-alternative",
     },
     {
       title: "Gravity Forms Alternative",
-      text: "Gravity Forms hat keine kostenlose Version, der Einstieg kostet 59 Dollar pro Jahr. Flinkform deckt die Standard-Features kostenlos ab, DSGVO-konform und block-nativ.",
+      text: "Gravity Forms hat keine kostenlose Version, der Einstieg kostet 59 Dollar pro Jahr. Flinkform deckt die Standard-Features kostenlos ab, direkt im Block-Editor.",
       href: "/vergleich/gravity-forms-alternative",
     },
     {
       title: "WordPress-Formular ohne reCAPTCHA",
-      text: "Die meisten Formular-Plugins setzen auf reCAPTCHA oder Akismet. Beides sendet Besucherdaten in die USA. Flinkform schützt komplett auf deinem Server.",
+      text: "Für mehr als einen Honeypot setzen die meisten Formular-Plugins auf reCAPTCHA oder einen anderen externen Dienst. Flinkform schützt ab Werk dreistufig, komplett auf deinem Server.",
       href: "/wissen/wordpress-formular-ohne-recaptcha",
     },
   ],

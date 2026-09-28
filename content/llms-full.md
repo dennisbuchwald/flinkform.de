@@ -8,22 +8,34 @@ Stand: {{DATE}}. Kompakte Übersicht: https://flinkform.de/llms.txt
 
 ## Seite: Startseite (https://flinkform.de/)
 
-Das letzte Formular-Plugin, das du installieren wirst.
+Fünf Plugins. Oder dieses eine.
 
-Flinkform ist ein block-natives Formular-Plugin für den WordPress-Block-Editor. Es bietet Multi-Step-Formulare, bedingte Logik und Spam-Schutz ohne externe Dienste, kostenlos. Anders als WPForms oder Gravity Forms nutzt es keinen eigenen Builder, sondern den WordPress-Editor selbst. DSGVO by design: kein reCAPTCHA, kein US-Dienst, keine IP-Speicherung. Alles bleibt auf deinem Server.
+Formular bauen, Einsendungen speichern, mehrseitig machen, Felder bedingt ausblenden, Spam abwehren. Anderswo sind das fünf Plugins oder ein Bezahl-Tarif. Bei Flinkform ist es eins, kostenlos, direkt im WordPress-Block-Editor. Ohne reCAPTCHA, ohne Drittanbieter, ohne IP-Speicherung.
 
-### Das Privacy-Problem
+### Alles drin. Und zwar kostenlos.
 
-Die meisten Formular-Plugins bringen inzwischen einen Honeypot mit und verweisen für stärkeren Schutz auf Google reCAPTCHA oder einen anderen externen Dienst. Seit dem 02.04.2026 arbeitet Google bei reCAPTCHA als Auftragsverarbeiter (Art. 28 DSGVO). Der Einsatz ist damit einfacher geworden, bleibt aber Aufwand: AV-Vertrag, Eintrag in der Datenschutzerklärung, Übermittlung in die USA. Flinkform braucht keinen externen Dienst: Honeypot, signierter Zeit-Check und Proof-of-Work laufen ab Werk auf dem eigenen Server.
+1. Multi-Step und bedingte Logik im kostenlosen Plugin, ohne Add-on.
+2. Direkt im Block-Editor: Jedes Feld ist ein Block. Kein zweiter Builder, kein Shortcode.
+3. Einsendungen im WordPress-Dashboard: Suche, Filter, gelesen/ungelesen.
+4. Datenschutz ab Werk: Spam-Schutz auf dem eigenen Server, keine IP-Speicherung. Consent-Feld und automatische Löschfristen sind eingebaut.
+5. Schnell und cachebar: unter 15 KB JavaScript (gzipped), ohne jQuery, nur auf Seiten mit Formular geladen. Formularseiten bleiben im Seiten-Cache.
+6. Barrierefrei gebaut: Das Formular-Markup besteht axe-core-Prüfungen gegen WCAG 2.1 AA.
 
-### Was Flinkform anders macht
+### Kommst du von Contact Form 7?
 
-1. Ein Plugin statt sechs: Multi-Step, bedingte Logik, Spam-Schutz, Submissions-Dashboard, E-Mail-Benachrichtigungen sind eingebaut.
-2. Nativ im Block-Editor: Jedes Feld ist ein Gutenberg-Block. Kein separater Formular-Builder, kein Shortcode.
-3. DSGVO ohne Kompromisse: kein reCAPTCHA, kein Akismet, keine IP-Speicherung. Consent-Feld, automatische Datenlöschung, WordPress-Privacy-Tools.
-4. Unter 15 KB Frontend-JavaScript, ohne jQuery, nur auf Seiten mit Formular geladen.
-5. Submissions-Dashboard: Suche, Filter, Sortierung, Bulk-Aktionen, gelesen/ungelesen.
-6. Barrierefrei nach WCAG 2.1 AA, inklusive prefers-reduced-motion.
+Laut Ankündigung des Entwicklers bekommt Contact Form 7 nach Version 6.2 keine neuen Funktionen mehr, nur noch Sicherheits-Updates. Beim Umstieg auf Flinkform kommen dazu: Einsendungen in WordPress ohne Flamingo, Multi-Step und bedingte Logik ohne Zusatz-Plugin, Spam-Schutz ohne Turnstile oder reCAPTCHA, das Design des Themes ohne eigenes CSS. Einen automatischen Import gibt es nicht, die Formulare werden im Block-Editor neu gebaut. Datei-Uploads, die CF7 kostenlos kann, gibt es bei Flinkform nur in Pro. Anleitung mit Feld-Zuordnung: https://flinkform.de/vergleich/contact-form-7-alternative
+
+### Für Agenturen
+
+Ein Plugin für alle Kundenseiten: gleiche Bedienung im Block-Editor, Design aus der theme.json statt Styling pro Kunde, kein externer Dienst in der Datenschutzerklärung, Formularseiten bleiben cachebar. Flinkform Pro Agency: 149 € im Jahr für bis zu 25 Websites.
+
+### Flinkform Pro: Formulare, die Geld verdienen
+
+Angebotsrechner mit Live-Summe (der Server rechnet jede Formel nach), Anzahlung als eigenes Berechnungsfeld mit Zahlung über Stripe, Kurs- und Eventanmeldung mit serverseitiger Preisprüfung. Dazu Datei-Upload, Webhooks, SMTP, Newsletter-Anbindung, CSV-Export und Custom CSS. Ab 59 € pro Jahr.
+
+### Datenschutz
+
+Seit dem 02.04.2026 arbeitet Google bei reCAPTCHA als Auftragsverarbeiter (Art. 28 DSGVO). Der Einsatz ist damit einfacher geworden, bleibt aber Aufwand: AV-Vertrag, Eintrag in der Datenschutzerklärung, im Zweifel eine Einwilligung, Übermittlung in die USA. Flinkform braucht keinen externen Dienst: Honeypot, signierter Zeit-Check und Proof-of-Work laufen ab Werk auf dem eigenen Server.
 
 ### Features (alle kostenlos)
 
@@ -32,6 +44,8 @@ Die meisten Formular-Plugins bringen inzwischen einen Honeypot mit und verweisen
 ### Häufige Fragen (Auszug)
 
 Ist Flinkform wirklich komplett kostenlos? Ja. Multi-Step, bedingte Logik, Submissions-Dashboard, Spam-Schutz: alles im kostenlosen Plugin auf WordPress.org. Flinkform Pro ist ein optionales Add-on für Zahlungen, Webhooks, Datei-Uploads und mehr.
+
+Kann ich meine Contact-Form-7-Formulare migrieren? Einen automatischen Import gibt es noch nicht. Ein einfaches Kontaktformular ist im Block-Editor in unter 5 Minuten neu gebaut, mehrstufige Formulare mit Logik dauern länger. Contact Form 7 kann währenddessen aktiv bleiben.
 
 Brauche ich reCAPTCHA für den Spam-Schutz? Nein. Flinkform bringt einen eigenen Spam-Schutz mit, der komplett auf deinem Server läuft: Honeypot, signierter Zeit-Check und Proof-of-Work. Kein externer Dienst, keine Einwilligung nötig.
 
@@ -213,7 +227,7 @@ Seit dem 02.04.2026 arbeitet Google bei reCAPTCHA als Auftragsverarbeiter (Art. 
 
 ### Contact Form 7 im Feature Freeze (https://flinkform.de/blog/contact-form-7-feature-freeze)
 
-Takayuki Miyoshi hat auf der WordCamp Asia 2026 angekündigt, dass Contact Form 7 (über 10 Millionen aktive Installationen) nach Version 6.2 keine neuen Funktionen mehr bekommt und in den Wartungsmodus wechselt. Sein Fokus liegt auf dem Nachfolge-Projekt Contactable.io (geplant 2028). Bestehende Formulare laufen weiter; für neue Projekte empfiehlt sich ein aktiv entwickeltes, block-natives Plugin.
+Takayuki Miyoshi hat auf der WordCamp Asia 2026 angekündigt, dass Contact Form 7 (über 10 Millionen aktive Installationen) nach Version 6.2 keine neuen Funktionen mehr bekommt und in den Wartungsmodus wechselt. Sein Fokus liegt auf dem Nachfolge-Projekt Contactable.io (Start frühestens 2028). Bestehende Formulare laufen weiter; für neue Projekte empfiehlt sich ein aktiv entwickeltes, block-natives Plugin.
 
 ### Stripe-Zahlungen im WordPress-Formular (https://flinkform.de/blog/stripe-zahlungen-wordpress-formular)
 

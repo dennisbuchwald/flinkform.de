@@ -184,7 +184,9 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
           {PRICING.map((plan) => (
             <div
               key={plan.name}
-              className={`card relative flex flex-col p-7 ${
+              // Anker für Links wie /pro#agency (z. B. aus der Agentur-Sektion der Startseite)
+              id={plan.name.toLowerCase()}
+              className={`card relative flex scroll-mt-24 flex-col p-7 ${
                 plan.featured
                   ? "border-transparent shadow-[0_0_0_2px_#7e56ff,0_24px_48px_-24px_rgba(126,86,255,0.4)]"
                   : ""

@@ -2,86 +2,182 @@ import type { HomeDict } from "@/content/de/home";
 
 export const home: HomeDict = {
   meta: {
-    title: "Flinkform - Free WordPress Form Plugin, Privacy by Design",
+    title: "Flinkform - Free Form Plugin for the WordPress Block Editor",
     description:
-      "Flinkform is a block-native form plugin for WordPress: multi-step forms, conditional logic, spam protection without reCAPTCHA. Free, privacy-first, made in Germany.",
-    ogTitle: "Flinkform - The Privacy-First Form Plugin for WordPress",
+      "Multi-step forms, conditional logic, and a submissions dashboard, free and right inside the block editor. An easy switch from Contact Form 7, one plugin for every client site. Made in Germany.",
+    ogTitle: "Flinkform - Five plugins. Or this one.",
     ogDescription:
-      "Multi-step forms, conditional logic, spam protection without third-party services. Free and privacy by design.",
+      "Build the form, store submissions, split it into steps, show fields conditionally, keep spam out. Free, right inside the WordPress block editor.",
   },
   hero: {
     eyebrow: "WordPress Form Plugin · Free",
-    titlePre: "The last form plugin you'll ever ",
-    titleHighlight: "install",
+    titlePre: "Five plugins. Or ",
+    titleHighlight: "this one",
     titlePost: ".",
     entity:
-      "Flinkform is a block-native form plugin for the WordPress block editor. It offers multi-step forms, conditional logic, and spam protection without third-party services, for free. Unlike WPForms or Gravity Forms, it doesn't use a separate builder - it lives inside the WordPress editor itself.",
-    sub: "Privacy by design: no reCAPTCHA, no US-based service, no IP logging. Everything stays on your own server.",
+      "Build the form, store the submissions, split it into steps, show fields conditionally, keep the spam out. Elsewhere that takes five plugins or a paid plan. With Flinkform it's one plugin, free, right inside the WordPress block editor.",
+    sub: "No reCAPTCHA, no third-party services, no IP logging. Everything stays on your server.",
     ctaPrimary: "Get it free on WordPress.org",
-    ctaSecondary: "Try the demo →",
+    ctaSecondary: "Switching from Contact Form 7? →",
+    ctaSecondaryHref: "#umstieg",
     versionLine: "Version {version} · WordPress 6.5+ · PHP 8.1+ · GPLv2",
-    demoCaption:
-      "Multi-step, live calculations, no reCAPTCHA. Click through it and submit it yourself on demo.flinkform.de.",
+    demoCaption: "Multi-step, live calculations, no reCAPTCHA.",
+    demoLink: "Click through everything on the live demo →",
   },
   pillars: {
-    heading: "What makes Flinkform different",
-    sub: "No bolted-on builder, no stack of plugins, no data leaking to third parties. Flinkform is the form plugin WordPress should have shipped with.",
+    heading: "It's all in there. For free.",
+    sub: "Multi-step forms, conditional logic, and a dashboard for your submissions. WPForms charges from $99 a year for that combination, and Gravity Forms has no free version at all.",
     items: [
       {
-        title: "One plugin instead of six",
-        desc: "Multi-step forms, conditional logic, spam protection, a submissions dashboard, email notifications: all built in. No add-ons, no compatibility headaches.",
+        title: "Multi-step and conditional logic",
+        desc: "Split forms into steps, show or hide fields and entire steps based on answers. In the free plugin, no add-on required.",
       },
       {
-        title: "Native to the block editor",
-        desc: "Every field is a Gutenberg block. No separate form builder, no shortcodes. You build forms the same way you write a normal WordPress post.",
+        title: "Right in the block editor",
+        desc: "Every field is a block. No second builder, no shortcode. You build a form the way you write a post.",
       },
       {
-        title: "Privacy without compromise",
-        desc: "Spam protection runs entirely on your own server. No reCAPTCHA, no Akismet, no IP logging. A consent field, automatic data retention, and the WordPress privacy tools are built in.",
+        title: "Submissions in your dashboard",
+        desc: "Everything lands in WordPress: search, filters, read and unread. If an email gets lost, the inquiry is still there.",
       },
       {
-        title: "Under 15 KB, no jQuery",
-        desc: "The entire frontend JavaScript bundle stays under 15 KB gzipped, and it only loads on pages that actually contain a form. Your pages also stay cacheable: Flinkform does not switch off your page cache, the way form plugins tend to.",
+        title: "Privacy by default",
+        desc: "Spam protection on your own server and no IP logging, without switching anything on. A consent field and automatic retention periods are built in.",
       },
       {
-        title: "Submissions dashboard",
-        desc: "Every submission lives right inside WordPress: search, filters, sorting, bulk actions, read/unread. No separate plugin, no Flamingo.",
+        title: "Fast and cacheable",
+        desc: "Under 15 KB of JavaScript, no jQuery, loaded only on pages with a form. And your page cache stays on, contact page included.",
       },
       {
-        title: "Accessible (WCAG 2.1 AA)",
-        desc: "Full keyboard navigation, screen reader support, focus management across multi-step forms. Respects prefers-reduced-motion.",
+        title: "Built to be accessible",
+        desc: "Keyboard, screen readers, focus management across every step. The form markup passes axe-core checks against WCAG 2.1 AA.",
       },
     ],
   },
+  cf7: {
+    heading: "Coming from Contact Form 7?",
+    intro: [
+      "Contact Form 7 runs on more than 10 million sites and has done good work for many years. According to its developer, there won't be any new features after version 6.2, only security updates. So your existing forms keep working.",
+      "The real question is whether you start your next project with it again.",
+    ],
+    gainsHeading: "What you gain by switching",
+    gains: [
+      "Submissions stored in WordPress, no Flamingo needed",
+      "Multi-step forms and conditional logic, no add-on plugins",
+      "Spam protection out of the box, no Turnstile or reCAPTCHA",
+      "Your theme's design, no custom CSS",
+    ],
+    stepsHeading: "How the switch works",
+    steps: [
+      "Install Flinkform. Contact Form 7 stays active, both run side by side.",
+      "Rebuild the form in the block editor. A contact form takes a few minutes, multi-step forms with logic take longer.",
+      "On the page, replace the Contact Form 7 shortcode with the Flinkform block, test it, done. Page by page, at your own pace.",
+    ],
+    honest:
+      "There's no automatic import yet, so you rebuild your forms. And file uploads, which CF7 has for free, are a Pro feature with us. That's the whole catch.",
+    cta: "See how Flinkform compares →",
+    ctaHref: "/vergleich",
+  },
+  agency: {
+    eyebrow: "For agencies",
+    heading: "One plugin for every client site.",
+    sub: "If you look after 25 client sites, you don't want to set up, style, and explain a form plugin in the privacy policy 25 times over.",
+    items: [
+      {
+        title: "Learn it once, use it everywhere.",
+        desc: "The same workflow on every site, right in the block editor. Your clients already know it, so there's nothing new to explain.",
+      },
+      {
+        title: "No styling per client.",
+        desc: "Flinkform picks up colors, fonts, and spacing from theme.json. The form looks like the site it sits on.",
+      },
+      {
+        title: "No third party in the privacy policy.",
+        desc: "The free plugin doesn't load any external service. So there's none you have to explain on every client site.",
+      },
+      {
+        title: "Pages stay cacheable.",
+        desc: "Plenty of form plugins pull form pages out of the cache. Flinkform doesn't. No exclusion rules, no slow contact page.",
+      },
+    ],
+    price:
+      "Flinkform Pro for agencies: €149 a year for up to 25 sites. Under €6 per client site, with every Pro feature.",
+    cta: "See the Agency license →",
+    ctaHref: "/pro#agency",
+  },
   privacyBlock: {
-    kicker: "The uncomfortable truth",
-    title: "Your contact form is sending visitor data to the US right now. Without you knowing it.",
+    kicker: "Privacy",
+    title: "reCAPTCHA means extra work. Flinkform doesn't.",
     paragraphs: [
-      "Almost every major form plugin solves its spam problem with Google reCAPTCHA. Convenient for the plugin. Less convenient for you: Google collects data on your visitors, and your name is the one on the imprint answering for it.",
-      "This isn't a gut feeling, it's documented legal reality: a court ruling in Austria, fines in France, pointed words from German data protection authorities. The short version is in the cards below, the details are in the blog.",
+      "Since April 2026, Google acts as a data processor for reCAPTCHA. That made using it easier, and it's only fair to say so.",
+      "It still isn't effortless: a data processing agreement, an entry in your privacy policy, possibly a consent prompt, and data sent to the US. On every single site.",
     ],
     highlight:
-      "Flinkform doesn't need any of that: spam protection runs entirely on your own server. No Google, no consent banner, no cookie notice. Your form stays yours.",
-    linkText: "Background reading: the BVwG ruling and CNIL fines in detail",
+      "Flinkform doesn't need any of that. Honeypot, signed time check, and proof-of-work run on your own server out of the box.",
+    linkText: "What changed with reCAPTCHA (German)",
     linkHref: "/blog/recaptcha-dsgvo-rechtsrisiko",
     stats: [
       {
-        value: "Sep 13, 2024",
-        label: "Austrian federal court (BVwG, W298 2274626-1): reCAPTCHA without consent violates GDPR",
+        value: "Apr 2, 2026",
+        label: "Since then, Google has been a data processor for reCAPTCHA. The agreement is yours to sign.",
       },
       {
-        value: "€125,000",
-        label: "CNIL fine against Cityscoot, in part for using reCAPTCHA without consent",
+        value: "3 layers",
+        label: "Spam protection out of the box: honeypot, signed time check, proof-of-work",
       },
       {
         value: "0",
-        label: "external requests made by Flinkform's spam protection. Everything stays on your server",
+        label: "external requests made by Flinkform's spam protection",
       },
     ],
   },
+  proof: {
+    heading: "Don't take our word for it.",
+    sub: "Reviews from WordPress.org, quoted as written.",
+    rating: "{average} out of 5 stars from {count} reviews on WordPress.org",
+    allReviews: "All reviews on WordPress.org →",
+    source: "Review on WordPress.org",
+    clientSites: "Running on {count} client sites built by dbw media.",
+    notice:
+      "Anyone with a WordPress.org account can leave a review there. WordPress.org doesn't verify whether someone actually uses the plugin, and neither do we.",
+  },
+  proTeaser: {
+    eyebrow: "Flinkform Pro",
+    title: "The form that makes money.",
+    desc: "Three forms that bring in revenue with Flinkform Pro. You can try all three on the demo, with Stripe test payments.",
+    cases: [
+      {
+        title: "Live price quotes",
+        desc: "Pick a package, drag the scope, tick the extras: the total updates as the visitor types. On submit, the server recalculates every formula.",
+        demoText: "Try the quote calculator →",
+        demoPath: "/angebotsrechner/",
+      },
+      {
+        title: "Deposits at booking",
+        desc: "The deposit is its own calculation field, say 30 percent of the total. That exact amount goes to Stripe, by card, SEPA direct debit, or Apple Pay.",
+        demoText: "See the deposit in the calculator →",
+        demoPath: "/angebotsrechner/",
+      },
+      {
+        title: "Course and event sign-ups",
+        desc: "Pick a ticket, pay, you're in. The server checks that the amount paid matches the ticket chosen. Changing the price in the browser won't get past it.",
+        demoText: "Try the workshop sign-up →",
+        demoPath: "/workshop/",
+      },
+    ],
+    itemsHeading: "Also in Pro",
+    items: [
+      "Stripe: card, SEPA direct debit, Apple Pay, Google Pay",
+      "File uploads with up to 10 files per field",
+      "Webhooks into your CRM, SMTP delivery with a send log",
+      "Newsletter: Brevo, Mailchimp, CleverReach",
+      "CSV export and custom CSS per form",
+    ],
+    cta: "Discover Flinkform Pro · from €59/year",
+  },
   features: {
-    heading: "Everything included. Everything free.",
-    sub: "Multi-step forms and conditional logic normally cost extra: $99/year with WPForms, $59 with Gravity Forms. With Flinkform: nothing.",
+    heading: "What's inside.",
+    sub: "The complete list. All of it in the free plugin.",
     items: [
       "14 field types: text, email, textarea, number, date, URL, phone, dropdown, radio, checkbox, toggle, hidden, consent, address",
       "Multi-step forms with a progress indicator (bar, dots, or numbers) and per-step validation",
@@ -140,18 +236,6 @@ export const home: HomeDict = {
     linkAll: "See every comparison in detail",
     linkCalc: "Cost calculator: what are you paying right now?",
   },
-  proTeaser: {
-    eyebrow: "Flinkform Pro",
-    title: "The form that makes money.",
-    desc: "Visitors pay by SEPA, Apple Pay, or card right inside the form. Prices calculate live as they type. Submissions flow straight into your CRM. One add-on instead of five plugins.",
-    items: [
-      "Stripe Payments: card, SEPA direct debit, Apple Pay, Google Pay",
-      "Calculation fields for quote and price calculators",
-      "Webhooks into your CRM, SMTP delivery with a send log",
-      "File uploads with up to 10 files per field",
-    ],
-    cta: "Discover Flinkform Pro · from €59/year",
-  },
   faq: {
     items: [
       {
@@ -160,11 +244,19 @@ export const home: HomeDict = {
       },
       {
         q: "Why not just use Contact Form 7?",
-        a: "Contact Form 7 has been in feature freeze since 2026: version 6.2 is the last one with new functionality. For multi-step forms, conditional logic, or a submissions dashboard, CF7 needs three or four additional plugins. Flinkform has all of that built in.",
+        a: "After version 6.2, Contact Form 7 gets no new features, only maintenance. It doesn't store submissions on its own, and multi-step forms or conditional logic each need an add-on plugin. Flinkform has all of that built in.",
+      },
+      {
+        q: "Can I migrate my Contact Form 7 forms?",
+        a: "There's no automatic import yet. You rebuild your forms in the block editor: a simple contact form takes under 5 minutes, multi-step forms with logic take longer. Contact Form 7 can stay active while you switch over page by page.",
       },
       {
         q: "What sets Flinkform apart from WPForms or Gravity Forms?",
         a: "WPForms and Gravity Forms use their own, separate form builder. Flinkform lives directly inside the WordPress block editor. On top of that, WPForms requires at least its Basic plan, regularly $99 per year, for conditional logic and multi-page forms. With Flinkform, both are free.",
+      },
+      {
+        q: "Is Flinkform a good fit for agencies?",
+        a: "That's what the Agency license is for: €149 a year for up to 25 sites, under €6 per client site. The free plugin loads no external service, picks up the design from theme.json, and keeps pages cacheable. No per-client styling and no third-party section in each privacy policy.",
       },
       {
         q: "Do I need reCAPTCHA for spam protection?",
@@ -191,10 +283,6 @@ export const home: HomeDict = {
         a: "Yes. If a Flinkform form sits inside a popup or modal (a container with role=\"dialog\" or a native dialog element), it submits without reloading the page: the success message and validation errors appear right inside the popup. Forms outside of popups keep using the classic flow. No configuration needed.",
       },
       {
-        q: "Can I migrate my Contact Form 7 forms?",
-        a: "There's no automatic importer at the moment. A simple contact form, though, you can rebuild in Flinkform in under 5 minutes, right in the block editor, just like writing a regular post.",
-      },
-      {
         q: "Is there a Pro version?",
         a: "Yes. Flinkform Pro extends the free plugin with Stripe Payments (credit card, SEPA direct debit, Apple Pay, Google Pay), calculation fields, multi-file upload, SMTP delivery, webhooks, newsletter integration, CSV export, and custom CSS. Starting at €59 per year.",
       },
@@ -212,22 +300,22 @@ export const home: HomeDict = {
   keywordCards: [
     {
       title: "Contact Form 7 Alternative",
-      text: "Contact Form 7 has been in feature freeze since 2026. Flinkform offers everything CF7 does, plus multi-step forms, conditional logic, and a submissions dashboard. One plugin instead of six.",
+      text: "After version 6.2, Contact Form 7 only gets maintenance. Flinkform brings multi-step forms, conditional logic, a submissions dashboard, and spam protection without a third-party service in one free plugin.",
       href: "/vergleich/contact-form-7-alternative",
     },
     {
       title: "WPForms Alternative",
-      text: "WPForms requires at least its Basic plan, regularly $99 per year, for conditional logic and multi-page forms - and the Lite version doesn't even store submissions. Flinkform does both for free.",
+      text: "WPForms requires at least its Basic plan, regularly $99 per year, for conditional logic and multi-page forms, and the Lite version doesn't show submissions in the dashboard. Flinkform does both for free.",
       href: "/vergleich/wpforms-alternative",
     },
     {
       title: "Gravity Forms Alternative",
-      text: "Gravity Forms has no free tier; getting started costs $59 per year. Flinkform covers the standard feature set for free, privacy-first and block-native.",
+      text: "Gravity Forms has no free tier; getting started costs $59 per year. Flinkform covers the standard feature set for free, right inside the block editor.",
       href: "/vergleich/gravity-forms-alternative",
     },
     {
       title: "WordPress Form Without reCAPTCHA",
-      text: "Most form plugins rely on reCAPTCHA or Akismet. Both send visitor data to the US. Flinkform protects your form entirely on your own server.",
+      text: "For anything beyond a honeypot, most form plugins rely on reCAPTCHA or another external service. Flinkform protects your form with three layers out of the box, entirely on your own server.",
       href: "/wissen/wordpress-formular-ohne-recaptcha",
     },
   ],
