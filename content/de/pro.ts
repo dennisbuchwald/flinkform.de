@@ -233,17 +233,12 @@ export const pro = {
       a: "Der Verkauf startet in Kürze über einen Checkout mit Lizenz-Key und automatischen Updates. Trag dich über das Anfrage-Formular ein, dann erfährst du es zuerst und sicherst dir den Zugriff auf die limitierte Lifetime-Lizenz zum Launch.",
     },
     /**
-     * Nur sichtbar, sobald verkauft wird.
-     *
-     * TODO Dennis: Antwort bestätigen, bevor PRO_SALES_ENABLED umgelegt wird.
-     * Der Text unten beschreibt das Freemius-Standardverhalten ("Block features
-     * after expiry"), das im Dashboard noch nicht entschieden ist. Wenn die
-     * Pro-Funktionen nach Ablauf stattdessen weiterlaufen sollen und nur
-     * Updates und Support enden, muss dieser Text vorher geändert werden.
+     * Nur sichtbar, sobald verkauft wird. Entspricht der Freemius-Einstellung
+     * "Keep features, only block updates and support" (28.09.2026).
      */
     expiry: {
       q: "Was passiert, wenn meine Lizenz ausläuft?",
-      a: "Deine Website bleibt online und alle bereits eingegangenen Einsendungen bleiben erhalten. Die Pro-Funktionen ruhen, bis du verlängerst, danach sind sie sofort wieder da. Deine Einstellungen, Uploads und Schlüssel werden dabei nicht gelöscht.",
+      a: "Alle Pro-Funktionen laufen weiter, auch deine Zahlungsformulare. Es enden nur Updates und Support. Sobald du verlängerst, bekommst du beides wieder. Einstellungen, Uploads und Schlüssel bleiben unangetastet.",
     },
   },
   requirements: {

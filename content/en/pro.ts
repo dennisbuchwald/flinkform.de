@@ -228,7 +228,7 @@ export const pro: ProDict = {
     },
     expiry: {
       q: "What happens when my license expires?",
-      a: "Your site stays online and every submission you already received stays intact. Pro features pause until you renew, then they are back immediately. Your settings, uploads, and keys are not deleted.",
+      a: "All Pro features keep working, including your payment forms. Only updates and support stop. Renew and you get both back. Settings, uploads, and keys stay untouched.",
     },
   },
   requirements: {

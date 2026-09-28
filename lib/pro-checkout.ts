@@ -9,14 +9,10 @@ import { LIFETIME, PRICING } from "@/lib/site";
 /**
  * Schaltet die Kauf-Buttons scharf.
  *
- * Steht bewusst auf false. Die technischen Voraussetzungen sind erfüllt: Das
- * Freemius-SDK steckt im Pro-Plugin (Lizenzprüfung und automatische Updates),
- * und die Pläne sind in Freemius freigegeben ("Release plans to users").
- *
- * Es fehlt nur noch der echte Testkauf durch Dennis über diese Checkout-Links,
- * inklusive Lizenzaktivierung im Plugin. Erst danach umlegen.
+ * Scharf seit 28.09.2026: Freemius-SDK im Pro-Plugin, Pläne freigegeben,
+ * Testkauf mit Lizenzaktivierung bestanden, Auszahlung eingerichtet.
  */
-export const PRO_SALES_ENABLED = false;
+export const PRO_SALES_ENABLED = true;
 
 /**
  * Letzter Tag der Launch-Lifetime-Aktion (einschließlich).
