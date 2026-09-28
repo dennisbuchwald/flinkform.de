@@ -110,6 +110,21 @@ export const roadmap = {
   changelog: [
     {
       area: "Free",
+      version: "1.14.3",
+      date: "28.09.2026",
+      items: [
+        "Wichtiger Fix: Wer sehr schnell nach dem ersten Klick ins Formular absendete (Feld anklicken, Autofill wählen, Senden innerhalb von zwei Sekunden), landete auf der Startseite und die Nachricht war weg. Der Browser wartet jetzt den kurzen Moment ab, bevor er sendet. Kommt eine Einsendung trotzdem zu früh an, gibt es das ausgefüllte Formular mit der Bitte um erneutes Senden zurück",
+        "Wichtiger Fix: Nach einer erfolgreichen Einsendung zurückgehen, die Nachricht ändern und erneut senden zeigte eine Erfolgsmeldung, ohne die zweite Nachricht zu speichern. Eine erneute Einsendung mit anderem Inhalt wird jetzt immer als neue Einsendung behandelt",
+        "Eingeloggte Besucher, die ein Formular länger als etwa 20 Minuten offen hatten, bekamen beim Absenden eine Fehlerseite. Behoben",
+        "Formulare auf Entwürfen, privaten Seiten und alten Revisionen nehmen keine Einsendungen mehr von Besuchern an, die diese Seiten nicht sehen dürfen. Die Vorschau als Autor funktioniert weiter",
+        "Export und Löschung personenbezogener Daten (Werkzeuge) finden jetzt alle Einsendungen einer Person, auch bei mehr als 50",
+        "Bedingungen vergleichen Texte im Browser und auf dem Server jetzt gleich, auch bei Umlauten und Leerzeichen aus dem Autofill",
+        "Die Benachrichtigungs-Mail antwortet standardmäßig an die E-Mail-Adresse des Absenders, auch bei Formularen, die nie im Editor geöffnet wurden",
+        "Fehlermeldungen verschwinden, sobald ein Feld korrigiert ist, und auf dem Smartphone zoomt iOS beim Antippen eines Felds nicht mehr in die Seite",
+      ],
+    },
+    {
+      area: "Free",
       version: "1.14.2",
       date: "08.09.2026",
       items: [

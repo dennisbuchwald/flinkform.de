@@ -110,6 +110,21 @@ export const roadmap: RoadmapDict = {
   changelog: [
     {
       area: "Free",
+      version: "1.14.3",
+      date: "Sep 28, 2026",
+      items: [
+        "Important fix: sending very quickly after the first click into the form (click a field, pick an autofill entry, Send within two seconds) dropped the submission and landed on the homepage. The browser now waits out that moment before sending, and a submission that still arrives too early comes back filled in with a request to send again",
+        "Important fix: going back after a successful submission, changing the message and sending again showed the success message without storing the second message. A resend with different content is now always a new submission",
+        "Logged-in visitors who kept a form open for more than about 20 minutes could get an error page on submit. Fixed",
+        "Forms on drafts, private pages and old revisions no longer accept submissions from visitors who cannot see those pages. Previewing a draft as its author still works",
+        "Personal data export and erasure (Tools) now reach every submission of a person, also beyond 50",
+        "Conditional rules compare text the same way in the browser and on the server, including umlauts and trailing spaces from autofill",
+        "The notification email replies to the sender's email address by default, also for forms that were never opened in the editor",
+        "Error messages disappear once a field is corrected, and on phones iOS no longer zooms into the page when a field is tapped",
+      ],
+    },
+    {
+      area: "Free",
       version: "1.14.2",
       date: "Sep 8, 2026",
       items: [
