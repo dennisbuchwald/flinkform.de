@@ -75,7 +75,7 @@ export default function UeberPage() {
             Für ein Formular. Und das ungute Gefühl wurde konkreter: Als
             Agentur haftest du für die Compliance der Websites, die du
             auslieferst. Spätestens seit ein österreichisches Gericht 2024
-            entschied, dass reCAPTCHA ohne Einwilligung DSGVO-widrig ist, war
+            entschied, dass reCAPTCHA technisch nicht notwendig ist, war
             klar: Das Standard-Setup der WordPress-Welt hat ein strukturelles
             Problem.
           </p>

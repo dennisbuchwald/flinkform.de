@@ -83,6 +83,16 @@ stärkeren Schutz keinen externen Dienst braucht.
 | Speichert selbst keine Einsendungen: "Contact Form 7 doesn't store submitted messages anywhere" | [contactform7.com](https://contactform7.com/save-submitted-messages-with-flamingo/) |
 | Feature Freeze: Version 6.2 ist die letzte mit neuen Funktionen, danach nur Wartung. Angekündigt von Takayuki Miyoshi auf der WordCamp Asia 2026 | [wpbeginner.com](https://www.wpbeginner.com/news/contact-form-7-freezes-new-features-what-wordpress-users-should-do-next/) |
 | Lädt in den Standard-Einstellungen JavaScript und CSS auf jeder Seite | [contactform7.com](https://contactform7.com/loading-javascript-and-stylesheet-only-when-it-is-necessary/) |
+| Nachfolger Contactable.io, Start "at least 2028". Artikel vom 03.05.2026 | [wpbeginner.com](https://www.wpbeginner.com/news/contact-form-7-freezes-new-features-what-wordpress-users-should-do-next/) |
+| Datei-Upload ist kostenlos eingebaut (Form-Tag `[file]`). Flinkform hat Uploads nur in Pro, das muss in jedem CF7-Vergleich offen stehen | [contactform7.com](https://contactform7.com/file-uploading-and-attachment/) |
+
+## Flinkform (eigene Aussagen, gegen den Plugin-Code geprüft)
+
+| Aussage | Beleg |
+|---|---|
+| Frontend-JS unter 15 KB gzipped: gemessen 7,6 KB (`build/form-container/view.js`, 28.09.2026). Die Interactivity API kommt aus dem WordPress-Core und zählt nicht mit | Plugin-Repo |
+| Platzhalter in Mails: `{field:<Feldname>}`, `{form:title}`, `{site:name}`, `{site:url}`, `{submission:id}`, `{submission:date}` | `includes/Notifications/MergeTags.php` |
+| Blocknamen der CF7-Zuordnung = deutsche Titel aus `languages/flinkform-de_DE.po` | Plugin-Repo |
 
 ## reCAPTCHA und DSGVO
 

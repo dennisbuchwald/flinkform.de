@@ -23,7 +23,7 @@ export const vergleiche: Vergleich[] = [
     badge: "Feature Freeze",
     desc: "CF7 ist seit 2026 im Feature Freeze: Version 6.2 ist die letzte mit neuen Funktionen. Warum jetzt der richtige Zeitpunkt für den Wechsel ist und wie die Migration abläuft.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-28",
     related: [
       "/wissen/wordpress-formular-ohne-recaptcha",
       "/wissen/wordpress-formular-mails-kommen-nicht-an",
@@ -37,7 +37,7 @@ export const vergleiche: Vergleich[] = [
     badge: "Paywall-Check",
     desc: "Multi-Step und bedingte Logik kosten bei WPForms regulär ab 199 Dollar pro Jahr, die Lite-Version speichert keine Einsendungen. Der ehrliche Preis- und Funktionsvergleich.",
     published: "2026-07-03",
-    updated: "2026-09-07",
+    updated: "2026-09-28",
     related: [
       "/wissen/was-kostet-wordpress-formular-plugin",
       "/wissen/multi-step-formular-wordpress",
@@ -51,7 +51,7 @@ export const vergleiche: Vergleich[] = [
     badge: "DSGVO-Fokus",
     desc: "Gravity Forms hat keine kostenlose Version und speichert ab Werk IP-Adressen. Wann Flinkform die bessere Wahl ist und wann Gravity sein Geld wert bleibt.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-28",
     related: [
       "/wissen/was-kostet-wordpress-formular-plugin",
       "/wissen/dsgvo-konformes-formular-plugin",
@@ -65,7 +65,7 @@ export const vergleiche: Vergleich[] = [
     badge: "Block vs. Block",
     desc: "Beide block-nativ, der ehrlichste Vergleich der Serie. Der Flinkform-Vorsprung: Multi-Step und bedingte Logik kostenlos, dazu dreistufiger Spam-Schutz ohne externen Dienst.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-28",
     related: [
       "/wissen/was-ist-ein-block-natives-formular-plugin",
       "/wissen/gutenberg-formular-erstellen",
@@ -79,7 +79,7 @@ export const vergleiche: Vergleich[] = [
     badge: "Preis-Check",
     desc: "Fluent Forms bietet viel fürs Geld, sperrt Multi-Step aber hinter Pro. Flinkform kann Multi-Step und bedingte Logik kostenlos, Spam-Schutz ohne externen Dienst inklusive.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-28",
     related: [
       "/wissen/multi-step-formular-wordpress",
       "/wissen/wordpress-formular-ohne-recaptcha",
@@ -93,7 +93,7 @@ export const vergleiche: Vergleich[] = [
     badge: "Add-on-Kosten",
     desc: "Bei Ninja Forms kosten bedingte Logik, Multi-Step und Uploads je ein eigenes Add-on, das Komplettpaket regulär 499 Dollar pro Jahr. Flinkform hat das Wichtigste eingebaut.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-28",
     related: [
       "/wissen/was-kostet-wordpress-formular-plugin",
       "/wissen/bedingte-logik-wordpress-formular",
@@ -107,7 +107,7 @@ export const vergleiche: Vergleich[] = [
     badge: "Leichtgewicht-Check",
     desc: "Forminator hat eine großzügige Free-Version, speichert aber ab Werk IP-Adressen. Flinkform speichert keine und schützt ab Werk dreistufig vor Spam, ohne externen Dienst.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-28",
     related: [
       "/wissen/dsgvo-konformes-formular-plugin",
       "/wissen/formular-spam-stoppen-wordpress",
@@ -121,7 +121,7 @@ export const vergleiche: Vergleich[] = [
     badge: "Rechner-Check",
     desc: "Formidable ist ein starkes Power-User-Tool, aber Rechner gibt es erst ab regulär 399 Dollar pro Jahr. Flinkform Pro liefert Berechnungsfelder ab 59 Euro pro Jahr.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-28",
     related: [
       "/wissen/angebotsrechner-wordpress",
       "/wissen/bedingte-logik-wordpress-formular",
@@ -135,7 +135,7 @@ export const vergleiche: Vergleich[] = [
     badge: "Ohne Page Builder",
     desc: "Elementor Forms gibt es nur mit Elementor Pro, inklusive Lock-in an den Builder. Flinkform funktioniert kostenlos in jedem Theme und im nativen WordPress-Editor.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-28",
     related: [
       "/wissen/gutenberg-formular-erstellen",
       "/wissen/was-ist-ein-block-natives-formular-plugin",
@@ -149,7 +149,7 @@ export const vergleiche: Vergleich[] = [
     badge: "SaaS vs. WordPress",
     desc: "Typeform kostet 39 bis 169 Dollar pro Monat, die Daten liegen beim Anbieter. Flinkform bringt das Eine-Frage-pro-Schritt-Gefühl kostenlos auf deinen eigenen Server.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-28",
     related: [
       "/wissen/dsgvo-konformes-formular-plugin",
       "/blog/wordpress-formular-daten-usa",

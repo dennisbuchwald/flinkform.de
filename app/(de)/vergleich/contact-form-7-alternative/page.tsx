@@ -18,6 +18,7 @@ const tldrRows = [
     feature: "Weiterentwicklung",
     cells: [true, "Feature Freeze: 6.2 ist die letzte Feature-Version"],
   },
+  { feature: "Datei-Upload", cells: ["nur in Pro", true] },
   { feature: "Formular-Aufbau", cells: ["Blöcke im Editor", "Markup-Textfeld + Shortcode"] },
   {
     feature: "Einsendungen speichern",
@@ -36,6 +37,25 @@ const tldrRows = [
   { feature: "Styling ab Werk", cells: ["erbt dein Theme", "ungestylt"] },
 ] as const;
 
+/** CF7-Form-Tags und ihr Gegenstück. Blocknamen wie im deutschen Inserter. */
+const cf7Mapping = [
+  ["[text]", "Textfeld"],
+  ["[email]", "E-Mail-Feld"],
+  ["[textarea]", "Mehrzeiliges Textfeld"],
+  ["[number]", "Zahlenfeld"],
+  ["[date]", "Datumsfeld"],
+  ["[url]", "URL-Feld"],
+  ["[tel]", "Telefonfeld"],
+  ["[select]", "Dropdown"],
+  ["[checkbox]", "Checkbox-Gruppe"],
+  ["[radio]", "Radio-Gruppe"],
+  ["[acceptance]", "Einwilligung (Datenschutz-Link per {privacy_policy})"],
+  ["[hidden]", "Verstecktes Feld"],
+  ["[submit]", "Button-Text im Form-Block"],
+  ["[quiz], [recaptcha]", "entfällt, Spam-Schutz ist eingebaut"],
+  ["[file]", "Datei-Upload nur in Flinkform Pro"],
+] as const;
+
 const faqs = [
   {
     q: "Ist Contact Form 7 tot?",
@@ -51,7 +71,7 @@ const faqs = [
   },
   {
     q: "Kann Flinkform meine Contact-Form-7-Formulare importieren?",
-    a: "Nein, einen automatischen Importer gibt es aktuell nicht. Da ein typisches Kontaktformular in Flinkform in unter 5 Minuten neu gebaut ist, direkt im Block-Editor, fällt die Migration in der Praxis klein aus.",
+    a: "Nein, einen automatischen Importer gibt es aktuell nicht. Ein typisches Kontaktformular ist in Flinkform in unter 5 Minuten neu gebaut, direkt im Block-Editor. Mehr Zeit brauchst du für große Formulare und für Logik aus CF7-Zusatz-Plugins wie Conditional Fields oder Multi-Step: Die stellst du in Flinkform neu ein. Datei-Uploads gibt es bei Flinkform nur in Pro.",
   },
   {
     q: "Ist Flinkform genauso kostenlos wie Contact Form 7?",
@@ -68,7 +88,7 @@ export default function Page() {
       answerFirst="Flinkform ist eine moderne Contact Form 7 Alternative für WordPress: block-nativ, kostenlos, mit Multi-Step-Formularen, bedingter Logik, Submissions-Dashboard und Spam-Schutz ohne externe Dienste. Der Wechsel ist 2026 besonders naheliegend, weil Contact Form 7 offiziell im Feature Freeze ist: Version 6.2 ist die letzte mit neuen Funktionen."
       tldrColumns={["Flinkform", "Contact Form 7"]}
       tldrRows={tldrRows}
-      tldrNote="Stand Juli 2026. Contact Form 7 lässt sich mit Zusatz-Plugins erweitern, jedes davon bedeutet aber eine weitere Abhängigkeit."
+      tldrNote="Stand September 2026. Contact Form 7 lässt sich mit Zusatz-Plugins erweitern, jedes davon bedeutet aber eine weitere Abhängigkeit."
       sections={[
         {
           heading: "Was Contact Form 7 richtig gemacht hat",
@@ -105,14 +125,25 @@ export default function Page() {
                 sein wird. Danach wechselt das Plugin in den Wartungsmodus:
                 nur noch Sicherheitsupdates und kritische Bugfixes. Sein
                 Fokus liegt künftig auf einem Nachfolge-Projekt
-                (Contactable.io), dessen Start für 2028 angepeilt ist.
+                (Contactable.io), das frühestens 2028 starten soll (
+                <a
+                  href="https://www.wpbeginner.com/news/contact-form-7-freezes-new-features-what-wordpress-users-should-do-next/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Quelle: WPBeginner, Mai 2026
+                </a>
+                ).
               </p>
               <p>
-                Für Website-Betreiber heißt das konkret: Alles, was CF7 heute
-                nicht kann, wird es nie können. Kein Multi-Step, keine
-                bedingte Logik, kein eingebautes Submissions-Archiv, keine
-                Block-Editor-Integration. Wer eine dieser Funktionen braucht,
-                braucht ein anderes Plugin. Details dazu im Blog-Artikel{" "}
+                Ende September 2026 ist Version 6.1.7 aktuell, 6.2 steht
+                also noch aus. Große Sprünge sind davon nicht zu erwarten:
+                Was CF7 bis dahin nicht kann, kommt danach laut Ankündigung
+                nicht mehr dazu. Heute fehlen ab Werk Multi-Step, bedingte
+                Logik, ein Submissions-Archiv und Block-Editor-Integration.
+                Auch der Hersteller selbst sagt offen, dass CF7 Einsendungen
+                nirgends speichert und du für Spam-Schutz Turnstile oder
+                reCAPTCHA brauchst. Details dazu im Blog-Artikel{" "}
                 <Link href="/blog/contact-form-7-feature-freeze">
                   Contact Form 7 im Feature Freeze: Was WordPress-Nutzer
                   jetzt wissen müssen
@@ -154,8 +185,10 @@ export default function Page() {
           body: (
             <>
               <p>
-                Flinkform packt den kompletten Stack in ein einziges,
-                kostenloses Plugin und baut ihn nativ in den Block-Editor:
+                Flinkform packt fast den ganzen Stack in ein einziges,
+                kostenloses Plugin und baut ihn nativ in den Block-Editor.
+                Nur der SMTP-Versand steckt in Pro, oder du nutzt dafür
+                weiter WP Mail SMTP:
               </p>
               <ul>
                 <li>
@@ -211,6 +244,11 @@ export default function Page() {
                   Migrationsaufwand ehrlich gegen.
                 </li>
                 <li>
+                  Wenn deine Formulare Datei-Uploads brauchen: Die kann CF7
+                  kostenlos, bei Flinkform stecken sie in{" "}
+                  <Link href="/pro">Flinkform Pro</Link>.
+                </li>
+                <li>
                   Wenn deine Website den Classic Editor ohne Blöcke nutzt:
                   Flinkform braucht den Block-Editor (WordPress 6.5+, PHP
                   8.1+).
@@ -238,12 +276,15 @@ export default function Page() {
                 </li>
                 <li>
                   Seite mit dem CF7-Shortcode öffnen, den Form-Block von
-                  Flinkform einfügen und die Felder nachbauen. Ein typisches
-                  Kontaktformular: unter 5 Minuten.
+                  Flinkform einfügen und die Felder nachbauen (Zuordnung
+                  siehe Tabelle unten). Ein typisches Kontaktformular: unter
+                  5 Minuten.
                 </li>
                 <li>
                   Empfänger-Adresse und Bestätigungsmail im Block-Inspector
-                  setzen, Formular testen.
+                  setzen. Aus Mail-Tags wie <code>[your-name]</code> werden
+                  Platzhalter wie <code>{"{field:your-name}"}</code>. Formular
+                  testen.
                 </li>
                 <li>
                   CF7-Shortcode entfernen. Wenn alle Formulare umgezogen
@@ -252,6 +293,45 @@ export default function Page() {
                   die Alt-Einsendungen brauchst.
                 </li>
               </ol>
+              <h3>Welches CF7-Feld wird welcher Block?</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Contact Form 7</th>
+                    <th>Flinkform-Block</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cf7Mapping.map(([tag, block]) => (
+                    <tr key={tag}>
+                      <td>
+                        <code>{tag}</code>
+                      </td>
+                      <td>{block}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <p>
+                Tipp: Gib jedem Block im Inspector denselben Feldnamen wie in
+                CF7 (<code>your-name</code>, <code>your-email</code> …). Dann
+                kannst du deine alten Mail-Vorlagen fast eins zu eins
+                übernehmen, nur die eckigen Klammern werden zu{" "}
+                <code>{"{field:…}"}</code>. Dazu gibt es{" "}
+                <code>{"{form:title}"}</code>, <code>{"{site:name}"}</code>,{" "}
+                <code>{"{site:url}"}</code>, <code>{"{submission:id}"}</code>{" "}
+                und <code>{"{submission:date}"}</code>.
+              </p>
+              <h3>Wie lange dauert der Umstieg?</h3>
+              <p>
+                Ein Kontaktformular mit Name, E-Mail und Nachricht baust du in
+                unter 5 Minuten nach. Rechne danach noch den Testversand
+                dazu. Länger wird es bei Formularen mit vielen Feldern oder
+                mehreren Empfängern, und bei allem, was in CF7 über
+                Zusatz-Plugins lief: Die Logik aus CF7 Conditional Fields
+                oder Multi-Step-Add-ons stellst du in Flinkform im Editor neu
+                ein. Übernehmen lässt sie sich nicht.
+              </p>
             </>
           ),
         },
