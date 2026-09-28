@@ -110,6 +110,14 @@ export const roadmap: RoadmapDict = {
   changelog: [
     {
       area: "Pro",
+      version: "1.3.2",
+      date: "Sep 28, 2026",
+      items: [
+        "The checkout in wp-admin no longer shows a struck-through multisite price. Prices are shown as they are charged",
+      ],
+    },
+    {
+      area: "Pro",
       version: "1.3.1",
       date: "Sep 28, 2026",
       items: [

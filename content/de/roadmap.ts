@@ -110,6 +110,14 @@ export const roadmap = {
   changelog: [
     {
       area: "Pro",
+      version: "1.3.2",
+      date: "28.09.2026",
+      items: [
+        "Der Checkout im WordPress-Admin zeigt keinen durchgestrichenen Mehrseiten-Preis mehr. Du siehst die Preise so, wie sie berechnet werden",
+      ],
+    },
+    {
+      area: "Pro",
       version: "1.3.1",
       date: "28.09.2026",
       items: [
