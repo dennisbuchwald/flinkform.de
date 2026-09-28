@@ -64,14 +64,14 @@ export const home = {
     intro: [
       "Contact Form 7 läuft auf über 10 Millionen Websites und hat viele Jahre gute Arbeit gemacht. Laut Ankündigung des Entwicklers kommen nach Version 6.2 keine neuen Funktionen mehr, nur noch Sicherheits-Updates. Deine Formulare laufen also weiter.",
       CF7_IMPORT_SINCE
-        ? "Und abtippen musst du nichts. Flinkform holt deine Formulare per Import rüber, samt Mail-Einstellungen."
+        ? "Und abtippen musst du nichts. Flinkform holt deine Formulare per Import rüber, samt Mails, und stellt deine Seiten gleich mit um."
         : "Die Frage ist nur, ob du beim nächsten Projekt wieder damit anfängst.",
     ],
     // Nur sichtbar, wenn CF7_IMPORT_SINCE gesetzt ist. Die Beispielzeilen
     // zeigen die echte Zuordnung aus der CF7-Vergleichsseite.
     importShowcase: {
       title: "Formular rein. Blöcke raus.",
-      sub: "Der Import liest dein Contact-Form-7-Formular und baut daraus Flinkform-Blöcke. Contact Form 7 selbst fasst er nicht an.",
+      sub: "Der Import liest dein Contact-Form-7-Formular, baut daraus Flinkform-Blöcke und tauscht den Shortcode auf deinen Seiten aus. Vorher zeigt dir eine Ampel, was klappt, und jeder Import lässt sich rückgängig machen. Contact Form 7 selbst fasst er nicht an.",
       fromLabel: "Contact Form 7",
       toLabel: "Flinkform",
       rows: [
@@ -83,7 +83,7 @@ export const home = {
         ["Mail: [your-name]", "Mail: {field:your-name}"],
       ],
       cta: "Kostenlos installieren und umziehen",
-      note: "Import unter Flinkform im WordPress-Admin, ab Version {version}.",
+      note: "Im WordPress-Admin unter Flinkform → Aus CF7 importieren, ab Version {version}.",
     },
     gainsHeading: "Was du beim Umstieg dazubekommst",
     gains: [
@@ -97,8 +97,8 @@ export const home = {
     steps: CF7_IMPORT_SINCE
       ? [
           "Flinkform installieren. Contact Form 7 bleibt aktiv, beide laufen parallel.",
-          "Import starten. Felder, Pflichtfelder, Auswahloptionen und Mail-Einstellungen kommen mit. Contact Form 7 selbst bleibt unangetastet.",
-          "Jede Seite mit Formular einmal testen. Passt alles, kann Contact Form 7 gehen.",
+          "Unter Flinkform → Aus CF7 importieren die Vorschau ansehen und importieren. Felder, Labels, Mails und Erfolgsmeldung kommen mit, deine Seiten werden automatisch umgestellt.",
+          "Jede Seite einmal testen. Passt alles, kann Contact Form 7 gehen. Passt was nicht, machst du den Import pro Formular rückgängig.",
         ]
       : [
           "Flinkform installieren. Contact Form 7 bleibt aktiv, beide laufen parallel.",
@@ -106,7 +106,7 @@ export const home = {
           "Auf der Seite den Contact-Form-7-Shortcode durch den Flinkform-Block ersetzen, testen, fertig. Seite für Seite, in deinem Tempo.",
         ],
     honest: CF7_IMPORT_SINCE
-      ? "Logik aus CF7-Zusatz-Plugins wie Conditional Fields übernimmt der Import nicht, die stellst du im Editor neu ein. Und Datei-Uploads, die CF7 kostenlos kann, gibt es bei uns nur in Pro. Das war's an Haken."
+      ? "Logik aus CF7-Zusatz-Plugins wie Conditional Fields übernimmt der Import nicht, die stellst du im Editor neu ein. Formulare in Page Buildern oder Widgets stellt er nicht selbst um, zeigt dir aber, wo sie stecken. Und Datei-Uploads, die CF7 kostenlos kann, gibt es bei uns nur in Pro. Das war's an Haken."
       : "Einen automatischen Import gibt es noch nicht, du baust die Formulare neu. Und Datei-Uploads, die CF7 kostenlos kann, gibt es bei uns nur in Pro. Das war's an Haken.",
     cta: "Der ganze Vergleich mit Contact Form 7 →",
     ctaHref: "/vergleich/contact-form-7-alternative",
@@ -214,6 +214,9 @@ export const home = {
     items: [
       "14 Feldtypen: Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Dropdown, Radio, Checkbox, Toggle, Hidden, Consent, Adresse",
       "Multi-Step-Formulare mit Fortschrittsanzeige (Balken, Punkte oder Zahlen) und Schritt-Validierung",
+      "Import aus Contact Form 7: Formulare samt Mails übernehmen, Seiten werden automatisch umgestellt, mit Vorschau und Rückgängig",
+      "Fünf Startvorlagen: Kontakt, Rückruf, Projektanfrage in drei Schritten, Terminanfrage und Newsletter, jeweils mit Einwilligungsfeld",
+      "Einsendungen mit Papierkorb, Ungelesen-Zähler im Menü und Mail-Status pro Einsendung. Der Website-Zustand warnt, wenn Benachrichtigungen nicht rausgehen",
       "Bedingte Logik: Felder und Schritte ein-/ausblenden, Schritte überspringen, Submit-Button sperren. Datumsvergleiche inklusive (vor/ab einem Stichtag)",
       "Einfachauswahl wahlweise als klassische Liste oder als anklickbare Buttons in deiner Markenfarbe",
       "Spam-Schutz ohne externe Dienste: Honeypot, signierter Zeit-Check, Proof-of-Work mit Mathe-Fallback ohne JavaScript",
@@ -283,7 +286,7 @@ export const home = {
       {
         q: "Kann ich meine Contact-Form-7-Formulare migrieren?",
         a: CF7_IMPORT_SINCE
-          ? `Ja. Seit Version ${CF7_IMPORT_SINCE} bringt Flinkform einen Import für Contact-Form-7-Formulare mit: Felder, Pflichtfelder, Auswahloptionen und Mail-Einstellungen werden übernommen, Contact Form 7 selbst bleibt unangetastet. Logik aus Zusatz-Plugins wie Conditional Fields stellst du im Editor neu ein.`
+          ? `Ja. Seit Version ${CF7_IMPORT_SINCE} bringt Flinkform einen Import für Contact-Form-7-Formulare mit: Felder, Labels, Admin- und Bestätigungsmail und Erfolgsmeldung werden übernommen, und die Seiten mit dem CF7-Shortcode werden automatisch umgestellt. Vorher zeigt eine Vorschau, was klappt, jeder Import lässt sich pro Formular rückgängig machen, und Contact Form 7 selbst bleibt unverändert. Logik aus Zusatz-Plugins wie Conditional Fields stellst du im Editor neu ein.`
           : "Einen automatischen Import gibt es noch nicht. Du baust die Formulare im Block-Editor neu: Ein einfaches Kontaktformular dauert unter 5 Minuten, mehrstufige Formulare mit Logik entsprechend länger. Contact Form 7 kann währenddessen aktiv bleiben, du stellst Seite für Seite um.",
       },
       {

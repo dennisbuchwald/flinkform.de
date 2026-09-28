@@ -72,7 +72,7 @@ const faqs = [
   {
     q: "Kann Flinkform meine Contact-Form-7-Formulare importieren?",
     a: CF7_IMPORT_SINCE
-      ? `Ja. Seit Version ${CF7_IMPORT_SINCE} bringt Flinkform einen Import für Contact-Form-7-Formulare mit: Felder, Pflichtfelder, Auswahloptionen und Mail-Einstellungen werden übernommen, Contact Form 7 selbst bleibt unangetastet. Logik aus CF7-Zusatz-Plugins wie Conditional Fields oder Multi-Step stellst du in Flinkform neu ein. Datei-Uploads gibt es bei Flinkform nur in Pro.`
+      ? `Ja. Seit Version ${CF7_IMPORT_SINCE} bringt Flinkform einen Import für Contact-Form-7-Formulare mit: Felder, Labels, Admin- und Bestätigungsmail und Erfolgsmeldung werden übernommen, und die Seiten mit dem CF7-Shortcode werden automatisch umgestellt. Vorher zeigt eine Vorschau, was klappt, jeder Import lässt sich pro Formular rückgängig machen, und Contact Form 7 selbst bleibt unverändert. Logik aus CF7-Zusatz-Plugins wie Conditional Fields oder Multi-Step stellst du in Flinkform neu ein. Datei-Uploads gibt es bei Flinkform nur in Pro.`
       : "Nein, einen automatischen Importer gibt es aktuell nicht. Ein typisches Kontaktformular ist in Flinkform in unter 5 Minuten neu gebaut, direkt im Block-Editor. Mehr Zeit brauchst du für große Formulare und für Logik aus CF7-Zusatz-Plugins wie Conditional Fields oder Multi-Step: Die stellst du in Flinkform neu ein. Datei-Uploads gibt es bei Flinkform nur in Pro.",
   },
   {
@@ -280,13 +280,29 @@ export default function Page() {
                       aktivieren. CF7 bleibt aktiv, beide laufen parallel.
                     </li>
                     <li>
-                      Import starten. Felder, Pflichtfelder, Auswahloptionen und
-                      Mail-Einstellungen werden übernommen, aus Mail-Tags wie{" "}
-                      <code>[your-name]</code> werden Platzhalter wie{" "}
-                      <code>{"{field:your-name}"}</code>. Contact Form 7 selbst bleibt
-                      unangetastet.
+                      Unter Flinkform → Aus CF7 importieren die Vorschau
+                      ansehen. Eine Ampel zeigt pro Formular, ob alles
+                      übertragbar ist oder wo du nachsehen solltest.
                     </li>
-                    <li>Jede Seite mit Formular einmal testen, inklusive Testversand.</li>
+                    <li>
+                      Importieren. Felder, Labels, Admin- und Bestätigungsmail
+                      und Erfolgsmeldung werden übernommen, aus Mail-Tags wie{" "}
+                      <code>[your-name]</code> werden Platzhalter wie{" "}
+                      <code>{"{field:your-name}"}</code>. Jedes Formular landet
+                      als synchronisiertes Muster, und die Seiten mit dem
+                      CF7-Shortcode werden automatisch umgestellt. Contact Form 7
+                      selbst bleibt unverändert.
+                    </li>
+                    <li>
+                      Jede Seite einmal testen, inklusive Testversand. Passt
+                      etwas nicht, machst du den Import pro Formular rückgängig:
+                      Die Seiten bekommen ihren CF7-Shortcode zurück.
+                    </li>
+                    <li>
+                      Formulare in Page Buildern oder Widgets stellt der Import
+                      nicht selbst um, er zeigt dir aber, wo sie stecken. Die
+                      tauschst du von Hand gegen das Muster aus.
+                    </li>
                     <li>
                       Wenn alles läuft: CF7, Flamingo und die Zusatz-Plugins deaktivieren.
                       Flamingo-Daten vorher als CSV sichern, falls du die Alt-Einsendungen
@@ -368,8 +384,9 @@ export default function Page() {
               <h3>Wie lange dauert der Umstieg?</h3>
               {CF7_IMPORT_SINCE ? (
                 <p>
-                  Der Import selbst dauert Sekunden. Die Zeit geht ins Testen: jede Seite
-                  mit Formular einmal aufrufen und einen Testversand machen. Nacharbeit
+                  Der Import selbst dauert Sekunden, die Seiten stellt er gleich mit
+                  um. Die Zeit geht ins Testen: jede Seite mit Formular einmal
+                  aufrufen und einen Testversand machen. Nacharbeit
                   brauchst du bei allem, was in CF7 über Zusatz-Plugins lief: Die Logik aus
                   CF7 Conditional Fields oder Multi-Step-Add-ons stellst du in Flinkform im
                   Editor neu ein.

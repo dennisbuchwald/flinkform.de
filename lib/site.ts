@@ -51,17 +51,17 @@ export const MIN_FREE_FOR_PRO = "1.14.3";
 export const FACTS_UPDATED = "2026-09-07";
 
 /**
- * Contact-Form-7-Import im kostenlosen Plugin. null = noch nicht auf WP.org.
+ * Contact-Form-7-Import im kostenlosen Plugin (Flinkform → Aus CF7 importieren).
+ * null = noch nicht auf WP.org, sonst die Free-Version, die ihn mitbringt.
  *
- * Beim Release auf die Free-Version setzen, die ihn mitbringt (z. B.
- * "1.15.0"). Das schaltet die Texte auf Startseite (DE + EN), der
- * CF7-Vergleichsseite und im CF7-Blogartikel um.
- *
- * Vorher prüfen: Die Import-Texte beschreiben den geplanten Umfang (Felder,
- * Pflichtfelder, Auswahloptionen, Mail-Einstellungen; CF7 bleibt unangetastet;
- * Logik aus CF7-Zusatz-Plugins wird nicht übernommen). Weicht der echte
- * Importer ab, zuerst die Texte anpassen. Suche: CF7_IMPORT_SINCE.
- * content/llms-full.md hat keinen Schalter und muss von Hand nachgezogen werden.
+ * Schaltet die Texte auf Startseite (DE + EN), der CF7-Vergleichsseite und im
+ * CF7-Blogartikel. Stand 1.15.0 (am Code geprüft, 28.09.2026): übernimmt
+ * Felder, Labels, Admin- und Bestätigungsmail und Erfolgsmeldung, legt ein
+ * synchronisiertes Muster an, stellt Seiten mit dem Shortcode um, Ampel-
+ * Vorschau, Rückgängig pro Formular, CF7 bleibt unverändert. Nicht: Logik aus
+ * CF7-Add-ons; Page Builder und Widgets werden nur gemeldet; Datei-Upload nur
+ * mit Pro. Ändert sich der Importer, die Texte nachziehen (Suche:
+ * CF7_IMPORT_SINCE) und content/llms-full.md von Hand.
  */
 export const CF7_IMPORT_SINCE: string | null = "1.15.0";
 

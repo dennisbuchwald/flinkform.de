@@ -61,12 +61,12 @@ export const home: HomeDict = {
     intro: [
       "Contact Form 7 runs on more than 10 million sites and has done good work for many years. According to its developer, there won't be any new features after version 6.2, only security updates. So your existing forms keep working.",
       CF7_IMPORT_SINCE
-        ? "And you don't retype a thing. Flinkform brings your forms over with an import, email settings included."
+        ? "And you don't retype a thing. Flinkform brings your forms over with an import, emails included, and switches your pages while it's at it."
         : "The real question is whether you start your next project with it again.",
     ],
     importShowcase: {
       title: "Form in. Blocks out.",
-      sub: "The importer reads your Contact Form 7 form and turns it into Flinkform blocks. It never touches Contact Form 7 itself.",
+      sub: "The importer reads your Contact Form 7 form, turns it into Flinkform blocks and swaps the shortcode on your pages. A traffic light shows what works before you start, and every import can be undone. It never touches Contact Form 7 itself.",
       fromLabel: "Contact Form 7",
       toLabel: "Flinkform",
       rows: [
@@ -78,7 +78,7 @@ export const home: HomeDict = {
         ["Mail: [your-name]", "Mail: {field:your-name}"],
       ],
       cta: "Install free and switch",
-      note: "Import under Flinkform in wp-admin, from version {version}.",
+      note: "In wp-admin under Flinkform → Import from CF7, from version {version}.",
     },
     gainsHeading: "What you gain by switching",
     gains: [
@@ -91,8 +91,8 @@ export const home: HomeDict = {
     steps: CF7_IMPORT_SINCE
       ? [
           "Install Flinkform. Contact Form 7 stays active, both run side by side.",
-          "Start the import. Fields, required flags, choice options and email settings come along. Contact Form 7 itself stays untouched.",
-          "Test every page with a form once. If everything works, Contact Form 7 can go.",
+          "Open Flinkform → Import from CF7, check the preview and import. Fields, labels, emails and the success message come along, and your pages are switched automatically.",
+          "Test every page once. If everything works, Contact Form 7 can go. If something's off, undo the import per form.",
         ]
       : [
           "Install Flinkform. Contact Form 7 stays active, both run side by side.",
@@ -100,7 +100,7 @@ export const home: HomeDict = {
           "On the page, replace the Contact Form 7 shortcode with the Flinkform block, test it, done. Page by page, at your own pace.",
         ],
     honest: CF7_IMPORT_SINCE
-      ? "The import doesn't carry over logic from CF7 add-ons like Conditional Fields, you set that up again in the editor. And file uploads, which CF7 has for free, are a Pro feature with us. That's the whole catch."
+      ? "The import doesn't carry over logic from CF7 add-ons like Conditional Fields, you set that up again in the editor. Forms inside page builders or widgets it doesn't switch itself, but it shows you where they are. And file uploads, which CF7 has for free, are a Pro feature with us. That's the whole catch."
       : "There's no automatic import yet, so you rebuild your forms. And file uploads, which CF7 has for free, are a Pro feature with us. That's the whole catch.",
     cta: "See how Flinkform compares →",
     ctaHref: "/vergleich",
@@ -208,6 +208,9 @@ export const home: HomeDict = {
     items: [
       "14 field types: text, email, textarea, number, date, URL, phone, dropdown, radio, checkbox, toggle, hidden, consent, address",
       "Multi-step forms with a progress indicator (bar, dots, or numbers) and per-step validation",
+      "Import from Contact Form 7: bring forms over with their emails, pages are switched automatically, with preview and undo",
+      "Five starter templates: contact, callback, three-step project inquiry, appointment request and newsletter, each with a consent field",
+      "Submissions with a trash, an unread count in the menu and a mail status per submission. Site Health warns when notifications do not go out",
       "Conditional logic: show/hide fields and steps, skip steps, lock the submit button. Includes date comparisons (before/after a given date)",
       "Single-choice fields as a classic list or as clickable buttons in your brand color",
       "Spam protection without third-party services: honeypot, signed time check, proof-of-work with a math fallback that works without JavaScript",
@@ -276,7 +279,7 @@ export const home: HomeDict = {
       {
         q: "Can I migrate my Contact Form 7 forms?",
         a: CF7_IMPORT_SINCE
-          ? `Yes. Since version ${CF7_IMPORT_SINCE}, Flinkform includes an importer for Contact Form 7 forms: fields, required flags, choice options and email settings carry over, and Contact Form 7 itself stays untouched. Logic from add-ons like Conditional Fields you set up again in the editor.`
+          ? `Yes. Since version ${CF7_IMPORT_SINCE}, Flinkform includes an importer for Contact Form 7 forms: fields, labels, the notification and confirmation emails and the success message carry over, and pages using the CF7 shortcode are switched automatically. A preview shows what works first, every import can be undone per form, and Contact Form 7 itself stays unchanged. Logic from add-ons like Conditional Fields you set up again in the editor.`
           : "There's no automatic import yet. You rebuild your forms in the block editor: a simple contact form takes under 5 minutes, multi-step forms with logic take longer. Contact Form 7 can stay active while you switch over page by page.",
       },
       {
