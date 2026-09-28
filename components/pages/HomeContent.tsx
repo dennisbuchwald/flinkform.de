@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import HeroFormDemo from "@/components/HeroFormDemo";
@@ -75,7 +76,19 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
               <Image src="/icons/flinkform-app.svg" alt="" width={44} height={44} priority />
               <Eyebrow>{t.hero.eyebrow}</Eyebrow>
             </div>
-            <h1 className="mt-6 font-(family-name:--font-display) text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl">
+            {/* Rein dekorativ: die H1 bleibt fester Text für Suchmaschinen und Screenreader. */}
+            <p aria-hidden="true" className="plugin-strike mt-6 font-mono text-sm text-ink-muted">
+              {t.hero.replaces.map((word, i) => (
+                <span
+                  key={word}
+                  className="plugin-strike__word"
+                  style={{ "--i": i, "--len": word.length } as CSSProperties}
+                >
+                  {word}
+                </span>
+              ))}
+            </p>
+            <h1 className="mt-3 font-(family-name:--font-display) text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl">
               {t.hero.titlePre}
               <span className="text-gradient-brand">{t.hero.titleHighlight}</span>
               {t.hero.titlePost}

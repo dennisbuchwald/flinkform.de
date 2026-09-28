@@ -14,6 +14,10 @@ export const home = {
     titlePre: "Fünf Plugins. Oder ",
     titleHighlight: "dieses eine",
     titlePost: ".",
+    // Dekorative Zeile über der H1, wird getippt und durchgestrichen.
+    // Funktionen statt Produktnamen: fremde Marken durchzustreichen wäre
+    // vergleichende Werbung mit Herabsetzungs-Risiko (§ 6 UWG).
+    replaces: ["Formular-Plugin", "Einsendungs-Plugin", "Multi-Step-Plugin", "Logik-Plugin", "Captcha-Plugin"],
     entity:
       "Formular bauen, Einsendungen speichern, mehrseitig machen, Felder bedingt ausblenden, Spam abwehren. Anderswo sind das fünf Plugins oder ein Bezahl-Tarif. Bei Flinkform ist es eins, kostenlos, direkt im WordPress-Block-Editor.",
     sub: "Ohne reCAPTCHA, ohne Drittanbieter, ohne IP-Speicherung. Alles bleibt auf deinem Server.",

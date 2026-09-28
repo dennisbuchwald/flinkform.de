@@ -82,6 +82,55 @@ html {
   }
 }
 
+/* Hero: Plugin-Namen werden getippt und durchgestrichen, dann steht die H1.
+   Alle Wörter liegen von Anfang an im Layout (nur per clip-path verdeckt),
+   deshalb verschiebt sich nichts. */
+.plugin-strike {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+.plugin-strike__word {
+  --step: 0.75s;
+  position: relative;
+  white-space: nowrap;
+  clip-path: inset(0 100% 0 0);
+  animation: plugin-type 0.45s steps(var(--len)) forwards;
+  animation-delay: calc(0.3s + var(--i) * var(--step));
+}
+.plugin-strike__word::after {
+  content: "";
+  position: absolute;
+  left: -0.1em;
+  right: -0.1em;
+  top: 55%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gradient-brand-h);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: plugin-strike 0.25s ease-out forwards;
+  animation-delay: calc(0.3s + var(--i) * var(--step) + 0.5s);
+}
+@keyframes plugin-type {
+  to {
+    clip-path: inset(0 -0.2em 0 0);
+  }
+}
+@keyframes plugin-strike {
+  to {
+    transform: scaleX(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .plugin-strike__word,
+  .plugin-strike__word::after {
+    animation: none !important;
+    clip-path: none;
+    transform: none;
+  }
+}
+
 body {
   background: var(--color-paper);
   color: var(--color-ink);

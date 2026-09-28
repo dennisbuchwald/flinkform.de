@@ -14,6 +14,7 @@ export const home: HomeDict = {
     titlePre: "Five plugins. Or ",
     titleHighlight: "this one",
     titlePost: ".",
+    replaces: ["form plugin", "submissions plugin", "multi-step plugin", "logic plugin", "captcha plugin"],
     entity:
       "Build the form, store the submissions, split it into steps, show fields conditionally, keep the spam out. Elsewhere that takes five plugins or a paid plan. With Flinkform it's one plugin, free, right inside the WordPress block editor.",
     sub: "No reCAPTCHA, no third-party services, no IP logging. Everything stays on your server.",
