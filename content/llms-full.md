@@ -23,7 +23,7 @@ Formular bauen, Einsendungen speichern, mehrseitig machen, Felder bedingt ausble
 
 ### Kommst du von Contact Form 7?
 
-Laut Ankündigung des Entwicklers bekommt Contact Form 7 nach Version 6.2 keine neuen Funktionen mehr, nur noch Sicherheits-Updates. Beim Umstieg auf Flinkform kommen dazu: Einsendungen in WordPress ohne Flamingo, Multi-Step und bedingte Logik ohne Zusatz-Plugin, Spam-Schutz ohne Turnstile oder reCAPTCHA, das Design des Themes ohne eigenes CSS. Einen automatischen Import gibt es nicht, die Formulare werden im Block-Editor neu gebaut. Datei-Uploads, die CF7 kostenlos kann, gibt es bei Flinkform nur in Pro. Anleitung mit Feld-Zuordnung: https://flinkform.de/vergleich/contact-form-7-alternative
+Laut Ankündigung des Entwicklers bekommt Contact Form 7 nach Version 6.2 keine neuen Funktionen mehr, nur noch Sicherheits-Updates. Beim Umstieg auf Flinkform kommen dazu: Einsendungen in WordPress ohne Flamingo, Multi-Step und bedingte Logik ohne Zusatz-Plugin, Spam-Schutz ohne Turnstile oder reCAPTCHA, das Design des Themes ohne eigenes CSS. Seit Version 1.15.0 übernimmt Flinkform Contact-Form-7-Formulare per Import: Felder, Pflichtfelder, Auswahloptionen und Mail-Einstellungen, Contact Form 7 selbst bleibt unangetastet. Logik aus CF7-Zusatz-Plugins wie Conditional Fields wird nicht übernommen. Datei-Uploads, die CF7 kostenlos kann, gibt es bei Flinkform nur in Pro. Anleitung mit Feld-Zuordnung: https://flinkform.de/vergleich/contact-form-7-alternative
 
 ### Für Agenturen
 
@@ -45,7 +45,7 @@ Seit dem 02.04.2026 arbeitet Google bei reCAPTCHA als Auftragsverarbeiter (Art. 
 
 Ist Flinkform wirklich komplett kostenlos? Ja. Multi-Step, bedingte Logik, Submissions-Dashboard, Spam-Schutz: alles im kostenlosen Plugin auf WordPress.org. Flinkform Pro ist ein optionales Add-on für Zahlungen, Webhooks, Datei-Uploads und mehr.
 
-Kann ich meine Contact-Form-7-Formulare migrieren? Einen automatischen Import gibt es noch nicht. Ein einfaches Kontaktformular ist im Block-Editor in unter 5 Minuten neu gebaut, mehrstufige Formulare mit Logik dauern länger. Contact Form 7 kann währenddessen aktiv bleiben.
+Kann ich meine Contact-Form-7-Formulare migrieren? Ja. Seit Version 1.15.0 bringt Flinkform einen Import für Contact-Form-7-Formulare mit: Felder, Pflichtfelder, Auswahloptionen und Mail-Einstellungen werden übernommen, Contact Form 7 selbst bleibt unangetastet. Logik aus Zusatz-Plugins wie Conditional Fields stellst du im Editor neu ein.
 
 Brauche ich reCAPTCHA für den Spam-Schutz? Nein. Flinkform bringt einen eigenen Spam-Schutz mit, der komplett auf deinem Server läuft: Honeypot, signierter Zeit-Check und Proof-of-Work. Kein externer Dienst, keine Einwilligung nötig.
 

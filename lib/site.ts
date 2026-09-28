@@ -63,7 +63,7 @@ export const FACTS_UPDATED = "2026-09-07";
  * Importer ab, zuerst die Texte anpassen. Suche: CF7_IMPORT_SINCE.
  * content/llms-full.md hat keinen Schalter und muss von Hand nachgezogen werden.
  */
-export const CF7_IMPORT_SINCE: string | null = null;
+export const CF7_IMPORT_SINCE: string | null = "1.15.0";
 
 /**
  * Die eine konsistente Entity-Definition (GEO). Überall exakt so verwenden,
