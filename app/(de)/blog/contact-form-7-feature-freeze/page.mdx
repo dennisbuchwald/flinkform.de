@@ -1,5 +1,5 @@
 import BlogArticle from "@/components/BlogArticle";
-import { SITE_URL } from "@/lib/site";
+import { CF7_IMPORT_SINCE, SITE_URL } from "@/lib/site";
 
 export const metadata = {
   title: "Contact Form 7 im Feature Freeze: Was WordPress-Nutzer jetzt wissen müssen",
@@ -47,12 +47,29 @@ Für DACH-Projekte kommt eine Dimension dazu, die in den meisten Vergleichen feh
 
 ## Migration in der Praxis
 
-Ein CF7-Formular nach Flinkform umzuziehen ist kein Projekt, sondern eine Viertelstunde:
+{/* Zwei Fassungen: ohne und mit CF7-Import (Schalter in lib/site.ts). */}
 
-1. Flinkform installieren (CF7 kann parallel weiterlaufen).
-2. Formular im Block-Editor nachbauen: Form-Block einfügen, Felder ergänzen, Empfänger setzen. Ein Standard-Kontaktformular ist in unter 5 Minuten gebaut.
-3. Testen, CF7-Shortcode ersetzen, fertig.
-4. Wenn alle Formulare umgezogen sind: CF7 samt Flamingo, Conditional-Fields- und Multi-Step-Plugins deaktivieren. Flamingo-Daten vorher exportieren, falls du die alten Einsendungen behalten willst.
+{CF7_IMPORT_SINCE ? (
+  <>
+    <p>Seit Version {CF7_IMPORT_SINCE} übernimmt Flinkform Contact-Form-7-Formulare per Import:</p>
+    <ol>
+      <li>Flinkform installieren (CF7 kann parallel weiterlaufen).</li>
+      <li>Import starten: Felder, Pflichtfelder, Auswahloptionen und Mail-Einstellungen werden übernommen. Contact Form 7 selbst bleibt unangetastet.</li>
+      <li>Jede Seite mit Formular testen, inklusive Testversand. Logik aus Zusatz-Plugins wie Conditional Fields stellst du im Editor neu ein.</li>
+      <li>Wenn alles läuft: CF7 samt Flamingo, Conditional-Fields- und Multi-Step-Plugins deaktivieren. Flamingo-Daten vorher exportieren, falls du die alten Einsendungen behalten willst.</li>
+    </ol>
+  </>
+) : (
+  <>
+    <p>Ein CF7-Formular nach Flinkform umzuziehen ist kein Projekt, sondern eine Viertelstunde:</p>
+    <ol>
+      <li>Flinkform installieren (CF7 kann parallel weiterlaufen).</li>
+      <li>Formular im Block-Editor nachbauen: Form-Block einfügen, Felder ergänzen, Empfänger setzen. Ein Standard-Kontaktformular ist in unter 5 Minuten gebaut.</li>
+      <li>Testen, CF7-Shortcode ersetzen, fertig.</li>
+      <li>Wenn alle Formulare umgezogen sind: CF7 samt Flamingo, Conditional-Fields- und Multi-Step-Plugins deaktivieren. Flamingo-Daten vorher exportieren, falls du die alten Einsendungen behalten willst.</li>
+    </ol>
+  </>
+)}
 
 Der ausführliche Vergleich mit Tabelle und FAQ steht hier: [Contact Form 7 Alternative: Flinkform im ehrlichen Vergleich](/vergleich/contact-form-7-alternative).
 

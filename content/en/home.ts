@@ -1,4 +1,5 @@
 import type { HomeDict } from "@/content/de/home";
+import { CF7_IMPORT_SINCE } from "@/lib/site";
 
 export const home: HomeDict = {
   meta: {
@@ -69,13 +70,20 @@ export const home: HomeDict = {
       "Your theme's design, no custom CSS",
     ],
     stepsHeading: "How the switch works",
-    steps: [
-      "Install Flinkform. Contact Form 7 stays active, both run side by side.",
-      "Rebuild the form in the block editor. A contact form takes a few minutes, multi-step forms with logic take longer.",
-      "On the page, replace the Contact Form 7 shortcode with the Flinkform block, test it, done. Page by page, at your own pace.",
-    ],
-    honest:
-      "There's no automatic import yet, so you rebuild your forms. And file uploads, which CF7 has for free, are a Pro feature with us. That's the whole catch.",
+    steps: CF7_IMPORT_SINCE
+      ? [
+          "Install Flinkform. Contact Form 7 stays active, both run side by side.",
+          "Start the import. Fields, required flags, choice options and email settings come along. Contact Form 7 itself stays untouched.",
+          "Test every page with a form once. If everything works, Contact Form 7 can go.",
+        ]
+      : [
+          "Install Flinkform. Contact Form 7 stays active, both run side by side.",
+          "Rebuild the form in the block editor. A contact form takes a few minutes, multi-step forms with logic take longer.",
+          "On the page, replace the Contact Form 7 shortcode with the Flinkform block, test it, done. Page by page, at your own pace.",
+        ],
+    honest: CF7_IMPORT_SINCE
+      ? "The import doesn't carry over logic from CF7 add-ons like Conditional Fields, you set that up again in the editor. And file uploads, which CF7 has for free, are a Pro feature with us. That's the whole catch."
+      : "There's no automatic import yet, so you rebuild your forms. And file uploads, which CF7 has for free, are a Pro feature with us. That's the whole catch.",
     cta: "See how Flinkform compares →",
     ctaHref: "/vergleich",
   },
@@ -249,7 +257,9 @@ export const home: HomeDict = {
       },
       {
         q: "Can I migrate my Contact Form 7 forms?",
-        a: "There's no automatic import yet. You rebuild your forms in the block editor: a simple contact form takes under 5 minutes, multi-step forms with logic take longer. Contact Form 7 can stay active while you switch over page by page.",
+        a: CF7_IMPORT_SINCE
+          ? `Yes. Since version ${CF7_IMPORT_SINCE}, Flinkform includes an importer for Contact Form 7 forms: fields, required flags, choice options and email settings carry over, and Contact Form 7 itself stays untouched. Logic from add-ons like Conditional Fields you set up again in the editor.`
+          : "There's no automatic import yet. You rebuild your forms in the block editor: a simple contact form takes under 5 minutes, multi-step forms with logic take longer. Contact Form 7 can stay active while you switch over page by page.",
       },
       {
         q: "What sets Flinkform apart from WPForms or Gravity Forms?",

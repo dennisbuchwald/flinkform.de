@@ -51,6 +51,21 @@ export const MIN_FREE_FOR_PRO = "1.14.3";
 export const FACTS_UPDATED = "2026-09-07";
 
 /**
+ * Contact-Form-7-Import im kostenlosen Plugin. null = noch nicht auf WP.org.
+ *
+ * Beim Release auf die Free-Version setzen, die ihn mitbringt (z. B.
+ * "1.15.0"). Das schaltet die Texte auf Startseite (DE + EN), der
+ * CF7-Vergleichsseite und im CF7-Blogartikel um.
+ *
+ * Vorher prüfen: Die Import-Texte beschreiben den geplanten Umfang (Felder,
+ * Pflichtfelder, Auswahloptionen, Mail-Einstellungen; CF7 bleibt unangetastet;
+ * Logik aus CF7-Zusatz-Plugins wird nicht übernommen). Weicht der echte
+ * Importer ab, zuerst die Texte anpassen. Suche: CF7_IMPORT_SINCE.
+ * content/llms-full.md hat keinen Schalter und muss von Hand nachgezogen werden.
+ */
+export const CF7_IMPORT_SINCE: string | null = null;
+
+/**
  * Die eine konsistente Entity-Definition (GEO). Überall exakt so verwenden,
  * damit KI-Suchen ein einheitliches Bild der Marke aufbauen.
  */

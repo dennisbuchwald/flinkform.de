@@ -1,4 +1,5 @@
 import type { Widen } from "@/lib/i18n/widen";
+import { CF7_IMPORT_SINCE } from "@/lib/site";
 
 export const home = {
   meta: {
@@ -72,13 +73,21 @@ export const home = {
       "Das Design deines Themes, ohne eigenes CSS",
     ],
     stepsHeading: "So läuft der Umstieg",
-    steps: [
-      "Flinkform installieren. Contact Form 7 bleibt aktiv, beide laufen parallel.",
-      "Formular im Block-Editor nachbauen. Ein Kontaktformular dauert ein paar Minuten, mehrstufige Formulare mit Logik entsprechend länger.",
-      "Auf der Seite den Contact-Form-7-Shortcode durch den Flinkform-Block ersetzen, testen, fertig. Seite für Seite, in deinem Tempo.",
-    ],
-    honest:
-      "Einen automatischen Import gibt es noch nicht, du baust die Formulare neu. Und Datei-Uploads, die CF7 kostenlos kann, gibt es bei uns nur in Pro. Das war's an Haken.",
+    // Zwei Fassungen: ohne und mit CF7-Import (Schalter in lib/site.ts).
+    steps: CF7_IMPORT_SINCE
+      ? [
+          "Flinkform installieren. Contact Form 7 bleibt aktiv, beide laufen parallel.",
+          "Import starten. Felder, Pflichtfelder, Auswahloptionen und Mail-Einstellungen kommen mit. Contact Form 7 selbst bleibt unangetastet.",
+          "Jede Seite mit Formular einmal testen. Passt alles, kann Contact Form 7 gehen.",
+        ]
+      : [
+          "Flinkform installieren. Contact Form 7 bleibt aktiv, beide laufen parallel.",
+          "Formular im Block-Editor nachbauen. Ein Kontaktformular dauert ein paar Minuten, mehrstufige Formulare mit Logik entsprechend länger.",
+          "Auf der Seite den Contact-Form-7-Shortcode durch den Flinkform-Block ersetzen, testen, fertig. Seite für Seite, in deinem Tempo.",
+        ],
+    honest: CF7_IMPORT_SINCE
+      ? "Logik aus CF7-Zusatz-Plugins wie Conditional Fields übernimmt der Import nicht, die stellst du im Editor neu ein. Und Datei-Uploads, die CF7 kostenlos kann, gibt es bei uns nur in Pro. Das war's an Haken."
+      : "Einen automatischen Import gibt es noch nicht, du baust die Formulare neu. Und Datei-Uploads, die CF7 kostenlos kann, gibt es bei uns nur in Pro. Das war's an Haken.",
     cta: "Der ganze Vergleich mit Contact Form 7 →",
     ctaHref: "/vergleich/contact-form-7-alternative",
   },
@@ -253,7 +262,9 @@ export const home = {
       },
       {
         q: "Kann ich meine Contact-Form-7-Formulare migrieren?",
-        a: "Einen automatischen Import gibt es noch nicht. Du baust die Formulare im Block-Editor neu: Ein einfaches Kontaktformular dauert unter 5 Minuten, mehrstufige Formulare mit Logik entsprechend länger. Contact Form 7 kann währenddessen aktiv bleiben, du stellst Seite für Seite um.",
+        a: CF7_IMPORT_SINCE
+          ? `Ja. Seit Version ${CF7_IMPORT_SINCE} bringt Flinkform einen Import für Contact-Form-7-Formulare mit: Felder, Pflichtfelder, Auswahloptionen und Mail-Einstellungen werden übernommen, Contact Form 7 selbst bleibt unangetastet. Logik aus Zusatz-Plugins wie Conditional Fields stellst du im Editor neu ein.`
+          : "Einen automatischen Import gibt es noch nicht. Du baust die Formulare im Block-Editor neu: Ein einfaches Kontaktformular dauert unter 5 Minuten, mehrstufige Formulare mit Logik entsprechend länger. Contact Form 7 kann währenddessen aktiv bleiben, du stellst Seite für Seite um.",
       },
       {
         q: "Was unterscheidet Flinkform von WPForms oder Gravity Forms?",

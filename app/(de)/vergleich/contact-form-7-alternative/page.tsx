@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import VergleichArticle from "@/components/VergleichArticle";
-import { SITE_URL } from "@/lib/site";
+import { CF7_IMPORT_SINCE, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact Form 7 Alternative: Flinkform im ehrlichen Vergleich 2026",
@@ -71,7 +71,9 @@ const faqs = [
   },
   {
     q: "Kann Flinkform meine Contact-Form-7-Formulare importieren?",
-    a: "Nein, einen automatischen Importer gibt es aktuell nicht. Ein typisches Kontaktformular ist in Flinkform in unter 5 Minuten neu gebaut, direkt im Block-Editor. Mehr Zeit brauchst du für große Formulare und für Logik aus CF7-Zusatz-Plugins wie Conditional Fields oder Multi-Step: Die stellst du in Flinkform neu ein. Datei-Uploads gibt es bei Flinkform nur in Pro.",
+    a: CF7_IMPORT_SINCE
+      ? `Ja. Seit Version ${CF7_IMPORT_SINCE} bringt Flinkform einen Import für Contact-Form-7-Formulare mit: Felder, Pflichtfelder, Auswahloptionen und Mail-Einstellungen werden übernommen, Contact Form 7 selbst bleibt unangetastet. Logik aus CF7-Zusatz-Plugins wie Conditional Fields oder Multi-Step stellst du in Flinkform neu ein. Datei-Uploads gibt es bei Flinkform nur in Pro.`
+      : "Nein, einen automatischen Importer gibt es aktuell nicht. Ein typisches Kontaktformular ist in Flinkform in unter 5 Minuten neu gebaut, direkt im Block-Editor. Mehr Zeit brauchst du für große Formulare und für Logik aus CF7-Zusatz-Plugins wie Conditional Fields oder Multi-Step: Die stellst du in Flinkform neu ein. Datei-Uploads gibt es bei Flinkform nur in Pro.",
   },
   {
     q: "Ist Flinkform genauso kostenlos wie Contact Form 7?",
@@ -265,34 +267,65 @@ export default function Page() {
           heading: "So migrierst du von Contact Form 7 zu Flinkform",
           body: (
             <>
-              <p>
-                Einen automatischen Importer gibt es nicht, der manuelle Weg
-                ist aber kurz:
-              </p>
-              <ol>
-                <li>
-                  Flinkform aus dem WordPress.org-Verzeichnis installieren
-                  und aktivieren. CF7 kann parallel aktiv bleiben.
-                </li>
-                <li>
-                  Seite mit dem CF7-Shortcode öffnen, den Form-Block von
-                  Flinkform einfügen und die Felder nachbauen (Zuordnung
-                  siehe Tabelle unten). Ein typisches Kontaktformular: unter
-                  5 Minuten.
-                </li>
-                <li>
-                  Empfänger-Adresse und Bestätigungsmail im Block-Inspector
-                  setzen. Aus Mail-Tags wie <code>[your-name]</code> werden
-                  Platzhalter wie <code>{"{field:your-name}"}</code>. Formular
-                  testen.
-                </li>
-                <li>
-                  CF7-Shortcode entfernen. Wenn alle Formulare umgezogen
-                  sind: CF7, Flamingo und die Zusatz-Plugins deaktivieren und
-                  löschen. Flamingo-Daten vorher als CSV sichern, falls du
-                  die Alt-Einsendungen brauchst.
-                </li>
-              </ol>
+              {/* Zwei Fassungen: ohne und mit CF7-Import (Schalter in lib/site.ts). */}
+              {CF7_IMPORT_SINCE ? (
+                <>
+                  <p>
+                    Seit Version {CF7_IMPORT_SINCE} übernimmt Flinkform deine
+                    Contact-Form-7-Formulare per Import:
+                  </p>
+                  <ol>
+                    <li>
+                      Flinkform aus dem WordPress.org-Verzeichnis installieren und
+                      aktivieren. CF7 bleibt aktiv, beide laufen parallel.
+                    </li>
+                    <li>
+                      Import starten. Felder, Pflichtfelder, Auswahloptionen und
+                      Mail-Einstellungen werden übernommen, aus Mail-Tags wie{" "}
+                      <code>[your-name]</code> werden Platzhalter wie{" "}
+                      <code>{"{field:your-name}"}</code>. Contact Form 7 selbst bleibt
+                      unangetastet.
+                    </li>
+                    <li>Jede Seite mit Formular einmal testen, inklusive Testversand.</li>
+                    <li>
+                      Wenn alles läuft: CF7, Flamingo und die Zusatz-Plugins deaktivieren.
+                      Flamingo-Daten vorher als CSV sichern, falls du die Alt-Einsendungen
+                      brauchst.
+                    </li>
+                  </ol>
+                </>
+              ) : (
+                <>
+                  <p>
+                    Einen automatischen Importer gibt es nicht, der manuelle Weg
+                    ist aber kurz:
+                  </p>
+                  <ol>
+                    <li>
+                      Flinkform aus dem WordPress.org-Verzeichnis installieren
+                      und aktivieren. CF7 kann parallel aktiv bleiben.
+                    </li>
+                    <li>
+                      Seite mit dem CF7-Shortcode öffnen, den Form-Block von
+                      Flinkform einfügen und die Felder nachbauen (Zuordnung
+                      siehe Tabelle unten). Ein typisches Kontaktformular: unter
+                      5 Minuten.
+                    </li>
+                    <li>
+                      Empfänger-Adresse und Bestätigungsmail im Block-Inspector
+                      setzen. Aus Mail-Tags wie <code>[your-name]</code> werden
+                      Platzhalter wie <code>{"{field:your-name}"}</code>. Formular
+                      testen.
+                    </li>
+                    <li>
+                      CF7-Shortcode entfernen. Wenn alle Formulare umgezogen
+                      sind: CF7, Flamingo und die Zusatz-Plugins deaktivieren und
+                      löschen. Flamingo-Daten vorher als CSV sichern, falls du
+                      die Alt-Einsendungen brauchst.
+                    </li>
+                  </ol>
+                </>
+              )}
               <h3>Welches CF7-Feld wird welcher Block?</h3>
               <table>
                 <thead>
@@ -312,26 +345,46 @@ export default function Page() {
                   ))}
                 </tbody>
               </table>
-              <p>
-                Tipp: Gib jedem Block im Inspector denselben Feldnamen wie in
-                CF7 (<code>your-name</code>, <code>your-email</code> …). Dann
-                kannst du deine alten Mail-Vorlagen fast eins zu eins
-                übernehmen, nur die eckigen Klammern werden zu{" "}
-                <code>{"{field:…}"}</code>. Dazu gibt es{" "}
-                <code>{"{form:title}"}</code>, <code>{"{site:name}"}</code>,{" "}
-                <code>{"{site:url}"}</code>, <code>{"{submission:id}"}</code>{" "}
-                und <code>{"{submission:date}"}</code>.
-              </p>
+              {CF7_IMPORT_SINCE ? (
+                <p>
+                  Der Import behält die Feldnamen aus CF7 bei. Deine Mail-Vorlagen bleiben
+                  dadurch fast unverändert, nur die eckigen Klammern werden zu{" "}
+                  <code>{"{field:…}"}</code>. Dazu gibt es <code>{"{form:title}"}</code>,{" "}
+                  <code>{"{site:name}"}</code>, <code>{"{site:url}"}</code>,{" "}
+                  <code>{"{submission:id}"}</code> und <code>{"{submission:date}"}</code>.
+                </p>
+              ) : (
+                <p>
+                  Tipp: Gib jedem Block im Inspector denselben Feldnamen wie in
+                  CF7 (<code>your-name</code>, <code>your-email</code> …). Dann
+                  kannst du deine alten Mail-Vorlagen fast eins zu eins
+                  übernehmen, nur die eckigen Klammern werden zu{" "}
+                  <code>{"{field:…}"}</code>. Dazu gibt es{" "}
+                  <code>{"{form:title}"}</code>, <code>{"{site:name}"}</code>,{" "}
+                  <code>{"{site:url}"}</code>, <code>{"{submission:id}"}</code>{" "}
+                  und <code>{"{submission:date}"}</code>.
+                </p>
+              )}
               <h3>Wie lange dauert der Umstieg?</h3>
-              <p>
-                Ein Kontaktformular mit Name, E-Mail und Nachricht baust du in
-                unter 5 Minuten nach. Rechne danach noch den Testversand
-                dazu. Länger wird es bei Formularen mit vielen Feldern oder
-                mehreren Empfängern, und bei allem, was in CF7 über
-                Zusatz-Plugins lief: Die Logik aus CF7 Conditional Fields
-                oder Multi-Step-Add-ons stellst du in Flinkform im Editor neu
-                ein. Übernehmen lässt sie sich nicht.
-              </p>
+              {CF7_IMPORT_SINCE ? (
+                <p>
+                  Der Import selbst dauert Sekunden. Die Zeit geht ins Testen: jede Seite
+                  mit Formular einmal aufrufen und einen Testversand machen. Nacharbeit
+                  brauchst du bei allem, was in CF7 über Zusatz-Plugins lief: Die Logik aus
+                  CF7 Conditional Fields oder Multi-Step-Add-ons stellst du in Flinkform im
+                  Editor neu ein.
+                </p>
+              ) : (
+                <p>
+                  Ein Kontaktformular mit Name, E-Mail und Nachricht baust du in
+                  unter 5 Minuten nach. Rechne danach noch den Testversand
+                  dazu. Länger wird es bei Formularen mit vielen Feldern oder
+                  mehreren Empfängern, und bei allem, was in CF7 über
+                  Zusatz-Plugins lief: Die Logik aus CF7 Conditional Fields
+                  oder Multi-Step-Add-ons stellst du in Flinkform im Editor neu
+                  ein. Übernehmen lässt sie sich nicht.
+                </p>
+              )}
             </>
           ),
         },
