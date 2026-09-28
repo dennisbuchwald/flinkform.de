@@ -109,6 +109,27 @@ export const roadmap: RoadmapDict = {
   changelogHeading: "Recently Shipped",
   changelog: [
     {
+      area: "Pro",
+      version: "1.3.1",
+      date: "Sep 28, 2026",
+      items: [
+        "Pro now uses the informal du in German, matching Flinkform and the license screen. \"Deutsch (Sie)\" gets the formal version",
+        "The calculation field shows its German name in the editor",
+      ],
+    },
+    {
+      area: "Pro",
+      version: "1.3.0",
+      date: "Sep 28, 2026",
+      items: [
+        "Payments hardened: a card is only charged when the form really goes out, a payment already made is kept when the form comes back with an error, and one payment can only pay for one submission",
+        "Uploaded files are no longer publicly reachable. Admins download them through a protected link, webhooks get a time-limited one",
+        "License and automatic updates through Freemius, without usage tracking. Every feature keeps working without an active license",
+        "Deleting the plugin keeps payments, settings and uploads unless you explicitly switch on their removal",
+        "Calculation fields work in conditions, Brevo with real double opt-in, payment forms also in a footer or popup",
+      ],
+    },
+    {
       area: "Free",
       version: "1.14.4",
       date: "Sep 28, 2026",

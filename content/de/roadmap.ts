@@ -109,6 +109,27 @@ export const roadmap = {
   changelogHeading: "Zuletzt erschienen",
   changelog: [
     {
+      area: "Pro",
+      version: "1.3.1",
+      date: "28.09.2026",
+      items: [
+        "Pro spricht jetzt mit du, passend zu Flinkform und dem Lizenz-Bildschirm. \"Deutsch (Sie)\" bekommt die förmliche Fassung",
+        "Das Berechnungsfeld heißt im Editor jetzt auch auf Deutsch so",
+      ],
+    },
+    {
+      area: "Pro",
+      version: "1.3.0",
+      date: "28.09.2026",
+      items: [
+        "Zahlungen abgesichert: Eine Karte wird nur noch belastet, wenn das Formular wirklich abgeschickt wird. Eine bereits bezahlte Zahlung bleibt erhalten, wenn das Formular mit einem Fehler zurückkommt, und eine Zahlung kann nur für genau eine Einsendung verwendet werden",
+        "Hochgeladene Dateien sind nicht mehr öffentlich abrufbar. Admins laden sie über einen geschützten Link, Webhooks bekommen einen befristet gültigen Link",
+        "Lizenz und automatische Updates über Freemius, ohne Nutzungs-Tracking. Alle Funktionen laufen auch ohne aktive Lizenz weiter",
+        "Beim Löschen des Plugins bleiben Zahlungen, Einstellungen und Uploads erhalten, außer du schaltest das Entfernen ausdrücklich ein",
+        "Berechnungsfelder funktionieren in Bedingungen, Brevo mit echtem Double-Opt-in, Zahlformulare auch im Footer oder Popup",
+      ],
+    },
+    {
       area: "Free",
       version: "1.14.4",
       date: "28.09.2026",
