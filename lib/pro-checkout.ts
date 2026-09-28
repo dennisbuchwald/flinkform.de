@@ -9,13 +9,12 @@ import { LIFETIME, PRICING } from "@/lib/site";
 /**
  * Schaltet die Kauf-Buttons scharf.
  *
- * Steht bewusst auf false. Im Freemius-Dashboard ist "Release plans to users"
- * noch aus, vor allem aber hat Flinkform Pro noch keine Lizenz- und
- * Update-Strecke (kein Freemius-SDK im Plugin). Jemand könnte heute zwar
- * bezahlen, bekäme aber weder Lizenzprüfung noch automatische Updates.
+ * Steht bewusst auf false. Die technischen Voraussetzungen sind erfüllt: Das
+ * Freemius-SDK steckt im Pro-Plugin (Lizenzprüfung und automatische Updates),
+ * und die Pläne sind in Freemius freigegeben ("Release plans to users").
  *
- * Erst umlegen, wenn beides steht: SDK im Pro-Plugin UND Pläne in Freemius
- * freigegeben.
+ * Es fehlt nur noch der echte Testkauf durch Dennis über diese Checkout-Links,
+ * inklusive Lizenzaktivierung im Plugin. Erst danach umlegen.
  */
 export const PRO_SALES_ENABLED = false;
 
@@ -54,6 +53,11 @@ export function checkoutUrl(
     licenses,
     billing_cycle: billingCycle,
     currency: "eur",
+    // Freemius rechnet sonst bei mehreren Lizenzen automatisch einen
+    // Mengenrabatt aus und zeigt den Einzelpreis x Sites als Streichpreis.
+    // Unsere Staffeln sind feste Preise, ein solcher Streichpreis wäre ein
+    // irreführender Mondpreis (Abmahnrisiko).
+    multisite_discount: "false",
   });
   return `${CHECKOUT_BASE}?${params.toString()}`;
 }
