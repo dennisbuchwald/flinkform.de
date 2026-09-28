@@ -64,6 +64,8 @@ export const ENTITY_PRO =
 export const PRICING = [
   {
     name: "Single",
+    /** Site-Staffel im Freemius-Checkout (Parameter "licenses"). */
+    licenses: "1",
     price: 59,
     sites: "1 Website",
     perSite: "59 € pro Website",
@@ -72,6 +74,8 @@ export const PRICING = [
   },
   {
     name: "Studio",
+    /** Site-Staffel im Freemius-Checkout (Parameter "licenses"). */
+    licenses: "3",
     price: 99,
     sites: "3 Websites",
     perSite: "33 € pro Website",
@@ -80,6 +84,8 @@ export const PRICING = [
   },
   {
     name: "Agency",
+    /** Site-Staffel im Freemius-Checkout (Parameter "licenses"). */
+    licenses: "25",
     price: 149,
     sites: "Bis zu 25 Websites",
     perSite: "Unter 6 € pro Website",
@@ -88,6 +94,8 @@ export const PRICING = [
   },
   {
     name: "Unlimited",
+    /** Site-Staffel im Freemius-Checkout (Parameter "licenses"). */
+    licenses: "unlimited",
     price: 299,
     sites: "Unbegrenzte Websites",
     perSite: "Keine Limits",
@@ -99,6 +107,8 @@ export const PRICING = [
 export const LIFETIME = {
   price: 399,
   sites: "Bis zu 25 Websites",
+  /** Dieselbe Site-Staffel wie Agency, nur einmalig statt jährlich. */
+  licenses: "25",
 } as const;
 
 export type FaqItem = { q: string; a: string };

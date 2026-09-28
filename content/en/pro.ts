@@ -20,6 +20,7 @@ export const pro: ProDict = {
       "Flinkform Pro is the commercial add-on for the free WordPress form plugin Flinkform. It adds Stripe Payments (credit card, SEPA direct debit, Apple Pay, Google Pay), calculation fields, multi-file upload, SMTP delivery, webhooks, newsletter integration, CSV export, and custom CSS.",
     sub: "Visitors pay by SEPA, Apple Pay, or card, no shop system required. Prices calculate live. Submissions flow straight into your CRM. One add-on instead of five plugins.",
     ctaPrimary: "Reserve your spot",
+    ctaBuy: "Buy Flinkform Pro",
     ctaSecondary: "See pricing",
     versionLine: `Version ${PRO_VERSION} · requires Flinkform (free) ${MIN_FREE_FOR_PRO}+ · 14-day money-back guarantee`,
   },
@@ -150,15 +151,24 @@ export const pro: ProDict = {
     bestseller: "Bestseller",
     includedModules: "✓ All 8 Pro modules",
     includedSupport: "✓ Updates & support",
-    cta: "Reserve",
-    footNotes: ["✓ 14-day money-back guarantee", "✓ Every plan includes all features", "✓ Cancel any year"],
+    ctaBuy: "Buy now",
+    ctaSoon: "Coming soon",
+    footNotes: [
+      "✓ 14-day money back, no questions asked",
+      "✓ Every plan includes all features",
+      "✓ Cancel any year",
+    ],
+    vatNote:
+      "All prices exclude VAT. Freemius is the seller (Merchant of Record) and calculates VAT at checkout based on your country. With a valid EU VAT ID, reverse charge applies and no VAT is added.",
     lifetime: {
       badge: "Launch Only · Limited",
       title: "Pay once. Use forever.",
       desc: "At launch, there's a limited lifetime license: every Pro feature on up to 25 websites, no annual renewal, updates included. This offer goes away permanently after the launch phase. After that, Flinkform Pro is subscription-only.",
       once: "one-time",
-      cta: "Reserve your spot",
-      note: "Sales start soon. People on the list hear first.",
+      ctaBuy: "Get lifetime access",
+      ctaSoon: "Reserve your spot",
+      noteBuy: "One payment, no renewal. 14-day money back.",
+      noteSoon: "Sales start soon. People on the list hear first.",
     },
   },
   inquiry: {
@@ -170,6 +180,18 @@ export const pro: ProDict = {
       {
         q: "What does Flinkform Pro cost?",
         a: "Flinkform Pro costs €59 per year for 1 site, €99 for 3 sites (Studio), €149 for up to 25 sites (Agency), and €299 with no site limit (Unlimited). Every plan includes all Pro features - tiers are based only on your number of websites. There's also a 14-day money-back guarantee.",
+      },
+      {
+        q: "How many websites does my license cover?",
+        a: "That's the only difference between the plans: Single covers 1 website, Studio 3, Agency up to 25, and Unlimited has no limit. The feature set is identical across all of them. You can move up to a larger tier later without buying again.",
+      },
+      {
+        q: "Do I get an invoice, and how does VAT work?",
+        a: "Yes. Freemius handles the sale as Merchant of Record and sends you the invoice directly. Listed prices exclude VAT, which is added at checkout based on your country. Enter a valid EU VAT ID and reverse charge applies, so no VAT is added.",
+      },
+      {
+        q: "Can I get a refund?",
+        a: "Yes, within 14 days, no questions asked. If Flinkform Pro doesn't do what you need, send an email and you get the full amount back. No justification required.",
       },
       {
         q: "Which payment methods does the payment field support?",
@@ -199,11 +221,15 @@ export const pro: ProDict = {
         q: "What happens to my data when the license expires?",
         a: "Nothing. Your webhooks, SMTP settings, Stripe keys, and uploaded files stay in place. Pro database tables are only removed on a complete uninstall, never on deactivation or license expiry.",
       },
-      {
-        q: "When can I buy it?",
-        a: "Sales open soon through a checkout with a license key and automatic updates. Sign up via the inquiry form to hear first and secure access to the limited lifetime license at launch.",
-      },
     ],
+    soon: {
+      q: "When can I buy it?",
+      a: "Sales open soon through a checkout with a license key and automatic updates. Sign up via the inquiry form to hear first and secure access to the limited lifetime license at launch.",
+    },
+    expiry: {
+      q: "What happens when my license expires?",
+      a: "Your site stays online and every submission you already received stays intact. Pro features pause until you renew, then they are back immediately. Your settings, uploads, and keys are not deleted.",
+    },
   },
   requirements: {
     heading: "Requirements",

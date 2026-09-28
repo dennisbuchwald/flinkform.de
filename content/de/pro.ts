@@ -21,6 +21,7 @@ export const pro = {
       "Flinkform Pro ist das kommerzielle Add-on für das kostenlose WordPress-Formular-Plugin Flinkform. Es ergänzt Stripe-Zahlungen (Kreditkarte, SEPA-Lastschrift, Apple Pay, Google Pay), Berechnungsfelder, Multi-Datei-Upload, SMTP-Versand, Webhooks, Newsletter-Anbindung, CSV-Export und Custom CSS.",
     sub: "Besucher zahlen per SEPA, Apple Pay oder Karte, ohne Shop-System. Preise berechnen sich live. Einsendungen fließen automatisch ins CRM. Ein Add-on statt fünf Plugins.",
     ctaPrimary: "Unverbindlich vormerken",
+    ctaBuy: "Flinkform Pro kaufen",
     ctaSecondary: "Preise ansehen",
     versionLine: `Version ${PRO_VERSION} · benötigt Flinkform (kostenlos) ab ${MIN_FREE_FOR_PRO} · 14 Tage Geld-zurück-Garantie`,
   },
@@ -150,15 +151,29 @@ export const pro = {
     bestseller: "Bestseller",
     includedModules: "✓ Alle 8 Pro-Module",
     includedSupport: "✓ Updates & Support",
-    cta: "Vormerken",
-    footNotes: ["✓ 14 Tage Geld-zurück-Garantie", "✓ Jeder Plan enthält alle Features", "✓ Jährlich kündbar"],
+    ctaBuy: "Jetzt kaufen",
+    ctaSoon: "Bald verfügbar",
+    footNotes: [
+      "✓ 14 Tage Geld zurück, ohne Nachfragen",
+      "✓ Jeder Plan enthält alle Features",
+      "✓ Jährlich kündbar",
+    ],
+    // TODO Dennis: Formulierung freigeben. Die Preise sind netto, Freemius
+    // schlägt die Umsatzsteuer im Checkout auf (bei 59 € sind das 70,21 €
+    // brutto in Deutschland). Zielgruppe ist B2B, deshalb hier netto
+    // ausgezeichnet und der Hinweis direkt darunter. Wenn du auch Privatkunden
+    // ansprechen willst, muss stattdessen der Bruttopreis nach oben.
+    vatNote:
+      "Alle Preise verstehen sich zzgl. Umsatzsteuer. Freemius ist Verkäufer (Merchant of Record) und berechnet die Umsatzsteuer im Checkout nach deinem Land. Mit gültiger USt-IdNr. entfällt sie innerhalb der EU.",
     lifetime: {
       badge: "Nur zum Launch · Limitiert",
       title: "Einmal zahlen. Für immer nutzen.",
       desc: "Zum Launch gibt es eine limitierte Lifetime-Lizenz: alle Pro-Features auf bis zu 25 Websites, keine jährliche Verlängerung, Updates inklusive. Das Angebot wird nach der Launch-Phase dauerhaft abgeschaltet. Danach gibt es Flinkform Pro nur noch im Abo.",
       once: "einmalig",
-      cta: "Unverbindlich vormerken",
-      note: "Verkauf startet in Kürze. Vorgemerkte erfahren es zuerst.",
+      ctaBuy: "Lifetime sichern",
+      ctaSoon: "Unverbindlich vormerken",
+      noteBuy: "Einmalzahlung, keine Verlängerung. 14 Tage Geld zurück.",
+      noteSoon: "Verkauf startet in Kürze. Vorgemerkte erfahren es zuerst.",
     },
   },
   inquiry: {
@@ -170,6 +185,18 @@ export const pro = {
       {
         q: "Was kostet Flinkform Pro?",
         a: "Flinkform Pro kostet 59 € pro Jahr für 1 Website, 99 € für 3 Websites (Studio), 149 € für bis zu 25 Websites (Agency) und 299 € ohne Site-Limit (Unlimited). Alle Pläne enthalten sämtliche Pro-Features, die Staffelung richtet sich nur nach der Anzahl der Websites. Dazu gibt es eine 14-Tage-Geld-zurück-Garantie.",
+      },
+      {
+        q: "Für wie viele Websites gilt meine Lizenz?",
+        a: "Das ist der einzige Unterschied zwischen den Plänen: Single gilt für 1 Website, Studio für 3, Agency für bis zu 25 und Unlimited ohne Limit. Der Funktionsumfang ist bei allen identisch. Du kannst später auf eine größere Staffel wechseln, ohne neu zu kaufen.",
+      },
+      {
+        q: "Bekomme ich eine Rechnung, und wie ist das mit der Umsatzsteuer?",
+        a: "Ja. Den Verkauf wickelt Freemius als Merchant of Record ab, du bekommst deine Rechnung direkt von dort. Die angegebenen Preise sind Nettopreise, die Umsatzsteuer kommt im Checkout nach deinem Land dazu. Trägst du eine gültige USt-IdNr. ein, entfällt sie innerhalb der EU (Reverse Charge).",
+      },
+      {
+        q: "Kann ich mein Geld zurückbekommen?",
+        a: "Ja, 14 Tage lang, ohne Nachfragen. Wenn Flinkform Pro nicht das tut, was du brauchst, schreibst du eine Mail und bekommst den vollen Betrag zurück. Keine Begründung nötig.",
       },
       {
         q: "Welche Zahlungsarten unterstützt das Payment-Feld?",
@@ -199,11 +226,25 @@ export const pro = {
         q: "Was passiert mit meinen Daten, wenn die Lizenz ausläuft?",
         a: "Nichts. Deine Webhooks, SMTP-Einstellungen, Stripe-Keys und Upload-Dateien bleiben gespeichert. Pro-Datenbanktabellen werden nur bei einer kompletten Deinstallation entfernt, nie bei Deaktivierung oder Lizenz-Ablauf.",
       },
-      {
-        q: "Wann kann ich kaufen?",
-        a: "Der Verkauf startet in Kürze über einen Checkout mit Lizenz-Key und automatischen Updates. Trag dich über das Anfrage-Formular ein, dann erfährst du es zuerst und sicherst dir den Zugriff auf die limitierte Lifetime-Lizenz zum Launch.",
-      },
     ],
+    /** Nur sichtbar, solange der Verkauf noch nicht freigeschaltet ist. */
+    soon: {
+      q: "Wann kann ich kaufen?",
+      a: "Der Verkauf startet in Kürze über einen Checkout mit Lizenz-Key und automatischen Updates. Trag dich über das Anfrage-Formular ein, dann erfährst du es zuerst und sicherst dir den Zugriff auf die limitierte Lifetime-Lizenz zum Launch.",
+    },
+    /**
+     * Nur sichtbar, sobald verkauft wird.
+     *
+     * TODO Dennis: Antwort bestätigen, bevor PRO_SALES_ENABLED umgelegt wird.
+     * Der Text unten beschreibt das Freemius-Standardverhalten ("Block features
+     * after expiry"), das im Dashboard noch nicht entschieden ist. Wenn die
+     * Pro-Funktionen nach Ablauf stattdessen weiterlaufen sollen und nur
+     * Updates und Support enden, muss dieser Text vorher geändert werden.
+     */
+    expiry: {
+      q: "Was passiert, wenn meine Lizenz ausläuft?",
+      a: "Deine Website bleibt online und alle bereits eingegangenen Einsendungen bleiben erhalten. Die Pro-Funktionen ruhen, bis du verlängerst, danach sind sie sofort wieder da. Deine Einstellungen, Uploads und Schlüssel werden dabei nicht gelöscht.",
+    },
   },
   requirements: {
     heading: "Voraussetzungen",

@@ -6,6 +6,12 @@ import JsonLd from "@/components/JsonLd";
 import ProInquiryForm from "@/components/ProInquiryForm";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
 import { LIFETIME, PRICING } from "@/lib/site";
+import {
+  LIFETIME_CHECKOUT_URL,
+  PRO_SALES_ENABLED,
+  isLifetimeOffered,
+  planCheckoutUrl,
+} from "@/lib/pro-checkout";
 import { breadcrumbNode, flinkformProNode, graph } from "@/lib/schema";
 import { localizedHref, type Locale } from "@/lib/i18n/routes";
 import type { ProDict } from "@/content/de/pro";
@@ -19,6 +25,12 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
   const ui = i18n[locale];
   const proHref = localizedHref(locale, "/pro");
   const homeHref = localizedHref(locale, "/");
+  // Solange nicht verkauft wird, führt jeder Kauf-Weg ins Vormerk-Formular.
+  const showLifetime = isLifetimeOffered();
+  const faqItems = [
+    ...t.faq.items,
+    PRO_SALES_ENABLED ? t.faq.expiry : t.faq.soon,
+  ];
 
   return (
     <>
@@ -49,10 +61,10 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-muted">{t.hero.sub}</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
-                href="#anfrage"
+                href={PRO_SALES_ENABLED ? "#preise" : "#anfrage"}
                 className="rounded-full bg-gradient-pro px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-all hover:-translate-y-0.5 hover:opacity-90"
               >
-                {t.hero.ctaPrimary}
+                {PRO_SALES_ENABLED ? t.hero.ctaBuy : t.hero.ctaPrimary}
               </a>
               <a
                 href="#preise"
@@ -201,14 +213,17 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
                 <li>{t.pricing.includedSupport}</li>
               </ul>
               <a
-                href="#anfrage"
+                href={PRO_SALES_ENABLED ? planCheckoutUrl(plan) : "#anfrage"}
+                {...(PRO_SALES_ENABLED
+                  ? { rel: "noopener nofollow" }
+                  : {})}
                 className={`mt-6 rounded-full py-3 text-center text-[0.9rem] font-semibold transition-all hover:-translate-y-0.5 ${
                   plan.featured
                     ? "bg-gradient-pro text-white hover:opacity-90"
                     : "border border-line bg-white text-ink hover:border-ink-muted/40"
                 }`}
               >
-                {t.pricing.cta}
+                {PRO_SALES_ENABLED ? t.pricing.ctaBuy : t.pricing.ctaSoon}
               </a>
             </div>
           ))}
@@ -218,8 +233,12 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
             <li key={note}>{note}</li>
           ))}
         </ul>
+        <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-ink-muted">
+          {t.pricing.vatNote}
+        </p>
 
         {/* ── LIFETIME (dunkel, Scarcity) ── */}
+        {showLifetime && (
         <div className="mt-12 overflow-hidden rounded-3xl border border-ink bg-ink text-white">
           <div aria-hidden="true" className="h-1.5 bg-gradient-scarcity" />
           <div className="grid gap-8 p-8 sm:p-10 lg:grid-cols-[1.4fr_1fr] lg:items-center">
@@ -239,15 +258,23 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
               </p>
               <p className="mt-3 text-sm font-semibold">{LIFETIME.sites}</p>
               <a
-                href="#anfrage"
+                href={PRO_SALES_ENABLED ? LIFETIME_CHECKOUT_URL : "#anfrage"}
+                {...(PRO_SALES_ENABLED ? { rel: "noopener nofollow" } : {})}
                 className="mt-5 block rounded-full bg-white py-3 text-[0.9rem] font-bold text-ink transition-all hover:-translate-y-0.5"
               >
-                {t.pricing.lifetime.cta}
+                {PRO_SALES_ENABLED
+                  ? t.pricing.lifetime.ctaBuy
+                  : t.pricing.lifetime.ctaSoon}
               </a>
-              <p className="mt-3 text-xs text-white/50">{t.pricing.lifetime.note}</p>
+              <p className="mt-3 text-xs text-white/50">
+                {PRO_SALES_ENABLED
+                  ? t.pricing.lifetime.noteBuy
+                  : t.pricing.lifetime.noteSoon}
+              </p>
             </div>
           </div>
         </div>
+        )}
       </Section>
 
       {/* ── ANFRAGE ── */}
@@ -265,7 +292,7 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
 
       {/* ── FAQ ── */}
       <Section>
-        <Faq items={t.faq.items} heading={ui.faqHeading} />
+        <Faq items={faqItems} heading={ui.faqHeading} />
       </Section>
 
       {/* ── VORAUSSETZUNGEN ── */}
