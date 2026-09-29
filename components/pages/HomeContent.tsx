@@ -1,6 +1,5 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import HeroFormDemo from "@/components/HeroFormDemo";
 import CompareTable from "@/components/CompareTable";
 import Faq from "@/components/Faq";
@@ -72,12 +71,8 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
       <div className="border-b border-line bg-white">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-14 sm:px-8 lg:grid-cols-[1.05fr_1fr] lg:pb-20 lg:pt-20">
           <div>
-            <div className="flex items-center gap-3">
-              <Image src="/icons/flinkform-app.svg" alt="" width={44} height={44} priority />
-              <Eyebrow>{t.hero.eyebrow}</Eyebrow>
-            </div>
             {/* Rein dekorativ: die H1 bleibt fester Text für Suchmaschinen und Screenreader. */}
-            <p aria-hidden="true" className="plugin-strike mt-6 font-mono text-sm text-ink-muted">
+            <p aria-hidden="true" className="plugin-strike font-mono text-sm text-ink-muted">
               {t.hero.replaces.map((word, i) => (
                 <span
                   key={word}

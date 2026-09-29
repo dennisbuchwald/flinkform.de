@@ -11,7 +11,6 @@ export const home = {
       "Formular bauen, Einsendungen speichern, mehrseitig machen, bedingt ausblenden, Spam abwehren. Kostenlos, direkt im WordPress-Block-Editor.",
   },
   hero: {
-    eyebrow: "WordPress-Formular-Plugin · Kostenlos",
     titlePre: "Fünf Plugins. Oder ",
     titleHighlight: "dieses eine",
     titlePost: ".",

@@ -11,7 +11,6 @@ export const home: HomeDict = {
       "Build the form, store submissions, split it into steps, show fields conditionally, keep spam out. Free, right inside the WordPress block editor.",
   },
   hero: {
-    eyebrow: "WordPress Form Plugin · Free",
     titlePre: "Five plugins. Or ",
     titleHighlight: "this one",
     titlePost: ".",
