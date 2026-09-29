@@ -504,7 +504,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
       <Section className="pb-8">
         <div className="rounded-3xl bg-gradient-brand p-[2px]">
           <div className="rounded-[calc(1.5rem-2px)] bg-white px-8 py-12 text-center sm:px-12">
-            <h2 className="font-(family-name:--font-display) text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="mx-auto max-w-3xl text-balance font-(family-name:--font-display) text-3xl font-bold tracking-tight sm:text-4xl">
               {t.finalCta.title}
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-ink-soft">{t.finalCta.desc}</p>
@@ -515,12 +515,14 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
               >
                 {t.finalCta.ctaPrimary}
               </a>
-              <Link
-                href={localizedHref(locale, "/docs")}
+              <a
+                href={DEMO_URL}
+                target="_blank"
+                rel="noopener"
                 className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-ink-muted/40"
               >
                 {t.finalCta.ctaSecondary}
-              </Link>
+              </a>
             </div>
           </div>
         </div>

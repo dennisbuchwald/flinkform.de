@@ -72,6 +72,6 @@ export const rechner: RechnerDict = {
   finalCta: {
     title: "The cheapest row in the calculator is free.",
     desc: "Multi-step forms, conditional logic, spam protection without reCAPTCHA: all in the free plugin.",
-    cta: "Get it free on WordPress.org",
+    cta: "Install it for €0",
   },
 };

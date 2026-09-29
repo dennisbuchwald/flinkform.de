@@ -72,7 +72,7 @@ export const rechner = {
   finalCta: {
     title: "Die günstigste Zeile im Rechner ist kostenlos.",
     desc: "Multi-Step, bedingte Logik, Spam-Schutz ohne reCAPTCHA: alles im freien Plugin.",
-    cta: "Kostenlos auf WordPress.org",
+    cta: "Für 0 € installieren",
   },
 } as const;
 

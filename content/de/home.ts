@@ -359,10 +359,10 @@ export const home = {
   ],
   keywordReadMore: "Weiterlesen",
   finalCta: {
-    title: "In 5 Minuten steht dein erstes Formular.",
-    desc: "Installieren, Form-Block einfügen, veröffentlichen. Kein Account, keine Kreditkarte, kein Haken.",
-    ctaPrimary: "Kostenlos auf WordPress.org",
-    ctaSecondary: "Erste Schritte lesen",
+    title: "Wetten, dass dein erstes Formular in 5 Minuten steht?",
+    desc: "Kostenlos von WordPress.org installieren, Startvorlage wählen, veröffentlichen. Kein Account, keine Kreditkarte, kein Haken. Die Uhr läuft.",
+    ctaPrimary: "Wette annehmen",
+    ctaSecondary: "Erst mal in der Demo spicken",
   },
 } as const;
 

@@ -5,7 +5,7 @@ import CompareTable, { type CompareCell } from "@/components/CompareTable";
 import Faq from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import { Section, Eyebrow } from "@/components/Section";
-import { SITE_URL, WPORG_URL, type FaqItem } from "@/lib/site";
+import { DEMO_URL, SITE_URL, WPORG_URL, type FaqItem } from "@/lib/site";
 import { articleNode, breadcrumbNode, faqNode, graph } from "@/lib/schema";
 import { ogImageUrl } from "@/lib/og-articles";
 import { getVergleich } from "@/lib/vergleiche";
@@ -147,26 +147,28 @@ export default function VergleichArticle({
         <div className="rounded-3xl bg-gradient-brand p-[2px]">
           <div className="rounded-[calc(1.5rem-2px)] bg-white px-8 py-10 text-center">
             <h2 className="font-(family-name:--font-display) text-2xl font-bold tracking-tight sm:text-3xl">
-              Probier Flinkform einfach aus.
+              Genug gelesen. Jetzt du.
             </h2>
             <p className="mx-auto mt-3 max-w-lg text-ink-soft">
-              Kostenlos, ohne Registrierung, direkt aus dem
-              WordPress.org-Verzeichnis. Ein Testformular ist in 5 Minuten
-              gebaut.
+              Kostenlos, ohne Registrierung, direkt von WordPress.org. Mit
+              einer Startvorlage steht dein erstes Formular in 5 Minuten.
+              Wetten?
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-4">
               <a
                 href={WPORG_URL}
                 className="rounded-full bg-ink px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-ink-soft"
               >
-                Kostenlos auf WordPress.org
+                Kostenlos installieren
               </a>
-              <Link
-                href="/#demo"
+              <a
+                href={DEMO_URL}
+                target="_blank"
+                rel="noopener"
                 className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-ink-muted/40"
               >
-                Live-Demo ansehen
-              </Link>
+                Erst in der Demo testen
+              </a>
             </div>
           </div>
         </div>

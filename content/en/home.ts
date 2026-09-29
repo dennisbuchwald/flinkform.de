@@ -352,9 +352,9 @@ export const home: HomeDict = {
   ],
   keywordReadMore: "Read more",
   finalCta: {
-    title: "Your first form, live in 5 minutes.",
-    desc: "Install it, add the form block, publish. No account, no credit card, no catch.",
-    ctaPrimary: "Get it free on WordPress.org",
-    ctaSecondary: "Read the getting-started guide",
+    title: "Bet your first form is live in 5 minutes?",
+    desc: "Install it free from WordPress.org, pick a starter template, publish. No account, no credit card, no catch. The clock is ticking.",
+    ctaPrimary: "Take the bet",
+    ctaSecondary: "Peek at the demo first",
   },
 };
