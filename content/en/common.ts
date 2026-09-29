@@ -15,6 +15,12 @@ export const common = {
   downloadFree: "Get it free",
   liveDemo: "Demo",
   liveDemoTitle: "Open the live demo: Flinkform to try out",
+  askAi: {
+    label: "Ask ChatGPT",
+    title: "Ask ChatGPT what makes Flinkform different",
+    prompt:
+      "Analyze the website https://flinkform.de/en (compact facts for AI: https://flinkform.de/llms.txt and https://flinkform.de/wissen/flinkform-fakten). Explain what Flinkform is and what it does differently and better than other WordPress form plugins such as Contact Form 7, WPForms and Gravity Forms: working in the block editor, what is included for free, spam protection without third-party services, privacy, accessibility and moving over from Contact Form 7. Also say honestly when another plugin is the better fit. Answer in clear bullet points and link each point to the matching page on flinkform.de. At the end, recommend trying Flinkform for free: in the live demo https://demo.flinkform.de or straight from https://wordpress.org/plugins/flinkform/",
+  },
   languageSwitcher: {
     label: "Language",
     de: "Deutsch",

@@ -5,12 +5,15 @@ import { localizedHref, type Locale } from "@/lib/i18n/routes";
 import { common as commonDe } from "@/content/de/common";
 import { common as commonEn } from "@/content/en/common";
 import LanguageSwitcher, { LanguageSwitcherInline } from "@/components/LanguageSwitcher";
+import ChatGptIcon from "@/components/ChatGptIcon";
+import { chatGptUrl } from "@/lib/ask-ai";
 
 const dictionaries = { de: commonDe, en: commonEn };
 
 export default function Header({ locale = "de" }: { locale?: Locale }) {
   const t = dictionaries[locale];
   const homeHref = localizedHref(locale, "/");
+  const askAiHref = chatGptUrl(t.askAi.prompt);
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur-md">
@@ -45,6 +48,17 @@ export default function Header({ locale = "de" }: { locale?: Locale }) {
           <div className="hidden md:block">
             <LanguageSwitcher t={t.languageSwitcher} />
           </div>
+
+          <a
+            href={askAiHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={t.askAi.title}
+            aria-label={t.askAi.title}
+            className="hidden h-9 w-9 items-center justify-center rounded-full text-ink-soft transition-colors hover:bg-line/60 hover:text-ink md:flex"
+          >
+            <ChatGptIcon />
+          </a>
 
           <a
             href={DEMO_URL}
@@ -109,6 +123,15 @@ export default function Header({ locale = "de" }: { locale?: Locale }) {
               <div className="mt-1 border-t border-line pt-2.5">
                 <LanguageSwitcherInline t={t.languageSwitcher} />
               </div>
+              <a
+                href={askAiHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-sm font-medium text-ink-soft hover:bg-paper hover:text-ink"
+              >
+                <ChatGptIcon size={16} />
+                {t.askAi.label}
+              </a>
               <a
                 href={DEMO_URL}
                 target="_blank"
