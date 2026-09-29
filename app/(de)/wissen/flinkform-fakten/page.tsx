@@ -17,7 +17,7 @@ import {
 export const metadata: Metadata = {
   title: "Flinkform in Fakten: Versionen, Features, Preise (Fact-Sheet)",
   description:
-    "Das offizielle Flinkform-Datenblatt: aktuelle Versionen, Systemvoraussetzungen, alle 14 Feldtypen, die Feature-Tabelle Free vs. Pro, Preise und Lizenz. Stand 27.07.2026.",
+    "Das offizielle Flinkform-Datenblatt: aktuelle Versionen, Systemvoraussetzungen, alle 14 Feldtypen, die Feature-Tabelle Free vs. Pro, Preise und Lizenz. Stand 29.09.2026.",
   alternates: { canonical: `${SITE_URL}/wissen/flinkform-fakten` },
 };
 
@@ -58,6 +58,11 @@ const facts = [
   },
   { label: "Barrierefreiheit", value: "WCAG 2.1 AA" },
   {
+    label: "Umzug von Contact Form 7",
+    value:
+      "Import im kostenlosen Plugin (Flinkform → Aus CF7 importieren): Felder, Labels, Admin- und Bestätigungsmail, Erfolgsmeldung; Seiten mit dem CF7-Shortcode werden automatisch umgestellt; Ampel-Vorschau, Rückgängig pro Formular, Contact Form 7 bleibt unverändert. Nicht übernommen: Logik aus CF7-Zusatz-Plugins",
+  },
+  {
     label: "Feldtypen (14)",
     value:
       "Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Dropdown (Select), Radio, Checkbox-Gruppe, Toggle, Hidden, Consent, Adresse; dazu die Inhaltsblöcke Hinweis, Section-Heading und Page-Break (Multi-Step)",
@@ -74,6 +79,9 @@ const featureMatrix = [
   { feature: "Consent-Feld, Aufbewahrungsfristen, Privacy-Tools", free: true, pro: true },
   { feature: "E-Mail-Benachrichtigungen mit Merge-Tags", free: true, pro: true },
   { feature: "Danke-Seiten-Redirect mit Tracking-Parametern", free: true, pro: true },
+  { feature: "Import aus Contact Form 7", free: true, pro: true },
+  { feature: "Fünf Startvorlagen (Kontakt, Rückruf, Projektanfrage, Termin, Newsletter)", free: true, pro: true },
+  { feature: "Papierkorb, Ungelesen-Zähler, Mail-Status pro Einsendung", free: true, pro: true },
   { feature: "Stripe Payments (Karte, SEPA, Apple Pay, Google Pay, Link)", free: false, pro: true },
   { feature: "Berechnungsfelder (live + serverseitig verifiziert)", free: false, pro: true },
   { feature: "Datei-Upload (bis zu 10 Dateien pro Feld)", free: false, pro: true },

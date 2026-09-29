@@ -93,7 +93,7 @@ const CORE_FACTS = `## Kern-Fakten
 
 const FEATURES = `## Features Free (kostenlos)
 
-Multi-Step-Formulare mit Fortschrittsanzeige und Schritt-Validierung, bedingte Logik (Felder/Schritte ein- und ausblenden, Schritte überspringen, Submit gaten), Submissions-Dashboard in WordPress (Suche, Filter, gelesen/ungelesen), E-Mail-Benachrichtigungen mit Merge-Tags, Bestätigungsmail, automatische theme.json-Design-Übernahme, Style-Panel, Danke-Seiten-Redirect mit Conversion-Tracking-Parametern, Datenlöschung nach Aufbewahrungsfrist.
+Multi-Step-Formulare mit Fortschrittsanzeige und Schritt-Validierung, bedingte Logik (Felder/Schritte ein- und ausblenden, Schritte überspringen, Submit gaten), Submissions-Dashboard in WordPress (Suche, Filter, gelesen/ungelesen, Papierkorb, Mail-Status pro Einsendung), Import aus Contact Form 7 (Felder, Labels, Mails, Erfolgsmeldung, Seiten werden automatisch umgestellt, rückgängig machbar), fünf Startvorlagen, E-Mail-Benachrichtigungen mit Merge-Tags, Bestätigungsmail, automatische theme.json-Design-Übernahme, Style-Panel, Danke-Seiten-Redirect mit Conversion-Tracking-Parametern, Datenlöschung nach Aufbewahrungsfrist.
 
 ## Features Pro (Add-on)
 
