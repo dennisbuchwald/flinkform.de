@@ -112,6 +112,9 @@ html {
   animation: plugin-strike 0.25s ease-out forwards;
   animation-delay: calc(0.3s + var(--i) * var(--step) + 0.5s);
 }
+.plugin-strike--pro .plugin-strike__word::after {
+  background: var(--gradient-pro);
+}
 @keyframes plugin-type {
   to {
     clip-path: inset(0 -0.2em 0 0);

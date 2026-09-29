@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import PluginStrike from "@/components/PluginStrike";
 import Link from "next/link";
 import HeroFormDemo from "@/components/HeroFormDemo";
 import CompareTable from "@/components/CompareTable";
@@ -71,18 +71,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
       <div className="border-b border-line bg-white">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-14 sm:px-8 lg:grid-cols-[1.05fr_1fr] lg:pb-20 lg:pt-20">
           <div>
-            {/* Rein dekorativ: die H1 bleibt fester Text für Suchmaschinen und Screenreader. */}
-            <p aria-hidden="true" className="plugin-strike font-mono text-sm text-ink-muted">
-              {t.hero.replaces.map((word, i) => (
-                <span
-                  key={word}
-                  className="plugin-strike__word"
-                  style={{ "--i": i, "--len": word.length } as CSSProperties}
-                >
-                  {word}
-                </span>
-              ))}
-            </p>
+            <PluginStrike words={t.hero.replaces} />
             <h1 className="mt-3 font-(family-name:--font-display) text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl">
               {t.hero.titlePre}
               <span className="text-gradient-brand">{t.hero.titleHighlight}</span>

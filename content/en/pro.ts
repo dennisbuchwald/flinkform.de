@@ -16,6 +16,7 @@ export const pro: ProDict = {
     titlePre: "The form that ",
     titleHighlight: "makes money",
     titlePost: ".",
+    replaces: ["payment plugin", "calculator plugin", "upload plugin", "SMTP plugin", "webhook plugin"],
     entity:
       "Flinkform Pro is the commercial add-on for the free WordPress form plugin Flinkform. It adds Stripe Payments (credit card, SEPA direct debit, Apple Pay, Google Pay), calculation fields, multi-file upload, SMTP delivery, webhooks, newsletter integration, CSV export, and custom CSS.",
     sub: "Visitors pay by SEPA, Apple Pay, or card, no shop system required. Prices calculate live. Submissions flow straight into your CRM. One add-on instead of five plugins.",

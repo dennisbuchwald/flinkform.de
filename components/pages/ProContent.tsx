@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import CompareTable from "@/components/CompareTable";
+import PluginStrike from "@/components/PluginStrike";
 import Faq from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import ProInquiryForm from "@/components/ProInquiryForm";
@@ -52,7 +53,8 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
               <Image src="/icons/flinkform-app.svg" alt="" width={44} height={44} priority />
               <Eyebrow variant="pro">{t.hero.eyebrow}</Eyebrow>
             </div>
-            <h1 className="mt-6 font-(family-name:--font-display) text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl">
+            <PluginStrike words={t.hero.replaces} variant="pro" className="mt-6" />
+            <h1 className="mt-3 font-(family-name:--font-display) text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl">
               {t.hero.titlePre}
               <span className="text-gradient-pro">{t.hero.titleHighlight}</span>
               {t.hero.titlePost}

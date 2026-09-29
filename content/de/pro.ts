@@ -17,6 +17,8 @@ export const pro = {
     titlePre: "Das Formular, das ",
     titleHighlight: "Geld verdient",
     titlePost: ".",
+    // Dekorative Zeile über der H1, passt zu "Ein Add-on statt fünf Plugins".
+    replaces: ["Zahlungs-Plugin", "Rechner-Plugin", "Upload-Plugin", "SMTP-Plugin", "Webhook-Plugin"],
     entity:
       "Flinkform Pro ist das kommerzielle Add-on für das kostenlose WordPress-Formular-Plugin Flinkform. Es ergänzt Stripe-Zahlungen (Kreditkarte, SEPA-Lastschrift, Apple Pay, Google Pay), Berechnungsfelder, Multi-Datei-Upload, SMTP-Versand, Webhooks, Newsletter-Anbindung, CSV-Export und Custom CSS.",
     sub: "Besucher zahlen per SEPA, Apple Pay oder Karte, ohne Shop-System. Preise berechnen sich live. Einsendungen fließen automatisch ins CRM. Ein Add-on statt fünf Plugins.",
