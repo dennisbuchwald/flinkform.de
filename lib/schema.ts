@@ -123,7 +123,7 @@ const FEATURE_LIST = [
   "Fünf Startvorlagen: Kontakt, Rückruf, Projektanfrage, Termin, Newsletter",
   "Automatische theme.json-Übernahme",
   "Frontend-JavaScript unter 15 KB gzipped, kein jQuery",
-  "WCAG 2.1 AA",
+  "Formular-Markup besteht axe-core-Prüfungen gegen WCAG 2.1 A/AA (automatisiert, kein formales Audit)",
 ];
 
 function flinkformNode(locale: Locale): SchemaNode {

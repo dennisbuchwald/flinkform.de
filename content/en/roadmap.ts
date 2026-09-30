@@ -40,7 +40,7 @@ export const roadmap: RoadmapDict = {
     items: [
       {
         title: "Deeper entry management",
-        desc: "Per-submission status (new, in progress, done), internal notes, and an unread badge in the admin menu.",
+        desc: "Per-submission status (new, in progress, done) and internal notes.",
         area: "Pro",
       },
       {

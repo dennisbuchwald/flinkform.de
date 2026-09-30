@@ -40,7 +40,7 @@ export const roadmap = {
     items: [
       {
         title: "Entry-Management-Tiefe",
-        desc: "Status pro Einsendung (neu, in Bearbeitung, erledigt), interne Notizen und Ungelesen-Badge im Admin-Menü.",
+        desc: "Status pro Einsendung (neu, in Bearbeitung, erledigt), und interne Notizen.",
         area: "Pro",
       },
       {

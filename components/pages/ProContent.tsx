@@ -69,10 +69,11 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
                 {PRO_SALES_ENABLED ? t.hero.ctaBuy : t.hero.ctaPrimary}
               </a>
               <a
-                href="#preise"
+                href={PRO_SALES_ENABLED ? t.hero.demoUrl : "#preise"}
+                {...(PRO_SALES_ENABLED ? { target: "_blank", rel: "noopener" } : {})}
                 className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-ink-muted/40"
               >
-                {t.hero.ctaSecondary}
+                {PRO_SALES_ENABLED ? t.hero.ctaDemo : t.hero.ctaSecondary}
               </a>
             </div>
             <p className="mt-4 text-sm text-ink-muted">{t.hero.versionLine}</p>
@@ -183,7 +184,7 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
       <Section id="preise" className="scroll-mt-16">
         <SectionHeading sub={t.pricing.sub}>{t.pricing.heading}</SectionHeading>
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {PRICING.map((plan) => (
+          {PRICING.map((plan, i) => (
             <div
               key={plan.name}
               // Anker für Links wie /pro#agency (z. B. aus der Agentur-Sektion der Startseite)
@@ -203,15 +204,15 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
               <p className="mt-3 font-(family-name:--font-display) text-4xl font-extrabold">
                 {plan.price} €<span className="text-base font-medium text-ink-muted"> {t.pricing.perYear}</span>
               </p>
-              <p className="mt-2 text-[0.95rem] font-semibold text-ink">{plan.sites}</p>
+              <p className="mt-2 text-[0.95rem] font-semibold text-ink">{t.pricing.plans[i].sites}</p>
               <p
                 className={`mt-1 inline-block self-start rounded-full px-2.5 py-1 text-xs font-bold ${
                   plan.featured ? "bg-gradient-pro text-white" : "bg-line/60 text-ink-soft"
                 }`}
               >
-                {plan.perSite}
+                {t.pricing.plans[i].perSite}
               </p>
-              <p className="mt-3 grow text-[0.85rem] leading-relaxed text-ink-soft">{plan.desc}</p>
+              <p className="mt-3 grow text-[0.85rem] leading-relaxed text-ink-soft">{t.pricing.plans[i].desc}</p>
               <ul className="mt-5 space-y-2 border-t border-line pt-5 text-[0.85rem] text-ink-soft">
                 <li>{t.pricing.includedModules}</li>
                 <li>{t.pricing.includedSupport}</li>
@@ -232,13 +233,36 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
             </div>
           ))}
         </div>
-        <ul className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium text-ink-soft">
+        {/* ── GARANTIE ── */}
+        <div className="card mx-auto mt-8 flex max-w-3xl flex-col items-start gap-4 p-6 sm:flex-row sm:items-center sm:gap-6 sm:p-7">
+          <span
+            aria-hidden="true"
+            className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-brand text-white"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-6">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3Z" />
+              <path d="m8.75 12 2.25 2.25 4.25-4.5" />
+            </svg>
+          </span>
+          <div>
+            <h3 className="font-(family-name:--font-display) text-lg font-bold tracking-tight">
+              {t.pricing.guarantee.title}
+            </h3>
+            <p className="mt-1.5 text-[0.95rem] leading-relaxed text-ink-soft">{t.pricing.guarantee.desc}</p>
+            <p className="mt-2 text-xs text-ink-muted">{t.pricing.guarantee.note}</p>
+          </div>
+        </div>
+        <ul className="mt-6 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium text-ink-soft">
           {t.pricing.footNotes.map((note) => (
             <li key={note}>{note}</li>
           ))}
         </ul>
         <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-ink-muted">
-          {t.pricing.vatNote}
+          {t.pricing.vatNote} {t.pricing.termsPre}
+          <a href={t.pricing.termsUrl} rel="noopener" className="underline underline-offset-2 hover:text-ink">
+            {t.pricing.termsLink}
+          </a>
+          {t.pricing.termsPost}
         </p>
 
         {/* ── LIFETIME (dunkel, Scarcity) ── */}
@@ -260,7 +284,7 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
                 {LIFETIME.price} €
                 <span className="block text-sm font-medium text-white/50">{t.pricing.lifetime.once}</span>
               </p>
-              <p className="mt-3 text-sm font-semibold">{LIFETIME.sites}</p>
+              <p className="mt-3 text-sm font-semibold">{t.pricing.lifetime.sites}</p>
               <a
                 href={PRO_SALES_ENABLED ? LIFETIME_CHECKOUT_URL : "#anfrage"}
                 {...(PRO_SALES_ENABLED ? { rel: "noopener nofollow" } : {})}
@@ -283,15 +307,32 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
 
       {/* ── ANFRAGE ── */}
       <Section id="anfrage" className="scroll-mt-16">
-        <div className="card mx-auto max-w-3xl !rounded-3xl p-8 sm:p-10">
-          <h2 className="font-(family-name:--font-display) text-3xl font-bold tracking-tight">
-            {t.inquiry.title}
-          </h2>
-          <p className="mt-3 text-[1.02rem] leading-relaxed text-ink-soft">{t.inquiry.desc}</p>
-          <div className="mt-8">
-            <ProInquiryForm locale={locale} />
+        {PRO_SALES_ENABLED ? (
+          <div className="card mx-auto flex max-w-3xl flex-col items-start gap-6 !rounded-3xl p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10">
+            <div>
+              <h2 className="font-(family-name:--font-display) text-2xl font-bold tracking-tight sm:text-3xl">
+                {t.inquiry.salesTitle}
+              </h2>
+              <p className="mt-3 max-w-xl text-[1.02rem] leading-relaxed text-ink-soft">{t.inquiry.salesDesc}</p>
+            </div>
+            <a
+              href={`mailto:${t.inquiry.salesMail}?subject=${encodeURIComponent(t.inquiry.salesSubject)}`}
+              className="shrink-0 rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-ink-muted/40"
+            >
+              {t.inquiry.salesCta}
+            </a>
           </div>
-        </div>
+        ) : (
+          <div className="card mx-auto max-w-3xl !rounded-3xl p-8 sm:p-10">
+            <h2 className="font-(family-name:--font-display) text-3xl font-bold tracking-tight">
+              {t.inquiry.title}
+            </h2>
+            <p className="mt-3 text-[1.02rem] leading-relaxed text-ink-soft">{t.inquiry.desc}</p>
+            <div className="mt-8">
+              <ProInquiryForm locale={locale} />
+            </div>
+          </div>
+        )}
       </Section>
 
       {/* ── FAQ ── */}

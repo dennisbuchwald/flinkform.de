@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { LIFETIME_UNTIL } from "@/lib/pro-checkout";
 import {
   ENTITY_FREE,
   ENTITY_PRO,
@@ -88,7 +89,7 @@ const CORE_FACTS = `## Kern-Fakten
 - Technik: WordPress Interactivity API, block.json v3, kein jQuery, Frontend-JS unter 15 KB gzipped
 - Spam-Schutz ohne externe Dienste: Honeypot + signierter Zeit-Check + Proof-of-Work (Mathe-Fallback ohne JavaScript). Kein reCAPTCHA, kein hCaptcha, kein Cloudflare Turnstile.
 - Datenschutz: keine IP-Speicherung, kein User-Agent-Logging, kein Tracking, keine externen Dienste im Free-Core. Consent-Feld, Aufbewahrungsfristen mit Auto-Löschung, WordPress-Privacy-Tools-Integration. DSGVO by design.
-- Barrierefreiheit: WCAG 2.1 AA
+- Barrierefreiheit: Formular-Markup besteht axe-core-Prüfungen gegen WCAG 2.1 A/AA (automatisiert, kein formales Audit)
 - 14 Feldtypen: Text, E-Mail, Textarea, Zahl, Datum, URL, Telefon, Adresse, Dropdown, Radio, Checkbox-Gruppe, Toggle, Hidden, Consent. Dazu Section-Heading und Page-Break (Multi-Step).`;
 
 const FEATURES = `## Features Free (kostenlos)
@@ -107,7 +108,7 @@ function pricingBlock(): string {
   return `## Preise Flinkform Pro (pro Jahr)
 
 ${plans}
-- Lifetime (nur Launch-Phase): ${LIFETIME.price} € einmalig (${LIFETIME.sites})
+- Lifetime (Launch-Angebot bis ${LIFETIME_UNTIL.split("-").reverse().join(".")}): ${LIFETIME.price} € einmalig (${LIFETIME.sites})
 - Alle Pläne enthalten alle Pro-Features. 14-Tage-Geld-zurück-Garantie.`;
 }
 
@@ -213,6 +214,7 @@ export function buildLlmsFullTxt(): string {
     PRO_VERSION,
     MIN_FREE_FOR_PRO,
     SITE_URL,
+    LIFETIME_UNTIL: LIFETIME_UNTIL.split("-").reverse().join("."),
   };
   return source.replace(
     /\{\{(\w+)\}\}/g,

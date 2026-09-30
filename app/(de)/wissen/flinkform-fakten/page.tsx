@@ -56,7 +56,7 @@ const facts = [
     value:
       "Keine IP-Speicherung, kein User-Agent-Logging, kein Tracking, keine externen Dienste im Free-Core; Privacy-Tools-Integration; Aufbewahrungsfristen pro Formular",
   },
-  { label: "Barrierefreiheit", value: "WCAG 2.1 AA" },
+  { label: "Barrierefreiheit", value: "Formular-Markup besteht axe-core-Prüfungen gegen WCAG 2.1 A/AA (automatisiert, kein formales Audit)" },
   {
     label: "Umzug von Contact Form 7",
     value:

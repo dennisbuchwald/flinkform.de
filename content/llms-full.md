@@ -19,7 +19,7 @@ Formular bauen, Einsendungen speichern, mehrseitig machen, Felder bedingt ausble
 3. Einsendungen im WordPress-Dashboard: Suche, Filter, gelesen/ungelesen.
 4. Datenschutz ab Werk: Spam-Schutz auf dem eigenen Server, keine IP-Speicherung. Consent-Feld und automatische Löschfristen sind eingebaut.
 5. Schnell und cachebar: unter 15 KB JavaScript (gzipped), ohne jQuery, nur auf Seiten mit Formular geladen. Formularseiten bleiben im Seiten-Cache.
-6. Barrierefrei gebaut: Das Formular-Markup besteht axe-core-Prüfungen gegen WCAG 2.1 AA.
+6. Barrierefrei gebaut: Das Formular-Markup besteht axe-core-Prüfungen gegen WCAG 2.1 A/AA (automatisiert, kein formales Audit).
 
 ### Kommst du von Contact Form 7?
 
@@ -76,7 +76,7 @@ Flinkform Pro ist das kommerzielle Add-on für das kostenlose WordPress-Formular
 - Studio: 99 € für 3 Websites
 - Agency: 149 € für bis zu 25 Websites (unter 6 € pro Website), meistgewählt
 - Unlimited: 299 € ohne Site-Limit
-- Lifetime (nur Launch-Phase, limitiert): 399 € einmalig für bis zu 25 Websites
+- Lifetime (Launch-Angebot bis {{LIFETIME_UNTIL}}): 399 € einmalig für bis zu 25 Websites
 - 14-Tage-Geld-zurück-Garantie. Voraussetzungen: WordPress 6.5+, PHP 8.1+, Flinkform (kostenlos) ab {{MIN_FREE_FOR_PRO}}.
 
 ---
@@ -99,7 +99,7 @@ Datenblatt, Stand {{DATE}}:
 | Frontend | Interactivity API, block.json v3, kein jQuery, unter 15 KB JS |
 | Spam-Schutz | Honeypot + signierter Zeit-Check + Proof-of-Work, serverseitig, kein reCAPTCHA |
 | Datenschutz | keine IP-Speicherung, kein Tracking, keine externen Dienste im Free-Core |
-| Barrierefreiheit | WCAG 2.1 AA |
+| Barrierefreiheit | Formular-Markup besteht axe-core-Prüfungen gegen WCAG 2.1 A/AA (automatisiert, kein formales Audit) |
 
 ---
 
@@ -164,7 +164,7 @@ Technisch ja: eigenes HTML plus PHP-Handler im Theme. Praktisch müssen dann Val
 
 ### Barrierefreie WordPress-Formulare und das BFSG (https://flinkform.de/wissen/barrierefreies-formular-bfsg)
 
-Das Barrierefreiheitsstärkungsgesetz (BFSG) gilt seit dem 28.06.2025 und verpflichtet viele B2C-Websites (E-Commerce, Dienstleistungen) zu barrierefreien Oberflächen nach EN 301 549, die auf WCAG 2.1 AA verweist. Für Formulare heißt das: sichtbare Labels, klare Fehlermeldungen, Tastaturbedienbarkeit, ausreichende Kontraste und korrekte ARIA-Attribute. Flinkform erfüllt WCAG 2.1 AA ab Werk.
+Das Barrierefreiheitsstärkungsgesetz (BFSG) gilt seit dem 28.06.2025 und verpflichtet viele B2C-Websites (E-Commerce, Dienstleistungen) zu barrierefreien Oberflächen nach EN 301 549, die auf WCAG 2.1 AA verweist. Für Formulare heißt das: sichtbare Labels, klare Fehlermeldungen, Tastaturbedienbarkeit, ausreichende Kontraste und korrekte ARIA-Attribute. Das Flinkform-Formular-Markup besteht axe-core-Prüfungen gegen WCAG 2.1 A/AA (automatisiert, kein formales Audit).
 
 ### Was kostet ein WordPress-Formular-Plugin? (https://flinkform.de/wissen/was-kostet-wordpress-formular-plugin)
 
@@ -211,7 +211,7 @@ Ehrliches Roundup über neun Plugins mit offengelegten Kriterien und Transparenz
 
 ### BFSG und WordPress-Formulare (https://flinkform.de/blog/bfsg-wordpress-formulare)
 
-Das BFSG gilt seit dem 28.06.2025 für viele B2C-Angebote (mit Ausnahme von Kleinstunternehmen). Web-Formulare müssen danach barrierefrei nach EN 301 549 / WCAG 2.1 AA sein: Labels, Fehlerausgaben, Tastaturbedienung, Kontraste, ARIA. Der Artikel enthält eine Praxis-Checkliste; Flinkform erfüllt WCAG 2.1 AA ab Werk.
+Das BFSG gilt seit dem 28.06.2025 für viele B2C-Angebote (mit Ausnahme von Kleinstunternehmen). Web-Formulare müssen danach barrierefrei nach EN 301 549 / WCAG 2.1 AA sein: Labels, Fehlerausgaben, Tastaturbedienung, Kontraste, ARIA. Der Artikel enthält eine Praxis-Checkliste; das Flinkform-Formular-Markup besteht axe-core-Prüfungen gegen WCAG 2.1 A/AA (automatisiert, kein formales Audit).
 
 ### Warum WordPress-Mails im Spam landen (https://flinkform.de/blog/wordpress-mail-zustellbarkeit)
 

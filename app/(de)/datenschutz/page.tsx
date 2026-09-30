@@ -127,11 +127,10 @@ export default function DatenschutzPage() {
           <h2>Kontaktaufnahme</h2>
           <p>
             Diese Website betreibt kein Kontaktformular, das Daten an einen
-            Server sendet. Das Vormerk-Formular auf der{" "}
+            Server sendet. Der Kontakt-Button auf der{" "}
             <Link href="/pro">Pro-Seite</Link> öffnet ausschließlich dein
-            eigenes E-Mail-Programm mit einer vorbereiteten Nachricht. Es
-            werden dabei keine Eingaben an uns übertragen, solange du die Mail
-            nicht selbst absendest.
+            eigenes E-Mail-Programm. Es werden dabei keine Eingaben an uns
+            übertragen, solange du die Mail nicht selbst absendest.
           </p>
           <p>
             Wenn du uns per E-Mail schreibst, verarbeiten wir deine Angaben zur
@@ -141,6 +140,32 @@ export default function DatenschutzPage() {
             lit. f DSGVO). Wir löschen die Nachrichten, sobald sie nicht mehr
             gebraucht werden und keine gesetzlichen Aufbewahrungsfristen
             entgegenstehen.
+          </p>
+
+          <h2>Kauf von Flinkform Pro über Freemius</h2>
+          <p>
+            Flinkform Pro verkaufen wir nicht selbst. Verkäufer ist Freemius,
+            Inc. (USA) als Merchant of Record: Freemius schließt den Kaufvertrag
+            mit dir, wickelt die Zahlung ab, stellt die Rechnung aus und
+            verwaltet deine Lizenz. Auf dieser Website selbst werden dabei
+            keine Kauf- oder Zahlungsdaten erfasst.
+          </p>
+          <p>
+            Klickst du auf einen Kauf-Button, wirst du zum Checkout auf{" "}
+            <code>checkout.freemius.com</code> weitergeleitet. Erst dort gibst
+            du Name, E-Mail-Adresse, Rechnungs- und Zahlungsdaten ein, und
+            erst ab diesem Moment verarbeitet Freemius Daten von dir,
+            einschließlich einer möglichen Übermittlung in die USA. Als
+            Hersteller erhalten wir von Freemius die Angaben, die wir für
+            Lizenz, Support und Rückerstattung brauchen (etwa Name,
+            E-Mail-Adresse, gekaufter Plan). Rechtsgrundlage ist Art. 6 Abs. 1
+            lit. b DSGVO (Vertrag). Wie Freemius mit deinen Daten umgeht, steht
+            in der{" "}
+            <a href="https://freemius.com/privacy/">
+              Datenschutzerklärung von Freemius
+            </a>
+            , für den Kauf gelten die{" "}
+            <a href="https://freemius.com/terms/">Bedingungen von Freemius</a>.
           </p>
 
           <h2>Das Plugin selbst</h2>

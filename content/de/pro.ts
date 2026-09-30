@@ -1,5 +1,9 @@
 import type { Widen } from "@/lib/i18n/widen";
-import { MIN_FREE_FOR_PRO, PRO_VERSION } from "@/lib/site";
+import { CONTACT_MAIL, DEMO_URL, LIFETIME, MIN_FREE_FOR_PRO, PRICING, PRO_VERSION } from "@/lib/site";
+import { LIFETIME_UNTIL } from "@/lib/pro-checkout";
+
+/** 2026-12-31 → 31.12.2026 */
+const lifetimeUntil = LIFETIME_UNTIL.split("-").reverse().join(".");
 
 export const pro = {
   meta: {
@@ -13,7 +17,7 @@ export const pro = {
   },
   breadcrumb: { home: "Flinkform", pro: "Flinkform Pro" },
   hero: {
-    eyebrow: "Premium Add-on",
+    eyebrow: "Premium Add-on · Jetzt verfügbar",
     titlePre: "Das Formular, das ",
     titleHighlight: "Geld verdient",
     titlePost: ".",
@@ -21,10 +25,12 @@ export const pro = {
     replaces: ["Zahlungs-Plugin", "Rechner-Plugin", "Upload-Plugin", "SMTP-Plugin", "Webhook-Plugin"],
     entity:
       "Flinkform Pro ist das kommerzielle Add-on für das kostenlose WordPress-Formular-Plugin Flinkform. Es ergänzt Stripe-Zahlungen (Kreditkarte, SEPA-Lastschrift, Apple Pay, Google Pay), Berechnungsfelder, Multi-Datei-Upload, SMTP-Versand, Webhooks, Newsletter-Anbindung, CSV-Export und Custom CSS.",
-    sub: "Besucher zahlen per SEPA, Apple Pay oder Karte, ohne Shop-System. Preise berechnen sich live. Einsendungen fließen automatisch ins CRM. Ein Add-on statt fünf Plugins.",
+    sub: "Zahlung im Formular statt Shop-System. Live-Preis statt Rückfrage. CRM-Eintrag statt Copy-Paste. Ein Add-on statt fünf Plugins.",
     ctaPrimary: "Unverbindlich vormerken",
-    ctaBuy: "Flinkform Pro kaufen",
+    ctaBuy: "Jetzt Pro kaufen",
     ctaSecondary: "Preise ansehen",
+    ctaDemo: "Live-Demo ansehen",
+    demoUrl: DEMO_URL,
     versionLine: `Version ${PRO_VERSION} · benötigt Flinkform (kostenlos) ab ${MIN_FREE_FOR_PRO} · 14 Tage Geld-zurück-Garantie`,
   },
   needs: {
@@ -147,17 +153,22 @@ export const pro = {
     ],
   },
   pricing: {
-    heading: "Preise",
-    sub: "Alle Pläne enthalten sämtliche Pro-Features, gestaffelt wird nur nach der Anzahl deiner Websites. Jährliche Abrechnung, Updates und Support inklusive.",
+    heading: "Alle Features. In jedem Plan.",
+    sub: "Du zahlst nach Anzahl deiner Websites, nicht nach Funktionen. Jährliche Abrechnung, Updates und Support inklusive. Download und Lizenzschlüssel bekommst du direkt nach dem Kauf.",
+    plans: PRICING.map(({ sites, perSite, desc }) => ({ sites, perSite, desc })),
     perYear: "/Jahr",
-    bestseller: "Bestseller",
+    bestseller: "Empfohlen",
     includedModules: "✓ Alle 8 Pro-Module",
     includedSupport: "✓ Updates & Support",
     ctaBuy: "Jetzt kaufen",
     ctaSoon: "Bald verfügbar",
+    guarantee: {
+      title: "14 Tage Geld zurück. Ohne Nachfragen.",
+      desc: "Passt Flinkform Pro nicht zu deinem Projekt, schreib eine kurze Mail und du bekommst den vollen Betrag zurück. Auch nach dem Download.",
+      note: "Eine freiwillige Garantie von uns, zusätzlich zu deinen gesetzlichen Rechten.",
+    },
     footNotes: [
-      "✓ 14 Tage Geld zurück, ohne Nachfragen",
-      "✓ Jeder Plan enthält alle Features",
+      "✓ Sofort nutzbar nach dem Kauf",
       "✓ Jährlich kündbar",
     ],
     // TODO Dennis: Formulierung freigeben. Die Preise sind netto, Freemius
@@ -166,11 +177,16 @@ export const pro = {
     // ausgezeichnet und der Hinweis direkt darunter. Wenn du auch Privatkunden
     // ansprechen willst, muss stattdessen der Bruttopreis nach oben.
     vatNote:
-      "Alle Preise verstehen sich zzgl. Umsatzsteuer. Freemius ist Verkäufer (Merchant of Record) und berechnet die Umsatzsteuer im Checkout nach deinem Land. Mit gültiger USt-IdNr. entfällt sie innerhalb der EU.",
+      "Alle Preise verstehen sich zzgl. Umsatzsteuer. Der Kauf läuft über Freemius: Freemius ist Verkäufer (Merchant of Record) und berechnet die Umsatzsteuer im Checkout nach deinem Land. Mit gültiger USt-IdNr. entfällt sie innerhalb der EU.",
+    termsPre: "Für den Kauf gelten die ",
+    termsLink: "Bedingungen von Freemius",
+    termsUrl: "https://freemius.com/terms/",
+    termsPost: ".",
     lifetime: {
-      badge: "Nur zum Launch · Limitiert",
+      badge: `Launch-Angebot · nur bis ${lifetimeUntil}`,
       title: "Einmal zahlen. Für immer nutzen.",
-      desc: "Zum Launch gibt es eine limitierte Lifetime-Lizenz: alle Pro-Features auf bis zu 25 Websites, keine jährliche Verlängerung, Updates inklusive. Das Angebot wird nach der Launch-Phase dauerhaft abgeschaltet. Danach gibt es Flinkform Pro nur noch im Abo.",
+      desc: `Bis zum ${lifetimeUntil} gibt es Flinkform Pro auch als Lifetime-Lizenz: alle Pro-Features auf bis zu 25 Websites, keine jährliche Verlängerung, Updates inklusive. Danach schalten wir das Angebot dauerhaft ab, Flinkform Pro gibt es dann nur noch im Abo.`,
+      sites: LIFETIME.sites,
       once: "einmalig",
       ctaBuy: "Lifetime sichern",
       ctaSoon: "Unverbindlich vormerken",
@@ -180,7 +196,13 @@ export const pro = {
   },
   inquiry: {
     title: "Interesse an Flinkform Pro?",
-    desc: "Sag kurz, wofür du Pro einsetzen willst. Du bekommst eine persönliche Antwort von Dennis und erfährst als Erster, wenn der Verkauf startet.",
+    desc: "Sag kurz, wofür du Pro einsetzen willst. Du bekommst eine persönliche Antwort von Dennis.",
+    // Sobald verkauft wird: Kontaktbox statt Vormerk-Formular.
+    salesTitle: "Fragen vor dem Kauf? Schreib mir.",
+    salesDesc: "Sag mir, wofür du Pro einsetzen willst, und ich sag dir ehrlich, ob es passt. Die Antwort kommt von mir persönlich, nicht von einem Ticket-System.",
+    salesCta: "Mail an Dennis",
+    salesMail: CONTACT_MAIL,
+    salesSubject: "Frage zu Flinkform Pro",
   },
   faq: {
     items: [
@@ -218,7 +240,7 @@ export const pro = {
       },
       {
         q: "Brauche ich das kostenlose Flinkform, um Pro zu nutzen?",
-        a: "Ja. Flinkform Pro ist ein Add-on, das auf dem kostenlosen Flinkform-Plugin (ab Version 1.3.0) aufbaut. Du installierst zuerst das kostenlose Plugin und aktivierst Pro als Erweiterung. Alle Free-Features bleiben erhalten.",
+        a: `Ja. Flinkform Pro ist ein Add-on, das auf dem kostenlosen Flinkform-Plugin (ab Version ${MIN_FREE_FOR_PRO}) aufbaut. Du installierst zuerst das kostenlose Plugin und aktivierst Pro als Erweiterung. Alle Free-Features bleiben erhalten.`,
       },
       {
         q: "Ist Flinkform Pro DSGVO-konform?",
