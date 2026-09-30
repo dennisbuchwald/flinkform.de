@@ -51,7 +51,10 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
           <div className="max-w-3xl">
             <div className="flex items-center gap-3">
               <Image src="/icons/flinkform-app.svg" alt="" width={44} height={44} priority />
-              <Eyebrow variant="pro">{t.hero.eyebrow}</Eyebrow>
+              <Eyebrow variant="pro">
+                <span className="hidden sm:inline">{t.hero.eyebrowPrefix}</span>
+                {t.hero.eyebrow}
+              </Eyebrow>
             </div>
             <PluginStrike words={t.hero.replaces} variant="pro" className="mt-6" />
             <h1 className="mt-3 font-(family-name:--font-display) text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl">

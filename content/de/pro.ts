@@ -17,7 +17,9 @@ export const pro = {
   },
   breadcrumb: { home: "Flinkform", pro: "Flinkform Pro" },
   hero: {
-    eyebrow: "Premium Add-on · Jetzt verfügbar",
+    // Auf Mobil nur eyebrow, ab sm mit Präfix, damit die Pille nicht umbricht.
+    eyebrowPrefix: "Premium Add-on · ",
+    eyebrow: "Jetzt verfügbar",
     titlePre: "Das Formular, das ",
     titleHighlight: "Geld verdient",
     titlePost: ".",
@@ -30,7 +32,7 @@ export const pro = {
     ctaBuy: "Jetzt Pro kaufen",
     ctaSecondary: "Preise ansehen",
     ctaDemo: "Live-Demo ansehen",
-    demoUrl: DEMO_URL,
+    demoUrl: `${DEMO_URL}/angebotsrechner/`,
     versionLine: `Version ${PRO_VERSION} · benötigt Flinkform (kostenlos) ab ${MIN_FREE_FOR_PRO} · 14 Tage Geld-zurück-Garantie`,
   },
   needs: {

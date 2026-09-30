@@ -21,7 +21,8 @@ export const pro: ProDict = {
   },
   breadcrumb: { home: "Flinkform", pro: "Flinkform Pro" },
   hero: {
-    eyebrow: "Premium Add-on · Available now",
+    eyebrowPrefix: "Premium Add-on · ",
+    eyebrow: "Available now",
     titlePre: "The form that ",
     titleHighlight: "makes money",
     titlePost: ".",
@@ -33,7 +34,7 @@ export const pro: ProDict = {
     ctaBuy: "Buy Pro now",
     ctaSecondary: "See pricing",
     ctaDemo: "Try the live demo",
-    demoUrl: DEMO_URL,
+    demoUrl: `${DEMO_URL}/angebotsrechner/`,
     versionLine: `Version ${PRO_VERSION} · requires Flinkform (free) ${MIN_FREE_FOR_PRO}+ · 14-day money-back guarantee`,
   },
   needs: {
