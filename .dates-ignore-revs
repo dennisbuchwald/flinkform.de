@@ -1,0 +1,8 @@
+# Commits ohne inhaltliche Änderung an Seiten (Refactorings, Technik).
+# scripts/check-dates.mjs überspringt sie beim Vergleich mit den gepflegten
+# Änderungsdaten. Eine volle Commit-ID pro Zeile.
+
+# Add bilingual DE/EN support with SEO-safe geo default (i18n-Umbau)
+6b38749dcdf38304778075d5acc87d556c47d688
+# Complete the Article schema and render a preview image per article
+1977f69c46a1170975f21f58747042c2641255b3

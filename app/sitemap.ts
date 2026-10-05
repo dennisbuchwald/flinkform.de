@@ -1,13 +1,12 @@
 import type { MetadataRoute } from "next";
-import { HOME_URL, SITE_URL } from "@/lib/site";
+import { FACTS_UPDATED, HOME_URL, SITE_URL } from "@/lib/site";
 import { posts } from "@/lib/posts";
 import { wissen } from "@/lib/wissen";
 import { vergleiche } from "@/lib/vergleiche";
 import { TRANSLATED_PATHS, enPathFor } from "@/lib/i18n/routes";
+import { latest, pageUpdated } from "@/lib/updated";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-
   /**
    * P1-Seiten existieren zweisprachig unter identischen Slugs unter /en.
    * Jeder DE- und EN-Eintrag bekommt gegenseitige hreflang-Alternates,
@@ -19,25 +18,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const enUrl = `${SITE_URL}${enPathFor(path)}`;
     const languages = { de: deUrl, en: enUrl, "x-default": deUrl };
     const priority = path === "/" ? 1 : path === "/pro" ? 0.9 : 0.8;
+    const lastModified = pageUpdated(path);
     return [
-      { url: deUrl, lastModified: now, priority, alternates: { languages } },
-      { url: enUrl, lastModified: now, priority, alternates: { languages } },
+      { url: deUrl, lastModified, priority, alternates: { languages } },
+      { url: enUrl, lastModified, priority, alternates: { languages } },
     ];
   });
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/blog`, lastModified: now, priority: 0.7 },
-    { url: `${SITE_URL}/wissen`, lastModified: now, priority: 0.7 },
+    // Übersichten ändern sich mit ihrem jüngsten Eintrag.
+    {
+      url: `${SITE_URL}/blog`,
+      lastModified: latest(posts.map((p) => p.updated ?? p.date)),
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/wissen`,
+      lastModified: latest(wissen.map((w) => w.updated)),
+      priority: 0.7,
+    },
     {
       url: `${SITE_URL}/wissen/flinkform-fakten`,
-      lastModified: now,
+      lastModified: new Date(FACTS_UPDATED),
       priority: 0.8,
     },
-    { url: `${SITE_URL}/docs`, lastModified: now, priority: 0.6 },
-    { url: `${SITE_URL}/ueber`, lastModified: now, priority: 0.5 },
-    { url: `${SITE_URL}/presse`, lastModified: now, priority: 0.5 },
-    { url: `${SITE_URL}/impressum`, lastModified: now, priority: 0.2 },
-    { url: `${SITE_URL}/datenschutz`, lastModified: now, priority: 0.2 },
+    { url: `${SITE_URL}/docs`, lastModified: pageUpdated("/docs"), priority: 0.6 },
+    { url: `${SITE_URL}/ueber`, lastModified: pageUpdated("/ueber"), priority: 0.5 },
+    { url: `${SITE_URL}/presse`, lastModified: pageUpdated("/presse"), priority: 0.5 },
+    { url: `${SITE_URL}/impressum`, lastModified: pageUpdated("/impressum"), priority: 0.2 },
+    { url: `${SITE_URL}/datenschutz`, lastModified: pageUpdated("/datenschutz"), priority: 0.2 },
   ];
 
   const vergleichRoutes: MetadataRoute.Sitemap = vergleiche.map((v) => ({
@@ -48,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${SITE_URL}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
+    lastModified: new Date(post.updated ?? post.date),
     priority: 0.7,
   }));
 

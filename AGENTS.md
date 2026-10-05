@@ -69,3 +69,24 @@ auseinander.
   Deutsch bleibt, sonst → `/en`). Bekannte Suchmaschinen-/KI-Crawler werden
   nie umgeleitet. Nie auf einer sprachspezifischen URL umleiten, das würde
   die jeweils andere Sprachversion für Crawler unsichtbar machen.
+
+## Änderungsdaten (lastmod / dateModified) - Workflow-Regel
+
+Jede inhaltliche Änderung an einer Seite zieht ihr Änderungsdatum mit,
+sonst holen Google und KI-Suchen die Seite nicht neu (Sitemap-`lastmod`,
+JSON-LD `dateModified`, `article:modified_time`, sichtbares „Aktualisiert am“).
+
+- **Blog:** `updated` im Eintrag in `lib/posts.ts`.
+- **Wissen:** `updated` in `lib/wissen.ts`, Faktenseite: `FACTS_UPDATED` in `lib/site.ts`.
+- **Vergleiche:** `updated` in `lib/vergleiche.ts`.
+- **Alle anderen Seiten** (Start, Pro, Roadmap, Rechner, Vergleichs-
+  Übersicht, Docs, Über, Presse, Impressum, Datenschutz): `lib/updated.ts`.
+  DE und EN teilen sich ein Datum.
+
+Die Daten kommen bewusst nicht automatisch aus Git: Vercel klont beim Build
+nur flach (depth 10), `git log -- <datei>` liefert dort falsche Daten.
+
+Vor dem Commit `npm run check:dates` laufen lassen. Das Skript vergleicht
+lokal die letzten Commits der Quelldateien mit den gepflegten Daten und
+meldet Vergessenes. Rein technische Commits (Refactoring, Styling) kommen
+mit voller ID in `.dates-ignore-revs`, dann zählen sie nicht.

@@ -29,7 +29,7 @@ export const posts: Post[] = [
     description:
       "Neun Formular-Plugins im ehrlichen Vergleich: Flinkform, Contact Form 7, WPForms, Gravity Forms, Fluent Forms, SureForms, Ninja Forms, Forminator und Formidable. Mit klarer Empfehlung pro Anwendungsfall.",
     date: "2026-07-03",
-    updated: "2026-09-28",
+    updated: "2026-10-05",
     tag: "WordPress",
     readingMinutes: 10,
   },
@@ -39,6 +39,7 @@ export const posts: Post[] = [
     description:
       "Das Barrierefreiheitsstärkungsgesetz gilt seit dem 28.06.2025. Wer betroffen ist, was WCAG 2.1 AA für Kontakt- und Bestellformulare konkret verlangt, Praxis-Checkliste, mit Quellen.",
     date: "2026-07-03",
+    updated: "2026-09-30",
     tag: "Barrierefreiheit",
     readingMinutes: 8,
   },
@@ -68,7 +69,7 @@ export const posts: Post[] = [
     description:
       "Version 6.2 ist die letzte mit neuen Funktionen. Was der Wartungsmodus für über 10 Millionen Websites bedeutet, welche Optionen es gibt und wann ein Wechsel sinnvoll ist.",
     date: "2026-07-03",
-    updated: "2026-09-28",
+    updated: "2026-10-05",
     tag: "WordPress",
     readingMinutes: 6,
   },

@@ -118,7 +118,7 @@ export const wissen: WissenEntry[] = [
     description:
       "Technisch ja: eigenes HTML plus PHP-Handler im Theme. Praktisch musst du Validierung, CSRF-Schutz, Spam-Abwehr, Mail-Versand und DSGVO-Löschung selbst bauen.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-30",
     related: [
       "/vergleich/contact-form-7-alternative",
     ],
@@ -129,7 +129,7 @@ export const wissen: WissenEntry[] = [
     description:
       "Das BFSG gilt seit dem 28.06.2025. Was das für WordPress-Formulare bedeutet: EN 301 549, WCAG 2.1 AA, Labels, Fehlermeldungen, Tastatur, Kontrast und ARIA.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-09-30",
     related: [
       "/vergleich/wpforms-alternative",
     ],

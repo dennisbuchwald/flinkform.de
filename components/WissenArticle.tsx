@@ -36,6 +36,9 @@ export default function WissenArticle({
 
   return (
     <>
+      {/* React hebt diese Tags in den <head>. */}
+      <meta property="article:published_time" content={entry.published} />
+      <meta property="article:modified_time" content={entry.updated} />
       <JsonLd
         data={graph([
           articleSchema,

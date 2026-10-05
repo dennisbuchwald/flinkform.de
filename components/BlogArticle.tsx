@@ -32,6 +32,9 @@ export default function BlogArticle({
 
   return (
     <>
+      {/* React hebt diese Tags in den <head>. */}
+      <meta property="article:published_time" content={post.date} />
+      <meta property="article:modified_time" content={post.updated ?? post.date} />
       <JsonLd
         data={graph([
           articleSchema,
@@ -81,7 +84,20 @@ export default function BlogArticle({
                 month: "long",
                 year: "numeric",
               })}
-            </time>{" "}
+            </time>
+            {post.updated && post.updated !== post.date && (
+              <>
+                {" "}
+                · Aktualisiert am{" "}
+                <time dateTime={post.updated}>
+                  {new Date(post.updated).toLocaleDateString("de-DE", {
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </time>
+              </>
+            )}{" "}
             · Lesezeit ca. {post.readingMinutes} Minuten
           </p>
         </div>

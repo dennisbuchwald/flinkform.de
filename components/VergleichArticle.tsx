@@ -72,6 +72,9 @@ export default function VergleichArticle({
 
   return (
     <>
+      {/* React hebt diese Tags in den <head>. */}
+      <meta property="article:published_time" content={entry.published} />
+      <meta property="article:modified_time" content={updated} />
       <JsonLd
         data={graph([
           articleSchema,
