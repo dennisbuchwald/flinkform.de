@@ -124,6 +124,14 @@ export const roadmap: RoadmapDict = {
     },
     {
       area: "Pro",
+      version: "1.3.3",
+      date: "Oct 7, 2026",
+      items: [
+        "Updated the Freemius SDK to the latest version",
+      ],
+    },
+    {
+      area: "Pro",
       version: "1.3.2",
       date: "Sep 28, 2026",
       items: [

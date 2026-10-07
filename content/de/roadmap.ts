@@ -124,6 +124,14 @@ export const roadmap = {
     },
     {
       area: "Pro",
+      version: "1.3.3",
+      date: "07.10.2026",
+      items: [
+        "Freemius-SDK auf die neueste Version aktualisiert",
+      ],
+    },
+    {
+      area: "Pro",
       version: "1.3.2",
       date: "28.09.2026",
       items: [
