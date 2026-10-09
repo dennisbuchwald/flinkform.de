@@ -5,6 +5,7 @@ export const common = {
   nav: [
     { label: "Pro", href: "/pro" },
     { label: "Compare", href: "/vergleich" },
+    { label: "Templates", href: "/vorlagen" },
     { label: "Blog", href: "/blog" },
     { label: "Resources", href: "/wissen" },
     { label: "Docs", href: "/docs" },
@@ -56,6 +57,7 @@ export const common = {
       {
         heading: "Resources",
         links: [
+          { label: "Form templates", href: "/vorlagen" },
           { label: "Blog", href: "/blog" },
           { label: "Knowledge base", href: "/wissen" },
           { label: "Facts about Flinkform", href: "/wissen/flinkform-fakten" },

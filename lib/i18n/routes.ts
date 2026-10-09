@@ -1,19 +1,34 @@
+import { MAPPED_PATHS } from "@/lib/vorlagen-slugs";
+
 export const LOCALES = ["de", "en"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "de";
 
+/** Umkehrung von MAPPED_PATHS: englischer Pfad → deutscher Pfad. */
+const MAPPED_EN_TO_DE: Record<string, string> = Object.fromEntries(
+  Object.entries(MAPPED_PATHS).map(([de, en]) => [en, de]),
+);
+
 /**
- * Deutsche Pfade, die auch unter /en existieren (P1). Slugs sind bewusst
- * identisch (kein Slug-Mapping) - der Umschalter muss nur /en togglen.
- * Seiten außerhalb dieser Liste bleiben rein deutsch, ohne EN-Gegenstück.
+ * Deutsche Pfade, die auch unter /en existieren (P1). Slugs sind hier
+ * identisch, der Umschalter muss nur /en togglen. Ausnahme mit eigenen
+ * englischen Slugs: die Vorlagen (MAPPED_PATHS in lib/vorlagen-slugs.ts).
+ * Seiten außerhalb beider Listen bleiben rein deutsch, ohne EN-Gegenstück.
  */
 export const TRANSLATED_PATHS = ["/", "/pro", "/roadmap", "/rechner", "/vergleich"] as const;
 
 export function enPathFor(dePath: string): string {
+  if (MAPPED_PATHS[dePath]) return MAPPED_PATHS[dePath];
   return dePath === "/" ? "/en" : `/en${dePath}`;
 }
 
+/** Hat dieser deutsche Pfad eine englische Fassung? */
+export function isTranslated(dePath: string): boolean {
+  return (TRANSLATED_PATHS as readonly string[]).includes(dePath) || dePath in MAPPED_PATHS;
+}
+
 export function dePathFor(enPath: string): string {
+  if (MAPPED_EN_TO_DE[enPath]) return MAPPED_EN_TO_DE[enPath];
   if (enPath === "/en") return "/";
   return enPath.startsWith("/en/") ? enPath.slice(3) : enPath;
 }
@@ -27,9 +42,7 @@ export function otherLocaleHref(pathname: string): string | null {
   if (localeOfPath(pathname) === "en") {
     return dePathFor(pathname);
   }
-  return (TRANSLATED_PATHS as readonly string[]).includes(pathname)
-    ? enPathFor(pathname)
-    : null;
+  return isTranslated(pathname) ? enPathFor(pathname) : null;
 }
 
 /** DE- und EN-URL der aktuellen Seite, für den Sprachumschalter (EN ist null ohne Übersetzung). */
@@ -39,7 +52,7 @@ export function localeHrefs(pathname: string): { de: string; en: string | null }
   }
   return {
     de: pathname,
-    en: (TRANSLATED_PATHS as readonly string[]).includes(pathname) ? enPathFor(pathname) : null,
+    en: isTranslated(pathname) ? enPathFor(pathname) : null,
   };
 }
 
@@ -53,6 +66,5 @@ export function localeHrefs(pathname: string): { de: string; en: string | null }
 export function localizedHref(locale: Locale, href: string): string {
   if (locale === "de" || !href.startsWith("/")) return href;
   const [base, hash] = href.split("#");
-  const isTranslated = (TRANSLATED_PATHS as readonly string[]).includes(base);
-  return isTranslated ? enPathFor(base) + (hash ? `#${hash}` : "") : href;
+  return isTranslated(base) ? enPathFor(base) + (hash ? `#${hash}` : "") : href;
 }

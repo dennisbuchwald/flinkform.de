@@ -19,15 +19,27 @@ export const home: HomeDict = {
       "Build the form, store the submissions, split it into steps, show fields conditionally, keep the spam out. Elsewhere that takes five plugins or a paid plan. With Flinkform it's one plugin, free, right inside the WordPress block editor.",
     sub: "No reCAPTCHA, no third-party services, no IP logging. Everything stays on your server.",
     ctaPrimary: "Get it free on WordPress.org",
+    ctaTry: "Try it in the editor, no install",
     ctaSecondary: "Switching from Contact Form 7? →",
     ctaSecondaryHref: "#umstieg",
     versionLine: "Version {version} · WordPress 6.5+ · PHP 8.1+ · GPLv2",
     demoCaption: "Multi-step, live calculations, no reCAPTCHA.",
     demoLink: "Click through everything on the live demo →",
   },
+  editor: {
+    eyebrow: "Right in the block editor",
+    titlePre: "Build forms ",
+    titleMark: "the way you write text",
+    titlePost: ".",
+    text: "Type `/`, pick “Flinkform Form”, and it's on the page. You add fields with a click, like any other block. No second builder, no shortcode, nothing new to learn. If you can write a paragraph in WordPress, you can build a form.",
+    points: ["Start from a template or a blank form", "Add fields like any other block", "Styling comes from your theme"],
+    videoLabel: "Video: in the WordPress block editor, a form is inserted via the slash command, the Contact template is chosen and a phone field is added.",
+    templatesLink: "Browse the form templates →",
+  },
   pillars: {
-    heading: "It's all in there. For free.",
-    sub: "Multi-step forms, conditional logic, and a dashboard for your submissions. WPForms charges from $99 a year for that combination, and Gravity Forms has no free version at all.",
+    headingPre: "Multi-step and conditional logic cost extra elsewhere. ",
+    headingMark: "Not here.",
+    sub: "Multi-step, conditional logic, submissions in WordPress and spam protection without a CAPTCHA. In the free plugin, no trial, no add-on.",
     items: [
       {
         title: "Multi-step and conditional logic",
@@ -103,6 +115,33 @@ export const home: HomeDict = {
       : "There's no automatic import yet, so you rebuild your forms. And file uploads, which CF7 has for free, are a Pro feature with us. That's the whole catch.",
     cta: "See how Flinkform compares →",
     ctaHref: "/vergleich",
+  },
+  trust: {
+    heading: "Built for WordPress. Built in Germany.",
+    proBadge: "Pro",
+    items: [
+      {
+        title: "Block-native",
+        desc: "Every field is a real block, built on the official WordPress APIs.",
+        pro: false,
+      },
+      {
+        title: "Made in Germany",
+        desc: "By Dennis Buchwald, dbw media, Heilbronn. Support from the person who wrote the code.",
+        pro: false,
+      },
+      {
+        title: "Email sending under control",
+        desc: "SMTP sending and a mail log built in. No WP Mail SMTP, no second plugin.",
+        pro: true,
+      },
+      {
+        title: "Privacy by default",
+        desc: "No IP storage, encrypted credentials, newsletter only with consent, data export and erasure through the WordPress privacy tools.",
+        pro: false,
+      },
+    ],
+    featuredHeading: "As seen in",
   },
   agency: {
     eyebrow: "For agencies",

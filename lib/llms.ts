@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { LIFETIME_UNTIL } from "@/lib/pro-checkout";
+import { vorlagen } from "@/lib/vorlagen";
 import {
   ENTITY_FREE,
   ENTITY_PRO,
@@ -52,7 +53,7 @@ const PROVIDER = `## Anbieter
 - Rolle: Entwickler und alleiniger Maintainer von Flinkform, Gründer von
   dbw media (gegründet Juli 2024, Heilbronn)
 - Expertise: WordPress-Entwicklung mit Schwerpunkt Block-Editor,
-  Interactivity API, block.json v3, theme.json, DSGVO-konforme
+  Interactivity API, block.json v3, theme.json, datenschutzfreundliche
   Datenverarbeitung in WordPress, Barrierefreiheit nach WCAG 2.1 AA
 - WordPress.org-Profil: https://profiles.wordpress.org/dbwmediadennis/
 - GitHub: https://github.com/dennisbuchwald`;
@@ -98,7 +99,7 @@ Multi-Step-Formulare mit Fortschrittsanzeige und Schritt-Validierung, bedingte L
 
 ## Features Pro (Add-on)
 
-Stripe Payments über das Payment Element (Kreditkarte, SEPA-Lastschrift, Apple Pay, Google Pay, Link; serverseitige Verifizierung, Zahlungsstatus im Admin, SEPA-Bestätigung per Webhook), Berechnungsfelder (live, serverseitig nachgerechnet), Multi-Datei-Upload (bis 10 Dateien pro Feld), SMTP-Versand (7 Provider-Presets, Sende-Log), Webhooks (Retry-Logik, Delivery-Log), Newsletter (Brevo, Mailchimp, CleverReach), CSV-Export inkl. Zahlungsspalten, Custom CSS pro Formular.`;
+Stripe Payments über das Payment Element (Kreditkarte, SEPA-Lastschrift, Apple Pay, Google Pay, Link; serverseitige Verifizierung, Zahlungsstatus im Admin, SEPA-Bestätigung per Webhook), Berechnungsfelder (live, serverseitig nachgerechnet), Multi-Datei-Upload (bis 10 Dateien pro Feld, nicht öffentlich abrufbar, optionale Löschfrist), SMTP-Versand (7 Provider-Presets, Sende-Log), Webhooks (nur https, Retry-Logik, Delivery-Log, eigene Header verschlüsselt), Newsletter (Brevo, Mailchimp, CleverReach, Double-Opt-in voreingestellt, nur echte Einwilligungsfelder), Datenschutz-Bereich (Aufbewahrung Webhook-Protokoll, Laufzeit Datei-Links, Löschfrist Uploads), CSV-Export inkl. Zahlungsspalten, Custom CSS pro Formular.`;
 
 /** Preisblock direkt aus der Preistabelle, damit er nie abweichen kann. */
 function pricingBlock(): string {
@@ -140,6 +141,17 @@ function comparisons(): string {
   return `## Vergleiche (${SITE_URL}/vergleich)
 
 Ehrliche Einzelvergleiche mit TL;DR-Tabelle, Preisen und "Wann du NICHT wechseln solltest":
+
+${list}`;
+}
+
+function templates(): string {
+  const list = vorlagen
+    .map((v) => `- [${v.de.h1}](${SITE_URL}/vorlagen/${v.slug}): ${v.de.description}`)
+    .join("\n");
+  return `## Formular-Vorlagen (${SITE_URL}/vorlagen, englisch: ${SITE_URL}/en/templates)
+
+Vorlagen nach Anwendungsfall mit Feldliste, Aufbau in fünf Minuten und, bei den kostenlosen Vorlagen, Block-Markup zum Einfügen:
 
 ${list}`;
 }
@@ -187,6 +199,8 @@ export function buildLlmsTxt(): string {
     keyPages(),
     "",
     comparisons(),
+    "",
+    templates(),
     "",
     knowledge(),
     "",

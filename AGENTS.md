@@ -64,6 +64,11 @@ auseinander.
   `lib/i18n/routes.ts` (`TRANSLATED_PATHS`) eintragen (das schaltet den
   Sprachumschalter für diese Seite frei) und den Eintrag in `app/sitemap.ts`
   in die `bilingualRoutes`-Logik aufnehmen.
+- **Vorlagen mit eigenen EN-Slugs:** `/vorlagen/...` ↔ `/en/templates/...`.
+  Die Slug-Paare stehen in `lib/vorlagen-slugs.ts` (`MAPPED_PATHS`), die
+  Texte beider Sprachen in `lib/vorlagen.ts`, die UI-Texte in
+  `content/{de,en}/vorlagen.ts`. Neue Vorlage = Slug-Paar + Eintrag, die
+  Seiten, die Sitemap und der Sprachumschalter folgen automatisch.
 - **Geo-Voreinstellung:** `proxy.ts` leitet einen Erstbesucher ohne
   Sprach-Cookie nur auf der neutralen Root-URL `/` weiter (DE/AT/CH →
   Deutsch bleibt, sonst → `/en`). Bekannte Suchmaschinen-/KI-Crawler werden
@@ -79,6 +84,8 @@ JSON-LD `dateModified`, `article:modified_time`, sichtbares „Aktualisiert am�
 - **Blog:** `updated` im Eintrag in `lib/posts.ts`.
 - **Wissen:** `updated` in `lib/wissen.ts`, Faktenseite: `FACTS_UPDATED` in `lib/site.ts`.
 - **Vergleiche:** `updated` in `lib/vergleiche.ts`.
+- **Vorlagen:** `updated` im Eintrag in `lib/vorlagen.ts` (DE und EN gemeinsam; die
+  Übersicht nimmt automatisch das jüngste Datum).
 - **Alle anderen Seiten** (Start, Pro, Roadmap, Rechner, Vergleichs-
   Übersicht, Docs, Über, Presse, Impressum, Datenschutz): `lib/updated.ts`.
   DE und EN teilen sich ein Datum.

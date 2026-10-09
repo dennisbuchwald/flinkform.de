@@ -162,6 +162,19 @@ function flinkformNode(locale: Locale): SchemaNode {
   };
 }
 
+/** Pro-Funktionen für featureList (Stand Pro 1.4.0). */
+const PRO_FEATURE_LIST = [
+  "Stripe-Zahlungen im Formular: Kreditkarte, SEPA-Lastschrift, Apple Pay, Google Pay, Link",
+  "Berechnungsfelder mit Live-Summe, serverseitig nachgerechnet",
+  "Multi-Datei-Upload, Dateien nicht öffentlich abrufbar, Selbsttest für den Upload-Ordner",
+  "SMTP-Versand mit 7 Anbieter-Vorlagen und Mail-Log",
+  "Webhooks nur an https, mit Retry-Logik und Delivery-Log, eigene Header verschlüsselt",
+  "Newsletter-Anbindung an Brevo, Mailchimp und CleverReach, Double-Opt-in voreingestellt",
+  "Datenschutz-Bereich: Aufbewahrung des Webhook-Protokolls, Laufzeit der Datei-Links, Löschfrist für Uploads",
+  "CSV-Export mit Zahlungsspalten",
+  "Custom CSS pro Formular",
+];
+
 /**
  * Das Pro-Add-on als eigener Knoten. Wird nur auf den Seiten ausgegeben, die
  * Pro tatsächlich behandeln (/pro, Fact-Sheet), nie im globalen Graph.
@@ -179,6 +192,7 @@ export function flinkformProNode(locale: Locale = "de"): SchemaNode {
     url: `${SITE_URL}/pro`,
     inLanguage: locale,
     description: ENTITY_PRO,
+    featureList: PRO_FEATURE_LIST,
     isAccessibleForFree: false,
     author: ref(ID.person),
     publisher: ref(ID.organization),

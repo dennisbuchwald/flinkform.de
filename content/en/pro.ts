@@ -66,7 +66,7 @@ export const pro: ProDict = {
       },
       {
         title: "Multi-file upload",
-        desc: "Visitors can attach up to 10 files per field, ideal for job applications. Configurable file types and max size, size check before submission, protected upload folder, GDPR deletion cascade.",
+        desc: "Visitors can attach up to 10 files per field, ideal for job applications. Configurable file types and max size, size check before submission. Files are not publicly accessible, a self-test checks that, and they are deleted with the submission or after an optional retention period.",
       },
       {
         title: "SMTP delivery",
@@ -74,11 +74,11 @@ export const pro: ProDict = {
       },
       {
         title: "Webhooks",
-        desc: "Send submissions automatically to your CRM, project management tool, or any endpoint. JSON or form-encoded, custom headers, field mapping, conditions, retry logic, and a complete delivery log. SSRF-hardened.",
+        desc: "Send submissions automatically to your CRM, project management tool, or any endpoint. JSON or form-encoded, custom headers, field mapping, conditions, retry logic, and a complete delivery log. Only to https addresses, and custom headers are stored encrypted.",
       },
       {
         title: "Newsletter integration",
-        desc: "Brevo, Mailchimp, and CleverReach integrated directly. Double opt-in, a required consent field, and asynchronous sending. No extra plugin, no detours.",
+        desc: "Brevo, Mailchimp, and CleverReach integrated directly. Double opt-in is on by default for new connections, only real consent fields count as consent, and sending runs asynchronously. No extra plugin, no detours.",
       },
       {
         title: "CSV export",
@@ -103,12 +103,14 @@ export const pro: ProDict = {
       "Multi-upload: up to 10 files per field, size check before submission",
       "Files attached as real email attachments on the admin notification",
       "SMTP with 7 provider presets and encrypted credentials",
-      "Webhooks with retry logic and a complete delivery log",
-      "Newsletter integration: Brevo, Mailchimp, CleverReach",
+      "Webhooks only to https, with retry logic and a complete delivery log",
+      "Newsletter integration: Brevo, Mailchimp, CleverReach, double opt-in by default",
       "CSV export with date range and payment columns",
       "Custom CSS per form in the editor",
       "Double-submit protection: no duplicate submissions, emails, or payments",
-      "AES-256 encryption for every stored credential",
+      "AES-256 encryption for credentials and custom webhook headers",
+      "Privacy section: webhook log retention, file link lifetime, retention period for uploads",
+      "Self-test that checks whether the upload folder is protected from outside access, with a rule for nginx servers",
       "Clean bridge architecture: Pro never modifies core files",
     ],
   },
@@ -251,8 +253,16 @@ export const pro: ProDict = {
         a: `Yes. Flinkform Pro is an add-on that builds on the free Flinkform plugin (${MIN_FREE_FOR_PRO} or later). You install the free plugin first, then activate Pro as an extension. All free features remain.`,
       },
       {
-        q: "Is Flinkform Pro GDPR-compliant?",
-        a: "Yes. Card data only ever passes through Stripe, never your server. Every Pro module is integrated with the WordPress privacy tools: data export, erasure, deletion cascades for uploads. API keys are stored AES-256-encrypted. The mail log deliberately stores no message content.",
+        q: "How privacy-friendly is Flinkform Pro?",
+        a: "Privacy by default. Card data only ever passes through Stripe, never your server. Every Pro module is connected to the WordPress privacy tools: data export and erasure, and uploads are deleted with their submission. Under Flinkform → Pro → Privacy you set how long the webhook log is kept, how long file links stay valid and whether uploads are deleted after a set period. A self-test checks whether uploaded files can be reached from outside and shows the matching rule for nginx servers. Credentials and custom webhook headers are stored AES-256-encrypted, and the mail log stores no message content. The privacy policy text blocks also cover Stripe.js and Freemius.",
+      },
+      {
+        q: "Can webhooks go to http addresses?",
+        a: "New webhooks need an https address so submissions are transferred encrypted. Existing http webhooks keep working and show a warning, so nothing breaks silently. Custom headers, such as an API token, are stored encrypted.",
+      },
+      {
+        q: "How does newsletter consent work?",
+        a: "Only fields the visitor actively ticks count as consent: consent, toggle or checkbox. Double opt-in is on by default for new newsletter connections, and your provider sends the confirmation email. The editor warns when double opt-in is off or when consent is made a required field of the form.",
       },
       {
         q: "What happens to my data when the license expires?",

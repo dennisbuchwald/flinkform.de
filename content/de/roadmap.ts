@@ -109,6 +109,23 @@ export const roadmap = {
   changelogHeading: "Zuletzt erschienen",
   changelog: [
     {
+      area: "Pro",
+      version: "1.4.0",
+      date: "09.10.2026",
+      items: [
+        "Webhooks gehen nur noch an https-Adressen. Bestehende http-Webhooks laufen weiter und zeigen eine Warnung",
+        "Eigene Webhook-Header werden verschlüsselt gespeichert",
+        "Neuer Bereich Flinkform → Pro → Datenschutz: wie lange das Webhook-Protokoll aufbewahrt wird, wie lange Datei-Links gültig sind und eine optionale Löschfrist für Uploads",
+        "Selbsttest, ob der Upload-Ordner geschützt ist, mit passender Regel für nginx-Server",
+        "Newsletter: Als Einwilligung zählen nur noch echte Einwilligungsfelder, Double-Opt-in ist für neue Verbindungen voreingestellt",
+        "Hinweis, wenn ein Formular pausiert ist",
+        "Datenschutz-Leitfaden um Stripe.js und Freemius ergänzt",
+        "Fehler im Webhook-Editor behoben: Webhook hinzufügen und URL-Eingabe funktionieren wieder zuverlässig",
+        "Behoben: Beim Einschalten des Newsletters wurde der gewählte Anbieter nicht gespeichert. Formulare ohne Anbieter werden jetzt in der Flinkform-Übersicht angezeigt",
+        "Wichtig: Nach dem Update nicht auf eine 1.3.x-Version zurückgehen",
+      ],
+    },
+    {
       area: "Free",
       version: "1.15.0",
       date: "28.09.2026",

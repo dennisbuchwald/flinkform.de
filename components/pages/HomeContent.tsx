@@ -2,9 +2,10 @@ import PluginStrike from "@/components/PluginStrike";
 import Link from "next/link";
 import HeroFormDemo from "@/components/HeroFormDemo";
 import CompareTable from "@/components/CompareTable";
+import EditorVideo from "@/components/EditorVideo";
 import Faq from "@/components/Faq";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
-import { CF7_IMPORT_SINCE, DEMO_URL, FREE_VERSION, WPORG_URL } from "@/lib/site";
+import { CF7_IMPORT_SINCE, DEMO_URL, FEATURED_IN, FREE_VERSION, PLAYGROUND_URL, WPORG_URL } from "@/lib/site";
 import {
   CLIENT_SITES_COUNT,
   FEATURED_QUOTE,
@@ -63,6 +64,22 @@ function Check({ pro = false }: { pro?: boolean }) {
   );
 }
 
+/** Inline-Code (`/`) als Tastenkappe darstellen. */
+function withKeys(text: string) {
+  return text.split(/(`[^`]+`)/).map((part, i) =>
+    part.startsWith("`") ? (
+      <kbd key={i} className="kbd">
+        {part.slice(1, -1)}
+      </kbd>
+    ) : (
+      part
+    ),
+  );
+}
+
+/** Maße der Editor-Videos (public/video), damit nichts springt. */
+const EDITOR_VIDEO = { width: 1280, height: 800 };
+
 export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict }) {
   const ui = i18n[locale];
   return (
@@ -90,14 +107,24 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
               >
                 {t.hero.ctaPrimary}
               </a>
+              <a
+                href={PLAYGROUND_URL}
+                target="_blank"
+                rel="noopener"
+                className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-ink-muted/40"
+              >
+                {t.hero.ctaTry}
+              </a>
+            </div>
+            <p className="mt-4 text-sm text-ink-muted">
               <Link
                 href={localizedHref(locale, t.hero.ctaSecondaryHref)}
-                className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-ink-muted/40"
+                className="font-semibold text-ink-soft underline decoration-line underline-offset-2 hover:text-ink"
               >
                 {t.hero.ctaSecondary}
               </Link>
-            </div>
-            <p className="mt-4 text-sm text-ink-muted">
+            </p>
+            <p className="mt-2 text-sm text-ink-muted">
               {t.hero.versionLine.replace("{version}", FREE_VERSION)}
             </p>
           </div>
@@ -120,9 +147,54 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
         <div aria-hidden="true" className="h-2 bg-gradient-brand-h" />
       </div>
 
+      {/* ── BAUEN WIE TEXT SCHREIBEN ── */}
+      <Section>
+        <div className="grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+          <div>
+            <Eyebrow>{t.editor.eyebrow}</Eyebrow>
+            <h2 className="mt-5 font-(family-name:--font-display) text-3xl font-bold tracking-tight sm:text-4xl">
+              {t.editor.titlePre}
+              <span className="mark-draw">{t.editor.titleMark}</span>
+              {t.editor.titlePost}
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-ink-soft">{withKeys(t.editor.text)}</p>
+            <ul className="mt-6 space-y-3">
+              {t.editor.points.map((point) => (
+                <li key={point} className="flex items-start gap-3 text-[0.98rem] text-ink-soft">
+                  <Check />
+                  {point}
+                </li>
+              ))}
+            </ul>
+            <Link
+              href={localizedHref(locale, "/vorlagen")}
+              className="mt-7 inline-block text-[0.95rem] font-semibold text-brand-violet underline decoration-brand-violet/30 underline-offset-2 hover:decoration-brand-violet"
+            >
+              {t.editor.templatesLink}
+            </Link>
+          </div>
+          <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-[0_24px_60px_-30px_rgba(17,17,20,0.35)]">
+            <div aria-hidden="true" className="flex gap-1.5 border-b border-line px-4 py-3">
+              <span className="h-2.5 w-2.5 rounded-full bg-line" />
+              <span className="h-2.5 w-2.5 rounded-full bg-line" />
+              <span className="h-2.5 w-2.5 rounded-full bg-line" />
+            </div>
+            <EditorVideo
+              base={`/video/editor-${locale}`}
+              label={t.editor.videoLabel}
+              width={EDITOR_VIDEO.width}
+              height={EDITOR_VIDEO.height}
+            />
+          </div>
+        </div>
+      </Section>
+
       {/* ── ALLES DRIN ── */}
       <Section>
-        <SectionHeading sub={t.pillars.sub}>{t.pillars.heading}</SectionHeading>
+        <SectionHeading sub={t.pillars.sub}>
+          {t.pillars.headingPre}
+          <span className="mark-draw">{t.pillars.headingMark}</span>
+        </SectionHeading>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {t.pillars.items.map((p, i) => (
             <div key={p.title} className="card card-hover p-7">
@@ -232,6 +304,42 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
         >
           {t.cf7.cta}
         </Link>
+      </Section>
+
+      {/* ── VERTRAUEN ── */}
+      <Section>
+        <SectionHeading>{t.trust.heading}</SectionHeading>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {t.trust.items.map((item) => (
+            <div key={item.title} className="card p-6">
+              <div className="flex items-center gap-2">
+                <h3 className="text-[1.02rem] font-bold">{item.title}</h3>
+                {item.pro && (
+                  <span className="rounded-full bg-gradient-pro px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider text-white">
+                    {t.trust.proBadge}
+                  </span>
+                )}
+              </div>
+              <p className="mt-2 text-[0.9rem] leading-relaxed text-ink-soft">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+        {FEATURED_IN && (
+          <p className="mt-8 text-sm text-ink-muted">
+            {t.trust.featuredHeading}:{" "}
+            <a href={FEATURED_IN.url} className="font-semibold text-ink-soft underline underline-offset-2">
+              {FEATURED_IN.name}
+            </a>
+            {FEATURED_IN.quote && (
+              <>
+                {" "}
+                {ui.quoteOpen}
+                {FEATURED_IN.quote}
+                {ui.quoteClose}
+              </>
+            )}
+          </p>
+        )}
       </Section>
 
       {/* ── AGENTUREN ── */}

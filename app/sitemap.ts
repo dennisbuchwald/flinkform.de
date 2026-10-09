@@ -3,6 +3,7 @@ import { FACTS_UPDATED, HOME_URL, SITE_URL } from "@/lib/site";
 import { posts } from "@/lib/posts";
 import { wissen } from "@/lib/wissen";
 import { vergleiche } from "@/lib/vergleiche";
+import { vorlagen } from "@/lib/vorlagen";
 import { TRANSLATED_PATHS, enPathFor } from "@/lib/i18n/routes";
 import { latest, pageUpdated } from "@/lib/updated";
 
@@ -67,5 +68,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...bilingualRoutes, ...staticRoutes, ...vergleichRoutes, ...blogRoutes, ...wissenRoutes];
+  /** Vorlagen: DE unter /vorlagen, EN unter /en/templates mit eigenen Slugs. */
+  const vorlagenPair = (de: string, en: string, lastModified: Date, priority: number) => {
+    const languages = { de, en, "x-default": de };
+    return [
+      { url: de, lastModified, priority, alternates: { languages } },
+      { url: en, lastModified, priority, alternates: { languages } },
+    ];
+  };
+  const vorlagenRoutes: MetadataRoute.Sitemap = [
+    ...vorlagenPair(
+      `${SITE_URL}/vorlagen`,
+      `${SITE_URL}/en/templates`,
+      latest(vorlagen.map((v) => v.updated)),
+      0.8,
+    ),
+    ...vorlagen.flatMap((v) =>
+      vorlagenPair(
+        `${SITE_URL}/vorlagen/${v.slug}`,
+        `${SITE_URL}/en/templates/${v.enSlug}`,
+        new Date(v.updated),
+        0.7,
+      ),
+    ),
+  ];
+
+  return [
+    ...bilingualRoutes,
+    ...staticRoutes,
+    ...vorlagenRoutes,
+    ...vergleichRoutes,
+    ...blogRoutes,
+    ...wissenRoutes,
+  ];
 }

@@ -56,6 +56,11 @@ const facts = [
     value:
       "Keine IP-Speicherung, kein User-Agent-Logging, kein Tracking, keine externen Dienste im Free-Core; Privacy-Tools-Integration; Aufbewahrungsfristen pro Formular",
   },
+  {
+    label: "Datenschutz in Pro (ab 1.4.0)",
+    value:
+      "Webhooks nur an https-Adressen, Zugangsdaten und eigene Webhook-Header AES-256-verschlüsselt; Bereich Flinkform → Pro → Datenschutz mit Aufbewahrung des Webhook-Protokolls, Laufzeit der Datei-Links und optionaler Löschfrist für Uploads; Selbsttest, ob der Upload-Ordner von außen geschützt ist (mit nginx-Regel); Newsletter nur mit echtem Einwilligungsfeld, Double-Opt-in für neue Verbindungen voreingestellt",
+  },
   { label: "Barrierefreiheit", value: "Formular-Markup besteht axe-core-Prüfungen gegen WCAG 2.1 A/AA (automatisiert, kein formales Audit)" },
   {
     label: "Umzug von Contact Form 7",
@@ -84,10 +89,10 @@ const featureMatrix = [
   { feature: "Papierkorb, Ungelesen-Zähler, Mail-Status pro Einsendung", free: true, pro: true },
   { feature: "Stripe Payments (Karte, SEPA, Apple Pay, Google Pay, Link)", free: false, pro: true },
   { feature: "Berechnungsfelder (live + serverseitig verifiziert)", free: false, pro: true },
-  { feature: "Datei-Upload (bis zu 10 Dateien pro Feld)", free: false, pro: true },
+  { feature: "Datei-Upload (bis zu 10 Dateien pro Feld, nicht öffentlich abrufbar, optionale Löschfrist)", free: false, pro: true },
   { feature: "SMTP-Versand (7 Provider-Presets) + Sende-Log", free: false, pro: true },
-  { feature: "Webhooks mit Retry und Delivery-Log", free: false, pro: true },
-  { feature: "Newsletter: Brevo, Mailchimp, CleverReach", free: false, pro: true },
+  { feature: "Webhooks nur an https, mit Retry und Delivery-Log, eigene Header verschlüsselt", free: false, pro: true },
+  { feature: "Newsletter: Brevo, Mailchimp, CleverReach, Double-Opt-in voreingestellt", free: false, pro: true },
   { feature: "CSV-Export (inkl. Zahlungsspalten)", free: false, pro: true },
   { feature: "Custom CSS pro Formular", free: false, pro: true },
 ] as const;

@@ -48,7 +48,7 @@ export const pro = {
     ],
     outroPre: "Normalerweise heißt das: fünf weitere Plugins installieren. Fünf Konfigurationen, fünf Update-Zyklen, fünf potenzielle Konflikte. Bei WPForms brauchst du für dieses Paket den Pro-Plan, regulär 399 Dollar pro Jahr. ",
     outroStrong: "Flinkform Pro packt alles in ein Add-on.",
-    outroPost: " Nahtlos integriert, DSGVO-konform, aus einer Hand.",
+    outroPost: " Nahtlos integriert, datenschutzfreundlich, aus einer Hand.",
   },
   modules: {
     heading: "Acht Module. Ein Add-on.",
@@ -63,7 +63,7 @@ export const pro = {
       },
       {
         title: "Multi-Datei-Upload",
-        desc: "Besucher hängen bis zu 10 Dateien pro Feld an, ideal für Bewerbungen. Dateitypen und Maximalgröße konfigurierbar, Größen-Check vor dem Absenden, geschützter Upload-Ordner, DSGVO-Löschkaskade.",
+        desc: "Besucher hängen bis zu 10 Dateien pro Feld an, ideal für Bewerbungen. Dateitypen und Maximalgröße konfigurierbar, Größen-Check vor dem Absenden. Dateien sind nicht öffentlich abrufbar, ein Selbsttest prüft das, und sie werden mit der Einsendung oder nach einer optionalen Löschfrist gelöscht.",
       },
       {
         title: "SMTP-Versand",
@@ -71,11 +71,11 @@ export const pro = {
       },
       {
         title: "Webhooks",
-        desc: "Einsendungen automatisch an dein CRM, Projektmanagement oder jeden Endpoint senden. JSON oder form-encoded, eigene Header, Field-Mapping, Bedingungen, Retry-Logik und komplettes Delivery-Log. SSRF-gehärtet.",
+        desc: "Einsendungen automatisch an dein CRM, Projektmanagement oder jeden Endpoint senden. JSON oder form-encoded, eigene Header, Field-Mapping, Bedingungen, Retry-Logik und komplettes Delivery-Log. Nur an https-Adressen, eigene Header werden verschlüsselt gespeichert.",
       },
       {
         title: "Newsletter-Anbindung",
-        desc: "Brevo, Mailchimp und CleverReach direkt integriert. Double-Opt-in, Pflicht-Einwilligungsfeld und asynchroner Versand. Kein Extra-Plugin, keine Umwege.",
+        desc: "Brevo, Mailchimp und CleverReach direkt integriert. Double-Opt-in ist für neue Verbindungen voreingestellt, als Einwilligung zählen nur echte Einwilligungsfelder, der Versand läuft asynchron. Kein Extra-Plugin, keine Umwege.",
       },
       {
         title: "CSV-Export",
@@ -100,12 +100,14 @@ export const pro = {
       "Multi-Upload: bis zu 10 Dateien pro Feld, Größen-Check vor dem Absenden",
       "Dateien als echter Mail-Anhang an die Admin-Benachrichtigung",
       "SMTP mit 7 Provider-Presets und verschlüsselten Zugangsdaten",
-      "Webhooks mit Retry-Logik und vollständigem Delivery-Log",
-      "Newsletter-Anbindung: Brevo, Mailchimp, CleverReach",
+      "Webhooks nur an https, mit Retry-Logik und vollständigem Delivery-Log",
+      "Newsletter-Anbindung: Brevo, Mailchimp, CleverReach, Double-Opt-in voreingestellt",
       "CSV-Export mit Datumsbereich und Zahlungsspalten",
       "Custom CSS pro Formular im Editor",
       "Doppelklick-Schutz: keine doppelten Einsendungen, Mails oder Zahlungen",
-      "AES-256-Verschlüsselung für alle gespeicherten Zugangsdaten",
+      "AES-256-Verschlüsselung für Zugangsdaten und eigene Webhook-Header",
+      "Datenschutz-Bereich: Aufbewahrung des Webhook-Protokolls, Laufzeit der Datei-Links, Löschfrist für Uploads",
+      "Selbsttest, ob der Upload-Ordner von außen geschützt ist, mit Regel für nginx-Server",
       "Saubere Bridge-Architektur: Pro verändert keine Core-Dateien",
     ],
   },
@@ -245,8 +247,16 @@ export const pro = {
         a: `Ja. Flinkform Pro ist ein Add-on, das auf dem kostenlosen Flinkform-Plugin (ab Version ${MIN_FREE_FOR_PRO}) aufbaut. Du installierst zuerst das kostenlose Plugin und aktivierst Pro als Erweiterung. Alle Free-Features bleiben erhalten.`,
       },
       {
-        q: "Ist Flinkform Pro DSGVO-konform?",
-        a: "Ja. Kartendaten laufen nur über Stripe, nicht über deinen Server. Alle Pro-Module sind in die WordPress-Privacy-Tools integriert: Datenexport, Löschung, Löschkaskaden für Uploads. API-Keys werden AES-256-verschlüsselt gespeichert. Das Mail-Log speichert bewusst keine Mail-Inhalte.",
+        q: "Wie datenschutzfreundlich ist Flinkform Pro?",
+        a: "Privacy by Default. Kartendaten laufen nur über Stripe, nicht über deinen Server. Alle Pro-Module sind in die WordPress-Datenschutz-Tools eingebunden: Datenexport und Löschung, Uploads werden mit der Einsendung gelöscht. Unter Flinkform → Pro → Datenschutz legst du fest, wie lange das Webhook-Protokoll aufbewahrt wird, wie lange Datei-Links gültig sind und ob Uploads nach einer Frist gelöscht werden. Ein Selbsttest prüft, ob hochgeladene Dateien von außen erreichbar sind, und nennt für nginx-Server die passende Regel. Zugangsdaten und eigene Webhook-Header werden AES-256-verschlüsselt gespeichert, das Mail-Log speichert keine Mail-Inhalte. Die Textbausteine für deine Datenschutzerklärung decken auch Stripe.js und Freemius ab.",
+      },
+      {
+        q: "Gehen Webhooks auch an http-Adressen?",
+        a: "Neue Webhooks brauchen eine https-Adresse, damit Einsendungen verschlüsselt übertragen werden. Bestehende http-Webhooks laufen weiter und zeigen eine Warnung, damit nichts still kaputtgeht. Eigene Header, etwa ein API-Token, werden verschlüsselt gespeichert.",
+      },
+      {
+        q: "Wie funktioniert die Einwilligung beim Newsletter?",
+        a: "Als Einwilligung zählen nur Felder, die der Besucher aktiv anhakt: Einwilligung, Schalter oder Checkbox. Für neue Newsletter-Verbindungen ist Double-Opt-in voreingestellt, die Bestätigungsmail verschickt dein Anbieter. Der Editor warnt, wenn Double-Opt-in aus ist oder die Einwilligung als Pflichtfeld ans Formular gekoppelt ist.",
       },
       {
         q: "Was passiert mit meinen Daten, wenn die Lizenz ausläuft?",

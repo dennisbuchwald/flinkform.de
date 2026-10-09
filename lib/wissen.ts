@@ -44,7 +44,7 @@ export const wissen: WissenEntry[] = [
     description:
       "Die ehrliche Übersicht: Welche Formular-Plugins Daten an US-Dienste senden, welche IP-Adressen speichern und worauf es bei der Auswahl ankommt.",
     published: "2026-07-03",
-    updated: "2026-09-28",
+    updated: "2026-10-09",
     related: [
       "/vergleich/typeform-alternative",
       "/vergleich/jotform-alternative",
@@ -70,6 +70,7 @@ export const wissen: WissenEntry[] = [
     published: "2026-07-03",
     updated: "2026-07-03",
     related: [
+      "/vorlagen/event-anmeldung-mit-zahlung",
       "/vergleich/formidable-forms-alternative",
     ],
   },
@@ -80,6 +81,7 @@ export const wissen: WissenEntry[] = [
       "Mehrseitige Formulare direkt im Block-Editor: Page-Break-Block einfügen, Fortschrittsanzeige wählen, fertig. Mit Flinkform kostenlos, bei WPForms und Gravity Forms nur in der Bezahlversion.",
     published: "2026-07-03",
     updated: "2026-09-07",
+    related: ["/vorlagen/projektanfrage-formular"],
   },
   {
     slug: "bedingte-logik-wordpress-formular",
@@ -108,6 +110,7 @@ export const wissen: WissenEntry[] = [
     published: "2026-07-03",
     updated: "2026-09-28",
     related: [
+      "/vorlagen/kontaktformular",
       "/vergleich/contact-form-7-alternative",
       "/vergleich/forminator-alternative",
     ],
@@ -159,12 +162,13 @@ export const wissen: WissenEntry[] = [
   },
   {
     slug: "bewerbungsformular-wordpress",
-    title: "Bewerbungsformular mit WordPress erstellen (DSGVO-konform)",
+    title: "Bewerbungsformular mit WordPress erstellen: datenschutzfreundlich, mit Upload",
     description:
       "Bewerbungsformular in WordPress bauen: Multi-Step-Formular mit Datei-Uploads für Lebenslauf und Zeugnisse, Pflicht-Consent und automatischer Löschfrist.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-10-09",
     related: [
+      "/vorlagen/bewerbungsformular",
       "/vergleich/ninja-forms-alternative",
       "/vergleich/jotform-alternative",
     ],
@@ -176,6 +180,7 @@ export const wissen: WissenEntry[] = [
       "Preis- und Angebotsrechner in WordPress: Mit Berechnungsfeldern rechnet das Formular live im Browser und serverseitig manipulationssicher nach.",
     published: "2026-07-03",
     updated: "2026-07-03",
+    related: ["/vorlagen/angebotsrechner"],
   },
   {
     slug: "conversion-tracking-wordpress-formular",

@@ -109,6 +109,23 @@ export const roadmap: RoadmapDict = {
   changelogHeading: "Recently Shipped",
   changelog: [
     {
+      area: "Pro",
+      version: "1.4.0",
+      date: "Oct 9, 2026",
+      items: [
+        "Webhooks only go to https addresses. Existing http webhooks keep working and show a warning",
+        "Custom webhook headers are stored encrypted",
+        "New section Flinkform → Pro → Privacy: how long the webhook log is kept, how long file links stay valid, and an optional retention period for uploads",
+        "Self-test that checks whether the upload folder is protected, with a matching rule for nginx servers",
+        "Newsletter: only real consent fields count as consent, and double opt-in is on by default for new connections",
+        "Notice when a form is paused",
+        "Privacy guide now covers Stripe.js and Freemius",
+        "Fixed the webhook editor: adding a webhook and entering the URL work reliably again",
+        "Fixed: turning on the newsletter did not save the selected provider. Forms without a provider are now listed on the Flinkform screens",
+        "Important: don't roll back to a 1.3.x version after updating",
+      ],
+    },
+    {
       area: "Free",
       version: "1.15.0",
       date: "Sep 28, 2026",

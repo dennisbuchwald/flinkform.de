@@ -2,7 +2,7 @@ import WissenArticle from "@/components/WissenArticle";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
-  title: "Bewerbungsformular mit WordPress erstellen (DSGVO-konform)",
+  title: "Bewerbungsformular mit WordPress erstellen: datenschutzfreundlich, mit Upload",
   description:
     "Bewerbungsformular in WordPress bauen: Multi-Step-Formular mit Datei-Uploads für Lebenslauf und Zeugnisse, Pflicht-Consent und automatischer Löschfrist. Anleitung mit Flinkform.",
   alternates: { canonical: `${SITE_URL}/wissen/bewerbungsformular-wordpress` },
@@ -12,7 +12,7 @@ export default function Layout({ children }) {
   return <WissenArticle slug="bewerbungsformular-wordpress">{children}</WissenArticle>;
 }
 
-Ein DSGVO-konformes Bewerbungsformular in WordPress braucht drei Dinge: Datei-Uploads für Lebenslauf, Anschreiben und Zeugnisse, eine Pflicht-Einwilligung in die Datenverarbeitung und eine definierte Löschfrist für abgelehnte Bewerbungen. Mit dem kostenlosen Plugin Flinkform baust du das Formular als Multi-Step-Formular direkt im Block-Editor; das Add-on Flinkform Pro ergänzt den Multi-Datei-Upload mit bis zu 10 Dateien pro Feld. Die Auto-Löschung nach Aufbewahrungsfrist ist bereits in der kostenlosen Version enthalten.
+Ein datenschutzfreundliches Bewerbungsformular in WordPress braucht drei Dinge: Datei-Uploads für Lebenslauf, Anschreiben und Zeugnisse, eine Pflicht-Einwilligung in die Datenverarbeitung und eine definierte Löschfrist für abgelehnte Bewerbungen. Mit dem kostenlosen Plugin Flinkform baust du das Formular als Multi-Step-Formular direkt im Block-Editor; das Add-on Flinkform Pro ergänzt den Multi-Datei-Upload mit bis zu 10 Dateien pro Feld. Die Auto-Löschung nach Aufbewahrungsfrist ist bereits in der kostenlosen Version enthalten.
 
 ## Was ein Bewerbungsformular können muss
 
@@ -54,8 +54,10 @@ Der Multi-Datei-Upload ist ein Feature von [Flinkform Pro](/pro) (ab 59 EUR pro 
 | Dateien pro Feld | Bis zu 10, mehrere Upload-Felder möglich |
 | Dateityp-Limits | Erlaubte Typen pro Feld festlegen, z. B. nur PDF |
 | Größen-Check | Maximale Dateigröße pro Feld |
-| Ablage | Geschützter Upload-Ordner, kein öffentliches Verzeichnis-Listing |
+| Ablage | Dateien sind nicht öffentlich abrufbar, Admins laden sie über einen geschützten Link |
+| Selbsttest | Prüft unter Flinkform → Pro → Datenschutz, ob der Upload-Ordner von außen erreichbar ist, mit passender Regel für nginx-Server |
 | Löschkaskade | Wird die Einsendung gelöscht, werden die Dateien mitgelöscht |
+| Löschfrist für Uploads | Optional: Dateien nach einer festen Zahl von Tagen löschen (seit Pro 1.4.0) |
 
 Die Löschkaskade ist für Bewerbungsformulare der entscheidende Punkt: Bei vielen Plugins bleiben hochgeladene Dateien auf dem Server liegen, obwohl der Datensatz längst gelöscht ist. Genau das ist ein DSGVO-Problem.
 
@@ -65,7 +67,7 @@ Schon im kostenlosen Flinkform legst du pro Formular eine Aufbewahrungsfrist fes
 
 ## Ehrliche Einordnung
 
-Ein Formular ersetzt kein Bewerbermanagement-System. Wenn du hunderte Bewerbungen pro Monat mit mehrstufigen Freigabeprozessen, Terminplanung und Team-Bewertungen verwalten musst, ist eine spezialisierte Recruiting-Software die bessere Wahl. Für die Karriere-Seite eines kleinen oder mittleren Unternehmens, das Bewerbungen strukturiert und DSGVO-konform entgegennehmen will, reicht ein gutes Formular dagegen völlig, und es kostet einen Bruchteil.
+Ein Formular ersetzt kein Bewerbermanagement-System. Wenn du hunderte Bewerbungen pro Monat mit mehrstufigen Freigabeprozessen, Terminplanung und Team-Bewertungen verwalten musst, ist eine spezialisierte Recruiting-Software die bessere Wahl. Für die Karriere-Seite eines kleinen oder mittleren Unternehmens, das Bewerbungen strukturiert und datenschutzfreundlich entgegennehmen will, reicht ein gutes Formular dagegen völlig, und es kostet einen Bruchteil.
 
 ## Häufige Fragen
 

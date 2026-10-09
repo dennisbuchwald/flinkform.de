@@ -1,6 +1,7 @@
 import { posts } from "@/lib/posts";
 import { wissen } from "@/lib/wissen";
 import { vergleiche } from "@/lib/vergleiche";
+import { vorlagen } from "@/lib/vorlagen";
 
 export type InternalLink = { href: string; title: string };
 
@@ -26,6 +27,14 @@ export function resolveInternalLink(href: string): InternalLink | null {
     const entry = vergleiche.find((v) => v.slug === vergleichMatch[1]);
     return entry ? { href, title: entry.title } : null;
   }
+
+  const vorlageMatch = /^\/vorlagen\/(.+)$/.exec(href);
+  if (vorlageMatch) {
+    const entry = vorlagen.find((v) => v.slug === vorlageMatch[1]);
+    return entry ? { href, title: entry.de.h1 } : null;
+  }
+
+  if (href === "/pro") return { href, title: "Flinkform Pro" };
 
   return null;
 }

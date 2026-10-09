@@ -13,6 +13,17 @@ export const WPORG_URL = "https://wordpress.org/plugins/flinkform/";
 export const GITHUB_URL = "https://github.com/dennisbuchwald/Flinkform";
 /** Live demo: a real WordPress install running Flinkform + Flinkform Pro. */
 export const DEMO_URL = "https://demo.flinkform.de";
+/**
+ * Live-Vorschau auf WordPress.org: startet WordPress Playground mit Flinkform
+ * und einem Mehrschritt-Formular im Editor, ohne Installation (geprüft 07.10.2026).
+ */
+export const PLAYGROUND_URL = "https://wordpress.org/plugins/flinkform/?preview=1";
+
+/**
+ * „Bekannt aus“ auf der Startseite. Bleibt null, bis ein Artikel wirklich
+ * erschienen ist. Dann eintragen, der Block erscheint im Vertrauensblock.
+ */
+export const FEATURED_IN: { name: string; url: string; quote?: string } | null = null;
 export const CONTACT_MAIL = "dennis@dbw-media.de";
 
 /**
@@ -45,10 +56,10 @@ export const LEGAL = {
  * sichtbare Versionsangabe - nirgendwo sonst eine Version hart schreiben.
  */
 export const FREE_VERSION = "1.15.0";
-export const PRO_VERSION = "1.3.3";
+export const PRO_VERSION = "1.4.0";
 /** Kleinste Free-Version, auf der Flinkform Pro läuft. */
 export const MIN_FREE_FOR_PRO = "1.14.3";
-export const FACTS_UPDATED = "2026-09-30";
+export const FACTS_UPDATED = "2026-10-09";
 
 /**
  * Contact-Form-7-Import im kostenlosen Plugin (Flinkform → Aus CF7 importieren).

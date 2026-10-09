@@ -42,6 +42,14 @@ Fair bleibt festzuhalten: Die kommerziellen Plugins haben in den letzten Jahren 
 
 WPForms und Gravity Forms bringen inzwischen eigenen Spam-Schutz mit: WPForms einen Anti-Spam-Token ab Werk, Gravity Forms einen Honeypot zum Einschalten. Beides fängt einfache Bots. Wer mehr will, landet bei einem externen Dienst, und der bringt Aufwand mit: AV-Vertrag, Datenschutzerklärung, Übermittlung in die USA. Und wo du für den Dienst doch eine Einwilligung einholst, ist ein Spam-Schutz, der erst nach Klick im Cookie-Banner aktiv wird, ein halber Spam-Schutz. Die technische Alternative (Honeypot, signierter Zeit-Check, Proof-of-Work auf dem eigenen Server) ist im Artikel [WordPress-Formular ohne reCAPTCHA](/wissen/wordpress-formular-ohne-recaptcha) beschrieben.
 
+## Wenn das Formular mehr kann: Uploads, Webhooks, Newsletter
+
+Sobald ein Formular Dateien annimmt, Daten an andere Systeme schickt oder Newsletter-Anmeldungen weitergibt, kommen neue Fragen dazu. [Flinkform Pro](/pro) beantwortet sie seit Version 1.4.0 mit datenschutzfreundlichen Voreinstellungen:
+
+- **Uploads:** Dateien sind nicht öffentlich abrufbar, werden mit der Einsendung gelöscht und auf Wunsch zusätzlich nach einer festen Frist. Ein Selbsttest prüft, ob der Upload-Ordner von außen erreichbar ist, und nennt für nginx-Server die passende Regel.
+- **Webhooks:** Neue Webhooks gehen nur an https-Adressen, eigene Header wie API-Tokens werden verschlüsselt gespeichert. Wie lange das Protokoll aufbewahrt wird, legst du unter Flinkform → Pro → Datenschutz fest.
+- **Newsletter:** Als Einwilligung zählen nur Felder, die aktiv angehakt werden. Double-Opt-in ist für neue Verbindungen voreingestellt.
+
 ## Praktische Checkliste für dein Formular
 
 1. Spam-Schutz ohne externen Dienst (oder mit sauberer Consent-Lösung)

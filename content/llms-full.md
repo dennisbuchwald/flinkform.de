@@ -63,12 +63,13 @@ Flinkform Pro ist das kommerzielle Add-on für das kostenlose WordPress-Formular
 
 1. Stripe Payments: Zahlungen direkt im Formular über das Stripe Payment Element (Kreditkarte, SEPA-Lastschrift, Apple Pay, Google Pay, Link). Fester Betrag oder Produktauswahl, serverseitige Verifizierung mit Betragsbindung, Zahlungsstatus in der Einsendung. Kartendaten berühren nie den eigenen Server (PCI-konform). SEPA wird als "in Bearbeitung" angenommen und per Stripe-Webhook automatisch bestätigt.
 2. Berechnungsfelder: Angebotsrechner mit Live-Berechnung im Browser und sicherer serverseitiger Nachrechnung (kein eval).
-3. Multi-Datei-Upload: bis zu 10 Dateien pro Feld, Typ- und Größen-Limits, geschützter Upload-Ordner, DSGVO-Löschkaskade.
+3. Multi-Datei-Upload: bis zu 10 Dateien pro Feld, Typ- und Größen-Limits. Dateien sind nicht öffentlich abrufbar (Download für Admins über geschützten Link, ein Selbsttest prüft den Upload-Ordner und nennt für nginx die passende Regel), werden mit der Einsendung gelöscht, optional zusätzlich nach einer Löschfrist.
 4. SMTP-Versand: 7 Provider-Presets (Gmail, Outlook, SendGrid, Mailgun, Brevo, Postmark, Amazon SES), AES-256-verschlüsselte Zugangsdaten, Sende-Log.
-5. Webhooks: JSON/form-encoded, eigene Header, Field-Mapping, Bedingungen, Retry-Logik, Delivery-Log, SSRF-gehärtet.
-6. Newsletter: Brevo, Mailchimp, CleverReach mit Pflicht-Consent und Double-Opt-in.
+5. Webhooks: JSON/form-encoded, eigene Header (verschlüsselt gespeichert), Field-Mapping, Bedingungen, Retry-Logik, Delivery-Log. Neue Webhooks nur an https-Adressen, bestehende http-Webhooks laufen mit Warnung weiter.
+6. Newsletter: Brevo, Mailchimp, CleverReach. Als Einwilligung zählen nur echte Einwilligungsfelder (Consent, Toggle, Checkbox), Double-Opt-in ist für neue Verbindungen voreingestellt.
 7. CSV-Export: gefilterte Einsendungen inkl. Zahlungsspalten (Status, Betrag, Währung).
 8. Custom CSS pro Formular.
+9. Datenschutz-Bereich (Flinkform → Pro → Datenschutz, seit Pro 1.4.0): Aufbewahrung des Webhook-Protokolls, Gültigkeit der Datei-Links, optionale Löschfrist für Uploads. Die Textbausteine für die Datenschutzerklärung decken Stripe.js und Freemius ab.
 
 ### Preise (pro Jahr, alle Pläne mit allen Features)
 
@@ -176,7 +177,7 @@ Ein Kontaktformular selbst braucht keinen Cookie-Banner. Einwilligungspflichtig 
 
 ### Bewerbungsformular mit WordPress erstellen (https://flinkform.de/wissen/bewerbungsformular-wordpress)
 
-Ein DSGVO-konformes Bewerbungsformular braucht Datei-Uploads, Pflicht-Einwilligung und Löschfristen. Mit Flinkform (Multi-Step, Consent-Feld, Aufbewahrungsfrist mit Auto-Löschung) und Flinkform Pro (Multi-Upload bis 10 Dateien, Größen-Check, geschützter Upload-Ordner, Löschkaskade) ist der komplette Fall abgedeckt.
+Ein datenschutzfreundliches Bewerbungsformular braucht Datei-Uploads, Einwilligung und Löschfristen. Mit Flinkform (Multi-Step, Consent-Feld, Aufbewahrungsfrist mit Auto-Löschung) und Flinkform Pro (Multi-Upload bis 10 Dateien, Größen-Check, nicht öffentlich abrufbare Dateien mit Selbsttest, Löschung mit der Einsendung und optionale Löschfrist für Uploads) ist der komplette Fall abgedeckt.
 
 ### Angebotsrechner mit WordPress erstellen (https://flinkform.de/wissen/angebotsrechner-wordpress)
 

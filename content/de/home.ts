@@ -22,15 +22,28 @@ export const home = {
       "Formular bauen, Einsendungen speichern, mehrseitig machen, Felder bedingt ausblenden, Spam abwehren. Anderswo sind das fünf Plugins oder ein Bezahl-Tarif. Bei Flinkform ist es eins, kostenlos, direkt im WordPress-Block-Editor.",
     sub: "Ohne reCAPTCHA, ohne Drittanbieter, ohne IP-Speicherung. Alles bleibt auf deinem Server.",
     ctaPrimary: "Kostenlos auf WordPress.org",
+    ctaTry: "Im Editor ausprobieren, ohne Installation",
     ctaSecondary: "Von Contact Form 7 umsteigen →",
     ctaSecondaryHref: "/vergleich/contact-form-7-alternative",
     versionLine: "Version {version} · WordPress 6.5+ · PHP 8.1+ · GPLv2",
     demoCaption: "Multi-Step, Live-Berechnung, ohne reCAPTCHA.",
     demoLink: "Alles auf der Live-Demo durchklicken →",
   },
+  editor: {
+    eyebrow: "Direkt im Block-Editor",
+    titlePre: "Formulare bauen, ",
+    titleMark: "wie du Text schreibst",
+    titlePost: ".",
+    // `/` wird als Tastenkappe dargestellt.
+    text: "Du tippst `/`, wählst „Flinkform-Formular“, und schon steht es auf der Seite. Felder fügst du per Klick hinzu, wie jeden anderen Block. Kein zweiter Builder, kein Shortcode, kein Umdenken. Wer einen Absatz in WordPress schreiben kann, kann auch ein Formular bauen.",
+    points: ["Vorlage wählen oder leer starten", "Felder einfügen wie andere Blöcke", "Design kommt aus deinem Theme"],
+    videoLabel: "Video: Im WordPress-Block-Editor wird per Slash-Befehl ein Formular eingefügt, die Vorlage Kontakt gewählt und ein Telefonfeld ergänzt.",
+    templatesLink: "Zu den Formular-Vorlagen →",
+  },
   pillars: {
-    heading: "Alles drin. Und zwar kostenlos.",
-    sub: "Multi-Step, bedingte Logik und ein Dashboard für die Einsendungen. Bei WPForms kostet dieselbe Kombination regulär ab 99 Dollar im Jahr, bei Gravity Forms gibt es sie gar nicht gratis.",
+    headingPre: "Mehrere Schritte und bedingte Logik kosten anderswo extra. ",
+    headingMark: "Bei uns nicht.",
+    sub: "Multi-Step, bedingte Logik, Einsendungen in WordPress und Spam-Schutz ohne CAPTCHA. Im kostenlosen Plugin, ohne Testphase, ohne Add-on.",
     items: [
       {
         title: "Multi-Step und bedingte Logik",
@@ -109,6 +122,33 @@ export const home = {
       : "Einen automatischen Import gibt es noch nicht, du baust die Formulare neu. Und Datei-Uploads, die CF7 kostenlos kann, gibt es bei uns nur in Pro. Das war's an Haken.",
     cta: "Der ganze Vergleich mit Contact Form 7 →",
     ctaHref: "/vergleich/contact-form-7-alternative",
+  },
+  trust: {
+    heading: "Gebaut für WordPress. Gebaut in Heilbronn.",
+    proBadge: "Pro",
+    items: [
+      {
+        title: "Gutenberg-nativ",
+        desc: "Jedes Feld ist ein echter Block, gebaut auf den offiziellen WordPress-Schnittstellen.",
+        pro: false,
+      },
+      {
+        title: "Entwickelt in Deutschland",
+        desc: "Von Dennis Buchwald, dbw media, Heilbronn. Support auf Deutsch, von dem, der den Code geschrieben hat.",
+        pro: false,
+      },
+      {
+        title: "Mail-Versand im Griff",
+        desc: "SMTP-Versand und Mail-Log eingebaut. Kein WP Mail SMTP, kein zweites Plugin.",
+        pro: true,
+      },
+      {
+        title: "Privacy by Default",
+        desc: "Keine IP-Speicherung, Zugangsdaten verschlüsselt, Newsletter nur mit Einwilligung, Datenexport und Löschung über die WordPress-Datenschutz-Tools.",
+        pro: false,
+      },
+    ],
+    featuredHeading: "Bekannt aus",
   },
   agency: {
     eyebrow: "Für Agenturen",
