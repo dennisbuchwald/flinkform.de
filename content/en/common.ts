@@ -1,4 +1,4 @@
-import { WPORG_URL, GITHUB_URL } from "@/lib/site";
+import { WPORG_URL, GITHUB_URL, MAIL_CHECK } from "@/lib/site";
 
 export const common = {
   skipLink: "Skip to content",
@@ -61,6 +61,7 @@ export const common = {
           { label: "Blog", href: "/blog" },
           { label: "Knowledge base", href: "/wissen" },
           { label: "Facts about Flinkform", href: "/wissen/flinkform-fakten" },
+          { label: "E-Mail-Check (mail tester, German)", href: MAIL_CHECK.url, external: true },
           { label: "WordPress.org", href: WPORG_URL, external: true },
           { label: "GitHub", href: GITHUB_URL, external: true },
         ],

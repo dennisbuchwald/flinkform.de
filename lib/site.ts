@@ -25,6 +25,17 @@ export const PLAYGROUND_URL = "https://wordpress.org/plugins/flinkform/?preview=
  */
 export const FEATURED_IN: { name: string; url: string; quote?: string } | null = null;
 export const CONTACT_MAIL = "dennis@dbw-media.de";
+/**
+ * Kostenloser Mail-Tester von Dennis (eigenes Projekt, Open Source):
+ * Testmail schicken, Score 0 bis 10, dazu SPF-, DKIM- und DMARC-Check.
+ * Verlinkt in den Mail-Ratgebern und im Footer.
+ */
+export const MAIL_CHECK = {
+  url: "https://e-mail-check.de/",
+  spf: "https://e-mail-check.de/spf-check",
+  dkim: "https://e-mail-check.de/dkim-check",
+  dmarc: "https://e-mail-check.de/dmarc-check",
+} as const;
 
 /**
  * Anbieterangaben. Eine Quelle für Impressum, JSON-LD und llms.txt - so kann

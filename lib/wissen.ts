@@ -97,7 +97,7 @@ export const wissen: WissenEntry[] = [
     description:
       "WordPress-Formular-Mails landen im Spam, weil wp_mail() ohne Authentifizierung sendet. Ursachen, SPF/DKIM/DMARC erklärt und die Lösung per SMTP.",
     published: "2026-07-03",
-    updated: "2026-07-03",
+    updated: "2026-10-22",
     related: [
       "/vergleich/contact-form-7-alternative",
     ],

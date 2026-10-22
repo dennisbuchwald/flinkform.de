@@ -49,6 +49,7 @@ export const posts: Post[] = [
     description:
       "wp_mail() versendet ohne Authentifizierung, seit Februar 2024 verlangen Gmail und Yahoo SPF, DKIM und DMARC. Schritt-für-Schritt: DNS-Einträge setzen und auf SMTP-Versand umstellen.",
     date: "2026-07-03",
+    updated: "2026-10-22",
     tag: "E-Mail",
     readingMinutes: 7,
   },

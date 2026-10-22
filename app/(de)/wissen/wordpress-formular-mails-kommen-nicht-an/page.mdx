@@ -1,4 +1,5 @@
 import WissenArticle from "@/components/WissenArticle";
+import MailCheckBox from "@/components/MailCheckBox";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
@@ -49,10 +50,12 @@ In beiden Fällen gilt: From-Adresse auf der eigenen Domain, die Besucher-Adress
 
 1. **Kommt die Mail überhaupt weg?** Test-Einsendung schicken und Spam-Ordner prüfen, auch bei einer zweiten Adresse (z.B. Gmail). In [Flinkform](/) landet jede Einsendung zusätzlich im Submissions-Dashboard, es geht also nichts verloren, selbst wenn die Mail hängt.
 2. **From-Adresse prüfen:** Sendet das Formular von `deine-domain.de` oder von einer fremden Adresse?
-3. **SPF-Record prüfen:** TXT-Record der Domain abfragen (z.B. mit `dig TXT deine-domain.de` oder einem Online-Checker). Ist der sendende Server gelistet?
-4. **DKIM und DMARC prüfen:** Mail an einen Gmail-Account schicken, dort "Original anzeigen" öffnen: Gmail zeigt für SPF, DKIM und DMARC jeweils PASS oder FAIL.
+3. **SPF-Record prüfen:** TXT-Record der Domain abfragen (z.B. mit `dig TXT deine-domain.de` oder dem [SPF-Check](https://e-mail-check.de/spf-check)). Ist der sendende Server gelistet?
+4. **DKIM und DMARC prüfen:** Mail an einen Gmail-Account schicken, dort "Original anzeigen" öffnen: Gmail zeigt für SPF, DKIM und DMARC jeweils PASS oder FAIL. Alle drei auf einmal prüft der kostenlose Mail-Tester [e-mail-check.de](https://e-mail-check.de/).
 5. **SMTP einrichten**, falls einer der Checks fehlschlägt, und die DNS-Einträge des Providers eintragen.
 6. **Sende-Log kontrollieren:** Mit Flinkform Pro SMTP siehst du im Log jeden Versandversuch samt Ergebnis.
+
+<MailCheckBox />
 
 ## Häufige Fragen
 

@@ -1,4 +1,5 @@
 import BlogArticle from "@/components/BlogArticle";
+import MailCheckBox from "@/components/MailCheckBox";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
@@ -75,7 +76,9 @@ Jetzt muss WordPress den authentifizierten Weg auch nutzen. Ein SMTP-Plugin konf
 
 ### Schritt 4: Absender richtig konfigurieren und testen
 
-Die Absenderadresse muss auf deiner eigenen Domain liegen, zum Beispiel `formular@deine-domain.tld`. Die Adresse des Besuchers gehört ins Reply-To-Feld, nie ins From. Danach testen: Testmail an eine Gmail-Adresse schicken, dort "Original anzeigen" öffnen und prüfen, dass SPF, DKIM und DMARC alle auf `PASS` stehen.
+Die Absenderadresse muss auf deiner eigenen Domain liegen, zum Beispiel `formular@deine-domain.tld`. Die Adresse des Besuchers gehört ins Reply-To-Feld, nie ins From. Danach testen: Testmail an eine Gmail-Adresse schicken, dort "Original anzeigen" öffnen und prüfen, dass SPF, DKIM und DMARC alle auf `PASS` stehen. Schneller geht es mit [e-mail-check.de](https://e-mail-check.de/): Mail an die Testadresse schicken, nach 30 Sekunden steht da ein Score von 0 bis 10 und was du bei deinem Anbieter ändern musst.
+
+<MailCheckBox />
 
 ## Wie Flinkform Pro die Formular-Mails absichert
 
