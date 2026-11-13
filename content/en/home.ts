@@ -10,6 +10,12 @@ export const home: HomeDict = {
     ogDescription:
       "Build the form, store submissions, split it into steps, show fields conditionally, keep spam out. Free, right inside the WordPress block editor.",
   },
+  promo: {
+    badge: "Black Week",
+    title: "Flinkform Pro 50% off your first year.",
+    desc: "On all annual plans, with Stripe, calculation fields, uploads and SMTP included. The coupon is already applied at checkout. Until Nov 30.",
+    cta: "See pricing",
+  },
   hero: {
     titlePre: "Five plugins. Or ",
     titleHighlight: "this one",

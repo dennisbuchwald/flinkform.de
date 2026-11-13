@@ -392,3 +392,13 @@ body {
   line-height: 1.5;
   color: var(--color-ink);
 }
+
+/*
+ * Aktion (lib/promo.ts): Beide Fassungen stehen im HTML, das Boot-Skript
+ * setzt <html data-promo="on|off">. Ohne Attribut gilt der Stand beim Build.
+ */
+html[data-promo="off"] .promo-on,
+html[data-promo="on"] .promo-off,
+html[data-promo-bar="closed"] .promo-bar {
+  display: none !important;
+}

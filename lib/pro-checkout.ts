@@ -1,4 +1,5 @@
 import { LIFETIME, PRICING } from "@/lib/site";
+import { PROMO } from "@/lib/promo";
 
 /**
  * Alles, was den Pro-Verkauf steuert, an einer Stelle: Freigabe, Checkout-Links
@@ -44,6 +45,7 @@ type BillingCycle = "annual" | "lifetime";
 export function checkoutUrl(
   licenses: string,
   billingCycle: BillingCycle = "annual",
+  coupon?: string,
 ): string {
   const params = new URLSearchParams({
     licenses,
@@ -55,12 +57,19 @@ export function checkoutUrl(
     // irreführender Mondpreis (Abmahnrisiko).
     multisite_discount: "false",
   });
+  // Sichtbar eingetragen (kein hide_coupon): Der Kunde sieht den Rabatt.
+  if (coupon) params.set("coupon", coupon);
   return `${CHECKOUT_BASE}?${params.toString()}`;
 }
 
 /** Checkout-URL eines Plans aus der Preistabelle. */
 export function planCheckoutUrl(plan: (typeof PRICING)[number]): string {
   return checkoutUrl(plan.licenses);
+}
+
+/** Dieselbe Staffel mit Aktions-Gutschein (nur Jahrespläne, nie Lifetime). */
+export function planPromoCheckoutUrl(plan: (typeof PRICING)[number]): string {
+  return checkoutUrl(plan.licenses, "annual", PROMO.coupon);
 }
 
 /** Die Lifetime-Lizenz läuft über dieselbe 25-Site-Staffel, nur einmalig. */

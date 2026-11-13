@@ -162,6 +162,15 @@ export const pro = {
     plans: PRICING.map(({ sites, perSite, desc }) => ({ sites, perSite, desc })),
     perYear: "/Jahr",
     bestseller: "Empfohlen",
+    // Black Week (lib/promo.ts), nur sichtbar, solange die Aktion läuft.
+    promo: {
+      badge: "Black Week",
+      title: "50 % auf dein erstes Jahr.",
+      desc: "Gilt für alle Jahrespläne bis 30.11.2026, 23:59 Uhr. Der Gutschein BLACKWEEK ist im Checkout schon eingetragen. Ab dem zweiten Jahr zahlst du den regulären Preis, und 14 Tage Geld zurück gelten wie immer.",
+      lifetimeNote: "Die Lifetime-Lizenz ist von der Aktion ausgenommen.",
+      firstYear: "im ersten Jahr, danach {price} €/Jahr",
+      regular: "regulär",
+    },
     includedModules: "✓ Alle 8 Pro-Module",
     includedSupport: "✓ Updates & Support",
     ctaBuy: "Jetzt kaufen",

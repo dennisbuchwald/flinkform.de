@@ -10,6 +10,13 @@ export const home = {
     ogDescription:
       "Formular bauen, Einsendungen speichern, mehrseitig machen, bedingt ausblenden, Spam abwehren. Kostenlos, direkt im WordPress-Block-Editor.",
   },
+  // Black Week (lib/promo.ts), nur sichtbar, solange die Aktion läuft.
+  promo: {
+    badge: "Black Week",
+    title: "Flinkform Pro 50 % günstiger im ersten Jahr.",
+    desc: "Für alle Jahrespläne, Stripe, Berechnungsfelder, Uploads und SMTP inklusive. Der Gutschein ist im Checkout schon eingetragen. Gilt bis 30.11.",
+    cta: "Zu den Preisen",
+  },
   hero: {
     titlePre: "Fünf Plugins. Oder ",
     titleHighlight: "dieses eine",

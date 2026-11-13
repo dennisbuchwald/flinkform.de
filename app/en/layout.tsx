@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "@fontsource-variable/inter";
 import "../globals.css";
 import Header from "@/components/Header";
+import PromoBar from "@/components/PromoBar";
+import { isPromoActive, PROMO_BOOT_SCRIPT } from "@/lib/promo";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/site";
@@ -34,8 +36,15 @@ export default function EnglishRootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html
+      lang="en"
+      className="h-full antialiased"
+      data-promo={isPromoActive() ? "on" : "off"}
+      suppressHydrationWarning
+    >
       <body className="flex min-h-full flex-col">
+        {/* Muss vor allem anderen laufen, damit nichts aufblitzt (lib/promo.ts). */}
+        <script dangerouslySetInnerHTML={{ __html: PROMO_BOOT_SCRIPT }} />
         {/* React hebt den Preload selbst in den <head>. Ein manuelles
             <head>-Element würde ihn doppelt ausgeben. */}
         <link
@@ -52,6 +61,7 @@ export default function EnglishRootLayout({
         >
           {common.skipLink}
         </a>
+        <PromoBar locale="en" />
         <Header locale="en" />
         <main id="main" className="grow">
           {children}
