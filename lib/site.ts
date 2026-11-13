@@ -66,11 +66,11 @@ export const LEGAL = {
  * Die einzige Stelle für Versionsnummern. Speist JSON-LD, llms.txt und jede
  * sichtbare Versionsangabe - nirgendwo sonst eine Version hart schreiben.
  */
-export const FREE_VERSION = "1.15.0";
+export const FREE_VERSION = "1.15.1";
 export const PRO_VERSION = "1.4.0";
 /** Kleinste Free-Version, auf der Flinkform Pro läuft. */
 export const MIN_FREE_FOR_PRO = "1.14.3";
-export const FACTS_UPDATED = "2026-10-09";
+export const FACTS_UPDATED = "2026-11-13";
 
 /**
  * Contact-Form-7-Import im kostenlosen Plugin (Flinkform → Aus CF7 importieren).

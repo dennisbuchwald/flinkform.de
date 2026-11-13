@@ -109,6 +109,16 @@ export const roadmap: RoadmapDict = {
   changelogHeading: "Recently Shipped",
   changelog: [
     {
+      area: "Free",
+      version: "1.15.1",
+      date: "Nov 13, 2026",
+      items: [
+        "New Flinkform mark as the block and menu icon",
+        "Notice about the Black Week offer for Flinkform Pro: shown to admins only, can be dismissed for good, and off once Pro is active",
+        "Clearer German wording in the Contact Form 7 importer about the confirmation email",
+      ],
+    },
+    {
       area: "Pro",
       version: "1.4.0",
       date: "Oct 9, 2026",

@@ -109,6 +109,16 @@ export const roadmap = {
   changelogHeading: "Zuletzt erschienen",
   changelog: [
     {
+      area: "Free",
+      version: "1.15.1",
+      date: "13.11.2026",
+      items: [
+        "Neues Flinkform-Zeichen als Block- und Menü-Icon",
+        "Hinweis auf das Black-Week-Angebot für Flinkform Pro: nur für Admins sichtbar, dauerhaft wegklickbar und aus, sobald Pro aktiv ist",
+        "Klarere deutsche Formulierung im Contact-Form-7-Import zur Bestätigungsmail",
+      ],
+    },
+    {
       area: "Pro",
       version: "1.4.0",
       date: "09.10.2026",
