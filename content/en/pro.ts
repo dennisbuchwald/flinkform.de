@@ -21,8 +21,8 @@ export const pro: ProDict = {
   },
   breadcrumb: { home: "Flinkform", pro: "Flinkform Pro" },
   hero: {
-    eyebrowPrefix: "Premium Add-on · ",
-    eyebrow: "Available now",
+    eyebrowPrefix: "",
+    eyebrow: "The premium add-on for Flinkform",
     titlePre: "The form that ",
     titleHighlight: "makes money",
     titlePost: ".",
@@ -51,7 +51,7 @@ export const pro: ProDict = {
     outroPre:
       "Normally that means installing five more plugins. Five configurations, five update cycles, five potential conflicts. With WPForms, this bundle requires the Pro plan, regularly $399 per year. ",
     outroStrong: "Flinkform Pro packs it all into one add-on.",
-    outroPost: " Seamlessly integrated, privacy-first, from a single source.",
+    outroPost: " Privacy-first, from a single source.",
   },
   modules: {
     heading: "Eight modules. One add-on.",

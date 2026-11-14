@@ -18,8 +18,8 @@ export const pro = {
   breadcrumb: { home: "Flinkform", pro: "Flinkform Pro" },
   hero: {
     // Auf Mobil nur eyebrow, ab sm mit Präfix, damit die Pille nicht umbricht.
-    eyebrowPrefix: "Premium Add-on · ",
-    eyebrow: "Jetzt verfügbar",
+    eyebrowPrefix: "",
+    eyebrow: "Das Premium-Add-on für Flinkform",
     titlePre: "Das Formular, das ",
     titleHighlight: "Geld verdient",
     titlePost: ".",
@@ -48,7 +48,7 @@ export const pro = {
     ],
     outroPre: "Normalerweise heißt das: fünf weitere Plugins installieren. Fünf Konfigurationen, fünf Update-Zyklen, fünf potenzielle Konflikte. Bei WPForms brauchst du für dieses Paket den Pro-Plan, regulär 399 Dollar pro Jahr. ",
     outroStrong: "Flinkform Pro packt alles in ein Add-on.",
-    outroPost: " Nahtlos integriert, datenschutzfreundlich, aus einer Hand.",
+    outroPost: " Datenschutzfreundlich und aus einer Hand.",
   },
   modules: {
     heading: "Acht Module. Ein Add-on.",
