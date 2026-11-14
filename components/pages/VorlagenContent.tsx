@@ -14,7 +14,7 @@ export function TierBadge({ tier, t }: { tier: Vorlage["tier"]; t: VorlagenUiDic
         ? "bg-gradient-pro text-white"
         : "bg-white text-brand-violet ring-1 ring-brand-violet/30";
   return (
-    <span className={`self-start rounded-full px-3 py-1 text-xs font-bold ${style}`}>{t.badges[tier]}</span>
+    <span className={`self-start rounded-full px-3 py-1 text-xs font-semibold ${style}`}>{t.badges[tier]}</span>
   );
 }
 
@@ -34,7 +34,7 @@ export default function VorlagenContent({ locale, t }: { locale: Locale; t: Vorl
       <div className="border-b border-line bg-white">
         <div className="mx-auto max-w-6xl px-5 pb-14 pt-14 sm:px-8">
           <Eyebrow>{t.hero.eyebrow}</Eyebrow>
-          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-[2.75rem]">
+          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-4xl font-semibold leading-[1.12] tracking-tight sm:text-[2.75rem]">
             {t.hero.title}
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-ink-soft">{t.hero.sub}</p>
@@ -49,7 +49,7 @@ export default function VorlagenContent({ locale, t }: { locale: Locale; t: Vorl
             return (
               <Link key={v.slug} href={vorlagePath(v, locale)} className="card card-hover flex flex-col p-7">
                 <TierBadge tier={v.tier} t={t} />
-                <h2 className="mt-4 text-lg font-bold">{text.name}</h2>
+                <h2 className="mt-4 text-lg font-semibold">{text.name}</h2>
                 <p className="mt-2 grow text-[0.9rem] leading-relaxed text-ink-soft">{text.problem}</p>
                 <span className="mt-5 text-sm font-semibold text-brand-violet">{t.cardLink}</span>
               </Link>
@@ -59,7 +59,7 @@ export default function VorlagenContent({ locale, t }: { locale: Locale; t: Vorl
             href={localizedHref(locale, t.cf7.href)}
             className="card card-hover flex flex-col border-dashed p-7"
           >
-            <h2 className="text-lg font-bold">{t.cf7.title}</h2>
+            <h2 className="text-lg font-semibold">{t.cf7.title}</h2>
             <p className="mt-2 grow text-[0.9rem] leading-relaxed text-ink-soft">{t.cf7.desc}</p>
             <span className="mt-5 text-sm font-semibold text-brand-violet">{t.cf7.link}</span>
           </Link>

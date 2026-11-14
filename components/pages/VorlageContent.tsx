@@ -80,7 +80,7 @@ export default function VorlageContent({
             </Link>
           </nav>
           <TierBadge tier={vorlage.tier} t={t} />
-          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-3xl font-extrabold leading-[1.15] tracking-tight sm:text-[2.5rem]">
+          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-3xl font-semibold leading-[1.15] tracking-tight sm:text-[2.5rem]">
             {text.h1}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-ink-soft">{text.problem}</p>
@@ -101,7 +101,7 @@ export default function VorlageContent({
       <Section>
         <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr]">
           <div>
-            <h2 className="font-(family-name:--font-display) text-2xl font-bold tracking-tight">
+            <h2 className="font-(family-name:--font-display) text-2xl font-semibold tracking-tight">
               {t.detail.fieldsHeading}
             </h2>
             <ul className="mt-5 space-y-2.5">
@@ -124,7 +124,7 @@ export default function VorlageContent({
             )}
           </div>
           <div>
-            <h2 className="font-(family-name:--font-display) text-2xl font-bold tracking-tight">
+            <h2 className="font-(family-name:--font-display) text-2xl font-semibold tracking-tight">
               {t.detail.stepsHeading}
             </h2>
             <ol className="mt-5 space-y-4">
@@ -132,7 +132,7 @@ export default function VorlageContent({
                 <li key={step} className="flex items-start gap-4">
                   <span
                     aria-hidden="true"
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink font-(family-name:--font-display) text-sm font-bold text-white"
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink font-(family-name:--font-display) text-sm font-semibold text-white"
                   >
                     {i + 1}
                   </span>
@@ -142,13 +142,13 @@ export default function VorlageContent({
             </ol>
             {text.tip && (
               <div className="mt-8 rounded-2xl border border-line bg-white p-5">
-                <p className="text-xs font-bold uppercase tracking-widest text-ink-muted">{t.detail.tipHeading}</p>
+                <p className="text-xs font-semibold text-ink-muted">{t.detail.tipHeading}</p>
                 <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-soft">{text.tip}</p>
               </div>
             )}
             {text.proNote && (
               <div className="mt-4 rounded-2xl border border-brand-violet/25 bg-white p-5">
-                <p className="text-xs font-bold uppercase tracking-widest text-brand-violet">{t.detail.proHeading}</p>
+                <p className="text-xs font-semibold text-brand-violet">{t.detail.proHeading}</p>
                 <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-soft">{text.proNote}</p>
                 <Link
                   href={localizedHref(locale, "/pro")}
@@ -163,7 +163,7 @@ export default function VorlageContent({
       </Section>
 
       <Section className="!pt-0">
-        <h2 className="font-(family-name:--font-display) text-2xl font-bold tracking-tight">{t.detail.markupHeading}</h2>
+        <h2 className="font-(family-name:--font-display) text-2xl font-semibold tracking-tight">{t.detail.markupHeading}</h2>
         {markup ? (
           <>
             <p className="mt-3 max-w-3xl text-[0.95rem] leading-relaxed text-ink-soft">{t.detail.markupSub}</p>
@@ -178,13 +178,13 @@ export default function VorlageContent({
 
       <Section className="!pt-0">
         <div className="card flex flex-col items-start gap-5 !rounded-3xl p-8 sm:p-10 md:flex-row md:items-center md:justify-between">
-          <h2 className="max-w-md font-(family-name:--font-display) text-2xl font-bold tracking-tight">
+          <h2 className="max-w-md font-(family-name:--font-display) text-2xl font-semibold tracking-tight">
             {t.detail.ctaTitle}
           </h2>
           <div className="flex flex-wrap gap-3">
             <a
               href={WPORG_URL}
-              className="rounded-full bg-ink px-6 py-3 text-[0.9rem] font-semibold text-white transition-all hover:-translate-y-0.5"
+              className="rounded-full bg-ink px-6 py-3 text-[0.9rem] font-semibold text-white transition-[color,background-color,border-color,opacity]"
             >
               {t.detail.ctaPrimary}
             </a>
@@ -192,7 +192,7 @@ export default function VorlageContent({
               href={PLAYGROUND_URL}
               target="_blank"
               rel="noopener"
-              className="rounded-full border border-line bg-white px-6 py-3 text-[0.9rem] font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-ink-muted/40"
+              className="rounded-full border border-line bg-white px-6 py-3 text-[0.9rem] font-semibold text-ink transition-[color,background-color,border-color,opacity] hover:border-ink-muted/40"
             >
               {t.detail.ctaPlayground}
             </a>
@@ -204,7 +204,7 @@ export default function VorlageContent({
         <div className="grid gap-10 md:grid-cols-2">
           {related.length > 0 && (
             <div>
-              <h2 className="text-lg font-bold">{t.detail.relatedHeading}</h2>
+              <h2 className="text-lg font-semibold">{t.detail.relatedHeading}</h2>
               <ul className="mt-4 space-y-2">
                 {related.map((link) => (
                   <li key={link.href}>
@@ -217,7 +217,7 @@ export default function VorlageContent({
             </div>
           )}
           <div>
-            <h2 className="text-lg font-bold">{t.detail.otherHeading}</h2>
+            <h2 className="text-lg font-semibold">{t.detail.otherHeading}</h2>
             <ul className="mt-4 space-y-2">
               {others.map((v) => (
                 <li key={v.slug}>

@@ -55,13 +55,13 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
           <div className="max-w-3xl">
             <div className="flex items-center gap-3">
               <Image src="/icons/flinkform-app.svg" alt="" width={44} height={44} priority />
-              <Eyebrow variant="pro">
+              <Eyebrow variant="pro" bar={false}>
                 <span className="hidden sm:inline">{t.hero.eyebrowPrefix}</span>
                 {t.hero.eyebrow}
               </Eyebrow>
             </div>
             <PluginStrike words={t.hero.replaces} variant="pro" className="mt-6" />
-            <h1 className="mt-3 font-(family-name:--font-display) text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl">
+            <h1 className="mt-3 font-(family-name:--font-display) text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">
               {t.hero.titlePre}
               <span className="text-gradient-pro">{t.hero.titleHighlight}</span>
               {t.hero.titlePost}
@@ -71,14 +71,14 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
                 href={PRO_SALES_ENABLED ? "#preise" : "#anfrage"}
-                className="rounded-full bg-gradient-pro px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-all hover:-translate-y-0.5 hover:opacity-90"
+                className="rounded-full bg-gradient-pro px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-[color,background-color,border-color,opacity] hover:opacity-90"
               >
                 {PRO_SALES_ENABLED ? t.hero.ctaBuy : t.hero.ctaPrimary}
               </a>
               <a
                 href={PRO_SALES_ENABLED ? t.hero.demoUrl : "#preise"}
                 {...(PRO_SALES_ENABLED ? { target: "_blank", rel: "noopener" } : {})}
-                className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-ink-muted/40"
+                className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-[color,background-color,border-color,opacity] hover:border-ink-muted/40"
               >
                 {PRO_SALES_ENABLED ? t.hero.ctaDemo : t.hero.ctaSecondary}
               </a>
@@ -94,13 +94,7 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
         <SectionHeading sub={t.needs.sub}>{t.needs.heading}</SectionHeading>
         <ul className="grid gap-4 sm:grid-cols-2">
           {t.needs.items.map((need) => (
-            <li key={need} className="card flex items-start gap-3 p-5 text-[0.95rem] leading-relaxed text-ink-soft">
-              <span
-                aria-hidden="true"
-                className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-gradient-pro text-xs font-bold text-white"
-              >
-                !
-              </span>
+            <li key={need} className="card p-5 text-[0.95rem] leading-relaxed text-ink-soft">
               {need}
             </li>
           ))}
@@ -120,7 +114,7 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
             <div key={m.title} className="card card-hover p-7">
               <div className="flex items-center gap-3">
                 <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-gradient-pro" />
-                <h3 className="text-[1.05rem] font-bold">{m.title}</h3>
+                <h3 className="text-[1.05rem] font-semibold">{m.title}</h3>
               </div>
               <p className="mt-3 text-[0.9rem] leading-relaxed text-ink-soft">{m.desc}</p>
             </div>
@@ -136,13 +130,13 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
             <li key={item} className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-ink-soft">
               <span
                 aria-hidden="true"
-                className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gradient-pro text-white"
-              >
-                <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
-                  <path
-                    d="M2 6.5 4.8 9 10 3.5"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
+                className="mt-0.5 flex size-5 shrink-0 items-center justify-center text-brand-violet"
+    >
+      <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+        <path
+          d="M2 6.5 4.8 9 10 3.5"
+          stroke="currentColor"
+          strokeWidth="1.4"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
@@ -176,11 +170,11 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
             <div key={step.title} className="card p-7">
               <span
                 aria-hidden="true"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-pro font-(family-name:--font-display) text-lg font-bold text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-ink font-(family-name:--font-display) text-lg font-semibold text-white"
               >
                 {i + 1}
               </span>
-              <h3 className="mt-4 text-[1.05rem] font-bold">{step.title}</h3>
+              <h3 className="mt-4 text-[1.05rem] font-semibold">{step.title}</h3>
               <p className="mt-2 text-[0.9rem] leading-relaxed text-ink-soft">{step.desc}</p>
             </div>
           ))}
@@ -209,17 +203,17 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
               id={plan.name.toLowerCase()}
               className={`card relative flex scroll-mt-24 flex-col p-7 ${
                 plan.featured
-                  ? "border-transparent shadow-[0_0_0_2px_#7e56ff,0_24px_48px_-24px_rgba(126,86,255,0.4)]"
+                  ? "border-transparent shadow-[0_0_0_2px_#7e56ff,0_24px_48px_-24px_rgba(17,17,20,0.18)]"
                   : ""
               }`}
             >
               {plan.featured && (
-                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-pro px-4 py-1 text-[0.7rem] font-bold uppercase tracking-widest text-white">
+                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-pro px-4 py-1 text-xs font-semibold text-white">
                   {t.pricing.bestseller}
                 </span>
               )}
-              <h3 className="text-sm font-bold uppercase tracking-widest text-ink-muted">{plan.name}</h3>
-              <p className="promo-off mt-3 font-(family-name:--font-display) text-4xl font-extrabold">
+              <h3 className="text-sm font-semibold text-ink-muted">{plan.name}</h3>
+              <p className="promo-off mt-3 font-(family-name:--font-display) text-4xl font-semibold">
                 {plan.price} €<span className="text-base font-medium text-ink-muted"> {t.pricing.perYear}</span>
               </p>
               <div className="promo-on mt-3">
@@ -228,11 +222,11 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
                     <span className="sr-only">{t.pricing.promo.regular} </span>
                     {plan.price} € {t.pricing.perYear}
                   </s>
-                  <span className="rounded-full bg-gradient-pro px-2 py-0.5 text-[0.7rem] font-bold text-white">
+                  <span className="rounded-full bg-gradient-pro px-2 py-0.5 text-xs font-semibold text-white">
                     {t.pricing.promo.badge.replace("{code}", PROMO.coupon)}
                   </span>
                 </p>
-                <p className="whitespace-nowrap font-(family-name:--font-display) text-4xl font-extrabold">
+                <p className="whitespace-nowrap font-(family-name:--font-display) text-4xl font-semibold">
                   {formatPrice(promoPrice(plan.price), locale)} €
                 </p>
                 <p className="mt-1 text-xs font-semibold text-brand-violet">
@@ -241,7 +235,7 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
               </div>
               <p className="mt-2 text-[0.95rem] font-semibold text-ink">{t.pricing.plans[i].sites}</p>
               <p
-                className={`mt-1 inline-block self-start rounded-full px-2.5 py-1 text-xs font-bold ${
+                className={`mt-1 inline-block self-start rounded-full px-2.5 py-1 text-xs font-semibold ${
                   plan.featured ? "bg-gradient-pro text-white" : "bg-line/60 text-ink-soft"
                 }`}
               >
@@ -260,7 +254,7 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
                   key={cta.cls}
                   href={PRO_SALES_ENABLED ? cta.href : "#anfrage"}
                   {...(PRO_SALES_ENABLED ? { rel: "noopener nofollow" } : {})}
-                  className={`${cta.cls} mt-6 rounded-full py-3 text-center text-[0.9rem] font-semibold transition-all hover:-translate-y-0.5 ${
+                  className={`${cta.cls} mt-6 rounded-full py-3 text-center text-[0.9rem] font-semibold transition-[color,background-color,border-color,opacity] ${
                     plan.featured
                       ? "bg-gradient-pro text-white hover:opacity-90"
                       : "border border-line bg-white text-ink hover:border-ink-muted/40"
@@ -276,7 +270,7 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
         <div className="card mx-auto mt-8 flex max-w-3xl flex-col items-start gap-4 p-6 sm:flex-row sm:items-center sm:gap-6 sm:p-7">
           <span
             aria-hidden="true"
-            className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-brand text-white"
+            className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-line/60 text-ink"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-6">
               <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3Z" />
@@ -284,7 +278,7 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
             </svg>
           </span>
           <div>
-            <h3 className="font-(family-name:--font-display) text-lg font-bold tracking-tight">
+            <h3 className="font-(family-name:--font-display) text-lg font-semibold tracking-tight">
               {t.pricing.guarantee.title}
             </h3>
             <p className="mt-1.5 text-[0.95rem] leading-relaxed text-ink-soft">{t.pricing.guarantee.desc}</p>
@@ -310,16 +304,16 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
           <div aria-hidden="true" className="h-1.5 bg-gradient-scarcity" />
           <div className="grid gap-8 p-8 sm:p-10 lg:grid-cols-[1.4fr_1fr] lg:items-center">
             <div>
-              <span className="inline-block rounded-full bg-gradient-scarcity px-3.5 py-1.5 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-white">
+              <span className="inline-block rounded-full bg-gradient-scarcity px-3.5 py-1.5 text-xs font-semibold text-white">
                 {t.pricing.lifetime.badge}
               </span>
-              <h3 className="mt-5 font-(family-name:--font-display) text-3xl font-bold tracking-tight">
+              <h3 className="mt-5 font-(family-name:--font-display) text-3xl font-semibold tracking-tight">
                 {t.pricing.lifetime.title}
               </h3>
               <p className="mt-4 max-w-xl leading-relaxed text-white/70">{t.pricing.lifetime.desc}</p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-7 text-center">
-              <p className="font-(family-name:--font-display) text-5xl font-extrabold">
+              <p className="font-(family-name:--font-display) text-5xl font-semibold">
                 {LIFETIME.price} €
                 <span className="block text-sm font-medium text-white/50">{t.pricing.lifetime.once}</span>
               </p>
@@ -327,7 +321,7 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
               <a
                 href={PRO_SALES_ENABLED ? LIFETIME_CHECKOUT_URL : "#anfrage"}
                 {...(PRO_SALES_ENABLED ? { rel: "noopener nofollow" } : {})}
-                className="mt-5 block rounded-full bg-white py-3 text-[0.9rem] font-bold text-ink transition-all hover:-translate-y-0.5"
+                className="mt-5 block rounded-full bg-white py-3 text-[0.9rem] font-semibold text-ink transition-[color,background-color,border-color,opacity]"
               >
                 {PRO_SALES_ENABLED
                   ? t.pricing.lifetime.ctaBuy
@@ -349,21 +343,21 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
         {PRO_SALES_ENABLED ? (
           <div className="card mx-auto flex max-w-3xl flex-col items-start gap-6 !rounded-3xl p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10">
             <div>
-              <h2 className="font-(family-name:--font-display) text-2xl font-bold tracking-tight sm:text-3xl">
+              <h2 className="font-(family-name:--font-display) text-2xl font-semibold tracking-tight sm:text-3xl">
                 {t.inquiry.salesTitle}
               </h2>
               <p className="mt-3 max-w-xl text-[1.02rem] leading-relaxed text-ink-soft">{t.inquiry.salesDesc}</p>
             </div>
             <a
               href={`mailto:${t.inquiry.salesMail}?subject=${encodeURIComponent(t.inquiry.salesSubject)}`}
-              className="shrink-0 rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-ink-muted/40"
+              className="shrink-0 rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-[color,background-color,border-color,opacity] hover:border-ink-muted/40"
             >
               {t.inquiry.salesCta}
             </a>
           </div>
         ) : (
           <div className="card mx-auto max-w-3xl !rounded-3xl p-8 sm:p-10">
-            <h2 className="font-(family-name:--font-display) text-3xl font-bold tracking-tight">
+            <h2 className="font-(family-name:--font-display) text-3xl font-semibold tracking-tight">
               {t.inquiry.title}
             </h2>
             <p className="mt-3 text-[1.02rem] leading-relaxed text-ink-soft">{t.inquiry.desc}</p>
@@ -385,8 +379,8 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
         <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
           {t.requirements.items.map((req) => (
             <div key={req.label} className="card p-6 text-center">
-              <p className="text-xs font-semibold uppercase tracking-widest text-ink-muted">{req.label}</p>
-              <p className="mt-1.5 font-(family-name:--font-display) text-2xl font-bold">{req.value}</p>
+              <p className="text-xs font-semibold text-ink-muted">{req.label}</p>
+              <p className="mt-1.5 font-(family-name:--font-display) text-2xl font-semibold">{req.value}</p>
             </div>
           ))}
         </div>

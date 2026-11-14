@@ -51,7 +51,7 @@ export default function PressePage() {
       <div className="border-b border-line bg-white">
         <div className="mx-auto max-w-6xl px-5 pb-14 pt-14 sm:px-8">
           <Eyebrow>Presse & Media-Kit</Eyebrow>
-          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-[2.75rem]">
+          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-4xl font-semibold leading-[1.12] tracking-tight sm:text-[2.75rem]">
             Du schreibst über Flinkform? Hier ist alles, was du brauchst.
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-ink-soft">
@@ -70,12 +70,12 @@ export default function PressePage() {
       </div>
 
       <Section>
-        <h2 className="mb-6 font-(family-name:--font-display) text-2xl font-bold tracking-tight">
+        <h2 className="mb-6 font-(family-name:--font-display) text-2xl font-semibold tracking-tight">
           Boilerplate zum Kopieren
         </h2>
         <div className="grid gap-5 lg:grid-cols-2">
           <div className="card p-7">
-            <p className="text-xs font-bold uppercase tracking-widest text-ink-muted">
+            <p className="text-xs font-semibold text-ink-muted">
               Kurz (Deutsch)
             </p>
             <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">
@@ -83,7 +83,7 @@ export default function PressePage() {
             </p>
           </div>
           <div className="card p-7">
-            <p className="text-xs font-bold uppercase tracking-widest text-ink-muted">
+            <p className="text-xs font-semibold text-ink-muted">
               Pro (Deutsch)
             </p>
             <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">
@@ -91,7 +91,7 @@ export default function PressePage() {
             </p>
           </div>
           <div className="card p-7">
-            <p className="text-xs font-bold uppercase tracking-widest text-ink-muted">
+            <p className="text-xs font-semibold text-ink-muted">
               Kurz (Englisch)
             </p>
             <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">
@@ -103,7 +103,7 @@ export default function PressePage() {
             </p>
           </div>
           <div className="card p-7">
-            <p className="text-xs font-bold uppercase tracking-widest text-ink-muted">
+            <p className="text-xs font-semibold text-ink-muted">
               Lang (Deutsch)
             </p>
             <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">
@@ -123,7 +123,7 @@ export default function PressePage() {
       </Section>
 
       <Section>
-        <h2 className="mb-6 font-(family-name:--font-display) text-2xl font-bold tracking-tight">
+        <h2 className="mb-6 font-(family-name:--font-display) text-2xl font-semibold tracking-tight">
           Logo & Marke
         </h2>
         <div className="grid gap-5 sm:grid-cols-[auto_1fr] sm:items-center">
@@ -161,7 +161,7 @@ export default function PressePage() {
       </Section>
 
       <Section className="pb-8">
-        <h2 className="mb-6 font-(family-name:--font-display) text-2xl font-bold tracking-tight">
+        <h2 className="mb-6 font-(family-name:--font-display) text-2xl font-semibold tracking-tight">
           Fakten auf einen Blick
         </h2>
         <div className="card relative overflow-x-auto">
@@ -172,7 +172,7 @@ export default function PressePage() {
                 <tr key={f.label} className="border-b border-line last:border-0">
                   <th
                     scope="row"
-                    className="w-48 py-3.5 pl-6 pr-4 align-top text-[0.85rem] font-semibold uppercase tracking-wider text-ink-muted"
+                    className="w-48 py-3.5 pl-6 pr-4 align-top text-[0.85rem] font-semibold text-ink-muted"
                   >
                     {f.label}
                   </th>

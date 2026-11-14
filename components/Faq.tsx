@@ -31,7 +31,7 @@ export default function Faq({
       )}
       <h2
         id="faq-heading"
-        className="font-(family-name:--font-display) text-3xl font-bold tracking-tight"
+        className="font-(family-name:--font-display) text-3xl font-semibold tracking-tight"
       >
         {heading}
       </h2>

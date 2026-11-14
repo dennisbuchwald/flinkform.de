@@ -4,10 +4,10 @@ import { Section } from "@/components/Section";
 export default function NotFound() {
   return (
     <Section className="text-center">
-      <p className="font-(family-name:--font-display) text-7xl font-extrabold text-gradient-brand">
+      <p className="font-(family-name:--font-display) text-7xl font-semibold text-ink">
         404
       </p>
-      <h1 className="mt-4 font-(family-name:--font-display) text-3xl font-bold tracking-tight">
+      <h1 className="mt-4 font-(family-name:--font-display) text-3xl font-semibold tracking-tight">
         Dieses Feld ist leer. Und zwar wirklich.
       </h1>
       <p className="mx-auto mt-4 max-w-md text-lg text-ink-soft">
@@ -17,13 +17,13 @@ export default function NotFound() {
       <div className="mt-8 flex flex-wrap justify-center gap-4">
         <Link
           href="/"
-          className="rounded-full bg-ink px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-ink-soft"
+          className="rounded-full bg-ink px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-[color,background-color,border-color,opacity] hover:bg-ink-soft"
         >
           Zur Startseite
         </Link>
         <Link
           href="/wissen"
-          className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-ink-muted/40"
+          className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-[color,background-color,border-color,opacity] hover:border-ink-muted/40"
         >
           Zum Wissens-Hub
         </Link>

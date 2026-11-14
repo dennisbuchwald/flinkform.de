@@ -26,7 +26,7 @@ export default function ImpressumPage() {
       <div className="border-b border-line bg-white">
         <div className="mx-auto max-w-6xl px-5 pb-14 pt-14 sm:px-8">
           <Eyebrow>Rechtliches</Eyebrow>
-          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-[2.75rem]">
+          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-4xl font-semibold leading-[1.12] tracking-tight sm:text-[2.75rem]">
             Impressum
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-ink-soft">

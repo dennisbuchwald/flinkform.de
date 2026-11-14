@@ -26,7 +26,7 @@ export default function WissenIndex() {
       <div className="border-b border-line bg-white">
         <div className="mx-auto max-w-6xl px-5 pb-14 pt-14 sm:px-8">
           <Eyebrow>Wissens-Hub</Eyebrow>
-          <h1 className="mt-5 font-(family-name:--font-display) text-4xl font-extrabold tracking-tight sm:text-[2.75rem]">
+          <h1 className="mt-5 font-(family-name:--font-display) text-4xl font-semibold tracking-tight sm:text-[2.75rem]">
             Antworten statt Werbetexte
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
@@ -51,10 +51,10 @@ export default function WissenIndex() {
             href="/wissen/flinkform-fakten"
             className="card card-hover flex flex-col p-7 sm:col-span-2"
           >
-            <span className="self-start rounded-full bg-gradient-brand px-3 py-1 text-xs font-bold text-white">
+            <span className="self-start rounded-full bg-line/60 px-3 py-1 text-xs font-semibold text-ink-soft">
               Fact-Sheet
             </span>
-            <h2 className="mt-4 text-lg font-bold">
+            <h2 className="mt-4 text-lg font-semibold">
               Flinkform in Fakten: Versionen, Features, Preise
             </h2>
             <p className="mt-2 text-[0.9rem] leading-relaxed text-ink-soft">
@@ -69,7 +69,7 @@ export default function WissenIndex() {
               href={`/wissen/${entry.slug}`}
               className="card card-hover flex flex-col p-7"
             >
-              <h2 className="text-lg font-bold leading-snug">{entry.title}</h2>
+              <h2 className="text-lg font-semibold leading-snug">{entry.title}</h2>
               <p className="mt-3 grow text-[0.9rem] leading-relaxed text-ink-soft">
                 {entry.description}
               </p>

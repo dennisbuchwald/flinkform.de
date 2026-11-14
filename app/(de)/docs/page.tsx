@@ -52,7 +52,7 @@ export default function DocsPage() {
       <div className="border-b border-line bg-white">
         <div className="mx-auto max-w-6xl px-5 pb-14 pt-14 sm:px-8">
           <Eyebrow>Dokumentation</Eyebrow>
-          <h1 className="mt-5 font-(family-name:--font-display) text-4xl font-extrabold tracking-tight sm:text-[2.75rem]">
+          <h1 className="mt-5 font-(family-name:--font-display) text-4xl font-semibold tracking-tight sm:text-[2.75rem]">
             Erste Schritte
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
@@ -75,7 +75,7 @@ export default function DocsPage() {
         <div className="grid gap-5 md:grid-cols-2">
           {steps.map((step) => (
             <div key={step.title} className="card p-7">
-              <h2 className="text-lg font-bold">{step.title}</h2>
+              <h2 className="text-lg font-semibold">{step.title}</h2>
               <p className="mt-2.5 text-[0.92rem] leading-relaxed text-ink-soft">
                 {step.body}
               </p>
@@ -85,7 +85,7 @@ export default function DocsPage() {
 
         <div className="card mt-10 flex flex-col gap-4 !rounded-3xl p-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h2 className="text-lg font-bold">Pro-Module einrichten</h2>
+            <h2 className="text-lg font-semibold">Pro-Module einrichten</h2>
             <p className="mt-1 max-w-xl text-[0.92rem] text-ink-soft">
               Stripe Payments, Berechnungsfelder, Webhooks, SMTP und Co.
               werden mit Flinkform Pro freigeschaltet. Die
@@ -94,7 +94,7 @@ export default function DocsPage() {
           </div>
           <Link
             href="/pro"
-            className="shrink-0 rounded-full bg-gradient-pro px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:opacity-90"
+            className="shrink-0 rounded-full bg-gradient-pro px-6 py-3 text-sm font-semibold text-white transition-[color,background-color,border-color,opacity] hover:opacity-90"
           >
             Zu Flinkform Pro
           </Link>

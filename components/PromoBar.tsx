@@ -25,7 +25,7 @@ export default function PromoBar({ locale }: { locale: Locale }) {
     <div className="promo-on promo-bar relative bg-gradient-pro-deep text-white">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-3 gap-y-1 px-12 py-2.5 text-center text-[0.85rem] sm:px-8">
         <p>
-          <strong className="font-bold">{t.lead}</strong> {t.body}
+          <strong className="font-semibold">{t.lead}</strong> {t.body}
         </p>
         <PromoCountdown locale={locale} className="hidden text-white/90 sm:inline" />
         <Link

@@ -150,7 +150,7 @@ export default function ProInquiryForm({ locale = "de" }: { locale?: Locale }) {
       </div>
       <button
         type="submit"
-        className="mt-2 rounded-full bg-gradient-pro px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-all hover:-translate-y-0.5 hover:opacity-90"
+        className="mt-2 rounded-full bg-gradient-pro px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-[color,background-color,border-color,opacity] hover:opacity-90"
       >
         {t.submit}
       </button>

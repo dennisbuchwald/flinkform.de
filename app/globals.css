@@ -242,7 +242,7 @@ body {
 }
 .prose-flink h3 {
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-ink);
   margin: 2rem 0 0.75rem;
 }
@@ -394,7 +394,7 @@ body {
   padding: 0 0.35em;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.9em;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.5;
   color: var(--color-ink);
 }
@@ -473,7 +473,7 @@ html[data-promo-bar="closed"] .promo-bar {
   padding: 0.55rem 1rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.16em;
   color: var(--color-ink);
 }

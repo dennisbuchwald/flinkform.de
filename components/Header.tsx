@@ -20,7 +20,7 @@ export default function Header({ locale = "de" }: { locale?: Locale }) {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
         <Link
           href={homeHref}
-          className="flex shrink-0 items-center gap-2.5 font-(family-name:--font-display) text-lg font-bold tracking-tight"
+          className="flex shrink-0 items-center gap-2.5 font-(family-name:--font-display) text-lg font-semibold tracking-tight"
         >
           <Image
             src="/icons/flinkform-app.svg"

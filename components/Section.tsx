@@ -29,7 +29,7 @@ export function SectionHeading({
     <div className="mb-10 max-w-2xl">
       <h2
         id={id}
-        className="font-(family-name:--font-display) text-3xl font-bold tracking-tight sm:text-4xl"
+        className="font-(family-name:--font-display) text-3xl font-semibold tracking-tight sm:text-4xl"
       >
         {children}
       </h2>
@@ -41,9 +41,11 @@ export function SectionHeading({
 export function Eyebrow({
   children,
   variant = "brand",
+  bar = true,
 }: {
   children: ReactNode;
   variant?: "brand" | "pro" | "scarcity";
+  bar?: boolean;
 }) {
   const bg =
     variant === "pro"
@@ -52,9 +54,8 @@ export function Eyebrow({
         ? "bg-gradient-scarcity"
         : "bg-gradient-brand";
   return (
-    <span
-      className={`inline-block rounded-full px-3.5 py-1.5 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-white ${bg}`}
-    >
+    <span className="inline-flex items-center gap-2.5 text-sm font-semibold text-ink-soft">
+      {bar && <span aria-hidden="true" className={`h-1 w-5 rounded-full ${bg}`} />}
       {children}
     </span>
   );

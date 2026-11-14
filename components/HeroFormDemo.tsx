@@ -127,7 +127,7 @@ export default function HeroFormDemo({ locale = "de" }: { locale?: Locale }) {
       </div>
 
       {/* Fußzeile des Mockups */}
-      <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 border-t border-line bg-paper px-4 py-2.5 text-[0.7rem] text-ink-muted">
+      <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 border-t border-line bg-paper px-4 py-2.5 text-xs text-ink-muted">
         {t.footer.map((item, i) => (
           <span key={item} className="flex items-center gap-x-5">
             {i > 0 && <span aria-hidden="true">·</span>}

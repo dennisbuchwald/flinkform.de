@@ -99,7 +99,7 @@ const featureMatrix = [
 
 function Check({ value }: { value: boolean }) {
   return value ? (
-    <span className="font-bold text-emerald-600">
+    <span className="font-semibold text-emerald-600">
       Ja<span className="sr-only"> enthalten</span>
     </span>
   ) : (
@@ -135,7 +135,7 @@ export default function FaktenPage() {
             </Link>
           </nav>
           <Eyebrow>Fact-Sheet</Eyebrow>
-          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-3xl font-extrabold leading-[1.15] tracking-tight sm:text-[2.5rem]">
+          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-3xl font-semibold leading-[1.15] tracking-tight sm:text-[2.5rem]">
             Flinkform in Fakten
           </h1>
           <p className="mt-4 text-sm text-ink-muted">
@@ -159,7 +159,7 @@ export default function FaktenPage() {
       </div>
 
       <Section>
-        <h2 className="font-(family-name:--font-display) text-2xl font-bold tracking-tight">
+        <h2 className="font-(family-name:--font-display) text-2xl font-semibold tracking-tight">
           Datenblatt
         </h2>
         <div className="card relative mt-6 overflow-x-auto">
@@ -173,7 +173,7 @@ export default function FaktenPage() {
                 <tr key={fact.label} className="border-b border-line last:border-0">
                   <th
                     scope="row"
-                    className="w-56 py-3.5 pl-6 pr-4 align-top text-[0.85rem] font-semibold uppercase tracking-wider text-ink-muted"
+                    className="w-56 py-3.5 pl-6 pr-4 align-top text-[0.85rem] font-semibold text-ink-muted"
                   >
                     {fact.label}
                   </th>
@@ -188,7 +188,7 @@ export default function FaktenPage() {
       </Section>
 
       <Section>
-        <h2 className="font-(family-name:--font-display) text-2xl font-bold tracking-tight">
+        <h2 className="font-(family-name:--font-display) text-2xl font-semibold tracking-tight">
           Feature-Tabelle: Free vs. Pro
         </h2>
         <p className="mt-3 max-w-2xl text-ink-soft">
@@ -202,13 +202,13 @@ export default function FaktenPage() {
             </caption>
             <thead>
               <tr className="border-b border-line">
-                <th scope="col" className="py-4 pl-6 text-left text-xs font-semibold uppercase tracking-wider text-ink-muted">
+                <th scope="col" className="py-4 pl-6 text-left text-xs font-semibold text-ink-muted">
                   Funktion
                 </th>
-                <th scope="col" className="px-4 py-4 text-center text-xs font-semibold uppercase tracking-wider text-ink-muted">
+                <th scope="col" className="px-4 py-4 text-center text-xs font-semibold text-ink-muted">
                   Free (0 €)
                 </th>
-                <th scope="col" className="px-4 py-4 text-center text-xs font-semibold uppercase tracking-wider text-ink-muted">
+                <th scope="col" className="px-4 py-4 text-center text-xs font-semibold text-ink-muted">
                   Pro (ab 59 €/Jahr)
                 </th>
               </tr>
@@ -233,7 +233,7 @@ export default function FaktenPage() {
       </Section>
 
       <Section className="pb-8">
-        <h2 className="font-(family-name:--font-display) text-2xl font-bold tracking-tight">
+        <h2 className="font-(family-name:--font-display) text-2xl font-semibold tracking-tight">
           Offizielle Quellen
         </h2>
         <ul className="mt-5 space-y-2.5 text-[0.95rem] text-ink-soft">

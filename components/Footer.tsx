@@ -15,7 +15,7 @@ export default function Footer({ locale = "de" }: { locale?: Locale }) {
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-1">
-            <p className="font-(family-name:--font-display) text-lg font-bold">
+            <p className="font-(family-name:--font-display) text-lg font-semibold">
               Flinkform
             </p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-muted">
@@ -31,7 +31,7 @@ export default function Footer({ locale = "de" }: { locale?: Locale }) {
           </div>
           {t.columns.map((col) => (
             <nav key={col.heading} aria-label={col.heading}>
-              <p className="text-xs font-semibold uppercase tracking-widest text-ink-muted">
+              <p className="text-xs font-semibold text-ink-muted">
                 {col.heading}
               </p>
               <ul className="mt-4 space-y-2.5">

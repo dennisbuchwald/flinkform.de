@@ -171,7 +171,7 @@ export default function KostenRechner({
       </div>
 
       <div className="p-6 sm:p-8">
-        <p className="mb-5 text-sm font-semibold uppercase tracking-widest text-ink-muted">
+        <p className="mb-5 text-sm font-semibold text-ink-muted">
           {t.costsOverYearsPrefix} {JAHRE} {t.yearsUnit}
         </p>
         <ul className="space-y-4">
@@ -183,8 +183,8 @@ export default function KostenRechner({
                   <span className="ml-2 text-xs font-medium text-ink-muted">{r.plan?.plan}</span>
                 </span>
                 <span
-                  className={`font-(family-name:--font-display) text-lg font-bold tabular-nums ${
-                    r.flink ? "text-gradient-brand" : ""
+                  className={`font-(family-name:--font-display) text-lg font-semibold tabular-nums ${
+                    r.flink ? "text-ink" : ""
                   }`}
                 >
                   {r.plan && r.total !== null
@@ -215,7 +215,7 @@ export default function KostenRechner({
               {t.savingsPrePre} {teuerste.name}
               {t.savingsVendorSuffix} {t.savingsPreMid} {JAHRE} {t.savingsPrePost}
             </p>
-            <p className="mt-1 font-(family-name:--font-display) text-3xl font-extrabold text-gradient-brand">
+            <p className="mt-1 font-(family-name:--font-display) text-3xl font-semibold text-ink">
               {teuerste.plan && teuerste.total !== null && flink.total !== null
                 ? `${(teuerste.total - flink.total).toLocaleString(numberLocale)} ${
                     teuerste.plan.currency === "USD" ? "$" : "€"

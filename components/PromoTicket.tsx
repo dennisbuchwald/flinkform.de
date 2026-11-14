@@ -38,7 +38,7 @@ export default function PromoTicket({
       <div className="promo-ticket__inner grid md:grid-cols-[1fr_auto]">
         <div className="p-6 sm:p-8">
           <p className="text-sm font-semibold text-brand-violet">{t.label}</p>
-          <Heading className="mt-2 font-(family-name:--font-display) text-[1.7rem] font-bold leading-tight tracking-tight text-ink sm:text-3xl">
+          <Heading className="mt-2 font-(family-name:--font-display) text-[1.7rem] font-semibold leading-tight tracking-tight text-ink sm:text-3xl">
             {t.title}
           </Heading>
           <p className="mt-2 text-lg font-semibold text-ink-soft">{t.price}</p>
@@ -74,7 +74,7 @@ export default function PromoTicket({
           {cta && (
             <Link
               href={cta.href}
-              className="mt-5 rounded-full bg-gradient-pro px-5 py-3 text-center text-[0.95rem] font-semibold text-white shadow-[0_10px_24px_-12px_rgba(126,86,255,0.7)] transition-all hover:-translate-y-0.5 hover:opacity-95"
+              className="mt-5 rounded-full bg-gradient-pro px-5 py-3 text-center text-[0.95rem] font-semibold text-white transition-[color,background-color,border-color,opacity] hover:opacity-95"
             >
               {cta.label} →
             </Link>

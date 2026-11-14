@@ -26,7 +26,7 @@ export default function BlogIndex() {
       <div className="border-b border-line bg-white">
         <div className="mx-auto max-w-6xl px-5 pb-14 pt-14 sm:px-8">
           <Eyebrow>Blog</Eyebrow>
-          <h1 className="mt-5 font-(family-name:--font-display) text-4xl font-extrabold tracking-tight sm:text-[2.75rem]">
+          <h1 className="mt-5 font-(family-name:--font-display) text-4xl font-semibold tracking-tight sm:text-[2.75rem]">
             Formulare, DSGVO und WordPress
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
@@ -46,7 +46,7 @@ export default function BlogIndex() {
               className="card card-hover flex flex-col p-7"
             >
               <div className="flex items-center gap-3 text-xs text-ink-muted">
-                <span className="rounded-full bg-line/60 px-3 py-1 font-bold text-ink-soft">
+                <span className="rounded-full bg-line/60 px-3 py-1 font-semibold text-ink-soft">
                   {post.tag}
                 </span>
                 <time dateTime={post.date}>
@@ -57,7 +57,7 @@ export default function BlogIndex() {
                   })}
                 </time>
               </div>
-              <h2 className="mt-4 text-lg font-bold leading-snug">
+              <h2 className="mt-4 text-lg font-semibold leading-snug">
                 {post.title}
               </h2>
               <p className="mt-3 grow text-[0.9rem] leading-relaxed text-ink-soft">

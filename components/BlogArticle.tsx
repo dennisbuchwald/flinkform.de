@@ -66,7 +66,7 @@ export default function BlogArticle({
             </Link>
           </nav>
           <Eyebrow>{post.tag}</Eyebrow>
-          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-3xl font-extrabold leading-[1.15] tracking-tight sm:text-[2.5rem]">
+          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-3xl font-semibold leading-[1.15] tracking-tight sm:text-[2.5rem]">
             {post.title}
           </h1>
           <p className="mt-4 text-sm text-ink-muted">
@@ -109,7 +109,7 @@ export default function BlogArticle({
 
         <aside className="prose-flink mt-14">
           <div className="rounded-2xl border border-line bg-white p-7 not-italic">
-            <p className="!mb-2 text-sm font-bold uppercase tracking-widest text-ink-muted">
+            <p className="!mb-2 text-sm font-semibold text-ink-muted">
               Über Flinkform
             </p>
             <p className="!mb-4">

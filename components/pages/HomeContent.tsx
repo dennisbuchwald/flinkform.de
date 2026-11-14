@@ -49,15 +49,13 @@ function Check({ pro = false }: { pro?: boolean }) {
   return (
     <span
       aria-hidden="true"
-      className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-white ${
-        pro ? "bg-gradient-pro" : "bg-gradient-brand"
-      }`}
+      className={`mt-0.5 flex size-5 shrink-0 items-center justify-center ${pro ? "text-brand-violet" : "text-ink"}`}
     >
-      <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
+      <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
         <path
           d="M2 6.5 4.8 9 10 3.5"
           stroke="currentColor"
-          strokeWidth="2.2"
+          strokeWidth="1.4"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -91,7 +89,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-14 sm:px-8 lg:grid-cols-[1.05fr_1fr] lg:pb-20 lg:pt-20">
           <div>
             <PluginStrike words={t.hero.replaces} />
-            <h1 className="mt-3 font-(family-name:--font-display) text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl">
+            <h1 className="mt-3 font-(family-name:--font-display) text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">
               {t.hero.titlePre}
               <span className="text-gradient-brand">{t.hero.titleHighlight}</span>
               {t.hero.titlePost}
@@ -105,7 +103,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
                 href={WPORG_URL}
-                className="rounded-full bg-ink px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-ink-soft"
+                className="rounded-full bg-ink px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-[color,background-color,border-color,opacity] hover:bg-ink-soft"
               >
                 {t.hero.ctaPrimary}
               </a>
@@ -113,7 +111,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
                 href={PLAYGROUND_URL}
                 target="_blank"
                 rel="noopener"
-                className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-ink-muted/40"
+                className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-[color,background-color,border-color,opacity] hover:border-ink-muted/40"
               >
                 {t.hero.ctaTry}
               </a>
@@ -163,7 +161,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
         <div className="grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <Eyebrow>{t.editor.eyebrow}</Eyebrow>
-            <h2 className="mt-5 font-(family-name:--font-display) text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="mt-5 font-(family-name:--font-display) text-3xl font-semibold tracking-tight sm:text-4xl">
               {t.editor.titlePre}
               <span className="mark-draw">{t.editor.titleMark}</span>
               {t.editor.titlePost}
@@ -211,11 +209,11 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
             <div key={p.title} className="card card-hover p-7">
               <span
                 aria-hidden="true"
-                className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-brand font-(family-name:--font-display) text-sm font-bold text-white"
+                className="font-mono text-sm text-ink-muted tabular-nums"
               >
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-4 text-[1.05rem] font-bold">{p.title}</h3>
+              <h3 className="mt-4 text-[1.05rem] font-semibold">{p.title}</h3>
               <p className="mt-2 text-[0.9rem] leading-relaxed text-ink-soft">{p.desc}</p>
             </div>
           ))}
@@ -234,7 +232,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
           <div className="mt-10 overflow-hidden rounded-3xl bg-ink p-7 text-white sm:p-10">
             <div className="grid items-center gap-8 lg:grid-cols-[0.8fr_1.2fr]">
               <div>
-                <h3 className="font-(family-name:--font-display) text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
+                <h3 className="font-(family-name:--font-display) text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
                   {t.cf7.importShowcase.title}
                 </h3>
                 <p className="mt-4 text-[1.02rem] leading-relaxed text-white/75">{t.cf7.importShowcase.sub}</p>
@@ -242,7 +240,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
                   href={WPORG_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-block rounded-full bg-white px-6 py-3 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5"
+                  className="mt-6 inline-block rounded-full bg-white px-6 py-3 text-[0.95rem] font-semibold text-ink transition-[color,background-color,border-color,opacity]"
                 >
                   {t.cf7.importShowcase.cta}
                 </a>
@@ -251,7 +249,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
                 </p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5">
-                <div className="mb-3 hidden grid-cols-[1fr_auto_1fr] gap-3 px-1 text-[0.7rem] font-semibold uppercase tracking-wider text-white/50 sm:grid">
+                <div className="mb-3 hidden grid-cols-[1fr_auto_1fr] gap-3 px-1 text-xs font-semibold text-white/50 sm:grid">
                   <span>{t.cf7.importShowcase.fromLabel}</span>
                   <span aria-hidden="true" />
                   <span>{t.cf7.importShowcase.toLabel}</span>
@@ -281,7 +279,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
         )}
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
           <div className="card p-7">
-            <h3 className="text-[1.05rem] font-bold">{t.cf7.gainsHeading}</h3>
+            <h3 className="text-[1.05rem] font-semibold">{t.cf7.gainsHeading}</h3>
             <ul className="mt-5 space-y-3.5">
               {t.cf7.gains.map((gain) => (
                 <li key={gain} className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-ink-soft">
@@ -292,13 +290,13 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
             </ul>
           </div>
           <div className="card p-7">
-            <h3 className="text-[1.05rem] font-bold">{t.cf7.stepsHeading}</h3>
+            <h3 className="text-[1.05rem] font-semibold">{t.cf7.stepsHeading}</h3>
             <ol className="mt-5 space-y-4">
               {t.cf7.steps.map((step, i) => (
                 <li key={step} className="flex items-start gap-4 text-[0.95rem] leading-relaxed text-ink-soft">
                   <span
                     aria-hidden="true"
-                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-ink font-(family-name:--font-display) text-xs font-bold text-white"
+                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-ink font-(family-name:--font-display) text-xs font-semibold text-white"
                   >
                     {i + 1}
                   </span>
@@ -324,9 +322,9 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
           {t.trust.items.map((item) => (
             <div key={item.title} className="card p-6">
               <div className="flex items-center gap-2">
-                <h3 className="text-[1.02rem] font-bold">{item.title}</h3>
+                <h3 className="text-[1.02rem] font-semibold">{item.title}</h3>
                 {item.pro && (
-                  <span className="rounded-full bg-gradient-pro px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider text-white">
+                  <span className="rounded-full bg-gradient-pro px-2 py-0.5 text-xs font-semibold text-white">
                     {t.trust.proBadge}
                   </span>
                 )}
@@ -362,7 +360,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
         <div className="grid gap-5 sm:grid-cols-2">
           {t.agency.items.map((item) => (
             <div key={item.title} className="card p-7">
-              <h3 className="text-[1.05rem] font-bold">{item.title}</h3>
+              <h3 className="text-[1.05rem] font-semibold">{item.title}</h3>
               <p className="mt-2 text-[0.9rem] leading-relaxed text-ink-soft">{item.desc}</p>
             </div>
           ))}
@@ -371,7 +369,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
           <p className="max-w-2xl text-[1.02rem] font-semibold leading-relaxed text-ink">{t.agency.price}</p>
           <Link
             href={localizedHref(locale, t.agency.ctaHref)}
-            className="shrink-0 self-start rounded-full bg-gradient-pro px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-all hover:-translate-y-0.5 hover:opacity-90 sm:self-auto"
+            className="shrink-0 self-start rounded-full bg-gradient-pro px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-[color,background-color,border-color,opacity] hover:opacity-90 sm:self-auto"
           >
             {t.agency.cta}
           </Link>
@@ -384,7 +382,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
           <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1.5 bg-gradient-pro" />
           <div className="max-w-3xl">
             <Eyebrow variant="pro">{t.proTeaser.eyebrow}</Eyebrow>
-            <h2 className="mt-5 font-(family-name:--font-display) text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="mt-5 font-(family-name:--font-display) text-3xl font-semibold tracking-tight sm:text-4xl">
               {t.proTeaser.title}
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-ink-soft">{t.proTeaser.desc}</p>
@@ -392,7 +390,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
           <div className="mt-8 grid gap-5 lg:grid-cols-3">
             {t.proTeaser.cases.map((c) => (
               <div key={c.title} className="flex flex-col rounded-2xl border border-line bg-paper p-6">
-                <h3 className="text-[1.05rem] font-bold">{c.title}</h3>
+                <h3 className="text-[1.05rem] font-semibold">{c.title}</h3>
                 <p className="mt-2 grow text-[0.9rem] leading-relaxed text-ink-soft">{c.desc}</p>
                 <a
                   href={`${DEMO_URL}${c.demoPath}`}
@@ -405,7 +403,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
               </div>
             ))}
           </div>
-          <h3 className="mt-10 text-sm font-bold uppercase tracking-widest text-ink-muted">
+          <h3 className="mt-10 text-sm font-semibold text-ink-muted">
             {t.proTeaser.itemsHeading}
           </h3>
           <ul className="mt-4 grid gap-3.5 sm:grid-cols-2">
@@ -418,7 +416,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
           </ul>
           <Link
             href={localizedHref(locale, "/pro")}
-            className="mt-8 inline-block rounded-full bg-gradient-pro px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-all hover:-translate-y-0.5 hover:opacity-90"
+            className="mt-8 inline-block rounded-full bg-gradient-pro px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-[color,background-color,border-color,opacity] hover:opacity-90"
           >
             {t.proTeaser.cta}
           </Link>
@@ -457,10 +455,10 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
         <div className="overflow-hidden rounded-3xl border border-ink bg-ink text-white">
           <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-[1.2fr_1fr]">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-pink">
+              <p className="text-xs font-semibold text-brand-pink">
                 {t.privacyBlock.kicker}
               </p>
-              <h2 className="mt-4 font-(family-name:--font-display) text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+              <h2 className="mt-4 font-(family-name:--font-display) text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
                 {t.privacyBlock.title}
               </h2>
               <div className="mt-6 space-y-4 text-[1.02rem] leading-relaxed text-white/75">
@@ -479,7 +477,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
             <div className="grid content-center gap-4">
               {t.privacyBlock.stats.map((stat) => (
                 <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                  <p className="font-(family-name:--font-display) text-2xl font-bold text-white">
+                  <p className="font-(family-name:--font-display) text-2xl font-semibold text-white">
                     {stat.value}
                   </p>
                   <p className="mt-1 text-sm leading-snug text-white/60">{stat.label}</p>
@@ -564,13 +562,13 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
             <li key={item} className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-ink-soft">
               <span
                 aria-hidden="true"
-                className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-white"
-              >
-                <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
-                  <path
-                    d="M2 6.5 4.8 9 10 3.5"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
+                className="mt-0.5 flex size-5 shrink-0 items-center justify-center text-ink"
+    >
+      <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+        <path
+          d="M2 6.5 4.8 9 10 3.5"
+          stroke="currentColor"
+          strokeWidth="1.4"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
@@ -593,10 +591,10 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
         <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
           {t.requirements.items.map((req) => (
             <div key={req.label} className="card p-6 text-center">
-              <p className="text-xs font-semibold uppercase tracking-widest text-ink-muted">
+              <p className="text-xs font-semibold text-ink-muted">
                 {req.label}
               </p>
-              <p className="mt-1.5 font-(family-name:--font-display) text-2xl font-bold">
+              <p className="mt-1.5 font-(family-name:--font-display) text-2xl font-semibold">
                 {req.value}
               </p>
             </div>
@@ -609,7 +607,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
         <div className="grid gap-5 sm:grid-cols-2">
           {t.keywordCards.map((card) => (
             <Link key={card.title} href={card.href} className="card card-hover block p-7">
-              <h3 className="text-[1.05rem] font-bold">{card.title}</h3>
+              <h3 className="text-[1.05rem] font-semibold">{card.title}</h3>
               <p className="mt-2 text-[0.9rem] leading-relaxed text-ink-soft">{card.text}</p>
               <span className="mt-4 inline-block text-sm font-semibold text-brand-violet">
                 {t.keywordReadMore}
@@ -623,14 +621,14 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
       <Section className="pb-8">
         <div className="rounded-3xl bg-gradient-brand p-[2px]">
           <div className="rounded-[calc(1.5rem-2px)] bg-white px-8 py-12 text-center sm:px-12">
-            <h2 className="mx-auto max-w-3xl text-balance font-(family-name:--font-display) text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="mx-auto max-w-3xl text-balance font-(family-name:--font-display) text-3xl font-semibold tracking-tight sm:text-4xl">
               {t.finalCta.title}
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-ink-soft">{t.finalCta.desc}</p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a
                 href={WPORG_URL}
-                className="rounded-full bg-ink px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-ink-soft"
+                className="rounded-full bg-ink px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-[color,background-color,border-color,opacity] hover:bg-ink-soft"
               >
                 {t.finalCta.ctaPrimary}
               </a>
@@ -638,7 +636,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
                 href={DEMO_URL}
                 target="_blank"
                 rel="noopener"
-                className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-ink-muted/40"
+                className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-[color,background-color,border-color,opacity] hover:border-ink-muted/40"
               >
                 {t.finalCta.ctaSecondary}
               </a>

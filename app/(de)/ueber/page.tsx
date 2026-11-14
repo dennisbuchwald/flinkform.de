@@ -44,7 +44,7 @@ export default function UeberPage() {
       <div className="border-b border-line bg-white">
         <div className="mx-auto max-w-6xl px-5 pb-14 pt-14 sm:px-8">
           <Eyebrow>Über Flinkform</Eyebrow>
-          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-[2.75rem]">
+          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-4xl font-semibold leading-[1.12] tracking-tight sm:text-[2.75rem]">
             Gebaut aus Frust. Im besten Sinne.
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-ink-soft">
@@ -108,13 +108,13 @@ export default function UeberPage() {
       </Section>
 
       <Section>
-        <h2 className="mb-8 font-(family-name:--font-display) text-3xl font-bold tracking-tight">
+        <h2 className="mb-8 font-(family-name:--font-display) text-3xl font-semibold tracking-tight">
           Woran du uns messen kannst
         </h2>
         <div className="grid gap-5 sm:grid-cols-2">
           {werte.map((wert) => (
             <div key={wert.title} className="card p-7">
-              <h3 className="text-[1.05rem] font-bold">{wert.title}</h3>
+              <h3 className="text-[1.05rem] font-semibold">{wert.title}</h3>
               <p className="mt-2 text-[0.9rem] leading-relaxed text-ink-soft">
                 {wert.desc}
               </p>
@@ -126,7 +126,7 @@ export default function UeberPage() {
       <Section className="pb-8">
         <div className="card flex flex-col items-start gap-4 !rounded-3xl p-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h2 className="text-xl font-bold">
+            <h2 className="text-xl font-semibold">
               Schau, was als Nächstes kommt
             </h2>
             <p className="mt-1 max-w-xl text-[0.95rem] text-ink-soft">
@@ -136,7 +136,7 @@ export default function UeberPage() {
           </div>
           <Link
             href="/roadmap"
-            className="shrink-0 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-ink-soft"
+            className="shrink-0 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition-[color,background-color,border-color,opacity] hover:bg-ink-soft"
           >
             Zur Roadmap
           </Link>

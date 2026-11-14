@@ -58,7 +58,7 @@ function Cell({
   return (
     <span
       className={`text-[0.8rem] leading-snug ${
-        highlight ? "font-bold text-brand-violet" : "text-ink-soft"
+        highlight ? "font-semibold text-brand-violet" : "text-ink-soft"
       }`}
     >
       {value}
@@ -98,7 +98,7 @@ export default function CompareTable({
                 <th
                   key={col}
                   scope="col"
-                  className={`border-b border-line px-3 py-4 text-xs font-semibold uppercase tracking-wider ${
+                  className={`border-b border-line px-3 py-4 text-xs font-semibold ${
                     i === 0
                       ? `text-white ${accent === "pro" ? "bg-gradient-pro" : "bg-gradient-brand"}`
                       : "text-ink-muted"

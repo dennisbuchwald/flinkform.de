@@ -104,7 +104,7 @@ export default function VergleichArticle({
             <span className="text-ink-soft">{competitor}</span>
           </nav>
           <Eyebrow>Ehrlicher Vergleich</Eyebrow>
-          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-[2.75rem]">
+          <h1 className="mt-5 max-w-3xl font-(family-name:--font-display) text-4xl font-semibold leading-[1.12] tracking-tight sm:text-[2.75rem]">
             {h1}
           </h1>
           <p className="mt-3 text-sm text-ink-muted">
@@ -125,7 +125,7 @@ export default function VergleichArticle({
       </div>
 
       <Section>
-        <h2 className="mb-6 font-(family-name:--font-display) text-2xl font-bold tracking-tight">
+        <h2 className="mb-6 font-(family-name:--font-display) text-2xl font-semibold tracking-tight">
           Der Vergleich auf einen Blick
         </h2>
         <CompareTable
@@ -149,7 +149,7 @@ export default function VergleichArticle({
       <Section className="!py-10">
         <div className="rounded-3xl bg-gradient-brand p-[2px]">
           <div className="rounded-[calc(1.5rem-2px)] bg-white px-8 py-10 text-center">
-            <h2 className="font-(family-name:--font-display) text-2xl font-bold tracking-tight sm:text-3xl">
+            <h2 className="font-(family-name:--font-display) text-2xl font-semibold tracking-tight sm:text-3xl">
               Genug gelesen. Jetzt du.
             </h2>
             <p className="mx-auto mt-3 max-w-lg text-ink-soft">
@@ -160,7 +160,7 @@ export default function VergleichArticle({
             <div className="mt-6 flex flex-wrap justify-center gap-4">
               <a
                 href={WPORG_URL}
-                className="rounded-full bg-ink px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-ink-soft"
+                className="rounded-full bg-ink px-7 py-3.5 text-[0.95rem] font-semibold text-white transition-[color,background-color,border-color,opacity] hover:bg-ink-soft"
               >
                 Kostenlos installieren
               </a>
@@ -168,7 +168,7 @@ export default function VergleichArticle({
                 href={DEMO_URL}
                 target="_blank"
                 rel="noopener"
-                className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-ink-muted/40"
+                className="rounded-full border border-line bg-white px-7 py-3.5 text-[0.95rem] font-semibold text-ink transition-[color,background-color,border-color,opacity] hover:border-ink-muted/40"
               >
                 Erst in der Demo testen
               </a>

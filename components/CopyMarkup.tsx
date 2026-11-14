@@ -31,7 +31,7 @@ export default function CopyMarkup({
         <button
           type="button"
           onClick={copy}
-          className="rounded-full bg-white px-4 py-1.5 text-xs font-bold text-ink transition-all hover:-translate-y-0.5"
+          className="rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-ink transition-[color,background-color,border-color,opacity]"
           aria-live="polite"
         >
           {copied ? `✓ ${copiedLabel}` : copyLabel}

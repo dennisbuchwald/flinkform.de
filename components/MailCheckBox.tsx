@@ -10,8 +10,8 @@ export default function MailCheckBox() {
       <div aria-hidden="true" className="h-1.5 bg-gradient-brand-h" />
       <div className="flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
         <div>
-          <p className="!m-0 text-xs font-bold uppercase tracking-widest text-ink-muted">Kostenloses Tool</p>
-          <p className="!mt-2 !mb-0 font-(family-name:--font-display) text-xl font-bold leading-snug text-ink">
+          <p className="!m-0 text-xs font-semibold text-ink-muted">Kostenloses Tool</p>
+          <p className="!mt-2 !mb-0 font-(family-name:--font-display) text-xl font-semibold leading-snug text-ink">
             Kommen deine Formular-Mails an? Teste es in 30 Sekunden.
           </p>
           <p className="!mt-2 !mb-0 text-[0.95rem] leading-relaxed text-ink-soft">
@@ -32,7 +32,7 @@ export default function MailCheckBox() {
         </div>
         <a
           href={MAIL_CHECK.url}
-          className="shrink-0 self-start rounded-full bg-ink px-6 py-3 text-[0.9rem] !font-semibold !text-white !no-underline transition-all hover:-translate-y-0.5 sm:self-center"
+          className="shrink-0 self-start rounded-full bg-ink px-6 py-3 text-[0.9rem] !font-semibold !text-white !no-underline transition-[color,background-color,border-color,opacity] sm:self-center"
         >
           Mail jetzt testen
         </a>

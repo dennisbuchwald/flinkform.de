@@ -69,7 +69,7 @@ export default function WissenArticle({
               Wissen
             </Link>
           </nav>
-          <h1 className="max-w-3xl font-(family-name:--font-display) text-3xl font-extrabold leading-[1.15] tracking-tight sm:text-[2.5rem]">
+          <h1 className="max-w-3xl font-(family-name:--font-display) text-3xl font-semibold leading-[1.15] tracking-tight sm:text-[2.5rem]">
             {entry.title}
           </h1>
           <p className="mt-4 text-sm text-ink-muted">
@@ -93,7 +93,7 @@ export default function WissenArticle({
 
         <aside className="prose-flink mt-14">
           <div className="rounded-2xl border border-line bg-white p-7">
-            <p className="!mb-2 text-sm font-bold uppercase tracking-widest text-ink-muted">
+            <p className="!mb-2 text-sm font-semibold text-ink-muted">
               Über Flinkform
             </p>
             <p className="!mb-4">
