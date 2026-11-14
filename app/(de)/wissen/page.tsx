@@ -51,7 +51,7 @@ export default function WissenIndex() {
             href="/wissen/flinkform-fakten"
             className="card card-hover flex flex-col p-7 sm:col-span-2"
           >
-            <span className="self-start rounded-full bg-line/60 px-3 py-1 text-xs font-semibold text-ink-soft">
+            <span className="self-start rounded-full bg-gradient-brand px-3 py-1 text-xs font-semibold text-white">
               Fact-Sheet
             </span>
             <h2 className="mt-4 text-lg font-semibold">

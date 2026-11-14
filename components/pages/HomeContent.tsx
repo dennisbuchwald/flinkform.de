@@ -49,13 +49,15 @@ function Check({ pro = false }: { pro?: boolean }) {
   return (
     <span
       aria-hidden="true"
-      className={`mt-0.5 flex size-5 shrink-0 items-center justify-center ${pro ? "text-brand-violet" : "text-ink"}`}
+      className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-white ${
+        pro ? "bg-gradient-pro" : "bg-gradient-brand"
+      }`}
     >
-      <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+      <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
         <path
           d="M2 6.5 4.8 9 10 3.5"
           stroke="currentColor"
-          strokeWidth="1.4"
+          strokeWidth="2.2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -209,7 +211,7 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
             <div key={p.title} className="card card-hover p-7">
               <span
                 aria-hidden="true"
-                className="font-mono text-sm text-ink-muted tabular-nums"
+                className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-brand font-(family-name:--font-display) text-sm font-semibold text-white"
               >
                 {String(i + 1).padStart(2, "0")}
               </span>
@@ -562,13 +564,13 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
             <li key={item} className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-ink-soft">
               <span
                 aria-hidden="true"
-                className="mt-0.5 flex size-5 shrink-0 items-center justify-center text-ink"
-    >
-      <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
-        <path
-          d="M2 6.5 4.8 9 10 3.5"
-          stroke="currentColor"
-          strokeWidth="1.4"
+                className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-white"
+              >
+                <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
+                  <path
+                    d="M2 6.5 4.8 9 10 3.5"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />

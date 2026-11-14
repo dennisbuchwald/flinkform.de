@@ -55,7 +55,7 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
           <div className="max-w-3xl">
             <div className="flex items-center gap-3">
               <Image src="/icons/flinkform-app.svg" alt="" width={44} height={44} priority />
-              <Eyebrow variant="pro" bar={false}>
+              <Eyebrow variant="pro">
                 <span className="hidden sm:inline">{t.hero.eyebrowPrefix}</span>
                 {t.hero.eyebrow}
               </Eyebrow>
@@ -94,7 +94,13 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
         <SectionHeading sub={t.needs.sub}>{t.needs.heading}</SectionHeading>
         <ul className="grid gap-4 sm:grid-cols-2">
           {t.needs.items.map((need) => (
-            <li key={need} className="card p-5 text-[0.95rem] leading-relaxed text-ink-soft">
+            <li key={need} className="card flex items-start gap-3 p-5 text-[0.95rem] leading-relaxed text-ink-soft">
+              <span
+                aria-hidden="true"
+                className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-gradient-pro text-xs font-semibold text-white"
+              >
+                !
+              </span>
               {need}
             </li>
           ))}
@@ -130,13 +136,13 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
             <li key={item} className="flex items-start gap-3 text-[0.95rem] leading-relaxed text-ink-soft">
               <span
                 aria-hidden="true"
-                className="mt-0.5 flex size-5 shrink-0 items-center justify-center text-brand-violet"
-    >
-      <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
-        <path
-          d="M2 6.5 4.8 9 10 3.5"
-          stroke="currentColor"
-          strokeWidth="1.4"
+                className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gradient-pro text-white"
+              >
+                <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
+                  <path
+                    d="M2 6.5 4.8 9 10 3.5"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
@@ -170,7 +176,7 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
             <div key={step.title} className="card p-7">
               <span
                 aria-hidden="true"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-ink font-(family-name:--font-display) text-lg font-semibold text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-pro font-(family-name:--font-display) text-lg font-semibold text-white"
               >
                 {i + 1}
               </span>
@@ -270,7 +276,7 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
         <div className="card mx-auto mt-8 flex max-w-3xl flex-col items-start gap-4 p-6 sm:flex-row sm:items-center sm:gap-6 sm:p-7">
           <span
             aria-hidden="true"
-            className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-line/60 text-ink"
+            className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-brand text-white"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-6">
               <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3Z" />
