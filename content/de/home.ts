@@ -12,10 +12,15 @@ export const home = {
   },
   // Black Week (lib/promo.ts), nur sichtbar, solange die Aktion läuft.
   promo: {
-    badge: "Black Week",
-    title: "Flinkform Pro 50 % günstiger im ersten Jahr.",
-    desc: "Für alle Jahrespläne, Stripe, Berechnungsfelder, Uploads und SMTP inklusive. Der Gutschein ist im Checkout schon eingetragen. Gilt bis 30.11.",
-    cta: "Zu den Preisen",
+    label: "Black Week · bis 30.11.",
+    title: "Flinkform Pro zum halben Preis.",
+    // {promo} und {price} kommen aus lib/site.ts (günstigster Jahresplan).
+    price: "Ab {promo} € im ersten Jahr statt {price} €.",
+    desc: "Für alle Jahrespläne, mit Stripe, Berechnungsfeldern, Uploads und SMTP. Ab dem zweiten Jahr gilt der reguläre Preis.",
+    couponLabel: "Dein Gutschein",
+    applied: "Im Checkout schon eingetragen",
+    guarantee: "14 Tage Geld zurück",
+    cta: "Pro zum halben Preis holen",
   },
   hero: {
     titlePre: "Fünf Plugins. Oder ",

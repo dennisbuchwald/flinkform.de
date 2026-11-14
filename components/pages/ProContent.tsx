@@ -5,9 +5,9 @@ import PluginStrike from "@/components/PluginStrike";
 import Faq from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import ProInquiryForm from "@/components/ProInquiryForm";
-import PromoCountdown from "@/components/PromoCountdown";
+import PromoTicket from "@/components/PromoTicket";
 import PromoScroll from "@/components/PromoScroll";
-import { formatPrice, promoPrice } from "@/lib/promo";
+import { PROMO, fillPromoPrice, formatPrice, promoPrice } from "@/lib/promo";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
 import { LIFETIME, PRICING } from "@/lib/site";
 import {
@@ -192,25 +192,15 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
         <PromoScroll campaign="blackweek" target="preise" />
         <SectionHeading sub={t.pricing.sub}>{t.pricing.heading}</SectionHeading>
         {/* ── AKTION (lib/promo.ts) ── */}
-        <div className="promo-on mb-8 overflow-hidden rounded-2xl bg-ink text-white">
-          <div aria-hidden="true" className="h-1.5 bg-gradient-scarcity" />
-          <div className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
-            <div>
-              <span className="inline-block rounded-full bg-gradient-scarcity px-3 py-1 text-[0.7rem] font-bold uppercase tracking-[0.14em]">
-                {t.pricing.promo.badge}
-              </span>
-              <p className="mt-3 font-(family-name:--font-display) text-2xl font-bold tracking-tight">
-                {t.pricing.promo.title}
-              </p>
-              <p className="mt-2 max-w-2xl text-[0.95rem] leading-relaxed text-white/75">{t.pricing.promo.desc}</p>
-              <p className="mt-2 text-xs text-white/50">{t.pricing.promo.lifetimeNote}</p>
-            </div>
-            <PromoCountdown
-              locale={locale}
-              className="shrink-0 self-start rounded-full border border-white/20 px-4 py-2 text-sm font-semibold sm:self-center"
-            />
-          </div>
-        </div>
+        <PromoTicket
+          locale={locale}
+          className="mb-10"
+          t={{
+            ...t.pricing.promo,
+            price: fillPromoPrice(t.pricing.promo.price, PRICING[0].price, locale),
+            note: t.pricing.promo.lifetimeNote,
+          }}
+        />
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {PRICING.map((plan, i) => (
             <div
@@ -233,16 +223,19 @@ export default function ProContent({ locale, t }: { locale: Locale; t: ProDict }
                 {plan.price} €<span className="text-base font-medium text-ink-muted"> {t.pricing.perYear}</span>
               </p>
               <div className="promo-on mt-3">
-                <p className="text-sm font-semibold text-ink-muted">
-                  <s className="decoration-brand-red decoration-2">
+                <p className="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-sm font-semibold text-ink-muted">
+                  <s className="decoration-ink-muted/70 decoration-[1.5px]">
                     <span className="sr-only">{t.pricing.promo.regular} </span>
                     {plan.price} € {t.pricing.perYear}
                   </s>
+                  <span className="rounded-full bg-gradient-pro px-2 py-0.5 text-[0.7rem] font-bold text-white">
+                    {t.pricing.promo.badge.replace("{code}", PROMO.coupon)}
+                  </span>
                 </p>
                 <p className="whitespace-nowrap font-(family-name:--font-display) text-4xl font-extrabold">
                   {formatPrice(promoPrice(plan.price), locale)} €
                 </p>
-                <p className="mt-1 text-xs font-semibold text-brand-red">
+                <p className="mt-1 text-xs font-semibold text-brand-violet">
                   {t.pricing.promo.firstYear.replace("{price}", String(plan.price))}
                 </p>
               </div>

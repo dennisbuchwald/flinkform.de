@@ -63,6 +63,8 @@
   --gradient-pro: linear-gradient(135deg, #7e56ff, #00b2ff);
   /* Scarcity elements only (Lifetime) */
   --gradient-scarcity: linear-gradient(135deg, #ea2b1f, #ff3c6f);
+  /* Pro gradient, darker so small white text stays readable (promo bar) */
+  --gradient-pro-deep: linear-gradient(90deg, #6a45f0, #1d6fd1);
 }
 
 html {
@@ -166,6 +168,10 @@ body {
 
 .bg-gradient-pro {
   background-image: var(--gradient-pro);
+}
+
+.bg-gradient-pro-deep {
+  background-image: var(--gradient-pro-deep);
 }
 
 .bg-gradient-scarcity {
@@ -401,4 +407,94 @@ html[data-promo="off"] .promo-on,
 html[data-promo="on"] .promo-off,
 html[data-promo-bar="closed"] .promo-bar {
   display: none !important;
+}
+
+/*
+ * Black-Week-Gutschein (components/PromoTicket.tsx): heller Grund, Pro-Verlauf
+ * als Kante, Abriss mit Perforation und zwei Kerben wie bei einem Ticket.
+ */
+.promo-ticket {
+  border-radius: 20px;
+  padding: 1.5px;
+  background-image: var(--gradient-pro);
+  box-shadow: 0 28px 60px -34px rgba(126, 86, 255, 0.55);
+  overflow: hidden;
+}
+.promo-ticket__inner {
+  border-radius: 18.5px;
+  background: linear-gradient(135deg, #ffffff 40%, #f5f1ff);
+}
+.promo-ticket__stub {
+  position: relative;
+  border-top: 2px dashed rgba(126, 86, 255, 0.28);
+  background: rgba(126, 86, 255, 0.05);
+  border-radius: 0 0 18.5px 18.5px;
+}
+.promo-ticket__notch {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--color-paper);
+  border: 1.5px solid #5c86fb;
+  top: -12px;
+}
+.promo-ticket__notch--a {
+  left: -12.5px;
+}
+.promo-ticket__notch--b {
+  right: -12.5px;
+}
+@media (min-width: 768px) {
+  .promo-ticket__stub {
+    border-top: 0;
+    border-left: 2px dashed rgba(126, 86, 255, 0.28);
+    border-radius: 0 18.5px 18.5px 0;
+  }
+  .promo-ticket__notch {
+    left: -12.5px;
+    right: auto;
+  }
+  .promo-ticket__notch--a {
+    top: -12.5px;
+  }
+  .promo-ticket__notch--b {
+    top: auto;
+    bottom: -12.5px;
+  }
+}
+.promo-code {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border: 1.5px dashed rgba(126, 86, 255, 0.45);
+  border-radius: 10px;
+  background: #fff;
+  padding: 0.55rem 1rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-ink);
+}
+.promo-code::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(126, 86, 255, 0.22) 50%, transparent 70%);
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+.promo-code[data-shine]::after {
+  animation: promo-shine 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.25s 1 both;
+}
+@keyframes promo-shine {
+  to {
+    transform: translateX(120%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .promo-code::after {
+    display: none;
+  }
 }

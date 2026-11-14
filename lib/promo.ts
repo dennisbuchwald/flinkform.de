@@ -33,6 +33,17 @@ export function promoPrice(price: number): number {
   return Math.round(price * PROMO.factor * 100) / 100;
 }
 
+/**
+ * Füllt "{promo}" und "{price}" mit dem günstigsten Jahresplan, z. B.
+ * "Ab {promo} € … statt {price} €" → "Ab 29,50 € … statt 59 €".
+ */
+export function fillPromoPrice(template: string, price: number, locale: "de" | "en"): string {
+  return template
+    .replace("{promo}", formatPrice(promoPrice(price), locale))
+    .replace("{price}", formatPrice(price, locale))
+    .replace(/ €/g, "\u00a0€");
+}
+
 /** Preis im Format der Seite: DE 29,50 / EN 29.50, ganze Zahlen ohne Nachkommastellen. */
 export function formatPrice(value: number, locale: "de" | "en"): string {
   const digits = Number.isInteger(value) ? 0 : 2;

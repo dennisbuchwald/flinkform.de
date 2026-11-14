@@ -3,10 +3,11 @@ import Link from "next/link";
 import HeroFormDemo from "@/components/HeroFormDemo";
 import CompareTable from "@/components/CompareTable";
 import EditorVideo from "@/components/EditorVideo";
-import PromoCountdown from "@/components/PromoCountdown";
+import PromoTicket from "@/components/PromoTicket";
+import { fillPromoPrice } from "@/lib/promo";
 import Faq from "@/components/Faq";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
-import { CF7_IMPORT_SINCE, DEMO_URL, FEATURED_IN, FREE_VERSION, PLAYGROUND_URL, WPORG_URL } from "@/lib/site";
+import { CF7_IMPORT_SINCE, DEMO_URL, FEATURED_IN, FREE_VERSION, PLAYGROUND_URL, PRICING, WPORG_URL } from "@/lib/site";
 import {
   CLIENT_SITES_COUNT,
   FEATURED_QUOTE,
@@ -150,27 +151,11 @@ export default function HomeContent({ locale, t }: { locale: Locale; t: HomeDict
 
       {/* ── AKTION (lib/promo.ts) ── */}
       <div className="promo-on mx-auto w-full max-w-6xl px-5 pt-10 sm:px-8">
-        <div className="overflow-hidden rounded-2xl bg-ink text-white">
-          <div aria-hidden="true" className="h-1.5 bg-gradient-scarcity" />
-          <div className="flex flex-col gap-5 p-6 sm:p-7 md:flex-row md:items-center md:justify-between">
-            <div>
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="rounded-full bg-gradient-scarcity px-3 py-1 text-[0.7rem] font-bold uppercase tracking-[0.14em]">
-                  {t.promo.badge}
-                </span>
-                <PromoCountdown locale={locale} className="text-sm text-white/60" />
-              </div>
-              <p className="mt-3 font-(family-name:--font-display) text-2xl font-bold tracking-tight">{t.promo.title}</p>
-              <p className="mt-2 max-w-2xl text-[0.95rem] leading-relaxed text-white/75">{t.promo.desc}</p>
-            </div>
-            <Link
-              href={localizedHref(locale, "/pro#preise")}
-              className="shrink-0 self-start rounded-full bg-white px-6 py-3 text-[0.95rem] font-semibold text-ink transition-all hover:-translate-y-0.5 md:self-center"
-            >
-              {t.promo.cta} →
-            </Link>
-          </div>
-        </div>
+        <PromoTicket
+          locale={locale}
+          t={{ ...t.promo, price: fillPromoPrice(t.promo.price, PRICING[0].price, locale) }}
+          cta={{ href: localizedHref(locale, "/pro#preise"), label: t.promo.cta }}
+        />
       </div>
 
       {/* ── BAUEN WIE TEXT SCHREIBEN ── */}

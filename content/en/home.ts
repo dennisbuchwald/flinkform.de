@@ -11,10 +11,14 @@ export const home: HomeDict = {
       "Build the form, store submissions, split it into steps, show fields conditionally, keep spam out. Free, right inside the WordPress block editor.",
   },
   promo: {
-    badge: "Black Week",
-    title: "Flinkform Pro 50% off your first year.",
-    desc: "On all annual plans, with Stripe, calculation fields, uploads and SMTP included. The coupon is already applied at checkout. Until Nov 30.",
-    cta: "See pricing",
+    label: "Black Week · until Nov 30",
+    title: "Flinkform Pro at half price.",
+    price: "From €{promo} for the first year instead of €{price}.",
+    desc: "On all annual plans, with Stripe, calculation fields, uploads and SMTP. From the second year on, the regular price applies.",
+    couponLabel: "Your coupon",
+    applied: "Already applied at checkout",
+    guarantee: "14-day money back",
+    cta: "Get Pro at half price",
   },
   hero: {
     titlePre: "Five plugins. Or ",

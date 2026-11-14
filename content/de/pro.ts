@@ -164,9 +164,14 @@ export const pro = {
     bestseller: "Empfohlen",
     // Black Week (lib/promo.ts), nur sichtbar, solange die Aktion läuft.
     promo: {
-      badge: "Black Week",
-      title: "50 % auf dein erstes Jahr.",
-      desc: "Gilt für alle Jahrespläne bis 30.11.2026, 23:59 Uhr. Der Gutschein BLACKWEEK ist im Checkout schon eingetragen. Ab dem zweiten Jahr zahlst du den regulären Preis, und 14 Tage Geld zurück gelten wie immer.",
+      label: "Black Week · bis 30.11.",
+      title: "Flinkform Pro zum halben Preis.",
+      price: "Ab {promo} € im ersten Jahr statt {price} €.",
+      desc: "Gilt für alle Jahrespläne bis 30.11.2026, 23:59 Uhr. Ab dem zweiten Jahr zahlst du den regulären Preis, und 14 Tage Geld zurück gelten wie immer.",
+      couponLabel: "Dein Gutschein",
+      applied: "Im Checkout schon eingetragen",
+      guarantee: "14 Tage Geld zurück",
+      badge: "−50 % mit {code}",
       lifetimeNote: "Die Lifetime-Lizenz ist von der Aktion ausgenommen.",
       firstYear: "im ersten Jahr, danach {price} €/Jahr",
       regular: "regulär",
