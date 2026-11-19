@@ -66,7 +66,7 @@ export const LEGAL = {
  * Die einzige Stelle für Versionsnummern. Speist JSON-LD, llms.txt und jede
  * sichtbare Versionsangabe - nirgendwo sonst eine Version hart schreiben.
  */
-export const FREE_VERSION = "1.15.1";
+export const FREE_VERSION = "1.15.2";
 export const PRO_VERSION = "1.4.0";
 /** Kleinste Free-Version, auf der Flinkform Pro läuft. */
 export const MIN_FREE_FOR_PRO = "1.14.3";

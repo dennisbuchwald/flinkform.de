@@ -109,6 +109,14 @@ export const roadmap: RoadmapDict = {
   changelogHeading: "Recently Shipped",
   changelog: [
     {
+      version: "1.15.2",
+      date: "Nov 19, 2026",
+      items: [
+        "Reworked Black Week notice: what Pro does for your forms, the price and the days left at a glance",
+        "The notice shows in German right away, even before WordPress has fetched the new language pack",
+      ],
+    },
+    {
       area: "Free",
       version: "1.15.1",
       date: "Nov 13, 2026",

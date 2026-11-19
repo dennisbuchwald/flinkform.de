@@ -109,6 +109,14 @@ export const roadmap = {
   changelogHeading: "Zuletzt erschienen",
   changelog: [
     {
+      version: "1.15.2",
+      date: "19.11.2026",
+      items: [
+        "Black-Week-Hinweis überarbeitet: was Pro für deine Formulare bringt, Preis und verbleibende Tage auf einen Blick",
+        "Der Hinweis erscheint sofort auf Deutsch, auch bevor WordPress das neue Sprachpaket geladen hat",
+      ],
+    },
+    {
       area: "Free",
       version: "1.15.1",
       date: "13.11.2026",
