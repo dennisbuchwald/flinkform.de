@@ -109,6 +109,7 @@ export const roadmap: RoadmapDict = {
   changelogHeading: "Recently Shipped",
   changelog: [
     {
+      area: "Free",
       version: "1.15.2",
       date: "Nov 19, 2026",
       items: [

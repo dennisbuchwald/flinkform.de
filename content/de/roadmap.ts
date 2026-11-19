@@ -109,6 +109,7 @@ export const roadmap = {
   changelogHeading: "Zuletzt erschienen",
   changelog: [
     {
+      area: "Free",
       version: "1.15.2",
       date: "19.11.2026",
       items: [
