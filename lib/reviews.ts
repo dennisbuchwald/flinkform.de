@@ -1,7 +1,7 @@
 import { WPORG_URL } from "@/lib/site";
 
 /**
- * Bewertungen von WordPress.org, wörtlich übernommen (Stand 28.09.2026).
+ * Bewertungen von WordPress.org, wörtlich übernommen (Stand 21.11.2026).
  *
  * Regeln:
  * - Nichts umformulieren, nichts glätten, keine Rechtschreibung korrigieren.
@@ -57,6 +57,16 @@ export const REVIEWS: Review[] = [
     lang: "de",
     published: true,
   },
+  {
+    author: "heikoschreibt",
+    href: "https://wordpress.org/support/topic/so-einfach-kann-es-sein/",
+    rating: 5,
+    quote:
+      "Also hab mich umgeguckt und Flinkform gefunden. Schneller gehts wohl kaum, und obendrein hats auf Anhieb funktioniert.",
+    lang: "de",
+    // Bewertung vom 21.11.2026. Auf WordPress.org um Okay gefragt, danach auf true.
+    published: false,
+  },
 ];
 
 /** Alle Bewertungen auf WordPress.org, auch die hier ausgeblendeten. */
@@ -66,7 +76,7 @@ export const REVIEWS_URL = `${WPORG_URL.replace("/plugins/", "/support/plugin/")
  * Durchschnitt und Anzahl über ALLE Bewertungen auf WordPress.org, nicht nur
  * die angezeigten. Beim Nachtragen neuer Bewertungen hier mitpflegen.
  */
-export const REVIEW_SUMMARY = { average: 5, count: 3 } as const;
+export const REVIEW_SUMMARY = { average: 5, count: 4 } as const;
 
 /**
  * Zahl der Kundenseiten von dbw media, auf denen Flinkform läuft.
